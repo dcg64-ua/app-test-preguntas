@@ -159,6 +159,14 @@
     content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background: var(--photo, none) var(--photo-pos, center) / cover no-repeat; opacity: var(--photo-op, 0);
   }
+  .ghstatus { padding: 12px 16px; border-radius: 12px; margin-bottom: 16px; font-size: .92rem; background: var(--accent-bg); border-left: 4px solid var(--accent); animation: slideup .2s ease; }
+  .ghstatus.ok { background: var(--ok-bg); border-left-color: var(--ok); }
+  .ghstatus.error, .ghstatus.conflict, .ghstatus.pending { background: var(--ko-bg); border-left-color: var(--ko); }
+  details.card > summary { cursor: pointer; list-style-position: inside; }
+  details.card[open] > summary { margin-bottom: 8px; }
+  details.card label { display: block; margin-top: 10px; }
+  a { color: var(--accent); font-weight: 600; }
+  code { font-size: .9em; padding: 1px 5px; border-radius: 4px; background: var(--grid); }
   .homenav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
   .homenav button { padding: 10px 6px; font-size: .9rem; white-space: nowrap; box-shadow: var(--shadow); }
   body.has-photo .card { background: color-mix(in srgb, var(--card) 88%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
@@ -254,7 +262,9 @@ function readFile(file) {
 }
 
 function fetchServerSet() {
-  return fetch('preguntas.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : Promise.reject());
+  const pages = () => fetch('preguntas.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : Promise.reject());
+  // Con GitHub conectado se lee directamente del repositorio (al instante, sin esperar a que se publique la web)
+  return ghConnected() ? ghPull().catch(pages) : pages();
 }
 
 // ---------- Inicio ----------
@@ -308,10 +318,7 @@ function showHome(error) {
 
   $('goStats').onclick = showStats;
   $('goTheme').onclick = showTheme;
-  $('goEditor').onclick = () => {
-    if (!set) { set = { titulo: 'Nuevo test', preguntas: [], origen: 'editado' }; save(K.set, set); }
-    showEditor();
-  };
+  $('goEditor').onclick = () => openEditor();
   const drop = $('drop');
   $('file').onchange = e => e.target.files[0] && readFile(e.target.files[0]);
   drop.ondragover = e => { e.preventDefault(); drop.classList.add('over'); };
@@ -626,8 +633,156 @@ function bindChart(h) {
   });
 }
 
+// ---------- GitHub: guardar las preguntas directamente en el repositorio ----------
+const K_GH = 'quiz.github';
+let ghSha = null;                 // versión de preguntas.json en GitHub sobre la que estamos editando
+let ghStatus = null;              // { type: 'ok' | 'busy' | 'error' | 'conflict' | 'pending', text, retry? }
+let ghQueue = Promise.resolve();  // los guardados van en fila para no pisarse
+const ghConfig = () => load(K_GH, null);
+const ghConnected = () => !!ghConfig()?.token;
+
+function defaultRepo() {
+  const user = location.hostname.match(/^([^.]+)\.github\.io$/)?.[1];
+  const repo = location.pathname.split('/').filter(Boolean)[0];
+  return user && repo && !repo.includes('.') ? `${user}/${repo}` : 'dcg64-ua/app-test-preguntas';
+}
+const b64encode = s => { let bin = ''; new TextEncoder().encode(s).forEach(b => bin += String.fromCharCode(b)); return btoa(bin); };
+const b64decode = b => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, '')), c => c.charCodeAt(0)));
+
+async function ghApi(method, body, cfg = ghConfig()) {
+  const res = await fetch(`https://api.github.com/repos/${cfg.repo}/contents/preguntas.json${method === 'GET' ? '?ref=main' : ''}`, {
+    method, cache: 'no-store',
+    headers: { Authorization: `Bearer ${cfg.token}`, Accept: 'application/vnd.github+json' },
+    body: body ? JSON.stringify({ ...body, branch: 'main' }) : undefined
+  });
+  if (!res.ok) {
+    const e = new Error({
+      401: 'El token no es válido o ha caducado.',
+      403: 'El token no tiene permiso de escritura (necesita «Contents: Read and write»).',
+      404: 'No se encuentra el repositorio o el token no tiene acceso a él.'
+    }[res.status] || `GitHub respondió con error ${res.status}.`);
+    e.status = res.status;
+    throw e;
+  }
+  return res.json();
+}
+
+async function ghPull(cfg) {
+  const d = await ghApi('GET', null, cfg);
+  ghSha = d.sha;
+  return JSON.parse(b64decode(d.content));
+}
+
+async function ghPush(message, force = false) {
+  if (force) ghSha = (await ghApi('GET')).sha;
+  if (!ghSha) throw Object.assign(new Error('conflicto'), { status: 409 });
+  const content = b64encode(JSON.stringify({ titulo: set.titulo, preguntas: set.preguntas }, null, 2) + '\n');
+  const d = await ghApi('PUT', { message, content, sha: ghSha });
+  ghSha = d.content.sha;
+  set.origen = 'servidor';
+  save(K.set, set);
+}
+
+function setGhStatus(type, text, retry) {
+  ghStatus = { type, text, retry };
+  const el = $('ghStatus');
+  if (el) { el.innerHTML = ghStatusHTML(); bindGhStatus(); }
+}
+
+function ghFail(e) {
+  if (e.status === 409 || e.status === 422)
+    setGhStatus('conflict', 'Las preguntas de GitHub han cambiado desde otro sitio. Elige qué versión quieres conservar.');
+  else
+    setGhStatus('error', (e.status ? e.message : 'Sin conexión con GitHub.') + ' Tus cambios están guardados en este dispositivo.',
+      () => publish('Actualizar preguntas desde la app'));
+}
+
+// Se llama tras cada cambio en el editor
+function publish(message) {
+  if (!ghConnected()) return;
+  setGhStatus('busy', 'Guardando en GitHub…');
+  ghQueue = ghQueue
+    .then(() => ghPush(message))
+    .then(() => setGhStatus('ok', '✓ Guardado en GitHub. Le llegará a todo el mundo en unos minutos.'))
+    .catch(ghFail);
+}
+
+function ghStatusHTML() {
+  if (!ghConnected() || !ghStatus) return '';
+  const s = ghStatus;
+  const btns = s.type === 'conflict' || s.type === 'pending'
+    ? '<div class="row" style="margin-top:8px"><button class="small primary" id="ghMine">Subir la de este dispositivo</button><button class="small" id="ghTheirs">Usar la de GitHub</button></div>'
+    : s.retry ? '<div class="row" style="margin-top:8px"><button class="small" id="ghRetry">Reintentar</button></div>' : '';
+  return `<div class="ghstatus ${s.type}">${esc(s.text)}${btns}</div>`;
+}
+
+function bindGhStatus() {
+  if ($('ghMine')) $('ghMine').onclick = () => {
+    setGhStatus('busy', 'Subiendo la versión de este dispositivo…');
+    ghQueue = ghQueue.then(() => ghPush('Actualizar preguntas desde la app', true))
+      .then(() => setGhStatus('ok', '✓ Guardado en GitHub. Le llegará a todo el mundo en unos minutos.'))
+      .catch(ghFail);
+  };
+  if ($('ghTheirs')) $('ghTheirs').onclick = () => {
+    if (confirm('Se perderán los cambios de este dispositivo que no estén en GitHub. ¿Continuar?')) openEditor(true);
+  };
+  if ($('ghRetry')) $('ghRetry').onclick = ghStatus.retry;
+}
+
+function ghCardHTML() {
+  const c = ghConfig();
+  if (c?.token) return `
+    <details class="card"><summary><b>☁️ GitHub</b> <span class="muted">· conectado a ${esc(c.repo)}</span></summary>
+      <p class="muted">Cada cambio que hagas aquí se guarda en el <code>preguntas.json</code> del repositorio. El token solo está guardado en este dispositivo.</p>
+      <button class="small danger" id="ghDisconnect">Desconectar este dispositivo</button>
+    </details>`;
+  return `
+    <details class="card"><summary><b>☁️ Guardar en GitHub</b> <span class="muted">· no conectado</span></summary>
+      <p class="muted">Conecta este dispositivo para que añadir, editar o borrar preguntas modifique directamente el <code>preguntas.json</code> de GitHub.</p>
+      <ol class="muted" style="padding-left:20px">
+        <li>Abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → crear token</a>.</li>
+        <li>Pon un nombre y la caducidad que prefieras.</li>
+        <li><b>Repository access</b> → <i>Only select repositories</i> → <b>${esc(defaultRepo().split('/')[1])}</b>.</li>
+        <li><b>Permissions</b> → <b>Contents</b> → <i>Read and write</i>.</li>
+        <li><b>Generate token</b>, cópialo y pégalo aquí.</li>
+      </ol>
+      <label class="muted">Repositorio</label>
+      <input type="text" id="ghRepo" class="full" value="${esc(c?.repo || defaultRepo())}">
+      <label class="muted">Token</label>
+      <input type="password" id="ghToken" class="full" autocomplete="off" placeholder="github_pat_…">
+      <p class="error" id="ghErr"></p>
+      <button class="primary" id="ghConnect">Conectar</button>
+    </details>`;
+}
+
+function bindGhCard() {
+  if ($('ghDisconnect')) $('ghDisconnect').onclick = () => {
+    if (!confirm('Este dispositivo dejará de guardar en GitHub y se borrará el token. ¿Continuar?')) return;
+    localStorage.removeItem(K_GH); ghStatus = null; ghSha = null; showEditor();
+  };
+  if ($('ghConnect')) $('ghConnect').onclick = async () => {
+    const cfg = { repo: $('ghRepo').value.trim(), token: $('ghToken').value.trim() };
+    if (!/^[\w.-]+\/[\w.-]+$/.test(cfg.repo) || !cfg.token) return $('ghErr').textContent = 'Rellena el repositorio (usuario/nombre) y el token.';
+    $('ghConnect').disabled = true;
+    $('ghErr').textContent = 'Comprobando…';
+    try {
+      await ghApi('GET', null, cfg);
+      save(K_GH, cfg);
+      openEditor();
+    } catch (e) {
+      $('ghErr').textContent = e.status ? e.message : 'No se pudo conectar con GitHub.';
+      $('ghConnect').disabled = false;
+    }
+  };
+}
+
 // ---------- Editor ----------
-function persistEdit() { set.origen = 'editado'; save(K.set, set); }
+// Guarda en el dispositivo y, si está conectado, también en GitHub
+function persistEdit(message) {
+  set.origen = 'editado';
+  save(K.set, set);
+  publish(message);
+}
 
 function downloadJSON() {
   const blob = new Blob([JSON.stringify({ titulo: set.titulo, preguntas: set.preguntas }, null, 2)], { type: 'application/json' });
@@ -636,44 +791,69 @@ function downloadJSON() {
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
 
+// Entrar al editor: si hay GitHub conectado, parte siempre de la última versión de GitHub
+async function openEditor(forcePull = false) {
+  if (!set) { set = { titulo: 'Nuevo test', preguntas: [], origen: 'editado' }; save(K.set, set); }
+  if (!ghConnected()) { ghStatus = null; return showEditor(); }
+  if (set.origen === 'editado' && !forcePull) {
+    ghSha = null;
+    ghStatus = { type: 'pending', text: 'Tienes cambios en este dispositivo que no están en GitHub.' };
+    return showEditor();
+  }
+  ghStatus = { type: 'busy', text: 'Cargando las preguntas de GitHub…' };
+  showEditor();
+  try {
+    useData(await ghPull(), 'servidor');
+    ghStatus = { type: 'ok', text: '☁️ Conectado: los cambios se guardan directamente en GitHub.' };
+  } catch (e) {
+    ghStatus = { type: 'error', text: 'No se pudieron cargar las preguntas de GitHub. ' + (e.status ? e.message : 'Revisa la conexión.'), retry: () => openEditor(forcePull) };
+  }
+  showEditor();
+}
+
 function showEditor(filter = '') {
   stopTimer();
   const marks = load(K.marks, {});
   const f = filter.toLowerCase();
   const items = set.preguntas.map((q, i) => ({ q, i }))
     .filter(({ q }) => !f || q.pregunta.toLowerCase().includes(f) || (q.tema || '').toLowerCase().includes(f) || (f === '★' && marks[keyOf(q)]));
+  const busy = ghStatus?.type === 'busy' && !ghSha;
 
   app.innerHTML = `
     <div class="row between"><h1>Editor</h1><button id="home">← Inicio</button></div>
+    <div id="ghStatus">${ghStatusHTML()}</div>
     <div class="card">
       <label class="muted">Título del test</label>
-      <input type="text" id="titulo" class="full" value="${esc(set.titulo)}">
+      <input type="text" id="titulo" class="full" value="${esc(set.titulo)}" ${busy ? 'disabled' : ''}>
       <div class="row" style="margin-top:12px">
-        <button class="primary" id="add">+ Nueva pregunta</button>
+        <button class="primary" id="add" ${busy ? 'disabled' : ''}>+ Nueva pregunta</button>
         <button id="download">⬇ Descargar JSON</button>
-        <button id="newSet" class="danger">Empezar banco vacío</button>
+        <button id="newSet" class="danger" ${busy ? 'disabled' : ''}>Vaciar banco</button>
       </div>
-      ${set.origen === 'editado' ? '<p class="muted">Los cambios se guardan en este navegador. Descarga el JSON para tener copia o subirlo a GitHub.</p>' : ''}
+      ${set.origen === 'editado' && !ghConnected() ? '<p class="muted">Los cambios se guardan solo en este dispositivo. Conecta GitHub (abajo) para que se guarden para todos.</p>' : ''}
     </div>
     <div class="card">
-      <input type="search" id="search" class="full" placeholder="Buscar por texto o tema (escribe ★ para ver las marcadas)" value="${esc(filter)}">
+      <input type="search" id="search" class="full" placeholder="🔍 Buscar (★ = marcadas)" value="${esc(filter)}">
       <p class="muted">${items.length} de ${set.preguntas.length} preguntas</p>
       ${items.map(({ q, i }) => `
-        <button class="qitem" data-i="${i}"><span class="muted">${i + 1}</span><span class="txt">${esc(q.pregunta)}</span>
+        <button class="qitem" data-i="${i}" ${busy ? 'disabled' : ''}><span class="muted">${i + 1}</span><span class="txt">${esc(q.pregunta)}</span>
           ${q.tema ? `<span class="tag">${esc(q.tema)}</span>` : ''}${marks[keyOf(q)] ? '<span style="color:var(--star)">★</span>' : ''}</button>`).join('')}
-    </div>`;
+    </div>
+    ${ghCardHTML()}`;
 
   $('home').onclick = () => showHome();
-  $('titulo').onchange = e => { set.titulo = e.target.value.trim() || 'Test'; persistEdit(); };
+  $('titulo').onchange = e => { set.titulo = e.target.value.trim() || 'Test'; persistEdit('Cambiar título: ' + set.titulo); };
   $('add').onclick = () => showEditForm(-1);
   $('download').onclick = downloadJSON;
   $('newSet').onclick = () => {
-    if (!confirm('Se vaciará el banco actual (descarga antes el JSON si quieres conservarlo). ¿Continuar?')) return;
-    set = { titulo: 'Nuevo test', preguntas: [], origen: 'editado' }; save(K.set, set); showEditor();
+    if (!confirm(`Se borrarán TODAS las preguntas${ghConnected() ? ', también en GitHub' : ''}. ¿Continuar?`)) return;
+    set.preguntas = []; persistEdit('Vaciar banco de preguntas'); showEditor();
   };
   const search = $('search');
   search.oninput = () => { const v = search.value, pos = search.selectionStart; showEditor(v); const s = $('search'); s.focus(); s.setSelectionRange(pos, pos); };
   app.querySelectorAll('.qitem').forEach(b => b.onclick = () => showEditForm(+b.dataset.i));
+  bindGhStatus();
+  bindGhCard();
 }
 
 function showEditForm(idx) {
@@ -723,7 +903,9 @@ function showEditForm(idx) {
   $('cancel').onclick = () => showEditor();
   if ($('delQ')) $('delQ').onclick = () => {
     if (!confirm('¿Eliminar esta pregunta?')) return;
-    set.preguntas.splice(idx, 1); persistEdit(); showEditor();
+    const [del] = set.preguntas.splice(idx, 1);
+    persistEdit('Eliminar pregunta: ' + del.pregunta.slice(0, 60));
+    showEditor();
   };
   $('saveQ').onclick = () => {
     const nq = { pregunta: $('fPregunta').value.trim(), opciones: opciones.map(o => o.trim()), correcta };
@@ -742,7 +924,7 @@ function showEditForm(idx) {
       }
       set.preguntas[idx] = nq;
     } else set.preguntas.push(nq);
-    persistEdit();
+    persistEdit((idx >= 0 ? 'Editar pregunta: ' : 'Añadir pregunta: ') + nq.pregunta.slice(0, 60));
     showEditor();
   };
 }

@@ -44,6 +44,10 @@ Foto del gatito (`gato.jpg`): [Kitten sleeping](https://commons.wikimedia.org/wi
 4. En un par de minutos estará en `https://TU_USUARIO.github.io/NOMBRE_REPO/`.
 5. En el móvil, ábrela y elige *Añadir a pantalla de inicio* / *Instalar app*.
 
-Para actualizar preguntas: edítalas en la app → **Descargar JSON** → sube ese `preguntas.json` al repositorio
+**Editar las preguntas desde la app guardando en GitHub:** en el Editor, sección **☁️ Guardar en GitHub**, pega un token
+*fine-grained* con acceso solo a este repositorio y permiso **Contents: Read and write**. Desde entonces cada pregunta que
+añadas, edites o borres se guarda directamente en `preguntas.json` (un commit por cambio). El token se queda solo en ese dispositivo.
+
+Sin token, también puedes actualizar a mano: edítalas en la app → **Descargar JSON** → sube ese `preguntas.json` al repositorio
 sustituyendo el anterior. La app carga siempre la última versión del servidor, salvo que hayas cargado
 otro archivo o editado en la app (en ese caso aparece el botón "Volver a usar preguntas.json del servidor").
