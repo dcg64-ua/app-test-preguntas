@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3b5bdb">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Test de preguntas</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #fff; --text: #1d2330; --muted: #667085; --border: #dde1e7; --grid: #eceef2;
+    --accent: #3b5bdb; --accent-bg: #edf2ff; --ok: #2f9e44; --ok-bg: #ebfbee; --ko: #e03131; --ko-bg: #fff5f5; --star: #f59f00;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161b; --card: #1d2027; --text: #e6e8ec; --muted: #9aa1ad; --border: #2e323b; --grid: #262a32;
+      --accent: #748ffc; --accent-bg: #222a45; --ok: #51cf66; --ok-bg: #16301d; --ko: #ff6b6b; --ko-bg: #3a1c1c; --star: #fcc419;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 1.5rem; margin: 0 0 16px; }
+  h2 { font-size: 1.1rem; margin: 0 0 12px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  .muted { color: var(--muted); font-size: .9rem; }
+  button { font: inherit; cursor: pointer; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text); padding: 10px 16px; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button.danger { color: var(--ko); }
+  button.small { padding: 4px 10px; font-size: .9rem; }
+  button:disabled { opacity: .5; cursor: default; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .between { justify-content: space-between; }
+  .drop { border: 2px dashed var(--border); border-radius: 12px; padding: 28px; text-align: center; }
+  .drop.over { border-color: var(--accent); }
+  label.opt { display: flex; gap: 8px; align-items: center; margin: 6px 0; }
+  input[type=number], input[type=text], input[type=search], select, textarea {
+    font: inherit; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--card); color: var(--text);
+  }
+  input[type=number] { width: 80px; }
+  textarea { width: 100%; }
+  .full { width: 100%; }
+  .progress { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin: 8px 0 16px; }
+  .progress > div { height: 100%; background: var(--accent); transition: width .2s; }
+  .q { font-size: 1.15rem; font-weight: 600; margin: 4px 0 16px; white-space: pre-wrap; }
+  .options { display: grid; gap: 10px; }
+  .options button { text-align: left; display: flex; gap: 10px; white-space: pre-wrap; }
+  .options button .letter { font-weight: 700; color: var(--muted); }
+  .options button.sel { border-color: var(--accent); background: var(--accent-bg); }
+  .options button.ok { border-color: var(--ok); background: var(--ok-bg); }
+  .options button.ko { border-color: var(--ko); background: var(--ko-bg); }
+  .explain { margin-top: 16px; padding: 14px; border-radius: 8px; border-left: 4px solid var(--ok); background: var(--ok-bg); white-space: pre-wrap; }
+  .explain.wrong { border-left-color: var(--ko); background: var(--ko-bg); }
+  .star { background: none; border: none; padding: 4px 6px; font-size: 1.3rem; line-height: 1; color: var(--muted); }
+  .star.on { color: var(--star); }
+  .timer { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .timer.low { color: var(--ko); }
+  .navgrid { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .navgrid button { width: 38px; padding: 6px 0; font-size: .85rem; }
+  .navgrid button.done { background: var(--accent-bg); border-color: var(--accent); }
+  .navgrid button.cur { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .big { font-size: 2.5rem; font-weight: 700; }
+  .review { border-top: 1px solid var(--border); padding: 12px 0; }
+  .error { color: var(--ko); white-space: pre-wrap; }
+  .notice { border-left: 4px solid var(--accent); }
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .kpi .v { font-size: 1.6rem; font-weight: 700; }
+  .chart { position: relative; }
+  .chart svg { width: 100%; height: auto; display: block; }
+  .tip { position: absolute; pointer-events: none; background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: .85rem; box-shadow: 0 2px 8px rgba(0,0,0,.15); white-space: nowrap; transform: translate(-50%, calc(-100% - 10px)); }
+  .bar-row { display: grid; grid-template-columns: minmax(80px, 30%) 1fr 90px; gap: 10px; align-items: center; margin: 8px 0; font-size: .95rem; }
+  .bar { height: 10px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+  .bar > div { height: 100%; background: var(--accent); border-radius: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid var(--border); }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .table-wrap { overflow-x: auto; }
+  .qitem { display: flex; gap: 8px; align-items: center; width: 100%; text-align: left; margin-bottom: 6px; }
+  .qitem .txt { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tag { font-size: .75rem; padding: 2px 8px; border-radius: 10px; background: var(--grid); color: var(--muted); white-space: nowrap; }
+  .optrow { display: flex; gap: 8px; align-items: center; margin: 6px 0; }
+  .optrow input[type=text] { flex: 1; }
+  @media (max-width: 480px) { .kpis { grid-template-columns: 1fr 1fr; } .bar-row { grid-template-columns: 1fr 70px; } .bar-row .bar { grid-column: 1 / -1; grid-row: 2; } }
+</style>
+</head>
+<body>
+<main id="app"></main>
+
+<script>
+const K = { set: 'quiz.set', stats: 'quiz.stats', marks: 'quiz.marks', hist: 'quiz.history', run: 'quiz.run' };
+const app = document.getElementById('app');
+let set = null;              // { titulo, preguntas, origen: 'servidor' | 'archivo' | 'editado' }
+let run = null;              // test en curso (se guarda en localStorage para poder reanudar)
+let serverAvailable = false; // hay un preguntas.json junto al HTML (GitHub Pages, servidor local...)
+let timerId = null;
+
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } };
+const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+const keyOf = q => q.pregunta;
+const pct = (a, b) => b ? Math.round(a / b * 100) : 0;
+const fmtTime = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+const fmtDate = t => new Date(t).toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' });
+const $ = id => document.getElementById(id);
+
+// ---------- Marcadas ----------
+const isMarked = q => !!load(K.marks, {})[keyOf(q)];
+function toggleMark(q) {
+  const m = load(K.marks, {}), k = keyOf(q);
+  if (m[k]) delete m[k]; else m[k] = true;
+  save(K.marks, m);
+  return !!m[k];
+}
+const starBtn = (q, id) => `<button class="star ${isMarked(q) ? 'on' : ''}" ${id ? `id="${id}"` : ''} title="Marcar para repasar">${isMarked(q) ? '★' : '☆'}</button>`;
+function bindStar(btn, q) {
+  btn.onclick = () => { const on = toggleMark(q); btn.classList.toggle('on', on); btn.textContent = on ? '★' : '☆'; };
+}
+
+// ---------- Carga y validación ----------
+function parseSet(data) {
+  const preguntas = Array.isArray(data) ? data : data.preguntas;
+  if (!Array.isArray(preguntas)) throw new Error('El JSON debe ser una lista de preguntas o un objeto con "preguntas".');
+  const errs = [];
+  preguntas.forEach((q, n) => {
+    const p = `Pregunta ${n + 1}: `;
+    if (!q.pregunta) errs.push(p + 'falta "pregunta"');
+    if (!Array.isArray(q.opciones) || q.opciones.length < 2) errs.push(p + '"opciones" debe ser una lista');
+    else if (!Number.isInteger(q.correcta) || q.correcta < 0 || q.correcta >= q.opciones.length) errs.push(p + '"correcta" debe ser el índice (0 a ' + (q.opciones.length - 1) + ')');
+  });
+  if (errs.length) throw new Error(errs.join('\n'));
+  return { titulo: (!Array.isArray(data) && data.titulo) || 'Test', preguntas };
+}
+
+function useData(data, origen) {
+  set = { ...parseSet(data), origen };
+  save(K.set, set);
+}
+
+function readFile(file) {
+  file.text().then(t => { useData(JSON.parse(t), 'archivo'); showHome(); })
+    .catch(e => showHome('No se pudo cargar: ' + e.message));
+}
+
+function fetchServerSet() {
+  return fetch('preguntas.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : Promise.reject());
+}
+
+// ---------- Inicio ----------
+function showHome(error) {
+  stopTimer();
+  const stats = load(K.stats, {}), marks = load(K.marks, {}), saved = load(K.run, null);
+  const qs = set?.preguntas || [];
+  const temas = [...new Set(qs.map(q => q.tema).filter(Boolean))];
+  const failedCount = qs.filter(q => (stats[keyOf(q)]?.ko || 0) > 0).length;
+  const markedCount = qs.filter(q => marks[keyOf(q)]).length;
+  const origenTxt = { servidor: 'preguntas.json del servidor', archivo: 'archivo cargado', editado: 'editado en la app' }[set?.origen] || '';
+
+  app.innerHTML = `
+    <div class="row between"><h1>${set ? esc(set.titulo) : 'Test de preguntas'}</h1>
+      <div class="row"><button id="goStats">📊 Estadísticas</button><button id="goEditor">✏️ Editor</button></div></div>
+    ${error ? `<div class="card error">${esc(error)}</div>` : ''}
+    ${saved ? `
+    <div class="card notice">
+      <b>Tienes un test a medias</b>
+      <p class="muted">${saved.mode === 'examen' ? 'Examen' : 'Práctica'} · pregunta ${saved.i + 1} de ${saved.list.length} · ${fmtTime(saved.elapsed)} transcurridos</p>
+      <div class="row"><button class="primary" id="resume">Reanudar</button><button id="discard">Descartar</button></div>
+    </div>` : ''}
+    ${qs.length ? `
+    <div class="card">
+      <p class="muted">${qs.length} preguntas · ${esc(origenTxt)}</p>
+      <label class="opt"><input type="radio" name="mode" value="practica" checked> <span><b>Práctica</b> <span class="muted">— ves la solución tras cada pregunta</span></span></label>
+      <label class="opt"><input type="radio" name="mode" value="examen"> <span><b>Examen</b> <span class="muted">— la nota y las soluciones al final</span></span></label>
+      <label class="opt" id="minRow" hidden>Tiempo límite (min, 0 = sin límite): <input id="minutes" type="number" min="0" value="0"></label>
+      <hr style="border:none;border-top:1px solid var(--border);margin:12px 0">
+      ${temas.length ? `<label class="opt">Tema: <select id="tema"><option value="">Todos</option>${temas.map(t => `<option>${esc(t)}</option>`).join('')}</select></label>` : ''}
+      <label class="opt">Nº de preguntas: <input id="num" type="number" min="1" max="${qs.length}" value="${qs.length}"></label>
+      <label class="opt"><input id="shq" type="checkbox" checked> Barajar preguntas</label>
+      <label class="opt"><input id="sho" type="checkbox" checked> Barajar opciones</label>
+      <label class="opt"><input id="onlyKo" type="checkbox"> Solo las que he fallado alguna vez (${failedCount})</label>
+      <label class="opt"><input id="onlyMarked" type="checkbox"> Solo las marcadas ★ (${markedCount})</label>
+      <div class="row" style="margin-top:12px"><button class="primary" id="start">Empezar</button></div>
+    </div>` : ''}
+    <div class="card">
+      <div class="drop" id="drop">
+        <p>Arrastra aquí tu archivo <b>.json</b> o</p>
+        <input type="file" id="file" accept=".json,application/json">
+      </div>
+      <details style="margin-top:12px"><summary class="muted">…o pega el JSON</summary>
+        <textarea id="paste" rows="8" style="margin-top:8px;font-family:monospace"></textarea>
+        <button id="pasteBtn">Cargar</button>
+      </details>
+      ${serverAvailable && set?.origen !== 'servidor' ? `<p><button id="useServer" class="small">Volver a usar preguntas.json del servidor</button></p>` : ''}
+    </div>`;
+
+  $('goStats').onclick = showStats;
+  $('goEditor').onclick = () => {
+    if (!set) { set = { titulo: 'Nuevo test', preguntas: [], origen: 'editado' }; save(K.set, set); }
+    showEditor();
+  };
+  const drop = $('drop');
+  $('file').onchange = e => e.target.files[0] && readFile(e.target.files[0]);
+  drop.ondragover = e => { e.preventDefault(); drop.classList.add('over'); };
+  drop.ondragleave = () => drop.classList.remove('over');
+  drop.ondrop = e => { e.preventDefault(); drop.classList.remove('over'); e.dataTransfer.files[0] && readFile(e.dataTransfer.files[0]); };
+  $('pasteBtn').onclick = () => {
+    try { useData(JSON.parse($('paste').value), 'archivo'); showHome(); } catch (e) { showHome('JSON no válido: ' + e.message); }
+  };
+  if ($('useServer')) $('useServer').onclick = () => {
+    if (set?.origen === 'editado' && !confirm('Perderás los cambios hechos en el editor que no hayas descargado. ¿Continuar?')) return;
+    fetchServerSet().then(d => { useData(d, 'servidor'); showHome(); }).catch(() => showHome('No se pudo leer preguntas.json'));
+  };
+  if (saved) {
+    $('resume').onclick = () => { run = saved; showQuestion(); };
+    $('discard').onclick = () => { if (confirm('¿Descartar el test a medias?')) { localStorage.removeItem(K.run); showHome(); } };
+  }
+  if (!qs.length) return;
+
+  document.querySelectorAll('input[name=mode]').forEach(r => r.onchange = () => { $('minRow').hidden = r.value !== 'examen' || !r.checked; });
+  $('start').onclick = () => {
+    if (saved && !confirm('Se descartará el test a medias. ¿Empezar uno nuevo?')) return;
+    const tema = $('tema')?.value || '';
+    let list = qs.filter(q => !tema || q.tema === tema);
+    if ($('onlyKo').checked) list = list.filter(q => (stats[keyOf(q)]?.ko || 0) > 0);
+    if ($('onlyMarked').checked) list = list.filter(q => marks[keyOf(q)]);
+    if (!list.length) return alert('No hay preguntas con esos filtros.');
+    if ($('shq').checked) list = shuffle(list);
+    list = list.slice(0, Math.max(1, +$('num').value || list.length));
+    const mode = document.querySelector('input[name=mode]:checked').value;
+    startRun(list, { shuffleOpts: $('sho').checked, mode, minutes: mode === 'examen' ? +$('minutes').value || 0 : 0, tema });
+  };
+}
+
+// ---------- Test ----------
+function startRun(list, { shuffleOpts, mode, minutes, tema }) {
+  run = {
+    list: list.map(q => {
+      const order = q.opciones.map((_, i) => i);
+      return { q, order: shuffleOpts ? shuffle(order) : order };
+    }),
+    i: 0, answers: list.map(() => null), mode, tema: tema || '', titulo: set.titulo,
+    limit: minutes ? minutes * 60 : null, elapsed: 0
+  };
+  saveRun();
+  showQuestion();
+}
+
+const saveRun = () => save(K.run, run);
+
+function startTimer() {
+  if (timerId) return;
+  timerId = setInterval(() => {
+    run.elapsed++;
+    saveRun();
+    updateTimer();
+    if (run.limit && run.elapsed >= run.limit) { alert('¡Se acabó el tiempo!'); finish(); }
+  }, 1000);
+}
+function stopTimer() { clearInterval(timerId); timerId = null; }
+function updateTimer() {
+  const el = $('timer');
+  if (!el) return;
+  if (run.limit) {
+    const left = Math.max(0, run.limit - run.elapsed);
+    el.textContent = '⏱ ' + fmtTime(left);
+    el.classList.toggle('low', left <= 60);
+  } else el.textContent = '⏱ ' + fmtTime(run.elapsed);
+}
+
+function showQuestion() {
+  if (run.limit && run.elapsed >= run.limit) return finish();
+  const { q, order } = run.list[run.i];
+  const n = run.list.length, exam = run.mode === 'examen', ans = run.answers[run.i];
+  const answered = run.answers.filter(a => a !== null).length;
+
+  app.innerHTML = `
+    <div class="row between">
+      <span class="muted">${exam ? 'Examen' : 'Práctica'} · Pregunta ${run.i + 1} de ${n}${q.tema ? ' · ' + esc(q.tema) : ''}</span>
+      <div class="row"><span class="timer" id="timer"></span>${starBtn(q, 'star')}<button class="small" id="quit">Pausar</button></div>
+    </div>
+    <div class="progress"><div style="width:${(exam ? answered : run.i) / n * 100}%"></div></div>
+    <div class="card">
+      <div class="q">${esc(q.pregunta)}</div>
+      <div class="options">${order.map((orig, k) =>
+        `<button data-orig="${orig}" class="${exam && ans === orig ? 'sel' : ''}"><span class="letter">${'ABCDEFGH'[k]}</span><span>${esc(q.opciones[orig])}</span></button>`).join('')}
+      </div>
+      <div id="after"></div>
+    </div>
+    ${exam ? `
+    <div class="card">
+      <div class="row between">
+        <button id="prev" ${run.i === 0 ? 'disabled' : ''}>← Anterior</button>
+        <button class="primary" id="finishBtn">Terminar examen</button>
+        <button id="next" ${run.i === n - 1 ? 'disabled' : ''}>Siguiente →</button>
+      </div>
+      <div class="navgrid">${run.list.map((_, k) =>
+        `<button data-k="${k}" class="${run.answers[k] !== null ? 'done' : ''} ${k === run.i ? 'cur' : ''}">${k + 1}</button>`).join('')}</div>
+    </div>` : ''}`;
+
+  bindStar($('star'), q);
+  $('quit').onclick = () => { saveRun(); showHome(); };
+  updateTimer();
+  startTimer();
+
+  const opts = app.querySelectorAll('.options button');
+  if (exam) {
+    opts.forEach(b => b.onclick = () => {
+      const o = +b.dataset.orig;
+      run.answers[run.i] = run.answers[run.i] === o ? null : o; // pulsar de nuevo la deja en blanco
+      saveRun(); showQuestion();
+    });
+    const go = k => { run.i = k; saveRun(); showQuestion(); };
+    $('prev').onclick = () => go(run.i - 1);
+    $('next').onclick = () => go(run.i + 1);
+    app.querySelectorAll('.navgrid button').forEach(b => b.onclick = () => go(+b.dataset.k));
+    $('finishBtn').onclick = () => {
+      const blank = run.answers.filter(a => a === null).length;
+      if (confirm(blank ? `Tienes ${blank} sin responder. ¿Terminar el examen?` : '¿Terminar el examen?')) finish();
+    };
+  } else {
+    opts.forEach(b => b.onclick = () => {
+      const chosen = +b.dataset.orig;
+      run.answers[run.i] = chosen;
+      updateStats(q, chosen === q.correcta);
+      saveRun();
+      showFeedback();
+    });
+    if (ans !== null) showFeedback(); // al reanudar una pregunta ya respondida
+  }
+}
+
+function showFeedback() {
+  const { q } = run.list[run.i], chosen = run.answers[run.i], ok = chosen === q.correcta;
+  app.querySelectorAll('.options button').forEach(b => {
+    b.disabled = true; b.style.opacity = 1;
+    const o = +b.dataset.orig;
+    if (o === q.correcta) b.classList.add('ok');
+    else if (o === chosen) b.classList.add('ko');
+  });
+  const last = run.i === run.list.length - 1;
+  $('after').innerHTML = `
+    <div class="explain ${ok ? '' : 'wrong'}"><b>${ok ? '✔ ¡Correcto!' : '✘ Incorrecto'}</b>${q.explicacion ? '\n' + esc(q.explicacion) : ''}</div>
+    <div class="row" style="margin-top:16px;justify-content:flex-end"><button class="primary" id="next">${last ? 'Ver resultado' : 'Siguiente →'}</button></div>`;
+  const next = $('next');
+  next.focus();
+  next.onclick = () => {
+    if (last) return finish();
+    run.i++; saveRun(); showQuestion();
+  };
+}
+
+function updateStats(q, ok) {
+  const stats = load(K.stats, {});
+  const s = stats[keyOf(q)] ||= { ok: 0, ko: 0 };
+  ok ? s.ok++ : s.ko++;
+  save(K.stats, stats);
+}
+
+function finish() {
+  stopTimer();
+  const results = run.list.map((it, k) => ({ q: it.q, chosen: run.answers[k], ok: run.answers[k] === it.q.correcta }));
+  if (run.mode === 'examen') results.forEach(r => r.chosen !== null && updateStats(r.q, r.ok));
+  const aciertos = results.filter(r => r.ok).length, blancos = results.filter(r => r.chosen === null).length;
+  const entry = {
+    fecha: Date.now(), titulo: run.titulo, modo: run.mode, tema: run.tema, total: results.length,
+    aciertos, blancos, fallos: results.length - aciertos - blancos, segundos: run.elapsed
+  };
+  const hist = load(K.hist, []);
+  hist.push(entry);
+  save(K.hist, hist);
+  localStorage.removeItem(K.run);
+  const meta = run;
+  run = null;
+  showResult(results, entry, meta);
+}
+
+// ---------- Resultado ----------
+function showResult(results, entry, meta) {
+  const bad = results.filter(r => !r.ok);
+  app.innerHTML = `
+    <h1>Resultado</h1>
+    <div class="card">
+      <div class="big">${entry.aciertos} / ${entry.total}</div>
+      <p class="muted">${pct(entry.aciertos, entry.total)}% de aciertos · ${entry.fallos} fallos${entry.blancos ? ` · ${entry.blancos} en blanco` : ''} · ${fmtTime(entry.segundos)}</p>
+      <div class="row">
+        ${bad.length ? '<button class="primary" id="retry">Repetir las falladas</button>' : ''}
+        <button id="home">Inicio</button>
+        <button id="stats">📊 Estadísticas</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row between"><h2>Revisión</h2>
+        <label class="opt"><input type="checkbox" id="onlyBad" ${bad.length ? 'checked' : ''}> Solo falladas</label></div>
+      <div id="reviewList"></div>
+    </div>`;
+
+  const renderReview = () => {
+    const list = $('onlyBad').checked ? bad : results;
+    $('reviewList').innerHTML = list.length ? list.map((r, k) => `
+      <div class="review">
+        <div class="row between" style="flex-wrap:nowrap;align-items:flex-start"><b style="white-space:pre-wrap">${esc(r.q.pregunta)}</b>${starBtn(r.q).replace('<button', `<button data-k="${k}"`)}</div>
+        ${r.chosen === null ? '<div class="muted">Sin responder</div>'
+          : `<div style="color:var(--${r.ok ? 'ok' : 'ko'})">${r.ok ? '✔' : '✘'} Tu respuesta: ${esc(r.q.opciones[r.chosen])}</div>`}
+        ${r.ok ? '' : `<div style="color:var(--ok)">Correcta: ${esc(r.q.opciones[r.q.correcta])}</div>`}
+        ${r.q.explicacion ? `<div class="muted" style="white-space:pre-wrap">${esc(r.q.explicacion)}</div>` : ''}
+      </div>`).join('') : '<p class="muted">¡Sin fallos! 🎉</p>';
+    $('reviewList').querySelectorAll('.star').forEach(b => bindStar(b, list[+b.dataset.k].q));
+  };
+  $('onlyBad').onchange = renderReview;
+  renderReview();
+
+  $('home').onclick = () => showHome();
+  $('stats').onclick = showStats;
+  if (bad.length) $('retry').onclick = () =>
+    startRun(shuffle(bad.map(r => r.q)), { shuffleOpts: true, mode: meta.mode, minutes: 0, tema: meta.tema });
+}
+
+// ---------- Estadísticas ----------
+function showStats() {
+  stopTimer();
+  const hist = load(K.hist, []), stats = load(K.stats, {});
+  const scores = hist.map(h => pct(h.aciertos, h.total));
+  const avg = scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0;
+
+  // Acierto por tema (sobre todas las respuestas a preguntas del banco actual)
+  const byTema = {};
+  (set?.preguntas || []).forEach(q => {
+    const t = q.tema || 'Sin tema', s = stats[keyOf(q)] || { ok: 0, ko: 0 };
+    const b = byTema[t] ||= { ok: 0, ko: 0, n: 0 };
+    b.ok += s.ok; b.ko += s.ko; b.n++;
+  });
+  const temas = Object.entries(byTema).filter(([, b]) => b.ok + b.ko > 0)
+    .sort((a, b) => pct(a[1].ok, a[1].ok + a[1].ko) - pct(b[1].ok, b[1].ok + b[1].ko));
+
+  app.innerHTML = `
+    <div class="row between"><h1>Estadísticas</h1><button id="home">← Inicio</button></div>
+    <div class="card kpis">
+      <div class="kpi"><div class="muted">Tests hechos</div><div class="v">${hist.length}</div></div>
+      <div class="kpi"><div class="muted">Nota media</div><div class="v">${hist.length ? avg + '%' : '—'}</div></div>
+      <div class="kpi"><div class="muted">Mejor nota</div><div class="v">${hist.length ? Math.max(...scores) + '%' : '—'}</div></div>
+    </div>
+    <div class="card">
+      <h2>Evolución (% de aciertos)</h2>
+      ${hist.length >= 2 ? `<div class="chart" id="chart">${lineChart(hist.slice(-30))}<div class="tip" id="tip" hidden></div></div>`
+        : '<p class="muted">Haz al menos dos tests para ver la evolución.</p>'}
+    </div>
+    <div class="card">
+      <h2>Acierto por tema</h2>
+      <p class="muted">Peores primero · cuenta todas las veces que has respondido cada pregunta</p>
+      ${temas.length ? temas.map(([t, b]) => `
+        <div class="bar-row"><span>${esc(t)}</span>
+          <div class="bar"><div style="width:${pct(b.ok, b.ok + b.ko)}%"></div></div>
+          <span class="muted" style="text-align:right">${pct(b.ok, b.ok + b.ko)}% · ${b.ok}/${b.ok + b.ko}</span></div>`).join('')
+        : '<p class="muted">Aún no hay respuestas.</p>'}
+    </div>
+    <div class="card">
+      <div class="row between"><h2>Historial</h2>${hist.length ? '<button class="small danger" id="clearHist">Borrar historial y estadísticas</button>' : ''}</div>
+      ${hist.length ? `<div class="table-wrap"><table>
+        <tr><th>Fecha</th><th>Test</th><th>Modo</th><th class="num">Nota</th><th class="num">Tiempo</th></tr>
+        ${[...hist].reverse().slice(0, 100).map(h => `<tr>
+          <td>${fmtDate(h.fecha)}</td><td>${esc(h.titulo)}${h.tema ? ` <span class="tag">${esc(h.tema)}</span>` : ''}</td>
+          <td>${h.modo === 'examen' ? 'Examen' : 'Práctica'}</td>
+          <td class="num">${h.aciertos}/${h.total} (${pct(h.aciertos, h.total)}%)</td><td class="num">${fmtTime(h.segundos)}</td></tr>`).join('')}
+      </table></div>` : '<p class="muted">Todavía no has hecho ningún test.</p>'}
+    </div>`;
+
+  $('home').onclick = () => showHome();
+  if ($('clearHist')) $('clearHist').onclick = () => {
+    if (!confirm('Se borrará el historial y las estadísticas de aciertos/fallos (las marcadas ★ se mantienen). ¿Seguro?')) return;
+    save(K.hist, []); save(K.stats, {}); showStats();
+  };
+  if ($('chart')) bindChart(hist.slice(-30));
+}
+
+function lineChart(h) {
+  const W = 600, H = 220, L = 40, R = 12, T = 12, B = 28, n = h.length;
+  const x = i => L + i * (W - L - R) / (n - 1);
+  const y = v => T + (100 - v) * (H - T - B) / 100;
+  const grid = [0, 25, 50, 75, 100].map(v =>
+    `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)" stroke-width="1"/>
+     <text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">${v}%</text>`).join('');
+  const pts = h.map((e, i) => [x(i), y(pct(e.aciertos, e.total))]);
+  const d = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+  const dl = t => new Date(t).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Porcentaje de aciertos por test">
+    ${grid}
+    <path d="${d}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    ${pts.map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="4" fill="var(--accent)" stroke="var(--card)" stroke-width="2"/>
+      <circle class="hit" data-i="${i}" cx="${p[0]}" cy="${p[1]}" r="14" fill="transparent" style="cursor:pointer"/>`).join('')}
+    <text x="${L}" y="${H - 8}" font-size="11" fill="var(--muted)">${dl(h[0].fecha)}</text>
+    <text x="${W - R}" y="${H - 8}" text-anchor="end" font-size="11" fill="var(--muted)">${dl(h[n - 1].fecha)}</text>
+  </svg>`;
+}
+
+function bindChart(h) {
+  const wrap = $('chart'), tip = $('tip');
+  wrap.querySelectorAll('.hit').forEach(c => {
+    c.onmouseenter = c.onclick = () => {
+      const e = h[+c.dataset.i], wr = wrap.getBoundingClientRect(), cr = c.getBoundingClientRect();
+      tip.innerHTML = `<b>${pct(e.aciertos, e.total)}%</b> · ${e.aciertos}/${e.total}<br><span class="muted">${fmtDate(e.fecha)} · ${e.modo === 'examen' ? 'Examen' : 'Práctica'}</span>`;
+      tip.style.left = Math.min(Math.max(cr.left - wr.left + cr.width / 2, 70), wr.width - 70) + 'px';
+      tip.style.top = (cr.top - wr.top + cr.height / 2 - 6) + 'px';
+      tip.hidden = false;
+    };
+    c.onmouseleave = () => tip.hidden = true;
+  });
+}
+
+// ---------- Editor ----------
+function persistEdit() { set.origen = 'editado'; save(K.set, set); }
+
+function downloadJSON() {
+  const blob = new Blob([JSON.stringify({ titulo: set.titulo, preguntas: set.preguntas }, null, 2)], { type: 'application/json' });
+  const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'preguntas.json' });
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+function showEditor(filter = '') {
+  stopTimer();
+  const marks = load(K.marks, {});
+  const f = filter.toLowerCase();
+  const items = set.preguntas.map((q, i) => ({ q, i }))
+    .filter(({ q }) => !f || q.pregunta.toLowerCase().includes(f) || (q.tema || '').toLowerCase().includes(f) || (f === '★' && marks[keyOf(q)]));
+
+  app.innerHTML = `
+    <div class="row between"><h1>Editor</h1><button id="home">← Inicio</button></div>
+    <div class="card">
+      <label class="muted">Título del test</label>
+      <input type="text" id="titulo" class="full" value="${esc(set.titulo)}">
+      <div class="row" style="margin-top:12px">
+        <button class="primary" id="add">+ Nueva pregunta</button>
+        <button id="download">⬇ Descargar JSON</button>
+        <button id="newSet" class="danger">Empezar banco vacío</button>
+      </div>
+      ${set.origen === 'editado' ? '<p class="muted">Los cambios se guardan en este navegador. Descarga el JSON para tener copia o subirlo a GitHub.</p>' : ''}
+    </div>
+    <div class="card">
+      <input type="search" id="search" class="full" placeholder="Buscar por texto o tema (escribe ★ para ver las marcadas)" value="${esc(filter)}">
+      <p class="muted">${items.length} de ${set.preguntas.length} preguntas</p>
+      ${items.map(({ q, i }) => `
+        <button class="qitem" data-i="${i}"><span class="muted">${i + 1}</span><span class="txt">${esc(q.pregunta)}</span>
+          ${q.tema ? `<span class="tag">${esc(q.tema)}</span>` : ''}${marks[keyOf(q)] ? '<span style="color:var(--star)">★</span>' : ''}</button>`).join('')}
+    </div>`;
+
+  $('home').onclick = () => showHome();
+  $('titulo').onchange = e => { set.titulo = e.target.value.trim() || 'Test'; persistEdit(); };
+  $('add').onclick = () => showEditForm(-1);
+  $('download').onclick = downloadJSON;
+  $('newSet').onclick = () => {
+    if (!confirm('Se vaciará el banco actual (descarga antes el JSON si quieres conservarlo). ¿Continuar?')) return;
+    set = { titulo: 'Nuevo test', preguntas: [], origen: 'editado' }; save(K.set, set); showEditor();
+  };
+  const search = $('search');
+  search.oninput = () => { const v = search.value, pos = search.selectionStart; showEditor(v); const s = $('search'); s.focus(); s.setSelectionRange(pos, pos); };
+  app.querySelectorAll('.qitem').forEach(b => b.onclick = () => showEditForm(+b.dataset.i));
+}
+
+function showEditForm(idx) {
+  const q = idx >= 0 ? set.preguntas[idx] : { pregunta: '', opciones: ['', '', '', ''], correcta: 0, explicacion: '', tema: '' };
+  const temas = [...new Set(set.preguntas.map(p => p.tema).filter(Boolean))];
+  let opciones = [...q.opciones];
+
+  app.innerHTML = `
+    <div class="row between"><h1>${idx >= 0 ? 'Editar pregunta ' + (idx + 1) : 'Nueva pregunta'}</h1></div>
+    <div class="card">
+      <label class="muted">Pregunta</label>
+      <textarea id="fPregunta" rows="3">${esc(q.pregunta)}</textarea>
+      <p class="muted" style="margin-bottom:0">Opciones (marca la correcta)</p>
+      <div id="fOpciones"></div>
+      <button class="small" id="addOpt">+ Opción</button>
+      <p class="muted" style="margin-bottom:0">Explicación</p>
+      <textarea id="fExplicacion" rows="3">${esc(q.explicacion)}</textarea>
+      <p class="muted" style="margin-bottom:0">Tema (opcional)</p>
+      <input type="text" id="fTema" class="full" list="temasList" value="${esc(q.tema)}">
+      <datalist id="temasList">${temas.map(t => `<option value="${esc(t)}">`).join('')}</datalist>
+      <p class="error" id="fError"></p>
+      <div class="row between">
+        <div class="row"><button class="primary" id="saveQ">Guardar</button><button id="cancel">Cancelar</button></div>
+        ${idx >= 0 ? '<button class="danger" id="delQ">Eliminar</button>' : ''}
+      </div>
+    </div>`;
+
+  let correcta = q.correcta;
+  const renderOpts = () => {
+    $('fOpciones').innerHTML = opciones.map((o, k) => `
+      <div class="optrow"><input type="radio" name="fCorrecta" value="${k}" ${k === correcta ? 'checked' : ''}>
+        <span class="letter">${'ABCDEFGH'[k]}</span><input type="text" data-k="${k}" value="${esc(o)}">
+        ${opciones.length > 2 ? `<button class="small" data-del="${k}" title="Quitar">✕</button>` : ''}</div>`).join('');
+    $('fOpciones').querySelectorAll('input[type=text]').forEach(inp => inp.oninput = () => opciones[+inp.dataset.k] = inp.value);
+    $('fOpciones').querySelectorAll('input[type=radio]').forEach(r => r.onchange = () => correcta = +r.value);
+    $('fOpciones').querySelectorAll('[data-del]').forEach(b => b.onclick = () => {
+      const k = +b.dataset.del;
+      opciones.splice(k, 1);
+      if (correcta === k) correcta = 0; else if (correcta > k) correcta--;
+      renderOpts();
+    });
+    $('addOpt').hidden = opciones.length >= 8;
+  };
+  renderOpts();
+  $('addOpt').onclick = () => { opciones.push(''); renderOpts(); };
+
+  $('cancel').onclick = () => showEditor();
+  if ($('delQ')) $('delQ').onclick = () => {
+    if (!confirm('¿Eliminar esta pregunta?')) return;
+    set.preguntas.splice(idx, 1); persistEdit(); showEditor();
+  };
+  $('saveQ').onclick = () => {
+    const nq = { pregunta: $('fPregunta').value.trim(), opciones: opciones.map(o => o.trim()), correcta };
+    const exp = $('fExplicacion').value.trim(), tema = $('fTema').value.trim();
+    if (exp) nq.explicacion = exp;
+    if (tema) nq.tema = tema;
+    if (!nq.pregunta) return $('fError').textContent = 'Escribe la pregunta.';
+    if (nq.opciones.some(o => !o)) return $('fError').textContent = 'Rellena todas las opciones (o quita las que sobren).';
+    if (set.preguntas.some((p, k) => k !== idx && p.pregunta === nq.pregunta)) return $('fError').textContent = 'Ya existe una pregunta con ese mismo texto.';
+    if (idx >= 0) {
+      // Si cambia el texto, conservar estadísticas y marca
+      const oldKey = keyOf(set.preguntas[idx]), newKey = keyOf(nq);
+      if (oldKey !== newKey) for (const k of [K.stats, K.marks]) {
+        const m = load(k, {});
+        if (oldKey in m) { m[newKey] = m[oldKey]; delete m[oldKey]; save(k, m); }
+      }
+      set.preguntas[idx] = nq;
+    } else set.preguntas.push(nq);
+    persistEdit();
+    showEditor();
+  };
+}
+
+// ---------- Teclado: 1-4 / A-D responder, flechas para moverse ----------
+document.addEventListener('keydown', e => {
+  if (['TEXTAREA', 'INPUT', 'SELECT'].includes(e.target.tagName) || !run) return;
+  const opts = [...app.querySelectorAll('.options button:not(:disabled)')];
+  const k = e.key.toLowerCase();
+  const idx = '1234'.includes(k) ? '1234'.indexOf(k) : 'abcd'.indexOf(k);
+  if (opts.length && k.length === 1 && idx >= 0 && opts[idx]) return opts[idx].click();
+  if (e.key === 'ArrowRight') $('next')?.click();
+  if (e.key === 'ArrowLeft') $('prev')?.click();
+});
+
+// ---------- Arranque ----------
+// Si hay preguntas.json junto al HTML (p. ej. GitHub Pages) y no has cargado otro archivo
+// ni editado en la app, se usa siempre la última versión del servidor.
+const saved = load(K.set, null);
+fetchServerSet()
+  .then(data => {
+    serverAvailable = true;
+    if (!saved || saved.origen === 'servidor' || !saved.origen) useData(data, 'servidor');
+    else set = saved;
+  })
+  .catch(() => { set = saved; })
+  .finally(() => showHome());
+
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
