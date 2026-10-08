@@ -1079,7 +1079,12 @@ function showWaterToast() {
   if (navigator.vibrate) navigator.vibrate(200);
 }
 
-if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js');
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  const hadController = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' });
+  // Llegó una versión nueva de la app: recargar para mostrarla, solo si estás en el inicio (no corta tests ni ediciones)
+  navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController && $('goStats')) location.reload(); });
+}
 </script>
 </body>
 </html>
