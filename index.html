@@ -40,7 +40,7 @@
   }
   main {
     max-width: 720px; margin: 0 auto;
-    padding: calc(20px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) calc(48px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
+    padding: calc(20px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) calc(96px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
     animation: fade .25s ease;
   }
   h1 { font-size: 1.6rem; letter-spacing: -.02em; margin: 0 0 16px; }
@@ -144,15 +144,68 @@
   .optrow { display: flex; gap: 8px; align-items: center; margin: 8px 0; }
   .optrow input[type=text] { flex: 1; min-width: 0; }
 
+  #toasts {
+    position: fixed; left: 50%; bottom: calc(76px + env(safe-area-inset-bottom)); transform: translateX(-50%);
+    width: min(440px, calc(100% - 32px)); z-index: 10; display: flex; flex-direction: column; gap: 8px;
+  }
   .toast {
-    position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%);
-    width: min(440px, calc(100% - 32px)); z-index: 10; display: flex; gap: 12px; align-items: center;
+    display: flex; gap: 12px; align-items: center;
     background: var(--water-bg); color: var(--text); border: 1px solid color-mix(in srgb, var(--water) 40%, transparent);
     border-radius: 16px; padding: 14px 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, .18); animation: toastin .4s cubic-bezier(.2, .9, .3, 1.2);
   }
+  .toast.pomo { background: var(--accent-bg); border-color: color-mix(in srgb, var(--accent) 40%, transparent); }
   .toast .ico { font-size: 1.8rem; animation: bob 1.6s ease-in-out infinite; }
   .toast .msg { flex: 1; }
   .toast button { background: var(--water); border-color: transparent; color: #fff; font-weight: 600; }
+  .toast.pomo button { background: var(--accent); color: var(--on-accent); }
+
+  /* Pomodoro */
+  .pomo-pill {
+    position: fixed; right: calc(16px + env(safe-area-inset-right)); bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 11;
+    border-radius: 99px; padding: 8px 16px; font-weight: 700; font-variant-numeric: tabular-nums; box-shadow: 0 6px 20px rgba(0, 0, 0, .18);
+    background: var(--card); border: 2px solid var(--accent);
+  }
+  .pomo-pill.break { border-color: var(--ok); }
+  .pomo-panel {
+    position: fixed; right: calc(16px + env(safe-area-inset-right)); bottom: calc(70px + env(safe-area-inset-bottom)); z-index: 12;
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, .2); animation: slideup .2s ease;
+  }
+  .pomo-panel .row { margin-top: 8px; }
+
+  /* Inicio: objetivo diario y accesos rápidos */
+  .countdown { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
+  .countdown .big { font-size: 2.2rem; }
+  .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .quick-btn { display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 2px; padding: 14px; min-height: 100px; border-width: 2px; }
+  .quick-btn .qi { font-size: 1.6rem; line-height: 1.2; }
+  .chip { min-height: 36px; padding: 6px 14px; border-radius: 99px; font-size: .9rem; }
+  .chip.on { background: color-mix(in srgb, var(--star) 22%, var(--card)); border-color: var(--star); }
+  .navgrid button.doubt { border-style: dashed; border-color: var(--star); }
+  .tag.doubt { background: color-mix(in srgb, var(--star) 22%, var(--card)); color: var(--text); }
+  .ref { margin-top: 8px; font-weight: 600; color: var(--accent); }
+  .verdict { display: inline-block; font-weight: 800; padding: 6px 14px; border-radius: 12px; margin-bottom: 12px; }
+  .verdict.ok { background: var(--ok-bg); color: var(--ok); }
+  .verdict.ko { background: var(--ko-bg); color: var(--ko); }
+  .bloque-h { display: flex; justify-content: space-between; align-items: baseline; margin: 16px 0 4px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+  /* Calendario de actividad */
+  .heat { display: grid; grid-template-rows: repeat(7, 1fr); grid-auto-flow: column; grid-auto-columns: 1fr; gap: 3px; }
+  .heat i { display: block; aspect-ratio: 1; border-radius: 3px; background: var(--grid); }
+  .heat i.l1 { background: color-mix(in srgb, var(--accent) 30%, var(--grid)); }
+  .heat i.l2 { background: color-mix(in srgb, var(--accent) 55%, var(--grid)); }
+  .heat i.l3 { background: color-mix(in srgb, var(--accent) 78%, var(--grid)); }
+  .heat i.l4 { background: var(--accent); }
+  .heat i.today { outline: 2px solid var(--text); outline-offset: -1px; }
+  .heat i.future { visibility: hidden; }
+  .heat-legend { display: flex; gap: 3px; align-items: center; justify-content: flex-end; margin-top: 8px; font-size: .8rem; color: var(--muted); }
+  .heat-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+  /* Ajustes */
+  .set-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 10px 0; }
+  .set-row > span { flex: 1; }
+  .set-row input[type=number] { width: 90px; }
+  .set-row input[type=date] { font: inherit; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+  .help { font-size: .85rem; color: var(--muted); margin: 4px 0 8px; }
 
   /* Foto de fondo (capa fija: funciona también en iOS, donde background-attachment: fixed no) */
   body::before {
@@ -167,7 +220,8 @@
   details.card label { display: block; margin-top: 10px; }
   a { color: var(--accent); font-weight: 600; }
   code { font-size: .9em; padding: 1px 5px; border-radius: 4px; background: var(--grid); }
-  .homenav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+  .homenav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+  @media (max-width: 560px) { .homenav { grid-template-columns: 1fr 1fr; } }
   .homenav button { padding: 10px 6px; font-size: .9rem; white-space: nowrap; box-shadow: var(--shadow); }
   body.has-photo .card { background: color-mix(in srgb, var(--card) 88%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
   body.has-photo h1 { text-shadow: 0 1px 8px color-mix(in srgb, var(--bg) 80%, transparent); }
@@ -206,9 +260,13 @@
 <main id="app"></main>
 
 <script>
-const K = { set: 'quiz.set', stats: 'quiz.stats', marks: 'quiz.marks', hist: 'quiz.history', run: 'quiz.run' };
+const K = {
+  set: 'quiz.set', stats: 'quiz.stats', marks: 'quiz.marks', hist: 'quiz.history', run: 'quiz.run',
+  srs: 'quiz.srs', daily: 'quiz.daily', settings: 'quiz.settings', pomo: 'quiz.pomo', water: 'quiz.waterSecs',
+  theme: 'quiz.theme', photo: 'quiz.photo', gh: 'quiz.github'
+};
 const app = document.getElementById('app');
-let set = null;              // { titulo, preguntas, origen: 'servidor' | 'archivo' | 'editado' }
+let set = null;              // { titulo, preguntas, ajustes?, origen: 'servidor' | 'archivo' | 'editado' }
 let run = null;              // test en curso (se guarda en localStorage para poder reanudar)
 let serverAvailable = false; // hay un preguntas.json junto al HTML (GitHub Pages, servidor local...)
 let timerId = null;
@@ -219,9 +277,40 @@ const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; 
 const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
 const keyOf = q => q.pregunta;
 const pct = (a, b) => b ? Math.round(a / b * 100) : 0;
+const uniq = a => [...new Set(a.filter(Boolean))];
+const natCmp = (a, b) => String(a).localeCompare(String(b), 'es', { numeric: true, sensitivity: 'base' });
 const fmtTime = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 const fmtDate = t => new Date(t).toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' });
+const fmtNum = (n, d = 2) => (+n).toLocaleString('es-ES', { maximumFractionDigits: d });
 const $ = id => document.getElementById(id);
+const DAY = 864e5;
+const startOfToday = () => new Date().setHours(0, 0, 0, 0);
+const todayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const MODOS = { practica: 'Práctica', examen: 'Examen', simulacro: 'Simulacro', repaso: 'Repaso' };
+
+function downloadBlob(blob, name) {
+  const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: name });
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+// ---------- Ajustes ----------
+// Prioridad: valores por defecto < "ajustes" del preguntas.json (compartidos) < lo que cambie cada uno en su dispositivo
+const SETTINGS_DEFAULT = {
+  penaltyOn: false, penalty: 1 / 3,
+  simNombre: 'Simulacro', simPreguntas: 100, simMinutos: 90, simCorte: 5,
+  examDate: '', dailyGoal: 50, srsSize: 20,
+  pomoOn: false, pomoWork: 25, pomoBreak: 5, water: true
+};
+const SHARED = ['penaltyOn', 'penalty', 'simNombre', 'simPreguntas', 'simMinutos', 'simCorte', 'examDate', 'dailyGoal'];
+const pick = (o, keys) => o ? Object.fromEntries(keys.filter(k => k in o).map(k => [k, o[k]])) : {};
+const getSettings = () => ({ ...SETTINGS_DEFAULT, ...pick(set?.ajustes, SHARED), ...load(K.settings, {}) });
+function saveSettings(patch) { save(K.settings, { ...load(K.settings, {}), ...patch }); }
+
+const PENALTIES = [[1 / 2, '1/2'], [1 / 3, '1/3'], [1 / 4, '1/4'], [1 / 5, '1/5']];
+const fmtPen = p => PENALTIES.find(([v]) => Math.abs(v - p) < 1e-6)?.[1] || fmtNum(p, 3);
+const calcNota = (ok, ko, total, pen) => total ? Math.max(0, ok - ko * pen) / total * 10 : 0;
+const entryNota = h => h.nota ?? (h.total ? h.aciertos / h.total * 10 : 0);
 
 // ---------- Marcadas ----------
 const isMarked = q => !!load(K.marks, {})[keyOf(q)];
@@ -236,6 +325,50 @@ function bindStar(btn, q) {
   btn.onclick = () => { const on = toggleMark(q); btn.classList.toggle('on', on); btn.textContent = on ? '★' : '☆'; };
 }
 
+// ---------- Repetición espaciada (cajas de Leitner) ----------
+// Acierto: sube de caja y vuelve a salir en 1, 3, 7, 16 o 35 días. Fallo: vuelve a la caja 0 (sale ya).
+const SRS_DAYS = [0, 1, 3, 7, 16, 35];
+function srsUpdate(q, ok) {
+  const s = load(K.srs, {}), k = keyOf(q), box = ok ? Math.min((s[k]?.box || 0) + 1, SRS_DAYS.length - 1) : 0;
+  s[k] = { box, due: startOfToday() + SRS_DAYS[box] * DAY };
+  save(K.srs, s);
+}
+function srsPlan(qs) {
+  const s = load(K.srs, {}), now = Date.now();
+  const due = qs.filter(q => s[keyOf(q)] && s[keyOf(q)].due <= now).sort((a, b) => s[keyOf(a)].due - s[keyOf(b)].due);
+  const fresh = qs.filter(q => !s[keyOf(q)]);
+  const next = Math.min(...qs.map(q => s[keyOf(q)]?.due).filter(d => d > now));
+  return { due, fresh, next };
+}
+
+// ---------- Actividad diaria, racha y cuenta atrás ----------
+function addDaily(n) {
+  if (!n) return;
+  const d = load(K.daily, {}), k = todayKey();
+  d[k] = (d[k] || 0) + n;
+  save(K.daily, d);
+}
+function streak() {
+  const d = load(K.daily, {}), goal = getSettings().dailyGoal || 1, day = new Date();
+  if ((d[todayKey(day)] || 0) < goal) day.setDate(day.getDate() - 1); // hoy todavía no rompe la racha
+  let n = 0;
+  while ((d[todayKey(day)] || 0) >= goal) { n++; day.setDate(day.getDate() - 1); }
+  return n;
+}
+function daysLeft(date) {
+  if (!date) return null;
+  return Math.round((new Date(date + 'T00:00').getTime() - startOfToday()) / DAY);
+}
+
+// Migra estadísticas, marca y repaso si cambia el texto de una pregunta
+function migrateKey(oldKey, newKey) {
+  if (oldKey === newKey) return;
+  for (const k of [K.stats, K.marks, K.srs]) {
+    const m = load(k, {});
+    if (oldKey in m) { m[newKey] = m[oldKey]; delete m[oldKey]; save(k, m); }
+  }
+}
+
 // ---------- Carga y validación ----------
 function parseSet(data) {
   const preguntas = Array.isArray(data) ? data : data.preguntas;
@@ -248,8 +381,11 @@ function parseSet(data) {
     else if (!Number.isInteger(q.correcta) || q.correcta < 0 || q.correcta >= q.opciones.length) errs.push(p + '"correcta" debe ser el índice (0 a ' + (q.opciones.length - 1) + ')');
   });
   if (errs.length) throw new Error(errs.join('\n'));
-  return { titulo: (!Array.isArray(data) && data.titulo) || 'Test', preguntas };
+  const out = { titulo: (!Array.isArray(data) && data.titulo) || 'Test', preguntas };
+  if (!Array.isArray(data) && data.ajustes && typeof data.ajustes === 'object') out.ajustes = pick(data.ajustes, SHARED);
+  return out;
 }
+const setToJSON = () => ({ titulo: set.titulo, ...(set.ajustes ? { ajustes: set.ajustes } : {}), preguntas: set.preguntas });
 
 function useData(data, origen) {
   set = { ...parseSet(data), origen };
@@ -268,41 +404,71 @@ function fetchServerSet() {
 }
 
 // ---------- Inicio ----------
+function dailyCardHTML() {
+  const s = getSettings(), today = load(K.daily, {})[todayKey()] || 0, left = daysLeft(s.examDate), st = streak();
+  if (left === null && !s.dailyGoal) return '';
+  return `
+    <div class="card">
+      ${left !== null ? `<div class="countdown">
+        ${left > 0 ? `<span class="big">${left}</span><span>${left === 1 ? 'día' : 'días'} para el examen ⏳</span>`
+          : left === 0 ? '<span class="big">¡Hoy!</span><span>es el examen. ¡Mucha suerte! 🍀</span>'
+          : '<span class="muted">La fecha del examen ya pasó. Cámbiala en ⚙️ Ajustes.</span>'}
+      </div>` : ''}
+      ${s.dailyGoal ? `
+      <div class="row between"><span>Hoy: <b>${today}</b> / ${s.dailyGoal} preguntas ${today >= s.dailyGoal ? '✅' : ''}</span><span title="Días seguidos cumpliendo el objetivo">🔥 ${st} ${st === 1 ? 'día' : 'días'}</span></div>
+      <div class="progress" style="margin-bottom:0"><div style="width:${Math.min(100, today / s.dailyGoal * 100)}%"></div></div>` : ''}
+    </div>`;
+}
+
 function showHome(error) {
   stopTimer();
-  const stats = load(K.stats, {}), marks = load(K.marks, {}), saved = load(K.run, null);
+  const s = getSettings(), stats = load(K.stats, {}), marks = load(K.marks, {}), saved = load(K.run, null);
   const qs = set?.preguntas || [];
-  const temas = [...new Set(qs.map(q => q.tema).filter(Boolean))];
+  const bloques = uniq(qs.map(q => q.bloque)).sort(natCmp);
+  const hasRef = qs.some(q => q.referencia);
   const failedCount = qs.filter(q => (stats[keyOf(q)]?.ko || 0) > 0).length;
   const markedCount = qs.filter(q => marks[keyOf(q)]).length;
+  const plan = srsPlan(qs);
   const origenTxt = { servidor: 'preguntas.json del servidor', archivo: 'archivo cargado', editado: 'editado en la app' }[set?.origen] || '';
+  const penTxt = s.penaltyOn ? `−${fmtPen(s.penalty)} por fallo` : 'sin penalización';
 
   app.innerHTML = `
     <h1>${set ? esc(set.titulo) : 'Test de preguntas'}</h1>
-    <div class="homenav"><button id="goStats">📊 Progreso</button><button id="goEditor">✏️ Editor</button><button id="goTheme">🎨 Tema</button></div>
+    <div class="homenav"><button id="goStats">📊 Progreso</button><button id="goEditor">✏️ Editor</button><button id="goTheme">🎨 Tema</button><button id="goSettings">⚙️ Ajustes</button></div>
     ${error ? `<div class="card error">${esc(error)}</div>` : ''}
     ${saved ? `
     <div class="card notice">
       <b>Tienes un test a medias</b>
-      <p class="muted">${saved.mode === 'examen' ? 'Examen' : 'Práctica'} · pregunta ${saved.i + 1} de ${saved.list.length} · ${fmtTime(saved.elapsed)} transcurridos</p>
+      <p class="muted">${MODOS[saved.sim ? 'simulacro' : saved.mode] || ''} · pregunta ${saved.i + 1} de ${saved.list.length} · ${fmtTime(saved.elapsed)} transcurridos</p>
       <div class="row"><button class="primary" id="resume">Reanudar</button><button id="discard">Descartar</button></div>
     </div>` : ''}
-    ${qs.length ? `
+    ${qs.length ? dailyCardHTML() + `
     <div class="card">
-      <p class="muted">${qs.length} preguntas · ${esc(origenTxt)}</p>
+      <div class="quick">
+        <button class="quick-btn" id="srsBtn"><span class="qi">🧠</span><b>Repaso inteligente</b>
+          <span class="muted">${plan.due.length || plan.fresh.length ? `${plan.due.length} para repasar · ${plan.fresh.length} nuevas` : 'Todo al día ✅'}</span></button>
+        <button class="quick-btn" id="simBtn"><span class="qi">🎯</span><b>${esc(s.simNombre)}</b>
+          <span class="muted">${Math.min(s.simPreguntas, qs.length)} preguntas · ${s.simMinutos ? s.simMinutos + ' min' : 'sin tiempo'} · ${penTxt}</span></button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Test personalizado</h2>
       <div class="modes">
         <label class="mode-card"><input type="radio" name="mode" value="practica" checked><span class="t">📝 Práctica</span><span class="d">Ves la solución tras cada pregunta</span></label>
         <label class="mode-card"><input type="radio" name="mode" value="examen"><span class="t">🎓 Examen</span><span class="d">Nota y soluciones al final</span></label>
       </div>
       <label class="opt" id="minRow" hidden>Tiempo límite (min, 0 = sin límite): <input id="minutes" type="number" min="0" value="0"></label>
       <hr class="sep">
-      ${temas.length ? `<label class="opt">Tema: <select id="tema"><option value="">Todos</option>${temas.map(t => `<option>${esc(t)}</option>`).join('')}</select></label>` : ''}
-      <label class="opt">Nº de preguntas: <input id="num" type="number" min="1" max="${qs.length}" value="${qs.length}"></label>
+      ${bloques.length ? `<label class="opt">Bloque: <select id="bloque"><option value="">Todos</option>${bloques.map(b => `<option>${esc(b)}</option>`).join('')}</select></label>` : ''}
+      <label class="opt" id="temaRow">Tema: <select id="tema"></select></label>
+      ${hasRef ? '<label class="opt">Referencia: <input type="text" id="refFilter" placeholder="p. ej. 39/2015 o CE" style="flex:1;min-width:0"></label>' : ''}
+      <label class="opt">Nº de preguntas: <input id="num" type="number" min="1" max="${qs.length}" value="${Math.min(qs.length, 20)}"></label>
       <label class="opt"><input id="shq" type="checkbox" checked> Barajar preguntas</label>
       <label class="opt"><input id="sho" type="checkbox" checked> Barajar opciones</label>
       <label class="opt"><input id="onlyKo" type="checkbox"> Solo las que he fallado alguna vez (${failedCount})</label>
       <label class="opt"><input id="onlyMarked" type="checkbox"> Solo las marcadas ★ (${markedCount})</label>
-      <div class="row" style="margin-top:12px"><button class="primary" id="start">Empezar</button></div>
+      <p class="muted">Penalización: ${penTxt} · <a href="#" id="penLink">cambiar</a></p>
+      <button class="primary" id="start">Empezar</button>
     </div>` : ''}
     <div class="card">
       <div class="drop" id="drop">
@@ -318,6 +484,7 @@ function showHome(error) {
 
   $('goStats').onclick = showStats;
   $('goTheme').onclick = showTheme;
+  $('goSettings').onclick = showSettings;
   $('goEditor').onclick = () => openEditor();
   const drop = $('drop');
   $('file').onchange = e => e.target.files[0] && readFile(e.target.files[0]);
@@ -328,42 +495,83 @@ function showHome(error) {
     try { useData(JSON.parse($('paste').value), 'archivo'); showHome(); } catch (e) { showHome('JSON no válido: ' + e.message); }
   };
   if ($('useServer')) $('useServer').onclick = () => {
-    if (set?.origen === 'editado' && !confirm('Perderás los cambios hechos en el editor que no hayas descargado. ¿Continuar?')) return;
+    if (set?.origen === 'editado' && !confirm('Perderás los cambios hechos en el editor que no estén guardados en GitHub. ¿Continuar?')) return;
     fetchServerSet().then(d => { useData(d, 'servidor'); showHome(); }).catch(() => showHome('No se pudo leer preguntas.json'));
   };
   if (saved) {
-    $('resume').onclick = () => { run = saved; showQuestion(); };
+    $('resume').onclick = () => { run = normalizeRun(saved); showQuestion(); };
     $('discard').onclick = () => { if (confirm('¿Descartar el test a medias?')) { localStorage.removeItem(K.run); showHome(); } };
   }
   if (!qs.length) return;
 
+  const confirmDiscard = () => !saved || confirm('Se descartará el test a medias. ¿Empezar uno nuevo?');
+  $('penLink').onclick = e => { e.preventDefault(); showSettings(); };
+
+  $('srsBtn').onclick = () => {
+    const p = srsPlan(qs);
+    const list = [...p.due, ...shuffle(p.fresh)].slice(0, Math.max(1, s.srsSize));
+    if (!p.due.length && !p.fresh.length) return alert(`¡Todo al día! 🎉 El próximo repaso es el ${new Date(p.next).toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' })}.`);
+    if (confirmDiscard()) startRun(list, { mode: 'practica', kind: 'repaso' });
+  };
+  $('simBtn').onclick = () => {
+    if (!confirmDiscard()) return;
+    startRun(shuffle(qs).slice(0, s.simPreguntas), {
+      mode: 'examen', minutes: s.simMinutos, label: s.simNombre === MODOS.simulacro ? '' : s.simNombre,
+      sim: { nombre: s.simNombre, corte: s.simCorte }
+    });
+  };
+
+  // Temas dependientes del bloque elegido
+  const fillTemas = () => {
+    const b = $('bloque')?.value || '';
+    const temas = uniq(qs.filter(q => !b || q.bloque === b).map(q => q.tema)).sort(natCmp);
+    $('tema').innerHTML = `<option value="">Todos</option>${temas.map(t => `<option>${esc(t)}</option>`).join('')}`;
+    $('temaRow').hidden = !temas.length;
+  };
+  fillTemas();
+  if ($('bloque')) $('bloque').onchange = fillTemas;
+
   document.querySelectorAll('input[name=mode]').forEach(r => r.onchange = () => { $('minRow').hidden = r.value !== 'examen' || !r.checked; });
   $('start').onclick = () => {
-    if (saved && !confirm('Se descartará el test a medias. ¿Empezar uno nuevo?')) return;
-    const tema = $('tema')?.value || '';
-    let list = qs.filter(q => !tema || q.tema === tema);
+    if (!confirmDiscard()) return;
+    const bloque = $('bloque')?.value || '', tema = $('tema').value, refRaw = ($('refFilter')?.value || '').trim(), ref = refRaw.toLowerCase();
+    let list = qs.filter(q => (!bloque || q.bloque === bloque) && (!tema || q.tema === tema) && (!ref || (q.referencia || '').toLowerCase().includes(ref)));
     if ($('onlyKo').checked) list = list.filter(q => (stats[keyOf(q)]?.ko || 0) > 0);
     if ($('onlyMarked').checked) list = list.filter(q => marks[keyOf(q)]);
     if (!list.length) return alert('No hay preguntas con esos filtros.');
     if ($('shq').checked) list = shuffle(list);
     list = list.slice(0, Math.max(1, +$('num').value || list.length));
     const mode = document.querySelector('input[name=mode]:checked').value;
-    startRun(list, { shuffleOpts: $('sho').checked, mode, minutes: mode === 'examen' ? +$('minutes').value || 0 : 0, tema });
+    startRun(list, {
+      shuffleOpts: $('sho').checked, mode, minutes: mode === 'examen' ? +$('minutes').value || 0 : 0,
+      label: [bloque, tema, refRaw && `ref. «${refRaw}»`].filter(Boolean).join(' · ')
+    });
   };
 }
 
 // ---------- Test ----------
-function startRun(list, { shuffleOpts, mode, minutes, tema }) {
+function startRun(list, { shuffleOpts = true, mode = 'practica', minutes = 0, label = '', sim = null, kind = null }) {
+  const s = getSettings();
   run = {
     list: list.map(q => {
       const order = q.opciones.map((_, i) => i);
       return { q, order: shuffleOpts ? shuffle(order) : order };
     }),
-    i: 0, answers: list.map(() => null), mode, tema: tema || '', titulo: set.titulo,
+    i: 0, answers: list.map(() => null), doubt: list.map(() => false),
+    mode, kind, label, sim, titulo: set.titulo,
+    penalty: s.penaltyOn ? s.penalty : 0,
     limit: minutes ? minutes * 60 : null, elapsed: 0
   };
   saveRun();
   showQuestion();
+}
+
+// Tests guardados con versiones anteriores de la app
+function normalizeRun(r) {
+  r.doubt ||= r.list.map(() => false);
+  r.penalty ??= 0;
+  r.label ??= r.tema || '';
+  return r;
 }
 
 const saveRun = () => save(K.run, run);
@@ -388,6 +596,8 @@ function updateTimer() {
   } else el.textContent = '⏱ ' + fmtTime(run.elapsed);
 }
 
+const doubtLabel = on => on ? '🤔 Marcada como dudosa' : '🤔 Marcar como dudosa';
+
 function showQuestion() {
   if (run.limit && run.elapsed >= run.limit) return finish();
   const { q, order } = run.list[run.i];
@@ -401,25 +611,35 @@ function showQuestion() {
     </div>
     <div class="progress"><div style="width:${(exam ? answered : run.i) / n * 100}%"></div></div>
     <div class="card">
+      ${run.sim ? `<div class="muted" style="margin-bottom:6px">🎯 ${esc(run.sim.nombre)}</div>` : ''}
       <div class="q">${esc(q.pregunta)}</div>
       <div class="options">${order.map((orig, k) =>
         `<button data-orig="${orig}" class="${exam && ans === orig ? 'sel' : ''}"><span class="letter">${'ABCDEFGH'[k]}</span><span>${esc(q.opciones[orig])}</span></button>`).join('')}
       </div>
+      <div class="row" style="margin-top:12px"><button class="chip ${run.doubt[run.i] ? 'on' : ''}" id="doubt">${doubtLabel(run.doubt[run.i])}</button></div>
       <div id="after"></div>
     </div>
     ${exam ? `
     <div class="card">
       <div class="row between">
         <button id="prev" ${run.i === 0 ? 'disabled' : ''}>← Anterior</button>
-        <button class="primary" id="finishBtn">Terminar examen</button>
+        <button class="primary" id="finishBtn">Terminar</button>
         <button id="next" ${run.i === n - 1 ? 'disabled' : ''}>Siguiente →</button>
       </div>
       <div class="navgrid">${run.list.map((_, k) =>
-        `<button data-k="${k}" class="${run.answers[k] !== null ? 'done' : ''} ${k === run.i ? 'cur' : ''}">${k + 1}</button>`).join('')}</div>
+        `<button data-k="${k}" class="${run.answers[k] !== null ? 'done' : ''} ${k === run.i ? 'cur' : ''} ${run.doubt[k] ? 'doubt' : ''}">${k + 1}</button>`).join('')}</div>
+      ${run.penalty ? `<p class="muted" style="margin-bottom:0">Cada fallo resta ${fmtPen(run.penalty)}. Las preguntas en blanco no restan.</p>` : ''}
     </div>` : ''}`;
 
   bindStar($('star'), q);
   $('quit').onclick = () => { saveRun(); showHome(); };
+  $('doubt').onclick = () => {
+    run.doubt[run.i] = !run.doubt[run.i];
+    saveRun();
+    $('doubt').classList.toggle('on', run.doubt[run.i]);
+    $('doubt').textContent = doubtLabel(run.doubt[run.i]);
+    app.querySelector(`.navgrid [data-k="${run.i}"]`)?.classList.toggle('doubt', run.doubt[run.i]);
+  };
   updateTimer();
   startTimer();
 
@@ -436,19 +656,23 @@ function showQuestion() {
     app.querySelectorAll('.navgrid button').forEach(b => b.onclick = () => go(+b.dataset.k));
     $('finishBtn').onclick = () => {
       const blank = run.answers.filter(a => a === null).length;
-      if (confirm(blank ? `Tienes ${blank} sin responder. ¿Terminar el examen?` : '¿Terminar el examen?')) finish();
+      if (confirm(blank ? `Tienes ${blank} sin responder. ¿Terminar?` : '¿Terminar el examen?')) finish();
     };
   } else {
     opts.forEach(b => b.onclick = () => {
-      const chosen = +b.dataset.orig;
+      const chosen = +b.dataset.orig, ok = chosen === q.correcta;
       run.answers[run.i] = chosen;
-      updateStats(q, chosen === q.correcta);
+      updateStats(q, ok);
+      srsUpdate(q, ok);
+      addDaily(1);
       saveRun();
       showFeedback();
     });
     if (ans !== null) showFeedback(); // al reanudar una pregunta ya respondida
   }
 }
+
+const refHTML = q => q.referencia ? `<div class="ref">📖 ${esc(q.referencia)}</div>` : '';
 
 function showFeedback() {
   const { q } = run.list[run.i], chosen = run.answers[run.i], ok = chosen === q.correcta;
@@ -460,7 +684,7 @@ function showFeedback() {
   });
   const last = run.i === run.list.length - 1;
   $('after').innerHTML = `
-    <div class="explain ${ok ? '' : 'wrong'}"><b>${ok ? '✔ ¡Correcto!' : '✘ Incorrecto'}</b>${q.explicacion ? '\n' + esc(q.explicacion) : ''}</div>
+    <div class="explain ${ok ? '' : 'wrong'}"><b>${ok ? '✔ ¡Correcto!' : '✘ Incorrecto'}</b>${q.explicacion ? '\n' + esc(q.explicacion) : ''}${refHTML(q)}</div>
     <div class="row" style="margin-top:16px;justify-content:flex-end"><button class="primary" id="next">${last ? 'Ver resultado' : 'Siguiente →'}</button></div>`;
   const next = $('next');
   next.focus();
@@ -479,12 +703,21 @@ function updateStats(q, ok) {
 
 function finish() {
   stopTimer();
-  const results = run.list.map((it, k) => ({ q: it.q, chosen: run.answers[k], ok: run.answers[k] === it.q.correcta }));
-  if (run.mode === 'examen') results.forEach(r => r.chosen !== null && updateStats(r.q, r.ok));
+  const results = run.list.map((it, k) => ({ q: it.q, chosen: run.answers[k], ok: run.answers[k] === it.q.correcta, doubt: !!run.doubt[k] }));
+  if (run.mode === 'examen') {
+    const answered = results.filter(r => r.chosen !== null);
+    answered.forEach(r => { updateStats(r.q, r.ok); srsUpdate(r.q, r.ok); });
+    addDaily(answered.length);
+  }
   const aciertos = results.filter(r => r.ok).length, blancos = results.filter(r => r.chosen === null).length;
+  const fallos = results.length - aciertos - blancos;
+  const dud = results.filter(r => r.doubt && r.chosen !== null);
+  const nota = calcNota(aciertos, fallos, results.length, run.penalty);
   const entry = {
-    fecha: Date.now(), titulo: run.titulo, modo: run.mode, tema: run.tema, total: results.length,
-    aciertos, blancos, fallos: results.length - aciertos - blancos, segundos: run.elapsed
+    fecha: Date.now(), titulo: run.titulo, modo: run.sim ? 'simulacro' : run.kind || run.mode, tema: run.label,
+    total: results.length, aciertos, fallos, blancos, segundos: run.elapsed,
+    penalty: run.penalty, nota, dudosas: dud.length, dudosasOk: dud.filter(r => r.ok).length,
+    ...(run.sim ? { corte: run.sim.corte, apto: nota >= run.sim.corte } : {})
   };
   const hist = load(K.hist, []);
   hist.push(entry);
@@ -496,127 +729,195 @@ function finish() {
 }
 
 // ---------- Resultado ----------
+// ¿Compensó responder las dudosas? Ganancia neta en "aciertos" respecto a dejarlas en blanco
+function doubtAdviceHTML(n, ok, pen, total) {
+  const ko = n - ok, gain = ok - ko * pen;
+  let txt = `Marcaste <b>${n}</b> como dudosas: acertaste <b>${ok}</b> y fallaste <b>${ko}</b>. `;
+  if (!pen) txt += 'Sin penalización siempre compensa responder. 👍';
+  else if (gain > 0) txt += `Responderlas te sumó <b>+${fmtNum(gain)}</b> aciertos netos (+${fmtNum(gain / total * 10)} en la nota): hiciste bien en arriesgar. 👍`;
+  else if (gain < 0) txt += `Dejándolas en blanco habrías sacado <b>${fmtNum(-gain / total * 10)}</b> puntos más de nota. Con este nivel de duda, mejor no arriesgar. ✋`;
+  else txt += 'Te dio igual responderlas que dejarlas en blanco.';
+  return `<p style="margin:0">${txt}</p>`;
+}
+
 function showResult(results, entry, meta) {
-  const bad = results.filter(r => !r.ok);
+  const bad = results.filter(r => !r.ok), doubts = results.filter(r => r.doubt);
+  const corte = entry.corte ?? 5, nota = entry.nota;
   app.innerHTML = `
     <h1>Resultado</h1>
     <div class="card">
+      ${meta.sim ? `<div class="verdict ${entry.apto ? 'ok' : 'ko'}">${entry.apto ? '✅ APTO' : '❌ NO APTO'} · nota de corte ${fmtNum(corte)}</div>` : ''}
       <div class="score">
-        <div class="ring" style="--p:${pct(entry.aciertos, entry.total)};--c:var(--${pct(entry.aciertos, entry.total) >= 50 ? 'ok' : 'ko'})"><div>${pct(entry.aciertos, entry.total)}%</div></div>
+        <div class="ring" style="--p:${nota * 10};--c:var(--${nota >= corte ? 'ok' : 'ko'})"><div>${fmtNum(nota)}</div></div>
         <div>
           <div class="big">${entry.aciertos} / ${entry.total}</div>
-          <div>${['Toca repasar 💪', 'Vas por buen camino 👍', '¡Muy bien! 🎉', '¡Perfecto! 🏆'][Math.min(3, Math.floor(pct(entry.aciertos, entry.total) / 34) + (entry.aciertos === entry.total ? 1 : 0))]}</div>
+          <div>${['Toca repasar 💪', 'Vas por buen camino 👍', '¡Muy bien! 🎉', '¡Perfecto! 🏆'][Math.min(3, Math.floor(nota * 10 / 34) + (entry.aciertos === entry.total ? 1 : 0))]}</div>
         </div>
       </div>
-      <p class="muted">${entry.fallos} fallos${entry.blancos ? ` · ${entry.blancos} en blanco` : ''} · ${fmtTime(entry.segundos)}</p>
+      <p class="muted">Nota ${fmtNum(nota)} / 10 · ${entry.fallos} fallos${entry.penalty ? ` (−${fmtNum(entry.fallos * entry.penalty)})` : ''}${entry.blancos ? ` · ${entry.blancos} en blanco` : ''} · ${fmtTime(entry.segundos)}
+        ${entry.penalty ? `<br>Penalización: −${fmtPen(entry.penalty)} por fallo` : ''}</p>
       <div class="row">
         ${bad.length ? '<button class="primary" id="retry">Repetir las falladas</button>' : ''}
         <button id="home">Inicio</button>
-        <button id="stats">📊 Estadísticas</button>
+        <button id="stats">📊 Progreso</button>
       </div>
     </div>
+    ${entry.dudosas ? `<div class="card"><h2>🤔 Dudosas</h2>${doubtAdviceHTML(entry.dudosas, entry.dudosasOk, entry.penalty, entry.total)}</div>` : ''}
     <div class="card">
       <div class="row between"><h2>Revisión</h2>
-        <label class="opt"><input type="checkbox" id="onlyBad" ${bad.length ? 'checked' : ''}> Solo falladas</label></div>
+        <select id="reviewFilter">
+          <option value="bad" ${bad.length ? 'selected' : ''}>Falladas y en blanco (${bad.length})</option>
+          ${doubts.length ? `<option value="doubt">Dudosas (${doubts.length})</option>` : ''}
+          <option value="all" ${bad.length ? '' : 'selected'}>Todas (${results.length})</option>
+        </select></div>
       <div id="reviewList"></div>
     </div>`;
 
   const renderReview = () => {
-    const list = $('onlyBad').checked ? bad : results;
+    const f = $('reviewFilter').value, list = f === 'bad' ? bad : f === 'doubt' ? doubts : results;
     $('reviewList').innerHTML = list.length ? list.map((r, k) => `
       <div class="review">
         <div class="row between" style="flex-wrap:nowrap;align-items:flex-start"><b style="white-space:pre-wrap">${esc(r.q.pregunta)}</b>${starBtn(r.q).replace('<button', `<button data-k="${k}"`)}</div>
+        ${r.doubt ? '<span class="tag doubt">🤔 dudosa</span>' : ''}
         ${r.chosen === null ? '<div class="muted">Sin responder</div>'
           : `<div style="color:var(--${r.ok ? 'ok' : 'ko'})">${r.ok ? '✔' : '✘'} Tu respuesta: ${esc(r.q.opciones[r.chosen])}</div>`}
         ${r.ok ? '' : `<div style="color:var(--ok)">Correcta: ${esc(r.q.opciones[r.q.correcta])}</div>`}
         ${r.q.explicacion ? `<div class="muted" style="white-space:pre-wrap">${esc(r.q.explicacion)}</div>` : ''}
+        ${refHTML(r.q)}
       </div>`).join('') : '<p class="muted">¡Sin fallos! 🎉</p>';
     $('reviewList').querySelectorAll('.star').forEach(b => bindStar(b, list[+b.dataset.k].q));
   };
-  $('onlyBad').onchange = renderReview;
+  $('reviewFilter').onchange = renderReview;
   renderReview();
 
   $('home').onclick = () => showHome();
   $('stats').onclick = showStats;
   if (bad.length) $('retry').onclick = () =>
-    startRun(shuffle(bad.map(r => r.q)), { shuffleOpts: true, mode: meta.mode, minutes: 0, tema: meta.tema });
+    startRun(shuffle(bad.map(r => r.q)), { mode: meta.mode, label: 'Repetir falladas' });
 }
 
-// ---------- Estadísticas ----------
+// ---------- Progreso ----------
+function heatmapHTML(weeks = 18) {
+  const d = load(K.daily, {}), goal = getSettings().dailyGoal;
+  const today = new Date(startOfToday());
+  const start = new Date(today);
+  start.setDate(start.getDate() - (weeks - 1) * 7 - ((today.getDay() + 6) % 7)); // lunes de hace N semanas
+  const max = Math.max(1, ...Object.values(d));
+  let cells = '';
+  for (let i = 0, day = new Date(start); i < weeks * 7; i++, day.setDate(day.getDate() + 1)) {
+    const k = todayKey(day), n = d[k] || 0, future = day > today;
+    const r = goal ? n / goal : n / max;
+    const lvl = !n ? 0 : r >= 1 ? 4 : r >= .66 ? 3 : r >= .33 ? 2 : 1;
+    cells += `<i class="l${lvl} ${future ? 'future' : ''} ${+day === +today ? 'today' : ''}" title="${day.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' })}: ${n} preguntas"></i>`;
+  }
+  return `<div class="heat" role="img" aria-label="Preguntas respondidas por día en las últimas ${weeks} semanas">${cells}</div>
+    <div class="heat-legend">Menos <i class="l0" style="background:var(--grid)"></i><i style="background:color-mix(in srgb, var(--accent) 30%, var(--grid))"></i><i style="background:color-mix(in srgb, var(--accent) 55%, var(--grid))"></i><i style="background:color-mix(in srgb, var(--accent) 78%, var(--grid))"></i><i style="background:var(--accent)"></i> ${goal ? 'Objetivo cumplido' : 'Más'}</div>`;
+}
+
+function dominioHTML() {
+  const qs = set?.preguntas || [], srs = load(K.srs, {}), stats = load(K.stats, {});
+  if (!qs.length) return '<p class="muted">No hay preguntas cargadas.</p>';
+  const groups = {};
+  qs.forEach(q => {
+    const g = ((groups[q.bloque || ''] ||= {})[q.tema || 'Sin tema'] ||= { n: 0, dom: 0, ok: 0, ko: 0 });
+    g.n++;
+    if ((srs[keyOf(q)]?.box || 0) >= 3) g.dom++;
+    const st = stats[keyOf(q)];
+    if (st) { g.ok += st.ok; g.ko += st.ko; }
+  });
+  return Object.keys(groups).sort(natCmp).map(b => {
+    const temas = Object.entries(groups[b]).sort((x, y) => natCmp(x[0], y[0]));
+    const tot = temas.reduce((a, [, g]) => ({ n: a.n + g.n, dom: a.dom + g.dom }), { n: 0, dom: 0 });
+    return (b ? `<div class="bloque-h"><b>${esc(b)}</b><span class="muted">${pct(tot.dom, tot.n)}% dominado</span></div>` : '') +
+      temas.map(([t, g]) => `
+        <div class="bar-row"><span>${esc(t)} <span class="muted">(${g.n})</span></span>
+          <div class="bar"><div style="width:${pct(g.dom, g.n)}%"></div></div>
+          <span class="muted" style="text-align:right">${pct(g.dom, g.n)}%${g.ok + g.ko ? ` · ✓${pct(g.ok, g.ok + g.ko)}%` : ''}</span></div>`).join('');
+  }).join('');
+}
+
 function showStats() {
   stopTimer();
-  const hist = load(K.hist, []), stats = load(K.stats, {});
-  const scores = hist.map(h => pct(h.aciertos, h.total));
-  const avg = scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0;
-
-  // Acierto por tema (sobre todas las respuestas a preguntas del banco actual)
-  const byTema = {};
-  (set?.preguntas || []).forEach(q => {
-    const t = q.tema || 'Sin tema', s = stats[keyOf(q)] || { ok: 0, ko: 0 };
-    const b = byTema[t] ||= { ok: 0, ko: 0, n: 0 };
-    b.ok += s.ok; b.ko += s.ko; b.n++;
-  });
-  const temas = Object.entries(byTema).filter(([, b]) => b.ok + b.ko > 0)
-    .sort((a, b) => pct(a[1].ok, a[1].ok + a[1].ko) - pct(b[1].ok, b[1].ok + b[1].ko));
+  const s = getSettings(), hist = load(K.hist, []);
+  const notas = hist.map(entryNota);
+  const avg = notas.length ? notas.reduce((a, b) => a + b, 0) / notas.length : 0;
+  const sims = hist.filter(h => h.modo === 'simulacro');
+  const dN = hist.reduce((a, h) => a + (h.dudosas || 0), 0), dOk = hist.reduce((a, h) => a + (h.dudosasOk || 0), 0);
+  const pen = s.penaltyOn ? s.penalty : 0, thr = pen / (1 + pen);
+  const st = streak();
 
   app.innerHTML = `
-    <div class="row between"><h1>Estadísticas</h1><button id="home">← Inicio</button></div>
+    <div class="row between"><h1>Progreso</h1><button id="home">← Inicio</button></div>
     <div class="card kpis">
       <div class="kpi"><div class="muted">Tests hechos</div><div class="v">${hist.length}</div></div>
-      <div class="kpi"><div class="muted">Nota media</div><div class="v">${hist.length ? avg + '%' : '—'}</div></div>
-      <div class="kpi"><div class="muted">Mejor nota</div><div class="v">${hist.length ? Math.max(...scores) + '%' : '—'}</div></div>
+      <div class="kpi"><div class="muted">Nota media</div><div class="v">${hist.length ? fmtNum(avg, 1) : '—'}</div></div>
+      <div class="kpi"><div class="muted">Mejor nota</div><div class="v">${hist.length ? fmtNum(Math.max(...notas), 1) : '—'}</div></div>
+      <div class="kpi"><div class="muted">Racha</div><div class="v">🔥 ${st}</div></div>
+      <div class="kpi"><div class="muted">Simulacros aptos</div><div class="v">${sims.length ? `${sims.filter(h => h.apto).length}/${sims.length}` : '—'}</div></div>
+      <div class="kpi"><div class="muted">Acierto en dudosas</div><div class="v">${dN ? pct(dOk, dN) + '%' : '—'}</div></div>
     </div>
     <div class="card">
-      <h2>Evolución (% de aciertos)</h2>
-      ${hist.length >= 2 ? `<div class="chart" id="chart">${lineChart(hist.slice(-30))}<div class="tip" id="tip" hidden></div></div>`
+      <h2>Actividad</h2>
+      ${heatmapHTML()}
+    </div>
+    <div class="card">
+      <h2>Evolución de la nota (sobre 10)</h2>
+      ${hist.length >= 2 ? `<div class="chart" id="chart">${lineChart(hist.slice(-30), sims.length ? s.simCorte : null)}<div class="tip" id="tip" hidden></div></div>`
         : '<p class="muted">Haz al menos dos tests para ver la evolución.</p>'}
     </div>
+    ${dN ? `<div class="card">
+      <h2>🤔 ¿Te compensa arriesgar?</h2>
+      <p style="margin-top:0">De <b>${dN}</b> preguntas dudosas que respondiste, acertaste el <b>${pct(dOk, dN)}%</b>.</p>
+      <p class="muted" style="margin-bottom:0">${pen
+        ? `Con −${fmtPen(pen)} por fallo, responder una dudosa compensa si aciertas más del <b>${Math.round(thr * 100)}%</b> de ellas. ${dOk / dN > thr ? '👉 A ti <b>te compensa responderlas</b>.' : '👉 A ti te conviene <b>dejarlas en blanco</b>.'}`
+        : 'Sin penalización activada, siempre compensa responder. Actívala en ⚙️ Ajustes si tu examen la tiene.'}</p>
+    </div>` : ''}
     <div class="card">
-      <h2>Acierto por tema</h2>
-      <p class="muted">Peores primero · cuenta todas las veces que has respondido cada pregunta</p>
-      ${temas.length ? temas.map(([t, b]) => `
-        <div class="bar-row"><span>${esc(t)}</span>
-          <div class="bar"><div style="width:${pct(b.ok, b.ok + b.ko)}%"></div></div>
-          <span class="muted" style="text-align:right">${pct(b.ok, b.ok + b.ko)}% · ${b.ok}/${b.ok + b.ko}</span></div>`).join('')
-        : '<p class="muted">Aún no hay respuestas.</p>'}
+      <h2>Dominio del temario</h2>
+      <p class="help">% dominado = preguntas acertadas al menos 3 veces seguidas. ✓ = % de acierto total.</p>
+      ${dominioHTML()}
     </div>
     <div class="card">
-      <div class="row between"><h2>Historial</h2>${hist.length ? '<button class="small danger" id="clearHist">Borrar historial y estadísticas</button>' : ''}</div>
+      <div class="row between"><h2>Historial</h2>${hist.length ? '<button class="small danger" id="clearHist">Borrar progreso</button>' : ''}</div>
       ${hist.length ? `<div class="table-wrap"><table>
-        <tr><th>Fecha</th><th>Test</th><th>Modo</th><th class="num">Nota</th><th class="num">Tiempo</th></tr>
+        <tr><th>Fecha</th><th>Test</th><th class="num">Nota</th><th class="num">Aciertos</th><th class="num">Tiempo</th></tr>
         ${[...hist].reverse().slice(0, 100).map(h => `<tr>
-          <td>${fmtDate(h.fecha)}</td><td>${esc(h.titulo)}${h.tema ? ` <span class="tag">${esc(h.tema)}</span>` : ''}</td>
-          <td>${h.modo === 'examen' ? 'Examen' : 'Práctica'}</td>
-          <td class="num">${h.aciertos}/${h.total} (${pct(h.aciertos, h.total)}%)</td><td class="num">${fmtTime(h.segundos)}</td></tr>`).join('')}
+          <td>${fmtDate(h.fecha)}</td>
+          <td>${MODOS[h.modo] || ''}${h.tema ? ` <span class="tag">${esc(h.tema)}</span>` : ''}${h.modo === 'simulacro' ? (h.apto ? ' ✅' : ' ❌') : ''}</td>
+          <td class="num"><b>${fmtNum(entryNota(h))}</b></td>
+          <td class="num">${h.aciertos}/${h.total}</td><td class="num">${fmtTime(h.segundos)}</td></tr>`).join('')}
       </table></div>` : '<p class="muted">Todavía no has hecho ningún test.</p>'}
     </div>`;
 
   $('home').onclick = () => showHome();
   if ($('clearHist')) $('clearHist').onclick = () => {
-    if (!confirm('Se borrará el historial y las estadísticas de aciertos/fallos (las marcadas ★ se mantienen). ¿Seguro?')) return;
-    save(K.hist, []); save(K.stats, {}); showStats();
+    if (!confirm('Se borrará el historial, las estadísticas, el repaso inteligente y la actividad diaria (las marcadas ★ se mantienen). ¿Seguro?')) return;
+    for (const k of [K.hist, K.stats, K.srs, K.daily]) localStorage.removeItem(k);
+    showStats();
   };
   if ($('chart')) bindChart(hist.slice(-30));
 }
 
-function lineChart(h) {
-  const W = 600, H = 220, L = 40, R = 12, T = 12, B = 28, n = h.length;
+function lineChart(h, corte) {
+  const W = 600, H = 220, L = 34, R = 12, T = 12, B = 28, n = h.length;
   const x = i => L + i * (W - L - R) / (n - 1);
-  const y = v => T + (100 - v) * (H - T - B) / 100;
-  const grid = [0, 25, 50, 75, 100].map(v =>
+  const y = v => T + (10 - v) * (H - T - B) / 10;
+  const grid = [0, 2.5, 5, 7.5, 10].map(v =>
     `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)" stroke-width="1"/>
-     <text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">${v}%</text>`).join('');
-  const pts = h.map((e, i) => [x(i), y(pct(e.aciertos, e.total))]);
+     <text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">${fmtNum(v, 1)}</text>`).join('');
+  const pts = h.map((e, i) => [x(i), y(entryNota(e))]);
   const d = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
   const dl = t => new Date(t).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' });
-  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Porcentaje de aciertos por test">
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Nota sobre 10 de cada test">
     ${grid}
+    ${corte != null ? `<line x1="${L}" x2="${W - R}" y1="${y(corte)}" y2="${y(corte)}" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <text x="${W - R}" y="${y(corte) - 5}" text-anchor="end" font-size="11" fill="var(--muted)">corte ${fmtNum(corte)}</text>` : ''}
     <path d="${d}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-    ${pts.map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="4" fill="var(--accent)" stroke="var(--card)" stroke-width="2"/>
+    ${pts.map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="4" fill="${h[i].modo === 'simulacro' ? 'var(--card)' : 'var(--accent)'}" stroke="${h[i].modo === 'simulacro' ? 'var(--accent)' : 'var(--card)'}" stroke-width="2"/>
       <circle class="hit" data-i="${i}" cx="${p[0]}" cy="${p[1]}" r="14" fill="transparent" style="cursor:pointer"/>`).join('')}
     <text x="${L}" y="${H - 8}" font-size="11" fill="var(--muted)">${dl(h[0].fecha)}</text>
     <text x="${W - R}" y="${H - 8}" text-anchor="end" font-size="11" fill="var(--muted)">${dl(h[n - 1].fecha)}</text>
-  </svg>`;
+  </svg>${h.some(e => e.modo === 'simulacro') ? '<p class="help" style="margin-bottom:0">○ simulacro · ● otros tests</p>' : ''}`;
 }
 
 function bindChart(h) {
@@ -624,8 +925,8 @@ function bindChart(h) {
   wrap.querySelectorAll('.hit').forEach(c => {
     c.onmouseenter = c.onclick = () => {
       const e = h[+c.dataset.i], wr = wrap.getBoundingClientRect(), cr = c.getBoundingClientRect();
-      tip.innerHTML = `<b>${pct(e.aciertos, e.total)}%</b> · ${e.aciertos}/${e.total}<br><span class="muted">${fmtDate(e.fecha)} · ${e.modo === 'examen' ? 'Examen' : 'Práctica'}</span>`;
-      tip.style.left = Math.min(Math.max(cr.left - wr.left + cr.width / 2, 70), wr.width - 70) + 'px';
+      tip.innerHTML = `<b>${fmtNum(entryNota(e))}</b> · ${e.aciertos}/${e.total}${e.modo === 'simulacro' ? (e.apto ? ' · APTO' : ' · NO APTO') : ''}<br><span class="muted">${fmtDate(e.fecha)} · ${MODOS[e.modo] || ''}</span>`;
+      tip.style.left = Math.min(Math.max(cr.left - wr.left + cr.width / 2, 80), wr.width - 80) + 'px';
       tip.style.top = (cr.top - wr.top + cr.height / 2 - 6) + 'px';
       tip.hidden = false;
     };
@@ -633,12 +934,130 @@ function bindChart(h) {
   });
 }
 
+// ---------- Ajustes ----------
+function showSettings() {
+  stopTimer();
+  const s = getSettings(), local = load(K.settings, {});
+  const penSel = PENALTIES.find(([v]) => Math.abs(v - s.penalty) < 1e-6)?.[1] || 'otra';
+  const shared = set?.ajustes && Object.keys(set.ajustes).length;
+  const overridden = SHARED.some(k => k in local);
+
+  app.innerHTML = `
+    <div class="row between"><h1>Ajustes</h1><button id="home">← Inicio</button></div>
+    <div class="card">
+      <h2>📝 Penalización</h2>
+      <label class="opt"><input type="checkbox" id="penaltyOn" ${s.penaltyOn ? 'checked' : ''}> Los fallos restan</label>
+      <div class="set-row" id="penRow" ${s.penaltyOn ? '' : 'hidden'}>
+        <span>Cada fallo resta</span>
+        <select id="penSel">${PENALTIES.map(([, t]) => `<option ${t === penSel ? 'selected' : ''}>${t}</option>`).join('')}<option value="otra" ${penSel === 'otra' ? 'selected' : ''}>Otra…</option></select>
+        <input type="number" id="penCustom" min="0" max="5" step="0.05" value="${fmtNum(s.penalty, 3).replace(',', '.')}" ${penSel === 'otra' ? '' : 'hidden'}>
+      </div>
+      <p class="help">En cuántos aciertos equivale cada fallo (1/3 = tres fallos quitan un acierto). Las preguntas en blanco no restan.</p>
+    </div>
+    <div class="card">
+      <h2>🎯 Simulacro</h2>
+      <div class="set-row"><span>Nombre</span><input type="text" id="simNombre" value="${esc(s.simNombre)}" style="width:55%"></div>
+      <div class="set-row"><span>Nº de preguntas</span><input type="number" id="simPreguntas" min="1" value="${s.simPreguntas}"></div>
+      <div class="set-row"><span>Tiempo (min, 0 = sin límite)</span><input type="number" id="simMinutos" min="0" value="${s.simMinutos}"></div>
+      <div class="set-row"><span>Nota de corte (sobre 10)</span><input type="number" id="simCorte" min="0" max="10" step="0.01" value="${s.simCorte}"></div>
+      <p class="help">Usa la penalización de arriba. Las preguntas se eligen al azar entre todas.</p>
+    </div>
+    <div class="card">
+      <h2>📅 Objetivos</h2>
+      <div class="set-row"><span>Fecha del examen</span><input type="date" id="examDate" value="${esc(s.examDate)}"></div>
+      <div class="set-row"><span>Objetivo diario (preguntas, 0 = sin objetivo)</span><input type="number" id="dailyGoal" min="0" value="${s.dailyGoal}"></div>
+      <div class="set-row"><span>Preguntas por repaso inteligente</span><input type="number" id="srsSize" min="1" value="${s.srsSize}"></div>
+    </div>
+    <div class="card">
+      <h2>🍅 Bienestar</h2>
+      <label class="opt"><input type="checkbox" id="pomoOn" ${s.pomoOn ? 'checked' : ''}> Pomodoro (botón flotante abajo a la derecha)</label>
+      <div id="pomoRows" ${s.pomoOn ? '' : 'hidden'}>
+        <div class="set-row"><span>Estudio (min)</span><input type="number" id="pomoWork" min="1" value="${s.pomoWork}"></div>
+        <div class="set-row"><span>Descanso (min)</span><input type="number" id="pomoBreak" min="1" value="${s.pomoBreak}"></div>
+      </div>
+      <label class="opt"><input type="checkbox" id="water" ${s.water ? 'checked' : ''}> Recordatorio de beber agua cada 20 min de uso 💧</label>
+    </div>
+    ${shared || ghConnected() ? `
+    <div class="card">
+      <h2>☁️ Ajustes compartidos</h2>
+      ${shared ? `<p class="help">Este test trae ajustes predeterminados (penalización, simulacro, fecha y objetivo).${overridden ? ' Has cambiado alguno en este dispositivo.' : ''}</p>` : ''}
+      <div class="row">
+        ${shared ? '<button class="small" id="useShared">Volver a los predeterminados</button>' : ''}
+        ${ghConnected() ? '<button class="small primary" id="saveShared">Guardar mis ajustes como predeterminados para todos</button>' : ''}
+      </div>
+    </div>` : ''}
+    <div class="card">
+      <h2>💾 Copia de seguridad</h2>
+      <p class="help">Guarda en un archivo tu progreso, estadísticas, marcadas, ajustes y tema, para no perderlos o pasarlos a otro móvil. (No incluye el token de GitHub.)</p>
+      <div class="row">
+        <button id="exportBk">⬇ Exportar copia</button>
+        <label class="filebtn">⬆ Importar copia<input type="file" id="importBk" accept=".json,application/json" hidden></label>
+      </div>
+    </div>`;
+
+  $('home').onclick = () => showHome();
+  const num = (id, min = 0) => Math.max(min, +$(id).value || 0);
+  $('penaltyOn').onchange = e => { saveSettings({ penaltyOn: e.target.checked }); $('penRow').hidden = !e.target.checked; };
+  $('penSel').onchange = e => {
+    const v = PENALTIES.find(([, t]) => t === e.target.value)?.[0];
+    $('penCustom').hidden = v !== undefined;
+    if (v !== undefined) saveSettings({ penalty: v });
+  };
+  $('penCustom').onchange = () => saveSettings({ penalty: num('penCustom') });
+  $('simNombre').onchange = e => saveSettings({ simNombre: e.target.value.trim() || 'Simulacro' });
+  $('simPreguntas').onchange = () => saveSettings({ simPreguntas: num('simPreguntas', 1) });
+  $('simMinutos').onchange = () => saveSettings({ simMinutos: num('simMinutos') });
+  $('simCorte').onchange = () => saveSettings({ simCorte: Math.min(10, num('simCorte')) });
+  $('examDate').onchange = e => saveSettings({ examDate: e.target.value });
+  $('dailyGoal').onchange = () => saveSettings({ dailyGoal: num('dailyGoal') });
+  $('srsSize').onchange = () => saveSettings({ srsSize: num('srsSize', 1) });
+  $('pomoOn').onchange = e => { saveSettings({ pomoOn: e.target.checked }); $('pomoRows').hidden = !e.target.checked; renderPomo(); };
+  $('pomoWork').onchange = () => { saveSettings({ pomoWork: num('pomoWork', 1) }); renderPomo(); };
+  $('pomoBreak').onchange = () => { saveSettings({ pomoBreak: num('pomoBreak', 1) }); renderPomo(); };
+  $('water').onchange = e => saveSettings({ water: e.target.checked });
+  if ($('useShared')) $('useShared').onclick = () => {
+    const l = load(K.settings, {});
+    SHARED.forEach(k => delete l[k]);
+    save(K.settings, l);
+    showSettings();
+  };
+  if ($('saveShared')) $('saveShared').onclick = () => {
+    if (!confirm('La penalización, el simulacro, la fecha del examen y el objetivo diario de este dispositivo pasarán a ser los predeterminados para todos. ¿Continuar?')) return;
+    set.ajustes = pick(getSettings(), SHARED);
+    persistEdit('Actualizar ajustes predeterminados');
+    alert('Guardado. Le llegará a todo el mundo en unos minutos (salvo los ajustes que cada uno haya cambiado en su dispositivo).');
+    showSettings();
+  };
+  $('exportBk').onclick = exportBackup;
+  $('importBk').onchange = e => e.target.files[0] && importBackup(e.target.files[0]);
+}
+
+function exportBackup() {
+  const data = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k.startsWith('quiz.') && k !== K.gh) data[k] = localStorage.getItem(k);
+  }
+  const blob = new Blob([JSON.stringify({ app: 'test-preguntas', version: 1, fecha: new Date().toISOString(), data })], { type: 'application/json' });
+  downloadBlob(blob, `copia-tests-${todayKey()}.json`);
+}
+
+function importBackup(file) {
+  file.text().then(t => {
+    const b = JSON.parse(t);
+    if (b.app !== 'test-preguntas' || !b.data) throw new Error('el archivo no es una copia de seguridad de esta app.');
+    if (!confirm(`Copia del ${new Date(b.fecha).toLocaleString('es-ES')}. Se sustituirá el progreso de este dispositivo. ¿Continuar?`)) return;
+    Object.keys(localStorage).filter(k => k.startsWith('quiz.') && k !== K.gh).forEach(k => localStorage.removeItem(k));
+    for (const [k, v] of Object.entries(b.data)) if (k.startsWith('quiz.') && k !== K.gh) localStorage.setItem(k, v);
+    location.reload();
+  }).catch(e => alert('No se pudo importar: ' + e.message));
+}
+
 // ---------- GitHub: guardar las preguntas directamente en el repositorio ----------
-const K_GH = 'quiz.github';
 let ghSha = null;                 // versión de preguntas.json en GitHub sobre la que estamos editando
 let ghStatus = null;              // { type: 'ok' | 'busy' | 'error' | 'conflict' | 'pending', text, retry? }
 let ghQueue = Promise.resolve();  // los guardados van en fila para no pisarse
-const ghConfig = () => load(K_GH, null);
+const ghConfig = () => load(K.gh, null);
 const ghConnected = () => !!ghConfig()?.token;
 
 function defaultRepo() {
@@ -676,7 +1095,7 @@ async function ghPull(cfg) {
 async function ghPush(message, force = false) {
   if (force) ghSha = (await ghApi('GET')).sha;
   if (!ghSha) throw Object.assign(new Error('conflicto'), { status: 409 });
-  const content = b64encode(JSON.stringify({ titulo: set.titulo, preguntas: set.preguntas }, null, 2) + '\n');
+  const content = b64encode(JSON.stringify(setToJSON(), null, 2) + '\n');
   const d = await ghApi('PUT', { message, content, sha: ghSha });
   ghSha = d.content.sha;
   set.origen = 'servidor';
@@ -758,7 +1177,7 @@ function ghCardHTML() {
 function bindGhCard() {
   if ($('ghDisconnect')) $('ghDisconnect').onclick = () => {
     if (!confirm('Este dispositivo dejará de guardar en GitHub y se borrará el token. ¿Continuar?')) return;
-    localStorage.removeItem(K_GH); ghStatus = null; ghSha = null; showEditor();
+    localStorage.removeItem(K.gh); ghStatus = null; ghSha = null; showEditor();
   };
   if ($('ghConnect')) $('ghConnect').onclick = async () => {
     const cfg = { repo: $('ghRepo').value.trim(), token: $('ghToken').value.trim() };
@@ -767,7 +1186,7 @@ function bindGhCard() {
     $('ghErr').textContent = 'Comprobando…';
     try {
       await ghApi('GET', null, cfg);
-      save(K_GH, cfg);
+      save(K.gh, cfg);
       openEditor();
     } catch (e) {
       $('ghErr').textContent = e.status ? e.message : 'No se pudo conectar con GitHub.';
@@ -784,12 +1203,7 @@ function persistEdit(message) {
   publish(message);
 }
 
-function downloadJSON() {
-  const blob = new Blob([JSON.stringify({ titulo: set.titulo, preguntas: set.preguntas }, null, 2)], { type: 'application/json' });
-  const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'preguntas.json' });
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-}
+const downloadJSON = () => downloadBlob(new Blob([JSON.stringify(setToJSON(), null, 2)], { type: 'application/json' }), 'preguntas.json');
 
 // Entrar al editor: si hay GitHub conectado, parte siempre de la última versión de GitHub
 async function openEditor(forcePull = false) {
@@ -816,7 +1230,7 @@ function showEditor(filter = '') {
   const marks = load(K.marks, {});
   const f = filter.toLowerCase();
   const items = set.preguntas.map((q, i) => ({ q, i }))
-    .filter(({ q }) => !f || q.pregunta.toLowerCase().includes(f) || (q.tema || '').toLowerCase().includes(f) || (f === '★' && marks[keyOf(q)]));
+    .filter(({ q }) => !f || (f === '★' ? marks[keyOf(q)] : [q.pregunta, q.tema, q.bloque, q.referencia].some(v => (v || '').toLowerCase().includes(f))));
   const busy = ghStatus?.type === 'busy' && !ghSha;
 
   app.innerHTML = `
@@ -857,8 +1271,8 @@ function showEditor(filter = '') {
 }
 
 function showEditForm(idx) {
-  const q = idx >= 0 ? set.preguntas[idx] : { pregunta: '', opciones: ['', '', '', ''], correcta: 0, explicacion: '', tema: '' };
-  const temas = [...new Set(set.preguntas.map(p => p.tema).filter(Boolean))];
+  const q = idx >= 0 ? set.preguntas[idx] : { pregunta: '', opciones: ['', '', '', ''], correcta: 0 };
+  const list = (field) => uniq(set.preguntas.map(p => p[field])).sort(natCmp).map(t => `<option value="${esc(t)}">`).join('');
   let opciones = [...q.opciones];
 
   app.innerHTML = `
@@ -871,9 +1285,14 @@ function showEditForm(idx) {
       <button class="small" id="addOpt">+ Opción</button>
       <p class="muted" style="margin-bottom:0">Explicación</p>
       <textarea id="fExplicacion" rows="3">${esc(q.explicacion)}</textarea>
-      <p class="muted" style="margin-bottom:0">Tema (opcional)</p>
+      <p class="muted" style="margin-bottom:0">Referencia legal (opcional, p. ej. «Art. 14 CE»)</p>
+      <input type="text" id="fReferencia" class="full" value="${esc(q.referencia)}">
+      <p class="muted" style="margin-bottom:0">Bloque (opcional, p. ej. «Bloque I»)</p>
+      <input type="text" id="fBloque" class="full" list="bloquesList" value="${esc(q.bloque)}">
+      <datalist id="bloquesList">${list('bloque')}</datalist>
+      <p class="muted" style="margin-bottom:0">Tema (opcional, p. ej. «Tema 3. La Constitución»)</p>
       <input type="text" id="fTema" class="full" list="temasList" value="${esc(q.tema)}">
-      <datalist id="temasList">${temas.map(t => `<option value="${esc(t)}">`).join('')}</datalist>
+      <datalist id="temasList">${list('tema')}</datalist>
       <p class="error" id="fError"></p>
       <div class="row between">
         <div class="row"><button class="primary" id="saveQ">Guardar</button><button id="cancel">Cancelar</button></div>
@@ -909,19 +1328,15 @@ function showEditForm(idx) {
   };
   $('saveQ').onclick = () => {
     const nq = { pregunta: $('fPregunta').value.trim(), opciones: opciones.map(o => o.trim()), correcta };
-    const exp = $('fExplicacion').value.trim(), tema = $('fTema').value.trim();
-    if (exp) nq.explicacion = exp;
-    if (tema) nq.tema = tema;
+    for (const [field, id] of [['explicacion', 'fExplicacion'], ['referencia', 'fReferencia'], ['bloque', 'fBloque'], ['tema', 'fTema']]) {
+      const v = $(id).value.trim();
+      if (v) nq[field] = v;
+    }
     if (!nq.pregunta) return $('fError').textContent = 'Escribe la pregunta.';
     if (nq.opciones.some(o => !o)) return $('fError').textContent = 'Rellena todas las opciones (o quita las que sobren).';
     if (set.preguntas.some((p, k) => k !== idx && p.pregunta === nq.pregunta)) return $('fError').textContent = 'Ya existe una pregunta con ese mismo texto.';
     if (idx >= 0) {
-      // Si cambia el texto, conservar estadísticas y marca
-      const oldKey = keyOf(set.preguntas[idx]), newKey = keyOf(nq);
-      if (oldKey !== newKey) for (const k of [K.stats, K.marks]) {
-        const m = load(k, {});
-        if (oldKey in m) { m[newKey] = m[oldKey]; delete m[oldKey]; save(k, m); }
-      }
+      migrateKey(keyOf(set.preguntas[idx]), keyOf(nq)); // conservar estadísticas, marca y repaso
       set.preguntas[idx] = nq;
     } else set.preguntas.push(nq);
     persistEdit((idx >= 0 ? 'Editar pregunta: ' : 'Añadir pregunta: ') + nq.pregunta.slice(0, 60));
@@ -950,11 +1365,10 @@ const THEMES = {
   menta:     { name: 'Menta',     light: ['#e3f9f0', '#0ca678', '#1098ad', '#d3f9e8'], dark: ['#0f1d18', '#38d9a9', '#3bc9db', '#133a2e'] },
   melocoton: { name: 'Melocotón', light: ['#ffeedd', '#f76707', '#f03e3e', '#ffe8cc'], dark: ['#22160e', '#ffa94d', '#ff8787', '#43291a'] },
 };
-const K_THEME = 'quiz.theme', K_PHOTO = 'quiz.photo';
 const DEFAULT_THEME = { color: 'rosa', customBg: null, photo: 'gato', photoOp: 45 };
-const getTheme = () => ({ ...DEFAULT_THEME, ...load(K_THEME, {}) });
+const getTheme = () => ({ ...DEFAULT_THEME, ...load(K.theme, {}) });
 const darkMQ = matchMedia('(prefers-color-scheme: dark)');
-const myPhoto = () => { try { return localStorage.getItem(K_PHOTO); } catch { return null; } };
+const myPhoto = () => { try { return localStorage.getItem(K.photo); } catch { return null; } };
 
 function applyTheme() {
   const t = getTheme(), dark = darkMQ.matches, root = document.documentElement.style;
@@ -971,7 +1385,7 @@ function applyTheme() {
   document.body.classList.toggle('has-photo', !!src);
   document.querySelectorAll('meta[name=theme-color]').forEach(m => m.content = finalBg);
 }
-function saveTheme(patch) { save(K_THEME, { ...getTheme(), ...patch }); applyTheme(); }
+function saveTheme(patch) { save(K.theme, { ...getTheme(), ...patch }); applyTheme(); }
 darkMQ.addEventListener?.('change', applyTheme);
 
 // Reduce la foto antes de guardarla (localStorage tiene ~5 MB)
@@ -1037,16 +1451,97 @@ function showTheme() {
     if (!file.files[0]) return;
     try {
       const data = await resizeImage(file.files[0]);
-      try { localStorage.setItem(K_PHOTO, data); } catch { throw new Error('La foto es demasiado grande para guardarla. Prueba con otra.'); }
+      try { localStorage.setItem(K.photo, data); } catch { throw new Error('La foto es demasiado grande para guardarla. Prueba con otra.'); }
       saveTheme({ photo: 'mia' }); showTheme();
     } catch (e) { $('photoErr').textContent = e.message; }
   };
   $('op').oninput = e => { $('opVal').textContent = e.target.value + '%'; saveTheme({ photoOp: +e.target.value }); };
-  $('resetTheme').onclick = () => { localStorage.removeItem(K_THEME); applyTheme(); showTheme(); };
+  $('resetTheme').onclick = () => { localStorage.removeItem(K.theme); applyTheme(); showTheme(); };
 }
+
+// ---------- Avisos (agua, pomodoro) ----------
+function showToast(icon, title, text, kind = '') {
+  let box = $('toasts');
+  if (!box) { box = Object.assign(document.createElement('div'), { id: 'toasts' }); document.body.appendChild(box); }
+  const t = document.createElement('div');
+  t.className = 'toast ' + kind;
+  t.setAttribute('role', 'status');
+  t.innerHTML = `<span class="ico">${icon}</span><div class="msg"><b>${esc(title)}</b><div class="muted">${esc(text)}</div></div><button class="small">Vale</button>`;
+  t.querySelector('button').onclick = () => t.remove();
+  box.appendChild(t);
+  navigator.vibrate?.(200);
+}
+
+// Agua: cada 20 min de uso (solo cuenta con la app visible y el aviso cerrado)
+const WATER_EVERY = 20 * 60;
+let waterSecs = load(K.water, 0);
+function waterTick() {
+  if (!getSettings().water || document.querySelector('.toast.water')) return;
+  waterSecs++;
+  if (waterSecs % 5 === 0) save(K.water, waterSecs);
+  if (waterSecs >= WATER_EVERY) {
+    waterSecs = 0; save(K.water, 0);
+    showToast('💧', '¡Hora de beber agua!', 'Llevas 20 minutos estudiando. Hidrátate un poco.', 'water');
+  }
+}
+
+// Pomodoro: el tiempo se calcula con la hora de fin, así sigue contando aunque cierres la app
+const getPomo = () => load(K.pomo, { phase: 'work', running: false, endsAt: 0, remaining: null });
+const pomoDur = phase => (phase === 'work' ? getSettings().pomoWork : getSettings().pomoBreak) * 60;
+const pomoLeft = p => p.running ? Math.max(0, Math.round((p.endsAt - Date.now()) / 1000)) : (p.remaining ?? pomoDur(p.phase));
+
+function renderPomo() {
+  let el = $('pomo');
+  if (!getSettings().pomoOn) { el?.remove(); $('pomoPanel')?.remove(); return; }
+  if (!el) {
+    el = Object.assign(document.createElement('button'), { id: 'pomo', className: 'pomo-pill', title: 'Pomodoro' });
+    el.onclick = togglePomoPanel;
+    document.body.appendChild(el);
+  }
+  const p = getPomo();
+  el.textContent = `${p.phase === 'work' ? '🍅' : '☕'} ${fmtTime(pomoLeft(p))}${p.running ? '' : ' ⏸'}`;
+  el.classList.toggle('break', p.phase === 'break');
+}
+
+function pomoTick() {
+  if (!getSettings().pomoOn) return;
+  const p = getPomo();
+  if (p.running && Date.now() >= p.endsAt) {
+    const next = p.phase === 'work' ? 'break' : 'work', s = getSettings();
+    save(K.pomo, { phase: next, running: true, endsAt: Date.now() + pomoDur(next) * 1000, remaining: null });
+    if (next === 'break') showToast('☕', '¡Descanso!', `Tómate ${s.pomoBreak} minutos: levántate y estira.`, 'pomo');
+    else showToast('🍅', '¡A estudiar!', `Empieza un bloque de ${s.pomoWork} minutos.`, 'pomo');
+  }
+  renderPomo();
+}
+
+function togglePomoPanel() {
+  if ($('pomoPanel')) return $('pomoPanel').remove();
+  const p = getPomo(), panel = Object.assign(document.createElement('div'), { id: 'pomoPanel', className: 'pomo-panel' });
+  panel.innerHTML = `<b>${p.phase === 'work' ? '🍅 Estudio' : '☕ Descanso'}</b>
+    <div class="row"><button class="small primary" data-a="toggle">${p.running ? '⏸ Pausar' : '▶ Iniciar'}</button>
+    <button class="small" data-a="reset">↺ Reiniciar</button><button class="small" data-a="skip">⏭ Saltar</button></div>`;
+  panel.onclick = e => {
+    const a = e.target.closest('button')?.dataset.a;
+    if (!a) return;
+    const p = getPomo();
+    if (a === 'toggle') save(K.pomo, p.running ? { ...p, running: false, remaining: pomoLeft(p) } : { ...p, running: true, endsAt: Date.now() + pomoLeft(p) * 1000 });
+    if (a === 'reset') save(K.pomo, { phase: 'work', running: false, endsAt: 0, remaining: null });
+    if (a === 'skip') { const next = p.phase === 'work' ? 'break' : 'work'; save(K.pomo, { phase: next, running: p.running, endsAt: Date.now() + pomoDur(next) * 1000, remaining: null }); }
+    panel.remove();
+    renderPomo();
+  };
+  document.body.appendChild(panel);
+}
+
+setInterval(() => {
+  pomoTick();
+  if (document.visibilityState === 'visible') waterTick();
+}, 1000);
 
 // ---------- Arranque ----------
 applyTheme();
+renderPomo();
 // Si hay preguntas.json junto al HTML (p. ej. GitHub Pages) y no has cargado otro archivo
 // ni editado en la app, se usa siempre la última versión del servidor.
 const saved = load(K.set, null);
@@ -1058,26 +1553,6 @@ fetchServerSet()
   })
   .catch(() => { set = saved; })
   .finally(() => showHome());
-
-// ---------- Recordatorio de agua: cada 20 min de uso (solo cuenta con la app visible) ----------
-const WATER_EVERY = 20 * 60, K_WATER = 'quiz.waterSecs';
-let waterSecs = load(K_WATER, 0);
-setInterval(() => {
-  if (document.visibilityState !== 'visible' || document.querySelector('.toast')) return;
-  waterSecs++;
-  if (waterSecs % 5 === 0) save(K_WATER, waterSecs);
-  if (waterSecs >= WATER_EVERY) { waterSecs = 0; save(K_WATER, 0); showWaterToast(); }
-}, 1000);
-
-function showWaterToast() {
-  const t = document.createElement('div');
-  t.className = 'toast';
-  t.setAttribute('role', 'status');
-  t.innerHTML = `<span class="ico">💧</span><div class="msg"><b>¡Hora de beber agua!</b><div class="muted">Llevas 20 minutos estudiando. Hidrátate un poco.</div></div><button class="small">Hecho</button>`;
-  t.querySelector('button').onclick = () => t.remove();
-  document.body.appendChild(t);
-  if (navigator.vibrate) navigator.vibrate(200);
-}
 
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   const hadController = !!navigator.serviceWorker.controller;

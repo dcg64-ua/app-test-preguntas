@@ -7,19 +7,37 @@ App de tests tipo test en el navegador: un solo `index.html`, sin servidor ni ba
 ```json
 {
   "titulo": "Mi test",
+  "ajustes": { "penaltyOn": true, "penalty": 0.3333, "simPreguntas": 100, "simMinutos": 90, "simCorte": 5 },
   "preguntas": [
     {
       "pregunta": "Texto de la pregunta",
       "opciones": ["A", "B", "C", "D"],
       "correcta": 2,
       "explicacion": "Por qué la respuesta es C",
-      "tema": "Opcional"
+      "referencia": "Art. 14 CE",
+      "bloque": "Bloque I",
+      "tema": "Tema 3. La Constitución"
     }
   ]
 }
 ```
 
-`correcta` es la posición empezando en 0 (0 = primera opción).
+- `correcta` es la posición empezando en 0 (0 = primera opción).
+- `explicacion`, `referencia`, `bloque` y `tema` son opcionales.
+- `ajustes` (opcional) son los valores por defecto para todos: penalización, simulacro (`simNombre`, `simPreguntas`,
+  `simMinutos`, `simCorte`), `examDate` (`"2027-03-01"`) y `dailyGoal`. Cada uno puede cambiarlos en ⚙️ Ajustes en su
+  dispositivo. Con GitHub conectado se guardan desde la app (⚙️ Ajustes → "Guardar mis ajustes como predeterminados").
+
+## Funciones para estudiar
+
+- **Práctica / Examen / Simulacro** con temporizador, penalización configurable (−1/2, −1/3, −1/4, −1/5 u otra) y nota sobre 10.
+  El simulacro dice APTO / NO APTO según la nota de corte.
+- **🤔 Dudosas:** márcalas al responder; al final te dice si te compensó arriesgar con tu penalización.
+- **🧠 Repaso inteligente** (repetición espaciada): las falladas vuelven pronto y las acertadas cada 1, 3, 7, 16 y 35 días.
+- **Progreso:** nota media, racha, calendario de actividad, evolución de la nota, acierto en dudosas y dominio por bloque y tema.
+- **Objetivos:** cuenta atrás al examen y objetivo diario de preguntas.
+- **Bienestar:** pomodoro configurable y recordatorio de agua cada 20 min.
+- **💾 Copia de seguridad:** exporta e importa todo el progreso (⚙️ Ajustes).
 
 ## Usarla
 
