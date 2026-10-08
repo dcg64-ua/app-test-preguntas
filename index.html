@@ -478,6 +478,7 @@ function showHome(error) {
         <p style="margin-top:0">Arrastra aquí tu archivo <b>.json</b> o</p>
         <label class="filebtn">📂 Elegir archivo<input type="file" id="file" accept=".json,application/json" hidden></label>
       </div>
+      <p class="help">Esto carga las preguntas solo en este dispositivo. Para que sean las de todos, usa ✏️ Editor → 📥 Importar JSON.</p>
       <details style="margin-top:12px"><summary class="muted">…o pega el JSON</summary>
         <textarea id="paste" rows="8" style="margin-top:8px;font-family:monospace"></textarea>
         <button id="pasteBtn">Cargar</button>
@@ -1288,9 +1289,15 @@ function showEditor(filter = '') {
       <input type="text" id="titulo" class="full" value="${esc(set.titulo)}" ${busy ? 'disabled' : ''}>
       <div class="row" style="margin-top:12px">
         <button class="primary" id="add" ${busy ? 'disabled' : ''}>+ Nueva pregunta</button>
+        <label class="filebtn" ${busy ? 'style="pointer-events:none;opacity:.45"' : ''}>📥 Importar JSON<input type="file" id="importFile" accept=".json,application/json,text/plain" hidden></label>
         <button id="download">⬇ Descargar JSON</button>
         <button id="newSet" class="danger" ${busy ? 'disabled' : ''}>Vaciar banco</button>
       </div>
+      <details style="margin-top:12px"><summary class="muted">…o pega aquí el JSON con muchas preguntas</summary>
+        <textarea id="importPaste" rows="8" style="margin-top:8px;font-family:monospace" placeholder='{ "titulo": "…", "preguntas": [ { "pregunta": "…", "opciones": ["A","B","C","D"], "correcta": 0 } ] }'></textarea>
+        <button id="importPasteBtn" ${busy ? 'disabled' : ''}>Revisar e importar</button>
+      </details>
+      <div id="importPreview"></div>
       ${set.origen === 'editado' && !ghConnected() ? '<p class="muted">Los cambios se guardan solo en este dispositivo. Conecta GitHub (abajo) para que se guarden para todos.</p>' : ''}
     </div>
     <div class="card">
@@ -1306,6 +1313,12 @@ function showEditor(filter = '') {
   $('titulo').onchange = e => { set.titulo = e.target.value.trim() || 'Test'; persistEdit('Cambiar título: ' + set.titulo); };
   $('add').onclick = () => showEditForm(-1);
   $('download').onclick = downloadJSON;
+  $('importFile').onchange = e => {
+    const file = e.target.files[0];
+    if (file) file.text().then(previewImport).catch(err => previewImport(null, err));
+    e.target.value = '';
+  };
+  $('importPasteBtn').onclick = () => previewImport($('importPaste').value);
   $('newSet').onclick = () => {
     if (!confirm(`Se borrarán TODAS las preguntas${ghConnected() ? ', también en GitHub' : ''}. ¿Continuar?`)) return;
     set.preguntas = []; persistEdit('Vaciar banco de preguntas'); showEditor();
@@ -1315,6 +1328,49 @@ function showEditor(filter = '') {
   app.querySelectorAll('.qitem').forEach(b => b.onclick = () => showEditForm(+b.dataset.i));
   bindGhStatus();
   bindGhCard();
+}
+
+// Importar un JSON entero en el editor: añadir las nuevas o sustituirlo todo (y guardarlo en GitHub si está conectado)
+function previewImport(text, readErr) {
+  const box = $('importPreview');
+  let data;
+  try {
+    if (readErr) throw readErr;
+    data = parseSet(JSON.parse(text));
+    if (!data.preguntas.length) throw new Error('no tiene ninguna pregunta.');
+  } catch (e) {
+    box.innerHTML = `<div class="ghstatus error" style="margin:12px 0 0">No se puede importar: ${esc(e instanceof SyntaxError ? 'el texto no es un JSON válido (' + e.message + ')' : e.message)}</div>`;
+    return;
+  }
+  const existing = new Set(set.preguntas.map(keyOf));
+  const nuevas = data.preguntas.filter(q => !existing.has(keyOf(q)));
+  const repetidas = data.preguntas.length - nuevas.length;
+  const dest = ghConnected() ? ' y se guardará en GitHub' : '';
+  box.innerHTML = `
+    <div class="ghstatus" style="margin:12px 0 0">
+      <b>${data.preguntas.length} preguntas</b> en el archivo${data.titulo && data.titulo !== 'Test' ? ` («${esc(data.titulo)}»)` : ''}:
+      ${nuevas.length} nuevas${repetidas ? ` y ${repetidas} que ya tienes (mismo texto)` : ''}.
+      <div class="row" style="margin-top:8px">
+        <button class="small primary" id="impAdd" ${nuevas.length ? '' : 'disabled'}>Añadir las ${nuevas.length} nuevas</button>
+        <button class="small danger" id="impReplace">Sustituir todo (${set.preguntas.length} → ${data.preguntas.length})</button>
+        <button class="small" id="impCancel">Cancelar</button>
+      </div>
+      <p class="help" style="margin-bottom:0">«Añadir» conserva tus preguntas actuales. «Sustituir» deja solo las del archivo${dest}.</p>
+    </div>`;
+  $('impCancel').onclick = () => box.innerHTML = '';
+  $('impAdd').onclick = () => {
+    set.preguntas.push(...nuevas);
+    persistEdit(`Importar ${nuevas.length} preguntas`);
+    showEditor();
+  };
+  $('impReplace').onclick = () => {
+    if (!confirm(`Se sustituirán las ${set.preguntas.length} preguntas actuales por las ${data.preguntas.length} del archivo${dest}. ¿Continuar?`)) return;
+    set.preguntas = data.preguntas;
+    if (data.titulo && data.titulo !== 'Test') set.titulo = data.titulo;
+    if (data.ajustes) set.ajustes = data.ajustes;
+    persistEdit(`Sustituir banco por ${data.preguntas.length} preguntas importadas`);
+    showEditor();
+  };
 }
 
 function showEditForm(idx) {
