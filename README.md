@@ -29,6 +29,13 @@ App de tests tipo test en el navegador: un solo `index.html`, sin servidor ni ba
 Todo lo tuyo (estadísticas, historial, marcadas ★, test a medias, cambios del editor) se guarda en el navegador.
 Cada navegador/dispositivo tiene su propio progreso.
 
+## Personalizar
+
+Botón **🎨 Tema** en el inicio: color (6 temas + fondo a medida), foto de fondo (ninguna, el gatito o una tuya) e intensidad.
+Por defecto: rosa con el gatito. Cada dispositivo guarda su propio tema.
+
+Foto del gatito (`gato.jpg`): [Kitten sleeping](https://commons.wikimedia.org/wiki/File:Kitten_sleeping.jpg), Wikimedia Commons / Pixabay, licencia CC0 (dominio público).
+
 ## Publicar gratis en GitHub Pages
 
 1. Crea un repositorio en GitHub (puede ser público o, con GitHub Pro, privado).

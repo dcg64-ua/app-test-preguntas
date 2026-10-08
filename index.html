@@ -17,7 +17,7 @@
   :root {
     --bg: #f4f6fb; --card: #fff; --text: #1a1f2e; --muted: #6b7385; --border: #e3e7ef; --grid: #edf0f5;
     --accent: #4263eb; --accent-2: #7048e8; --accent-bg: #eef2ff; --on-accent: #fff;
-    --ok: #2b8a3e; --ok-bg: #ebfbee; --ko: #d6336c; --ko-bg: #fff0f6; --star: #f59f00; --water: #1c7ed6; --water-bg: #e7f5ff;
+    --ok: #2b8a3e; --ok-bg: #ebfbee; --ko: #e03131; --ko-bg: #fff5f5; --star: #f59f00; --water: #1c7ed6; --water-bg: #e7f5ff;
     --shadow: 0 1px 2px rgba(20, 30, 60, .04), 0 4px 16px rgba(20, 30, 60, .06);
     --radius: 16px;
   }
@@ -25,7 +25,7 @@
     :root {
       --bg: #111318; --card: #1b1e26; --text: #e8eaf0; --muted: #9aa2b1; --border: #2a2f3a; --grid: #242833;
       --accent: #748ffc; --accent-2: #9775fa; --accent-bg: #222a48; --on-accent: #0f1220;
-      --ok: #69db7c; --ok-bg: #15301e; --ko: #f783ac; --ko-bg: #3a1a28; --star: #fcc419; --water: #4dabf7; --water-bg: #13283d;
+      --ok: #69db7c; --ok-bg: #15301e; --ko: #ff6b6b; --ko-bg: #3a1c1c; --star: #fcc419; --water: #4dabf7; --water-bg: #13283d;
       --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 4px 16px rgba(0, 0, 0, .25);
     }
   }
@@ -85,6 +85,7 @@
   .sep { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
 
   .topbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .topbar > div:first-child { background: color-mix(in srgb, var(--card) 80%, transparent); padding: 4px 10px; border-radius: 99px; }
   .progress { height: 8px; background: var(--grid); border-radius: 99px; overflow: hidden; margin: 10px 0 16px; }
   .progress > div { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: 99px; transition: width .3s ease; }
   .q { font-size: 1.2rem; font-weight: 650; line-height: 1.45; margin: 2px 0 18px; white-space: pre-wrap; }
@@ -152,6 +153,30 @@
   .toast .ico { font-size: 1.8rem; animation: bob 1.6s ease-in-out infinite; }
   .toast .msg { flex: 1; }
   .toast button { background: var(--water); border-color: transparent; color: #fff; font-weight: 600; }
+
+  /* Foto de fondo (capa fija: funciona también en iOS, donde background-attachment: fixed no) */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background: var(--photo, none) var(--photo-pos, center) / cover no-repeat; opacity: var(--photo-op, 0);
+  }
+  .homenav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+  .homenav button { padding: 10px 6px; font-size: .9rem; white-space: nowrap; box-shadow: var(--shadow); }
+  body.has-photo .card { background: color-mix(in srgb, var(--card) 88%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+  body.has-photo h1 { text-shadow: 0 1px 8px color-mix(in srgb, var(--bg) 80%, transparent); }
+
+  .swatches { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+  .swatch { width: 52px; height: 52px; min-height: 0; padding: 0; border-radius: 50%; border: 3px solid var(--card); box-shadow: 0 0 0 1px var(--border); position: relative; }
+  .swatch.on { box-shadow: 0 0 0 3px var(--accent); }
+  .swatch-label { font-size: .75rem; color: var(--muted); text-align: center; margin-top: 4px; }
+  .photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .photo-tile { aspect-ratio: 1; border-radius: 14px; border: 2px solid var(--border); background: var(--grid) center / cover no-repeat; padding: 0; display: grid; place-items: end center; overflow: hidden; }
+  .photo-tile span { width: 100%; padding: 4px; font-size: .8rem; font-weight: 600; background: color-mix(in srgb, var(--card) 85%, transparent); }
+  .photo-tile.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+  input[type=range] { width: 100%; accent-color: var(--accent); }
+  input[type=color] { width: 52px; height: 52px; border: none; border-radius: 50%; padding: 0; background: none; cursor: pointer; -webkit-appearance: none; appearance: none; }
+  input[type=color]::-webkit-color-swatch-wrapper { padding: 0; }
+  input[type=color]::-webkit-color-swatch { border: 3px solid var(--card); border-radius: 50%; box-shadow: 0 0 0 1px var(--border); }
+  input[type=color]::-moz-color-swatch { border: 3px solid var(--card); border-radius: 50%; }
 
   @keyframes fade { from { opacity: 0; } }
   @keyframes slideup { from { opacity: 0; transform: translateY(6px); } }
@@ -243,8 +268,8 @@ function showHome(error) {
   const origenTxt = { servidor: 'preguntas.json del servidor', archivo: 'archivo cargado', editado: 'editado en la app' }[set?.origen] || '';
 
   app.innerHTML = `
-    <div class="row between"><h1>${set ? esc(set.titulo) : 'Test de preguntas'}</h1>
-      <div class="row"><button id="goStats">📊 Estadísticas</button><button id="goEditor">✏️ Editor</button></div></div>
+    <h1>${set ? esc(set.titulo) : 'Test de preguntas'}</h1>
+    <div class="homenav"><button id="goStats">📊 Progreso</button><button id="goEditor">✏️ Editor</button><button id="goTheme">🎨 Tema</button></div>
     ${error ? `<div class="card error">${esc(error)}</div>` : ''}
     ${saved ? `
     <div class="card notice">
@@ -282,6 +307,7 @@ function showHome(error) {
     </div>`;
 
   $('goStats').onclick = showStats;
+  $('goTheme').onclick = showTheme;
   $('goEditor').onclick = () => {
     if (!set) { set = { titulo: 'Nuevo test', preguntas: [], origen: 'editado' }; save(K.set, set); }
     showEditor();
@@ -732,7 +758,113 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') $('prev')?.click();
 });
 
+// ---------- Temas: color + foto de fondo ----------
+// Cada tema: [fondo, acento, acento 2, fondo de selección] en claro y en oscuro
+const THEMES = {
+  rosa:      { name: 'Rosa',      light: ['#ffe3ee', '#e64980', '#be4bdb', '#ffdeeb'], dark: ['#24121b', '#f783ac', '#e599f7', '#4a1f33'] },
+  lila:      { name: 'Lila',      light: ['#f1e9ff', '#7950f2', '#be4bdb', '#ece2ff'], dark: ['#1b1526', '#9775fa', '#e599f7', '#2f2347'] },
+  azul:      { name: 'Azul',      light: ['#f4f6fb', '#4263eb', '#7048e8', '#eef2ff'], dark: ['#111318', '#748ffc', '#9775fa', '#222a48'] },
+  cielo:     { name: 'Cielo',     light: ['#e3f2fd', '#1c7ed6', '#4263eb', '#d0ebff'], dark: ['#0e1a26', '#4dabf7', '#748ffc', '#163552'] },
+  menta:     { name: 'Menta',     light: ['#e3f9f0', '#0ca678', '#1098ad', '#d3f9e8'], dark: ['#0f1d18', '#38d9a9', '#3bc9db', '#133a2e'] },
+  melocoton: { name: 'Melocotón', light: ['#ffeedd', '#f76707', '#f03e3e', '#ffe8cc'], dark: ['#22160e', '#ffa94d', '#ff8787', '#43291a'] },
+};
+const K_THEME = 'quiz.theme', K_PHOTO = 'quiz.photo';
+const DEFAULT_THEME = { color: 'rosa', customBg: null, photo: 'gato', photoOp: 45 };
+const getTheme = () => ({ ...DEFAULT_THEME, ...load(K_THEME, {}) });
+const darkMQ = matchMedia('(prefers-color-scheme: dark)');
+const myPhoto = () => { try { return localStorage.getItem(K_PHOTO); } catch { return null; } };
+
+function applyTheme() {
+  const t = getTheme(), dark = darkMQ.matches, root = document.documentElement.style;
+  const [bg, accent, accent2, accentBg] = (THEMES[t.color] || THEMES.rosa)[dark ? 'dark' : 'light'];
+  const finalBg = t.customBg && !dark ? t.customBg : bg; // el fondo a medida solo en modo claro
+  root.setProperty('--bg', finalBg);
+  root.setProperty('--accent', accent);
+  root.setProperty('--accent-2', accent2);
+  root.setProperty('--accent-bg', accentBg);
+  const src = t.photo === 'gato' ? 'gato.jpg' : t.photo === 'mia' ? myPhoto() : null;
+  root.setProperty('--photo', src ? `url("${src}")` : 'none');
+  root.setProperty('--photo-pos', t.photo === 'gato' ? '42% 45%' : 'center'); // centra la carita del gatito en vertical
+  root.setProperty('--photo-op', src ? t.photoOp / 100 : 0);
+  document.body.classList.toggle('has-photo', !!src);
+  document.querySelectorAll('meta[name=theme-color]').forEach(m => m.content = finalBg);
+}
+function saveTheme(patch) { save(K_THEME, { ...getTheme(), ...patch }); applyTheme(); }
+darkMQ.addEventListener?.('change', applyTheme);
+
+// Reduce la foto antes de guardarla (localStorage tiene ~5 MB)
+function resizeImage(file, max = 1600) {
+  return new Promise((resolve, reject) => {
+    const img = new Image(), url = URL.createObjectURL(file);
+    img.onload = () => {
+      const s = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement('canvas');
+      c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      resolve(c.toDataURL('image/jpeg', 0.8));
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('No se pudo leer la imagen.')); };
+    img.src = url;
+  });
+}
+
+function showTheme() {
+  stopTimer();
+  const t = getTheme(), mine = myPhoto();
+  app.innerHTML = `
+    <div class="row between"><h1>Personalizar</h1><button id="home">← Inicio</button></div>
+    <div class="card">
+      <h2>Color</h2>
+      <div class="swatches">${Object.entries(THEMES).map(([id, th]) => `
+        <div><button class="swatch ${t.color === id ? 'on' : ''}" data-id="${id}" title="${th.name}"
+          style="background:linear-gradient(135deg, ${th.light[0]} 50%, ${th.light[1]} 50%)"></button><div class="swatch-label">${th.name}</div></div>`).join('')}
+        <div><input type="color" id="customBg" value="${t.customBg || THEMES[t.color].light[0]}" title="Elegir color de fondo"><div class="swatch-label">Fondo a medida</div></div>
+      </div>
+      <p class="muted">El tema cambia el fondo y los botones; «Fondo a medida» cambia solo el fondo${t.customBg ? ' (<a href="#" id="clearBg">quitar</a>)' : ''}.
+        En modo oscuro se usa la versión oscura del tema.</p>
+    </div>
+    <div class="card">
+      <h2>Foto de fondo</h2>
+      <div class="photos">
+        <button class="photo-tile ${t.photo === 'none' ? 'on' : ''}" data-photo="none"><span>Ninguna</span></button>
+        <button class="photo-tile ${t.photo === 'gato' ? 'on' : ''}" data-photo="gato" style="background-image:url(gato.jpg)"><span>Gatito</span></button>
+        <button class="photo-tile ${t.photo === 'mia' ? 'on' : ''}" data-photo="mia" ${mine ? `style="background-image:url('${mine}')"` : ''}><span>${mine ? 'Mi foto' : '📷 Subir foto'}</span></button>
+      </div>
+      <input type="file" id="photoFile" accept="image/*" hidden>
+      ${mine ? '<p><button class="small" id="changePhoto">📷 Cambiar mi foto</button></p>' : ''}
+      <p class="error" id="photoErr"></p>
+      <label class="muted" for="op">Intensidad de la foto: <b id="opVal">${t.photoOp}%</b></label>
+      <input type="range" id="op" min="10" max="100" step="5" value="${t.photoOp}" ${t.photo === 'none' ? 'disabled' : ''}>
+    </div>
+    <div class="card"><button id="resetTheme">↺ Restablecer (rosa con gatito)</button></div>`;
+
+  $('home').onclick = () => showHome();
+  app.querySelectorAll('.swatch').forEach(b => b.onclick = () => { saveTheme({ color: b.dataset.id, customBg: null }); showTheme(); });
+  $('customBg').oninput = e => saveTheme({ customBg: e.target.value });
+  $('customBg').onchange = () => showTheme();
+  if ($('clearBg')) $('clearBg').onclick = e => { e.preventDefault(); saveTheme({ customBg: null }); showTheme(); };
+
+  const file = $('photoFile');
+  app.querySelectorAll('.photo-tile').forEach(b => b.onclick = () => {
+    if (b.dataset.photo === 'mia' && !mine) return file.click();
+    saveTheme({ photo: b.dataset.photo }); showTheme();
+  });
+  if ($('changePhoto')) $('changePhoto').onclick = () => file.click();
+  file.onchange = async () => {
+    if (!file.files[0]) return;
+    try {
+      const data = await resizeImage(file.files[0]);
+      try { localStorage.setItem(K_PHOTO, data); } catch { throw new Error('La foto es demasiado grande para guardarla. Prueba con otra.'); }
+      saveTheme({ photo: 'mia' }); showTheme();
+    } catch (e) { $('photoErr').textContent = e.message; }
+  };
+  $('op').oninput = e => { $('opVal').textContent = e.target.value + '%'; saveTheme({ photoOp: +e.target.value }); };
+  $('resetTheme').onclick = () => { localStorage.removeItem(K_THEME); applyTheme(); showTheme(); };
+}
+
 // ---------- Arranque ----------
+applyTheme();
 // Si hay preguntas.json junto al HTML (p. ej. GitHub Pages) y no has cargado otro archivo
 // ni editado en la app, se usa siempre la última versión del servidor.
 const saved = load(K.set, null);

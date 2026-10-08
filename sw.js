@@ -1,7 +1,7 @@
 // Service worker: red primero (así siempre ves la última versión si hay conexión)
 // y, sin conexión, la copia guardada.
-const CACHE = 'quiz-v1';
-const FILES = ['./', 'index.html', 'preguntas.json', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
+const CACHE = 'quiz-v2';
+const FILES = ['./', 'index.html', 'preguntas.json', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'gato.jpg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
