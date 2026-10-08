@@ -10102,5 +10102,1710 @@
                           "tema":  "Examen oficial UMH 2023 (1ª parte)",
                           "truco":  "biMESTRAL = cada 2 meses · biMENSUAL = 2 veces al mes"
                       }
-                  ]
+                  ],
+    "fichas":  [
+                   {
+                       "anverso":  "Estatutos UMH: norma de aprobación y modificación",
+                       "reverso":  "Aprobados por Decreto 208/2004, de 8 de octubre; modificados por Decreto 105/2012, de 29 de junio.",
+                       "referencia":  "Estatutos UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G1. Estatutos de la Universidad Miguel Hernández"
+                   },
+                   {
+                       "anverso":  "Partes de los Estatutos UMH que entran en el programa",
+                       "reverso":  "Título preliminar; Título I; Título II (Gobierno de la Universidad) caps. I, II y IV; Título III (Comunidad universitaria) caps. II y III; Título VI.",
+                       "referencia":  "Estatutos UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G1. Estatutos de la Universidad Miguel Hernández"
+                   },
+                   {
+                       "anverso":  "Naturaleza de la UMH",
+                       "reverso":  "Universidad pública con personalidad jurídica y patrimonio propios.",
+                       "explicacion":  "La autonomía universitaria permite organizar docencia, investigación, gobierno, personal y recursos dentro del ordenamiento.",
+                       "referencia":  "Estatutos UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G1. Estatutos de la Universidad Miguel Hernández"
+                   },
+                   {
+                       "anverso":  "Rector/a",
+                       "reverso":  "Máxima autoridad académica; dirección, gobierno, gestión y representación institucional.",
+                       "referencia":  "Estatutos UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G1. Estatutos de la Universidad Miguel Hernández"
+                   },
+                   {
+                       "anverso":  "Claustro vs Consejo Social",
+                       "reverso":  "Claustro: órgano de representación de la comunidad universitaria. Consejo Social: participación de la sociedad en la Universidad y conexión universidad-entorno.",
+                       "referencia":  "Estatutos UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G1. Estatutos de la Universidad Miguel Hernández",
+                       "truco":  "Claustro = comunidad; Consejo Social = sociedad; Rector = institución."
+                   },
+                   {
+                       "anverso":  "Consejo de Gobierno",
+                       "reverso":  "Órgano colegiado de gobierno; líneas estratégicas/programáticas y competencias estatutarias.",
+                       "referencia":  "Estatutos UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G1. Estatutos de la Universidad Miguel Hernández"
+                   },
+                   {
+                       "anverso":  "Título VI de los Estatutos UMH",
+                       "reverso":  "Régimen económico: patrimonio, presupuesto, ingresos, gastos, gestión y control (la autonomía también es económica).",
+                       "referencia":  "Estatutos UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G1. Estatutos de la Universidad Miguel Hernández"
+                   },
+                   {
+                       "anverso":  "Plantilla de estudio de cada órgano (4 columnas)",
+                       "reverso":  "Naturaleza/composición; forma de elección o designación; duración cuando proceda; competencias.",
+                       "explicacion":  "Aprobar, proponer, informar, supervisar, elegir, designar y ejecutar no son intercambiables.",
+                       "referencia":  "Estatutos UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G1. Estatutos de la Universidad Miguel Hernández"
+                   },
+                   {
+                       "anverso":  "Ley 39/2015 vs Ley 40/2015",
+                       "reverso":  "39: relaciones externas con las personas y procedimiento administrativo común. 40: régimen jurídico, organización, funcionamiento y relaciones del sector público.",
+                       "referencia":  "Ley 39/2015 y Ley 40/2015",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G2. Leyes 39/2015 y 40/2015",
+                       "truco":  "39 = procedimiento / 40 = régimen jurídico."
+                   },
+                   {
+                       "anverso":  "Delegación vs avocación",
+                       "reverso":  "Delegación: otro órgano ejerce competencias del delegante. Avocación: el superior asume para un asunto concreto el conocimiento que corresponde a un órgano dependiente. En ambas la titularidad no cambia.",
+                       "referencia":  "Ley 40/2015",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G2. Leyes 39/2015 y 40/2015"
+                   },
+                   {
+                       "anverso":  "Encomienda de gestión vs delegación de firma",
+                       "reverso":  "Encomienda: actividades materiales o técnicas; no cede titularidad ni elementos sustantivos. Delegación de firma: solo se delega la firma; no altera la competencia.",
+                       "referencia":  "Ley 40/2015",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G2. Leyes 39/2015 y 40/2015"
+                   },
+                   {
+                       "anverso":  "Suplencia",
+                       "reverso":  "Sustitución temporal del titular del órgano en los supuestos previstos; la titularidad no cambia.",
+                       "referencia":  "Ley 40/2015",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G2. Leyes 39/2015 y 40/2015"
+                   },
+                   {
+                       "anverso":  "Plazos por días (regla general)",
+                       "reverso":  "Si no se dice que son naturales, son hábiles: se excluyen sábados, domingos y festivos. Último día inhábil → primer día hábil siguiente. Meses/años: de fecha a fecha.",
+                       "referencia":  "Ley 39/2015",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G2. Leyes 39/2015 y 40/2015"
+                   },
+                   {
+                       "anverso":  "Recurso de alzada",
+                       "reverso":  "Contra actos que no ponen fin a la vía administrativa; resuelve el superior jerárquico. Acto expreso: 1 mes para interponer; 3 meses para resolver y notificar.",
+                       "referencia":  "Ley 39/2015",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G2. Leyes 39/2015 y 40/2015"
+                   },
+                   {
+                       "anverso":  "Reposición vs extraordinario de revisión",
+                       "reverso":  "Reposición: potestativo, contra actos que ponen fin a la vía administrativa, ante el mismo órgano (acto expreso: 1 mes). Extraordinario de revisión: solo contra actos firmes y por causas tasadas; no es tercera instancia.",
+                       "referencia":  "Ley 39/2015",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G2. Leyes 39/2015 y 40/2015"
+                   },
+                   {
+                       "anverso":  "Nulidad vs anulabilidad",
+                       "reverso":  "Nulidad de pleno derecho: causas especialmente graves y tasadas. Anulabilidad: categoría general para las restantes infracciones del ordenamiento.",
+                       "referencia":  "Ley 39/2015",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G2. Leyes 39/2015 y 40/2015",
+                       "truco":  "No todo acto ilegal es nulo."
+                   },
+                   {
+                       "anverso":  "Fases del procedimiento",
+                       "reverso":  "Iniciación → Ordenación → Instrucción → Terminación → Ejecución.",
+                       "explicacion":  "Instrucción: alegaciones, prueba, informes y audiencia. Terminación: resolución, desistimiento, renuncia, caducidad, imposibilidad material y terminación convencional.",
+                       "referencia":  "Ley 39/2015",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G2. Leyes 39/2015 y 40/2015"
+                   },
+                   {
+                       "anverso":  "Ley 4/2021: títulos incluidos",
+                       "reverso":  "Título I y Títulos III a X. El Título II queda fuera.",
+                       "referencia":  "Ley 4/2021",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G3. Ley 4/2021 de Función Pública Valenciana"
+                   },
+                   {
+                       "anverso":  "Clases de personal: palabras de anclaje",
+                       "reverso":  "Carrera: permanencia + relación estatutaria. Interino: temporalidad + causas justificadas. Laboral: contrato de trabajo. Eventual: confianza/asesoramiento especial.",
+                       "referencia":  "Ley 4/2021",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G3. Ley 4/2021 de Función Pública Valenciana"
+                   },
+                   {
+                       "anverso":  "Carrera horizontal vs vertical vs promoción interna",
+                       "reverso":  "Horizontal: progresión sin cambiar de puesto. Vertical: progresión mediante provisión de puestos de mayor nivel. Promoción interna: acceso a otro cuerpo/escala o subgrupo.",
+                       "referencia":  "Ley 4/2021",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G3. Ley 4/2021 de Función Pública Valenciana"
+                   },
+                   {
+                       "anverso":  "Selección vs provisión",
+                       "reverso":  "El proceso selectivo permite acceder al empleo público; la provisión asigna puestos a quien ya pertenece al sistema (concurso, libre designación con convocatoria pública...).",
+                       "referencia":  "Ley 4/2021",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G3. Ley 4/2021 de Función Pública Valenciana"
+                   },
+                   {
+                       "anverso":  "RPT vs oferta de empleo público",
+                       "reverso":  "RPT: ordena los puestos y recoge sus elementos esenciales. OEP: identifica necesidades con asignación presupuestaria que deben cubrirse con nuevo personal.",
+                       "referencia":  "Ley 4/2021",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G3. Ley 4/2021 de Función Pública Valenciana"
+                   },
+                   {
+                       "anverso":  "Retribuciones básicas vs complementarias",
+                       "reverso":  "Básicas: subgrupo/grupo y antigüedad. Complementarias: progresión, características del puesto, desempeño u otros factores previstos.",
+                       "referencia":  "Ley 4/2021",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G3. Ley 4/2021 de Función Pública Valenciana"
+                   },
+                   {
+                       "anverso":  "Causas de pérdida de la condición de funcionario",
+                       "reverso":  "Causas tasadas, entre ellas: renuncia, pérdida de nacionalidad cuando corresponda, jubilación, separación del servicio firme o inhabilitación.",
+                       "referencia":  "Ley 4/2021",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G3. Ley 4/2021 de Función Pública Valenciana"
+                   },
+                   {
+                       "anverso":  "Situaciones administrativas",
+                       "reverso":  "Servicio activo; servicios especiales (supuestos tasados por determinados cargos); servicio en otras Administraciones; excedencias (varias modalidades); suspensión (privación temporal del ejercicio de funciones).",
+                       "referencia":  "Ley 4/2021",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G3. Ley 4/2021 de Función Pública Valenciana"
+                   },
+                   {
+                       "anverso":  "Aprobación del Reglamento de Administración Electrónica UMH",
+                       "reverso":  "Consejo de Gobierno de 25/05/2016.",
+                       "referencia":  "Reglamento Adm. Electrónica UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G4. Reglamento de Administración Electrónica UMH"
+                   },
+                   {
+                       "anverso":  "Sede electrónica UMH",
+                       "reverso":  "Entorno electrónico de titularidad de la UMH a través del que se ofrecen contenidos, trámites y servicios con garantías. No es la web general.",
+                       "referencia":  "Reglamento Adm. Electrónica UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G4. Reglamento de Administración Electrónica UMH",
+                       "truco":  "Sede ≠ web."
+                   },
+                   {
+                       "anverso":  "Garantías asociadas a la sede electrónica",
+                       "reverso":  "Autenticidad, integridad, actualización, disponibilidad y responsabilidad.",
+                       "referencia":  "Reglamento Adm. Electrónica UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G4. Reglamento de Administración Electrónica UMH"
+                   },
+                   {
+                       "anverso":  "Identificación vs firma",
+                       "reverso":  "Identificación: acredita quién actúa. Firma: añade la manifestación de voluntad/autoría/consentimiento exigida para determinados trámites.",
+                       "referencia":  "Reglamento Adm. Electrónica UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G4. Reglamento de Administración Electrónica UMH"
+                   },
+                   {
+                       "anverso":  "Registro electrónico",
+                       "reverso":  "Permite presentar y recibir solicitudes, escritos y comunicaciones, dejando constancia y justificante; se conecta con fecha/hora oficial y cómputo de plazos de la Ley 39/2015.",
+                       "referencia":  "Reglamento Adm. Electrónica UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G4. Reglamento de Administración Electrónica UMH"
+                   },
+                   {
+                       "anverso":  "Aviso vs notificación electrónica",
+                       "reverso":  "La notificación se vincula a puesta a disposición, acceso y efectos jurídicos con el sistema y garantías previstos; un correo informativo o aviso no equivale por sí solo a notificación.",
+                       "referencia":  "Reglamento Adm. Electrónica UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G4. Reglamento de Administración Electrónica UMH"
+                   },
+                   {
+                       "anverso":  "Garantías del documento y expediente electrónico",
+                       "reverso":  "Autenticidad, integridad, conservación y trazabilidad.",
+                       "referencia":  "Reglamento Adm. Electrónica UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G4. Reglamento de Administración Electrónica UMH"
+                   },
+                   {
+                       "anverso":  "Estructura inicial del Reglamento UMH",
+                       "reverso":  "Título I: disposiciones generales. Título II: comienza con sede electrónica, disponibilidad, titularidad/gestión y accesibilidad.",
+                       "referencia":  "Reglamento Adm. Electrónica UMH",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G4. Reglamento de Administración Electrónica UMH"
+                   },
+                   {
+                       "anverso":  "LO 3/2007: partes incluidas",
+                       "reverso":  "Título preliminar (arts. 1-2), Título I (arts. 3-13) y Título II.",
+                       "referencia":  "LO 3/2007",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G5. LO 3/2007 para la igualdad efectiva de mujeres y hombres"
+                   },
+                   {
+                       "anverso":  "Igualdad de trato",
+                       "reverso":  "Ausencia de discriminación directa o indirecta por razón de sexo.",
+                       "referencia":  "LO 3/2007",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G5. LO 3/2007 para la igualdad efectiva de mujeres y hombres"
+                   },
+                   {
+                       "anverso":  "Discriminación directa vs indirecta",
+                       "reverso":  "Directa: trato menos favorable por razón de sexo respecto de otra persona en situación comparable. Indirecta: disposición, criterio o práctica aparentemente neutros que sitúan a un sexo en desventaja particular, salvo justificación objetiva y medios adecuados y necesarios.",
+                       "referencia":  "LO 3/2007",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G5. LO 3/2007 para la igualdad efectiva de mujeres y hombres"
+                   },
+                   {
+                       "anverso":  "Acoso sexual vs acoso por razón de sexo",
+                       "reverso":  "Acoso sexual: comportamiento de naturaleza sexual que atenta contra la dignidad y crea un entorno intimidatorio, degradante u ofensivo. Acoso por razón de sexo: comportamiento realizado en función del sexo de la persona con ese propósito o efecto.",
+                       "referencia":  "LO 3/2007",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G5. LO 3/2007 para la igualdad efectiva de mujeres y hombres",
+                       "truco":  "Sexual = elemento sexual; por razón de sexo = vinculado al sexo."
+                   },
+                   {
+                       "anverso":  "Embarazo o maternidad",
+                       "reverso":  "El trato desfavorable relacionado con embarazo o maternidad es discriminación directa por razón de sexo.",
+                       "referencia":  "LO 3/2007",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G5. LO 3/2007 para la igualdad efectiva de mujeres y hombres"
+                   },
+                   {
+                       "anverso":  "Acciones positivas",
+                       "reverso":  "Medidas específicas en favor de las mujeres para corregir situaciones patentes de desigualdad de hecho, mientras subsistan; razonables y proporcionadas.",
+                       "referencia":  "LO 3/2007",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G5. LO 3/2007 para la igualdad efectiva de mujeres y hombres"
+                   },
+                   {
+                       "anverso":  "Título II de la LO 3/2007",
+                       "reverso":  "Políticas públicas para la igualdad: transversalidad; los poderes públicos integran el principio de igualdad en su actuación.",
+                       "referencia":  "LO 3/2007",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G5. LO 3/2007 para la igualdad efectiva de mujeres y hombres"
+                   },
+                   {
+                       "anverso":  "Tutela y prueba",
+                       "reverso":  "Tutela frente a la discriminación y reglas específicas de prueba en determinados procedimientos cuando se aportan indicios fundados, con las excepciones legales.",
+                       "referencia":  "LO 3/2007",
+                       "bloque":  "Temario general UMH",
+                       "tema":  "G5. LO 3/2007 para la igualdad efectiva de mujeres y hombres"
+                   },
+                   {
+                       "anverso":  "Biblioteca universitaria: ¿a qué apoya?",
+                       "reverso":  "Aprendizaje, docencia, investigación, transferencia y gestión.",
+                       "explicacion":  "Selecciona, organiza, facilita, difunde y preserva recursos de información y presta servicios a la comunidad universitaria.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                   },
+                   {
+                       "anverso":  "Eje de la evolución de la biblioteca universitaria",
+                       "reverso":  "De la posesión de colecciones al acceso, los usuarios, los servicios y el conocimiento.",
+                       "explicacion":  "Conviven colección impresa, recursos electrónicos, repositorios, datos y servicios remotos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                   },
+                   {
+                       "anverso":  "Modelo centralizado vs descentralizado vs mixto",
+                       "reverso":  "Centralizado: procesos y decisiones concentrados. Descentralizado: más autonomía de bibliotecas de centro/campus. Mixto: coordinación común con puntos de servicio distribuidos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios",
+                       "truco":  "Centralización organizativa ≠ un único punto físico."
+                   },
+                   {
+                       "anverso":  "Factores para elegir el modelo organizativo",
+                       "reverso":  "Tamaño, dispersión de campus, estructura/modelo de universidad y necesidad de coordinación.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                   },
+                   {
+                       "anverso":  "CRAI",
+                       "reverso":  "Centro de Recursos para el Aprendizaje y la Investigación: integración de recursos, servicios, tecnología, apoyo docente/investigador y espacios.",
+                       "explicacion":  "La integración no implica que todos los servicios dependan orgánicamente de la biblioteca.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                   },
+                   {
+                       "anverso":  "Biblioteca híbrida vs biblioteca digital",
+                       "reverso":  "Híbrida: integra recursos físicos y digitales. Digital: no es simplemente una biblioteca física con web.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                   },
+                   {
+                       "anverso":  "Modelo tradicional vs actual (4 pares)",
+                       "reverso":  "Colección → usuario/aprendizaje/investigación; impreso → híbrido/digital; presencial → presencial + remoto; espacios de lectura → espacios flexibles y colaborativos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                   },
+                   {
+                       "anverso":  "Requisitos de los espacios contemporáneos",
+                       "reverso":  "Accesibilidad, ergonomía, señalización, seguridad, conectividad, flexibilidad y zonificación acústica.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                   },
+                   {
+                       "anverso":  "Funciones de la biblioteca universitaria",
+                       "reverso":  "Colecciones; organización y descripción; circulación; referencia; formación/ALFIN; apoyo a investigación y ciencia abierta; preservación; cooperación; comunicación; evaluación; tecnología y espacios.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                   },
+                   {
+                       "anverso":  "Colección vs servicio (glosario)",
+                       "reverso":  "Colección: conjunto de recursos seleccionados para necesidades institucionales. Servicio: actividad organizada para satisfacer necesidades de usuarios.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                   },
+                   {
+                       "anverso":  "DAMA vs RediUMH",
+                       "reverso":  "DAMA: buscador/descubrimiento; localiza y da acceso a recursos físicos y electrónicos. RediUMH: repositorio institucional; deposita, difunde y preserva la producción científica, docente e institucional.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E2. Biblioteca de la UMH",
+                       "truco":  "TRAMPA DE TEST: no confundas DAMA con RediUMH."
+                   },
+                   {
+                       "anverso":  "Alma vs DAMA",
+                       "reverso":  "Alma: plataforma de servicios bibliotecarios. DAMA: interfaz/buscador de descubrimiento para el usuario.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E2. Biblioteca de la UMH"
+                   },
+                   {
+                       "anverso":  "¿A qué sistema sustituyó Alma en la UMH?",
+                       "reverso":  "A Symphony/Unicorn.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E2. Biblioteca de la UMH"
+                   },
+                   {
+                       "anverso":  "Herramienta de descubrimiento asociada a Alma",
+                       "reverso":  "Primo, presentada al usuario mediante DAMA.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E2. Biblioteca de la UMH"
+                   },
+                   {
+                       "anverso":  "Software de RediUMH",
+                       "reverso":  "DSpace (recolectado por servicios externos mediante protocolos de interoperabilidad).",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E2. Biblioteca de la UMH",
+                       "truco":  "DAMA = discovery · Alma = plataforma · RediUMH = repositorio DSpace."
+                   },
+                   {
+                       "anverso":  "Contenidos de RediUMH",
+                       "reverso":  "Tesis, TFG/TFM, objetos docentes, artículos, preprints/postprints, comunicaciones, revistas UMH y documentación institucional.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E2. Biblioteca de la UMH"
+                   },
+                   {
+                       "anverso":  "Organización de la Biblioteca UMH (web, sept. 2026)",
+                       "reverso":  "Cinco puntos de servicio en los cuatro campus, integrados en una única unidad administrativa.",
+                       "explicacion":  "Dato institucional: verificar cerca del examen.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E2. Biblioteca de la UMH"
+                   },
+                   {
+                       "anverso":  "Misión de la Biblioteca UMH",
+                       "reverso":  "Orientar sus recursos e instrumentos documentales al servicio de la comunidad universitaria para enseñanza, docencia e investigación.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E2. Biblioteca de la UMH"
+                   },
+                   {
+                       "anverso":  "Intercampus vs interbibliotecario vs BUVAL",
+                       "reverso":  "Intercampus: movimiento entre puntos UMH. Interbibliotecario: obtención/suministro documental entre bibliotecas. BUVAL: préstamo/servicios del consorcio valenciano.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E2. Biblioteca de la UMH"
+                   },
+                   {
+                       "anverso":  "Uso de recursos-e suscritos en la UMH",
+                       "reverso":  "Lícito, sin descargas masivas y conforme a licencias y normativa; los restringidos requieren identificación institucional, también en acceso remoto.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E2. Biblioteca de la UMH"
+                   },
+                   {
+                       "anverso":  "REBIUN (siglas y ámbito)",
+                       "reverso":  "Red de Bibliotecas Universitarias y Científicas Españolas; ámbito estatal; asociada a CRUE I+D+i.",
+                       "referencia":  "REBIUN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL"
+                   },
+                   {
+                       "anverso":  "Miembros de REBIUN (web 2026)",
+                       "reverso":  "Bibliotecas de las 76 universidades miembros de CRUE y el CSIC.",
+                       "explicacion":  "Dato institucional: verificar cerca del examen.",
+                       "referencia":  "REBIUN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL"
+                   },
+                   {
+                       "anverso":  "BUVAL",
+                       "reverso":  "Consorcio de Bibliotecas Universitarias Valencianas: las cinco universidades públicas valencianas; cooperación y servicios compartidos, incluido el préstamo BUVAL.",
+                       "referencia":  "BUVAL",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL"
+                   },
+                   {
+                       "anverso":  "REBIUN vs BUVAL",
+                       "reverso":  "REBIUN: red estatal universitaria/científica. BUVAL: consorcio autonómico de universidades públicas valencianas.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL",
+                       "truco":  "REBIUN ≠ BUVAL."
+                   },
+                   {
+                       "anverso":  "Líneas del V Plan Estratégico REBIUN 2024-2027",
+                       "reverso":  "1) Transformación digital; 2) ciencia abierta; 3) equipos y capacitación profesional; 4) gobernanza, colaboración e internacionalización.",
+                       "referencia":  "REBIUN – V Plan Estratégico 2024-2027",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL",
+                       "truco":  "Digital – Abierta – Equipos – Gobernanza."
+                   },
+                   {
+                       "anverso":  "Grupos de trabajo permanentes de REBIUN (2026)",
+                       "reverso":  "Ocho: Catálogo Colectivo, Estadísticas, Patrimonio Bibliográfico, Repositorios, Comunicación, Acceso al documento, Propiedad intelectual y Observatorio IA.",
+                       "explicacion":  "Además existe el GT del Plan Estratégico, cuya permanencia se valora.",
+                       "referencia":  "REBIUN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL"
+                   },
+                   {
+                       "anverso":  "Subgrupos RDA y Libro Antiguo (REBIUN)",
+                       "reverso":  "RDA: dentro de Catálogo Colectivo. Libro Antiguo: dentro de Patrimonio Bibliográfico.",
+                       "referencia":  "REBIUN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL"
+                   },
+                   {
+                       "anverso":  "Creación de grupos de trabajo en REBIUN",
+                       "reverso":  "La Asamblea General, a propuesta de la Comisión Permanente; pueden ser temporales o permanentes.",
+                       "referencia":  "REBIUN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL"
+                   },
+                   {
+                       "anverso":  "Red vs consorcio",
+                       "reverso":  "No son sinónimos automáticos: hay que atender a la naturaleza y miembros concretos de cada entidad.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL"
+                   },
+                   {
+                       "anverso":  "Catálogo colectivo vs REBIUN",
+                       "reverso":  "El catálogo colectivo es un servicio/producto cooperativo que localiza fondos de múltiples instituciones; no es sinónimo de la red.",
+                       "referencia":  "REBIUN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL"
+                   },
+                   {
+                       "anverso":  "Dato vs indicador",
+                       "reverso":  "Dato: medida aislada (observación o recuento). Indicador: relaciona o interpreta datos para valorar el rendimiento.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E4. Calidad y evaluación de bibliotecas"
+                   },
+                   {
+                       "anverso":  "Cadena de evaluación",
+                       "reverso":  "Inputs (recursos) → procesos → outputs (productos/servicios) → outcomes (efectos en usuarios) → impacto.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E4. Calidad y evaluación de bibliotecas"
+                   },
+                   {
+                       "anverso":  "Eficacia vs eficiencia",
+                       "reverso":  "Eficacia: grado de logro de objetivos. Eficiencia: relación entre resultados y recursos utilizados.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E4. Calidad y evaluación de bibliotecas"
+                   },
+                   {
+                       "anverso":  "Requisitos de un indicador",
+                       "reverso":  "Pertinente, fiable, interpretable y comparable cuando proceda; puede ser cuantitativo o cualitativo.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E4. Calidad y evaluación de bibliotecas"
+                   },
+                   {
+                       "anverso":  "Ejemplos por tipo de indicador",
+                       "reverso":  "Input: personal, presupuesto, puestos. Proceso: tiempo de tramitación. Output: préstamos, sesiones formativas. Outcome: aprendizaje/satisfacción. Impacto: contribución a objetivos institucionales.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E4. Calidad y evaluación de bibliotecas"
+                   },
+                   {
+                       "anverso":  "Carta de servicios",
+                       "reverso":  "Comunica servicios, compromisos y derechos/obligaciones de usuarios, habitualmente con indicadores asociados; no es un simple catálogo descriptivo.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E4. Calidad y evaluación de bibliotecas"
+                   },
+                   {
+                       "anverso":  "Encuesta de satisfacción: ¿qué mide?",
+                       "reverso":  "Percepción. No sustituye estadísticas de uso, indicadores de proceso ni evaluación de resultados.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E4. Calidad y evaluación de bibliotecas",
+                       "truco":  "La satisfacción es una dimensión, no toda la calidad."
+                   },
+                   {
+                       "anverso":  "Mejora continua (PDCA)",
+                       "reverso":  "Planificar → ejecutar → comprobar → actuar/corregir; los resultados alimentan nuevas decisiones.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E4. Calidad y evaluación de bibliotecas"
+                   },
+                   {
+                       "anverso":  "Benchmarking",
+                       "reverso":  "Comparación de prácticas/resultados para aprender y mejorar.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E4. Calidad y evaluación de bibliotecas"
+                   },
+                   {
+                       "anverso":  "Trampas de calidad",
+                       "reverso":  "Más uso no significa automáticamente más calidad; una encuesta aislada no equivale a sistema de calidad; actividad ≠ resultado ≠ impacto.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E4. Calidad y evaluación de bibliotecas"
+                   },
+                   {
+                       "anverso":  "Selección vs adquisición vs evaluación vs expurgo",
+                       "reverso":  "Selección: ¿qué incorporamos? Adquisición: ¿cómo lo obtenemos? Evaluación: ¿sigue siendo pertinente/rentable? Expurgo: ¿debe retirarse/reubicarse?",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E5. Desarrollo y gestión de colecciones"
+                   },
+                   {
+                       "anverso":  "Vías de adquisición",
+                       "reverso":  "Compra, suscripción, donación, canje u otras vías.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E5. Desarrollo y gestión de colecciones"
+                   },
+                   {
+                       "anverso":  "Criterios de selección",
+                       "reverso":  "Pertinencia académica, autoridad/calidad, actualidad, demanda, cobertura, idioma, formato, coste, disponibilidad y equilibrio de la colección.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E5. Desarrollo y gestión de colecciones"
+                   },
+                   {
+                       "anverso":  "Herramientas de evaluación de la colección",
+                       "reverso":  "Estadísticas de préstamo/descarga, coste por uso, solapamientos, obsolescencia, cobertura curricular/investigadora, comparación con colecciones y valoración cualitativa.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E5. Desarrollo y gestión de colecciones"
+                   },
+                   {
+                       "anverso":  "Criterios y límites del expurgo",
+                       "reverso":  "Deterioro, duplicación innecesaria, obsolescencia, falta de uso o desajuste; respetando valor patrimonial, histórico, legal y necesidades futuras.",
+                       "explicacion":  "Puede conducir a baja, traslado, donación o almacenamiento y debe documentarse.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E5. Desarrollo y gestión de colecciones"
+                   },
+                   {
+                       "anverso":  "Política de colección",
+                       "reverso":  "Marco que define objetivos, alcance, responsabilidades y criterios de selección, adquisición, evaluación, conservación y expurgo, alineado con docencia e investigación.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E5. Desarrollo y gestión de colecciones"
+                   },
+                   {
+                       "anverso":  "Ciclo de vida de un recurso electrónico",
+                       "reverso":  "Necesidad → evaluación/prueba → negociación/licencia → activación → descubrimiento/acceso → uso/estadísticas → renovación/cancelación → preservación cuando proceda.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E5. Desarrollo y gestión de colecciones"
+                   },
+                   {
+                       "anverso":  "¿Qué regula una licencia de recurso-e?",
+                       "reverso":  "Usuarios autorizados, usos permitidos/prohibidos, acceso remoto, descargas, uso docente, PIB, minería de textos/datos, acceso perpetuo y condiciones de cancelación.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E5. Desarrollo y gestión de colecciones",
+                       "truco":  "Licencia ≠ propiedad."
+                   },
+                   {
+                       "anverso":  "Acceso perpetuo",
+                       "reverso":  "Derecho de acceso posterior cuando el contrato lo contempla.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E5. Desarrollo y gestión de colecciones"
+                   },
+                   {
+                       "anverso":  "Suscripción vs propiedad / acceso electrónico vs abierto",
+                       "reverso":  "La suscripción no implica propiedad; el acceso electrónico no implica acceso abierto.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E5. Desarrollo y gestión de colecciones"
+                   },
+                   {
+                       "anverso":  "ISBD",
+                       "reverso":  "International Standard Bibliographic Description: normaliza la presentación/estructura de la descripción bibliográfica mediante áreas, elementos de descripción y puntuación.",
+                       "referencia":  "ISBD",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E6. ISBD, RDA e identificadores"
+                   },
+                   {
+                       "anverso":  "RDA",
+                       "reverso":  "Resource Description and Access: estándar de contenido para descripción y acceso, orientado al entorno digital y a entidades/relaciones. No es un formato de codificación.",
+                       "referencia":  "RDA",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E6. ISBD, RDA e identificadores"
+                   },
+                   {
+                       "anverso":  "RDA vs MARC21",
+                       "reverso":  "RDA = contenido/descripción (qué registrar y cómo); MARC21 = codificación/intercambio. No son competidores: MARC21 puede contener datos RDA.",
+                       "referencia":  "RDA / MARC21",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E6. ISBD, RDA e identificadores",
+                       "truco":  "No llamar a RDA formato MARC."
+                   },
+                   {
+                       "anverso":  "Entidades de RDA",
+                       "reverso":  "Obras, expresiones, manifestaciones, ítems y agentes.",
+                       "referencia":  "RDA",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E6. ISBD, RDA e identificadores"
+                   },
+                   {
+                       "anverso":  "ISBN",
+                       "reverso":  "Identifica publicaciones monográficas y sus ediciones/formatos; distintos formatos o ediciones pueden requerir ISBN diferentes.",
+                       "referencia":  "ISBN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E6. ISBD, RDA e identificadores"
+                   },
+                   {
+                       "anverso":  "ISSN",
+                       "reverso":  "Identifica recursos continuados/publicaciones seriadas.",
+                       "referencia":  "ISSN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E6. ISBD, RDA e identificadores",
+                       "truco":  "ISBN monografía ≠ ISSN seriada."
+                   },
+                   {
+                       "anverso":  "DOI",
+                       "reverso":  "Identificador persistente para objetos digitales, especialmente publicaciones científicas; resuelve hacia una localización que puede actualizarse.",
+                       "referencia":  "DOI",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E6. ISBD, RDA e identificadores"
+                   },
+                   {
+                       "anverso":  "Handle",
+                       "reverso":  "Sistema general de identificadores persistentes y resolución, usado entre otros entornos en repositorios.",
+                       "referencia":  "Handle",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E6. ISBD, RDA e identificadores"
+                   },
+                   {
+                       "anverso":  "ORCID",
+                       "reverso":  "Identificador persistente de personas investigadoras: desambigua nombres y vincula su producción.",
+                       "referencia":  "ORCID",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E6. ISBD, RDA e identificadores",
+                       "truco":  "DOI/Handle = objetos; ORCID = personas."
+                   },
+                   {
+                       "anverso":  "¿Persistente = URL inmutable?",
+                       "reverso":  "No. Persistente no significa URL física inmutable: el identificador resuelve hacia una localización que puede actualizarse.",
+                       "referencia":  "DOI / Handle",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E6. ISBD, RDA e identificadores"
+                   },
+                   {
+                       "anverso":  "MARC",
+                       "reverso":  "Machine-Readable Cataloging. MARC21: familia de formatos para representar e intercambiar datos bibliográficos, de autoridad y otros, legibles por máquina.",
+                       "referencia":  "MARC21",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Estructura de un registro MARC21",
+                       "reverso":  "Líder + Directorio + campos variables (campos de control 00X y campos de datos con indicadores y subcampos).",
+                       "referencia":  "MARC21",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Etiqueta MARC",
+                       "reverso":  "Código de tres dígitos que identifica el campo.",
+                       "referencia":  "MARC21",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Indicador MARC",
+                       "reverso":  "Dos posiciones de los campos de datos que modifican su interpretación/procesamiento.",
+                       "explicacion":  "No confundir con el código de subcampo.",
+                       "referencia":  "MARC21",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Subcampo MARC",
+                       "reverso":  "Unidad dentro del campo de datos, identificada mediante un código de subcampo.",
+                       "referencia":  "MARC21",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Campos 00X",
+                       "reverso":  "Campos de control.",
+                       "referencia":  "MARC21 Bibliográfico",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Campo 001",
+                       "reverso":  "Número de control.",
+                       "referencia":  "MARC21 Bibliográfico",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Campo 020",
+                       "reverso":  "ISBN.",
+                       "referencia":  "MARC21 Bibliográfico",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Campo 022",
+                       "reverso":  "ISSN.",
+                       "referencia":  "MARC21 Bibliográfico",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Campo 100",
+                       "reverso":  "Entrada principal de nombre personal (autor personal).",
+                       "referencia":  "MARC21 Bibliográfico",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Campo 245",
+                       "reverso":  "Título y mención de responsabilidad.",
+                       "referencia":  "MARC21 Bibliográfico",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Campo 264",
+                       "reverso":  "Producción, publicación, distribución y copyright.",
+                       "referencia":  "MARC21 Bibliográfico",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Campo 300",
+                       "reverso":  "Descripción física.",
+                       "referencia":  "MARC21 Bibliográfico",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Campo 650",
+                       "reverso":  "Materia.",
+                       "referencia":  "MARC21 Bibliográfico",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                   },
+                   {
+                       "anverso":  "Campo 700",
+                       "reverso":  "Entrada añadida (acceso secundario) de nombre personal.",
+                       "referencia":  "MARC21 Bibliográfico",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos",
+                       "truco":  "100 principal / 700 añadida."
+                   },
+                   {
+                       "anverso":  "Bibliográfico ≠ autoridades ≠ fondos",
+                       "reverso":  "Bibliográfico: describe recursos. Autoridades: controla formas autorizadas y variantes de nombres, títulos y materias. Fondos: existencias/localizaciones (holdings).",
+                       "referencia":  "MARC21",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E7. MARC21: bibliográfico, autoridades y fondos",
+                       "truco":  "Un registro de autoridad no describe un ejemplar."
+                   },
+                   {
+                       "anverso":  "CDU",
+                       "reverso":  "Clasificación bibliográfica universal, jerárquica y analítico-sintética basada en notación decimal; usa tablas principales, auxiliares y signos.",
+                       "referencia":  "CDU",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                   },
+                   {
+                       "anverso":  "Auxiliares de la CDU",
+                       "reverso":  "Comunes y especiales: permiten expresar aspectos adicionales de la materia.",
+                       "referencia":  "CDU",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                   },
+                   {
+                       "anverso":  "Signatura topográfica vs CDU",
+                       "reverso":  "La signatura localiza/ordena físicamente un ejemplar; puede incorporar la clasificación, pero no es idéntica a la CDU.",
+                       "referencia":  "CDU",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                   },
+                   {
+                       "anverso":  "Encabezamientos de materia",
+                       "reverso":  "Lenguaje precoordinado de acceso por materia, con formas autorizadas y referencias; pueden incluir subdivisiones y reglas sintácticas.",
+                       "referencia":  "Encabezamientos de materia",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                   },
+                   {
+                       "anverso":  "Tesauro",
+                       "reverso":  "Lenguaje documental controlado, normalmente poscoordinado, basado en descriptores y relaciones explícitas de equivalencia, jerarquía y asociación.",
+                       "referencia":  "Tesauro",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                   },
+                   {
+                       "anverso":  "USE / UP",
+                       "reverso":  "Relación de equivalencia (descriptor/no descriptor; preferente/no preferente).",
+                       "referencia":  "Tesauro",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                   },
+                   {
+                       "anverso":  "TG/BT y TE/NT",
+                       "reverso":  "Relación jerárquica: término genérico (TG/BT) y término específico (TE/NT).",
+                       "referencia":  "Tesauro",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                   },
+                   {
+                       "anverso":  "TR/RT",
+                       "reverso":  "Término relacionado: relación de asociación.",
+                       "referencia":  "Tesauro",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E8. CDU, encabezamientos de materia y tesauros",
+                       "truco":  "La jerarquía no es asociación."
+                   },
+                   {
+                       "anverso":  "Clasificar vs indizar",
+                       "reverso":  "Clasificar sitúa el documento en una estructura de materias; indizar asigna términos que representan su contenido. Indexar no es resumir.",
+                       "referencia":  "Indización",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                   },
+                   {
+                       "anverso":  "Métodos de ordenación física de fondos",
+                       "reverso":  "Sistemática por clasificación, alfabética, cronológica, numérica u otra según colección y servicio.",
+                       "explicacion":  "Preguntado en UMH 2023.",
+                       "referencia":  "CDU",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                   },
+                   {
+                       "anverso":  "Conservación preventiva",
+                       "reverso":  "Medidas para evitar o ralentizar el deterioro actuando sobre ambiente, almacenamiento, manipulación y riesgos.",
+                       "referencia":  "Conservación preventiva",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E9. Conservación y preservación física/digital"
+                   },
+                   {
+                       "anverso":  "Restauración",
+                       "reverso":  "Intervención directa sobre un objeto deteriorado; profesional, documentada y respetuosa con la autenticidad.",
+                       "referencia":  "Restauración",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E9. Conservación y preservación física/digital",
+                       "truco":  "Prevención antes que restauración."
+                   },
+                   {
+                       "anverso":  "Preservación",
+                       "reverso":  "Conjunto amplio de políticas y acciones para mantener acceso y permanencia de los materiales a largo plazo.",
+                       "referencia":  "Preservación",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E9. Conservación y preservación física/digital"
+                   },
+                   {
+                       "anverso":  "Preservación digital: objetivos",
+                       "reverso":  "Autenticidad, integridad, accesibilidad y usabilidad a largo plazo pese a la obsolescencia tecnológica.",
+                       "referencia":  "Preservación digital",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E9. Conservación y preservación física/digital"
+                   },
+                   {
+                       "anverso":  "Checksum",
+                       "reverso":  "Valor para detectar alteraciones en archivos; apoya el control de integridad. No demuestra autoría ni garantiza preservación completa.",
+                       "referencia":  "Preservación digital",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E9. Conservación y preservación física/digital"
+                   },
+                   {
+                       "anverso":  "Migración",
+                       "reverso":  "Transforma o traslada contenidos a formatos/sistemas vigentes; combate la obsolescencia.",
+                       "referencia":  "Preservación digital",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E9. Conservación y preservación física/digital"
+                   },
+                   {
+                       "anverso":  "Emulación",
+                       "reverso":  "Reproduce entornos antiguos.",
+                       "referencia":  "Preservación digital",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E9. Conservación y preservación física/digital"
+                   },
+                   {
+                       "anverso":  "Plan de contingencia",
+                       "reverso":  "Prevención + respuesta + recuperación: riesgos, responsables, prioridades, contactos, copias, equipos, comunicación y recuperación.",
+                       "referencia":  "Plan de contingencia",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E9. Conservación y preservación física/digital"
+                   },
+                   {
+                       "anverso":  "Copia de seguridad / digitalización / preservación",
+                       "reverso":  "Procesos relacionados pero no equivalentes: backup ≠ preservación digital integral; digitalizar no equivale a preservar.",
+                       "referencia":  "Preservación digital",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E9. Conservación y preservación física/digital",
+                       "truco":  "Una sola copia no es estrategia suficiente."
+                   },
+                   {
+                       "anverso":  "Estrategias de preservación digital",
+                       "reverso":  "Migración, normalización, emulación, redundancia, copias geográficamente separadas, control de integridad, formatos sostenibles, metadatos y documentación.",
+                       "referencia":  "Preservación digital",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E9. Conservación y preservación física/digital"
+                   },
+                   {
+                       "anverso":  "SIGB",
+                       "reverso":  "Sistema integrado de gestión bibliotecaria: coordina adquisiciones, catalogación, circulación, usuarios, seriadas, estadísticas y catálogo público sobre datos compartidos.",
+                       "referencia":  "SIGB",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                   },
+                   {
+                       "anverso":  "LSP",
+                       "reverso":  "Library Services Platform: evolución hacia arquitecturas web/cloud, APIs y gestión unificada de recursos físicos, electrónicos y digitales.",
+                       "referencia":  "LSP",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                   },
+                   {
+                       "anverso":  "OPAC",
+                       "reverso":  "Catálogo público en línea: búsqueda de registros, localización, disponibilidad y, según sistema, funciones de cuenta de usuario.",
+                       "referencia":  "OPAC",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                   },
+                   {
+                       "anverso":  "Discovery",
+                       "reverso":  "Capa de descubrimiento que busca simultáneamente en múltiples fuentes/índices (catálogo, artículos, e-books, repositorios...) desde una interfaz común.",
+                       "referencia":  "Discovery",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento",
+                       "truco":  "Discovery no sustituye los módulos internos; puede coexistir con el OPAC."
+                   },
+                   {
+                       "anverso":  "Alma (UMH)",
+                       "reverso":  "Plataforma de servicios bibliotecarios de la UMH; sustituyó a Symphony/Unicorn.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                   },
+                   {
+                       "anverso":  "DAMA (UMH)",
+                       "reverso":  "Buscador/entorno de descubrimiento de la Biblioteca UMH (Primo presentado mediante DAMA); interfaz renovada en septiembre de 2026.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                   },
+                   {
+                       "anverso":  "Primo",
+                       "reverso":  "Herramienta de descubrimiento asociada a Alma en la UMH, presentada al usuario mediante DAMA.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                   },
+                   {
+                       "anverso":  "Alma vs DAMA vs RediUMH",
+                       "reverso":  "Alma gestiona servicios bibliotecarios; DAMA localiza/da acceso (discovery); RediUMH deposita/difunde/preserva (repositorio DSpace).",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                   },
+                   {
+                       "anverso":  "Interoperabilidad",
+                       "reverso":  "Capacidad de los sistemas para intercambiar y reutilizar información mediante normas, protocolos, APIs y metadatos. No significa que sean idénticos.",
+                       "referencia":  "Interoperabilidad",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                   },
+                   {
+                       "anverso":  "Cadena SIGB/LSP – OPAC – discovery",
+                       "reverso":  "Gestión interna = SIGB/LSP; catálogo público = OPAC; búsqueda agregada = discovery.",
+                       "referencia":  "SIGB / OPAC / Discovery",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                   },
+                   {
+                       "anverso":  "DSpace",
+                       "reverso":  "Software (plataforma) de repositorio ampliamente usado. RediUMH usa DSpace.",
+                       "explicacion":  "No es protocolo de recolección ni esquema de metadatos.",
+                       "referencia":  "DSpace",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core",
+                       "truco":  "DSpace/EPrints = software"
+                   },
+                   {
+                       "anverso":  "EPrints",
+                       "reverso":  "Otra plataforma histórica y extendida para repositorios de acceso abierto (software).",
+                       "referencia":  "EPrints",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core"
+                   },
+                   {
+                       "anverso":  "OAI-PMH",
+                       "reverso":  "Protocolo para recolectar/intercambiar metadatos entre proveedores de datos y recolectores/servicios.",
+                       "explicacion":  "No transporta necesariamente el texto completo; no es un repositorio; Open Access no es sinónimo de OAI-PMH.",
+                       "referencia":  "OAI-PMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core",
+                       "truco":  "OAI-PMH = protocolo"
+                   },
+                   {
+                       "anverso":  "OAI-PMH: proveedor de datos vs proveedor de servicios",
+                       "reverso":  "El proveedor de datos expone metadatos; el proveedor de servicios los recolecta.",
+                       "referencia":  "OAI-PMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core"
+                   },
+                   {
+                       "anverso":  "Dublin Core",
+                       "reverso":  "Esquema de metadatos sencillo y ampliamente interoperable, usado para descripción interoperable.",
+                       "referencia":  "Dublin Core",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core",
+                       "truco":  "Dublin Core = metadatos"
+                   },
+                   {
+                       "anverso":  "Elementos de Dublin Core (lista del temario)",
+                       "reverso":  "title, creator, subject, description, publisher, contributor, date, type, format, identifier, source, language, relation, coverage y rights.",
+                       "referencia":  "Dublin Core",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core"
+                   },
+                   {
+                       "anverso":  "Cadena de interoperabilidad repositorio-metadatos-protocolo",
+                       "reverso":  "Un repositorio (p. ej. DSpace) expone metadatos (p. ej. Dublin Core) mediante un protocolo (OAI-PMH) para que un recolector pueda agregarlos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core"
+                   },
+                   {
+                       "anverso":  "Biblioteca digital vs repositorio institucional",
+                       "reverso":  "Biblioteca digital: colección organizada de objetos digitales y servicios para acceder a ellos. Repositorio institucional: depósito orientado a recopilar, preservar y difundir la producción de una institución. Pueden solaparse, pero no son sinónimos perfectos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core"
+                   },
+                   {
+                       "anverso":  "RediUMH",
+                       "reverso":  "Repositorio institucional UMH: recopila, organiza, difunde y preserva producción científica, docente e institucional. Usa DSpace y es recolectado por servicios externos (p. ej. Recolecta).",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core",
+                       "truco":  "DAMA = descubrimiento; RediUMH = repositorio"
+                   },
+                   {
+                       "anverso":  "Arquitectura de un repositorio",
+                       "reverso":  "Almacenamiento de objetos, base de metadatos, interfaz de depósito/consulta, control de acceso, identificadores persistentes, interoperabilidad y preservación.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core"
+                   },
+                   {
+                       "anverso":  "Gestión del repositorio",
+                       "reverso":  "Autoarchivo/depósito, metadatos, licencias/derechos, identificadores y preservación.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core"
+                   },
+                   {
+                       "anverso":  "Alucinación (IA)",
+                       "reverso":  "Salida plausible pero falsa o no sustentada.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E12. TIC, web social e inteligencia artificial"
+                   },
+                   {
+                       "anverso":  "Sesgo (IA)",
+                       "reverso":  "Patrón sistemático que puede producir resultados desiguales.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E12. TIC, web social e inteligencia artificial"
+                   },
+                   {
+                       "anverso":  "Gobernanza de la IA",
+                       "reverso":  "Reglas y controles para uso responsable: políticas claras, minimización de datos, supervisión humana, transparencia, evaluación de calidad y alfabetización en IA.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E12. TIC, web social e inteligencia artificial"
+                   },
+                   {
+                       "anverso":  "IA clásica vs IA generativa",
+                       "reverso":  "Clásica: recomendación, clasificación, búsqueda, detección de patrones y automatización. Generativa: produce texto, imagen u otros contenidos a partir de modelos; requiere verificación.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E12. TIC, web social e inteligencia artificial"
+                   },
+                   {
+                       "anverso":  "Riesgos de la IA",
+                       "reverso":  "Alucinaciones/errores, sesgos, privacidad/datos personales, propiedad intelectual, opacidad, seguridad, dependencia tecnológica, accesibilidad y brecha digital.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E12. TIC, web social e inteligencia artificial"
+                   },
+                   {
+                       "anverso":  "Principios prácticos del uso de IA",
+                       "reverso":  "Verificación humana, transparencia sobre uso, minimización de datos, evaluación de calidad, seguridad y respeto a derechos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E12. TIC, web social e inteligencia artificial"
+                   },
+                   {
+                       "anverso":  "Oportunidad → riesgo (tabla IA)",
+                       "reverso":  "Automatización → errores a escala; personalización → privacidad/sesgo; generación de contenido → alucinación/PI; análisis → opacidad/calidad de datos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E12. TIC, web social e inteligencia artificial"
+                   },
+                   {
+                       "anverso":  "Web social",
+                       "reverso":  "Participación, conversación, creación/compartición de contenidos y comunidad. Las redes sociales son herramientas dentro de una estrategia, no un fin.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E12. TIC, web social e inteligencia artificial",
+                       "truco":  "Web social requiere estrategia y evaluación"
+                   },
+                   {
+                       "anverso":  "REBIUN e IA",
+                       "reverso":  "Grupo de trabajo permanente Observatorio IA.",
+                       "explicacion":  "Dato institucional: verificar cerca del examen.",
+                       "referencia":  "REBIUN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E12. TIC, web social e inteligencia artificial"
+                   },
+                   {
+                       "anverso":  "Enfoque profesional ante la IA",
+                       "reverso":  "Utilidad + límites + supervisión. Evitar «la IA sustituye al bibliotecario» y «la IA no tiene utilidad»: uso responsable, alfabetización y gobernanza.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E12. TIC, web social e inteligencia artificial",
+                       "truco":  "Desconfía de «garantiza» y «sustituye»"
+                   },
+                   {
+                       "anverso":  "Circulación",
+                       "reverso":  "Préstamo, devolución, renovación, reservas, bloqueos/sanciones cuando procedan y gestión de ejemplares/usuarios.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad"
+                   },
+                   {
+                       "anverso":  "Préstamo vs reserva vs PIB vs accesibilidad (finalidad)",
+                       "reverso":  "Préstamo: uso temporal de recursos. Reserva: garantizar disponibilidad futura. PIB: obtener documentos externos. Accesibilidad: eliminar barreras de uso.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad"
+                   },
+                   {
+                       "anverso":  "PIB (préstamo interbibliotecario)",
+                       "reverso":  "Obtiene para un usuario documentos que su biblioteca no posee o no puede facilitar directamente, mediante cooperación entre bibliotecas, sujeto a condiciones, derechos y costes.",
+                       "referencia":  "PIB",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad",
+                       "truco":  "No es renovación ni préstamo ordinario local"
+                   },
+                   {
+                       "anverso":  "Intercampus vs interbibliotecario vs BUVAL",
+                       "reverso":  "Intercampus: movimiento entre sedes UMH (requiere transporte, no es inmediato). Interbibliotecario: servicio entre bibliotecas. BUVAL: servicio del consorcio valenciano.",
+                       "referencia":  "Biblioteca UMH",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad"
+                   },
+                   {
+                       "anverso":  "BUVAL",
+                       "reverso":  "Consorcio de Bibliotecas Universitarias Valencianas: cinco universidades públicas valencianas; servicios compartidos como el préstamo BUVAL.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad",
+                       "truco":  "BUVAL autonómico ≠ REBIUN estatal"
+                   },
+                   {
+                       "anverso":  "Grupo REBIUN relacionado con el PIB",
+                       "reverso":  "«Acceso al documento» (grupo permanente).",
+                       "explicacion":  "Dato institucional: verificar cerca del examen.",
+                       "referencia":  "REBIUN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad"
+                   },
+                   {
+                       "anverso":  "Accesibilidad física vs digital",
+                       "reverso":  "Física: itinerarios, mobiliario, señalización y espacios utilizables. Digital: interfaces, documentos y contenidos compatibles con necesidades diversas.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad"
+                   },
+                   {
+                       "anverso":  "Inclusión",
+                       "reverso":  "Diseñar servicios para diversidad funcional, lingüística, cultural y socioeconómica, eliminando barreras físicas, digitales, cognitivas o sociales para una participación equitativa.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad"
+                   },
+                   {
+                       "anverso":  "Préstamo de dispositivos y espacios",
+                       "reverso":  "Añade reglas específicas de disponibilidad, responsabilidad, reserva y uso. La Biblioteca UMH presta portátiles a estudiantes; la reserva de salas exige reglas de capacidad, tiempo, identificación y uso.",
+                       "explicacion":  "Condiciones concretas: dato institucional, verificar cerca del examen.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad"
+                   },
+                   {
+                       "anverso":  "Atención al usuario en circulación",
+                       "reverso":  "Orientación, privacidad, igualdad, claridad de normas y resolución/derivación adecuada.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad"
+                   },
+                   {
+                       "anverso":  "Servicio de referencia",
+                       "reverso":  "Ayuda al usuario a identificar su necesidad, formularla, localizar/evaluar fuentes y obtener información adecuada.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E14. Referencia, fuentes de información y referencia virtual"
+                   },
+                   {
+                       "anverso":  "Entrevista de referencia",
+                       "reverso":  "Transforma la pregunta inicial en necesidad informativa concreta: alcance, profundidad, idioma, fechas, tipo documental y finalidad.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E14. Referencia, fuentes de información y referencia virtual",
+                       "truco":  "Entrevista = clarificar necesidad"
+                   },
+                   {
+                       "anverso":  "Fases de la referencia",
+                       "reverso":  "1 Aclarar necesidad; 2 elegir fuentes; 3 diseñar búsqueda; 4 evaluar resultados; 5 entregar/explicar y verificar utilidad.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E14. Referencia, fuentes de información y referencia virtual"
+                   },
+                   {
+                       "anverso":  "Fuente primaria",
+                       "reverso":  "Información original/directa: artículos de investigación, datos, patentes, documentos originales (según disciplina).",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E14. Referencia, fuentes de información y referencia virtual"
+                   },
+                   {
+                       "anverso":  "Fuente secundaria",
+                       "reverso":  "Describe, organiza, indiza o analiza primarias: bases bibliográficas, índices, revisiones, bibliografías.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E14. Referencia, fuentes de información y referencia virtual",
+                       "truco":  "Una revisión puede ser secundaria aunque se publique como artículo"
+                   },
+                   {
+                       "anverso":  "Fuente terciaria",
+                       "reverso":  "Sintetiza/compila o guía hacia otras fuentes: manuales, enciclopedias, directorios, repertorios y compilaciones, según la clasificación empleada.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E14. Referencia, fuentes de información y referencia virtual"
+                   },
+                   {
+                       "anverso":  "Referencia síncrona vs asíncrona",
+                       "reverso":  "Síncrona (tiempo real): chat, videoconferencia. Asíncrona (respuesta diferida): correo, formulario. La elección depende de urgencia, complejidad y recursos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E14. Referencia, fuentes de información y referencia virtual"
+                   },
+                   {
+                       "anverso":  "Exigencias de la referencia virtual",
+                       "reverso":  "Identificación de la necesidad, calidad de fuentes, privacidad/protección de datos, tiempos de respuesta y registro/evaluación cuando proceda.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E14. Referencia, fuentes de información y referencia virtual"
+                   },
+                   {
+                       "anverso":  "Moodle / Blackboard",
+                       "reverso":  "Plataformas de aprendizaje (LMS). La biblioteca se integra con biblioguías, enlaces, formación y apoyo a asignaturas, acercándose al flujo docente.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E14. Referencia, fuentes de información y referencia virtual"
+                   },
+                   {
+                       "anverso":  "Obras de referencia",
+                       "reverso":  "Diccionarios, enciclopedias, directorios, anuarios, repertorios, bibliografías, atlas, etc.; se eligen según la necesidad.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E14. Referencia, fuentes de información y referencia virtual"
+                   },
+                   {
+                       "anverso":  "ALFIN",
+                       "reverso":  "Capacidad para reconocer una necesidad de información, localizarla, evaluarla, gestionarla, usarla y comunicarla de forma eficaz, crítica y ética.",
+                       "referencia":  "ALFIN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E15. ALFIN, CI2 y formación de usuarios",
+                       "truco":  "ALFIN = competencia transferible"
+                   },
+                   {
+                       "anverso":  "CI2",
+                       "reverso":  "Competencias informáticas e informacionales: integra destrezas tecnológicas y competencia para trabajar críticamente con información.",
+                       "referencia":  "CI2",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E15. ALFIN, CI2 y formación de usuarios"
+                   },
+                   {
+                       "anverso":  "ALFIN vs formación de usuarios",
+                       "reverso":  "Formación de usuarios: actividad que puede ser instrumental (servicios/herramientas). ALFIN: competencias transferibles y pensamiento crítico.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E15. ALFIN, CI2 y formación de usuarios"
+                   },
+                   {
+                       "anverso":  "«Saber usar una base de datos»",
+                       "reverso":  "Destreza instrumental; ALFIN es más amplia e incluye evaluación crítica y uso ético.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E15. ALFIN, CI2 y formación de usuarios"
+                   },
+                   {
+                       "anverso":  "Secuencia de un programa formativo",
+                       "reverso":  "Detectar necesidades → resultados de aprendizaje → contenidos/metodología → impartir → evaluar aprendizaje y satisfacción → mejorar.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E15. ALFIN, CI2 y formación de usuarios"
+                   },
+                   {
+                       "anverso":  "Tabla de diseño: fase → pregunta",
+                       "reverso":  "Diagnóstico: ¿qué necesita el usuario? Objetivos: ¿qué será capaz de hacer? Metodología: ¿cómo lo practicará? Evaluación: ¿cómo sabremos que aprendió?",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E15. ALFIN, CI2 y formación de usuarios"
+                   },
+                   {
+                       "anverso":  "Evaluación de la formación",
+                       "reverso":  "Satisfacción, pruebas pre/post, tareas, rúbricas y seguimiento de transferencia. Contar asistentes no mide por sí solo aprendizaje.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E15. ALFIN, CI2 y formación de usuarios",
+                       "truco":  "Evaluar aprendizaje, no solo asistencia"
+                   },
+                   {
+                       "anverso":  "Modalidades de impartición",
+                       "reverso":  "Presencial, virtual síncrona/asíncrona o híbrida; integrada en asignaturas y LMS o mediante materiales autoformativos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E15. ALFIN, CI2 y formación de usuarios"
+                   },
+                   {
+                       "anverso":  "Perfiles de partida para la formación",
+                       "reverso":  "Primer curso, TFG/TFM, posgrado, doctorado, PDI.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E15. ALFIN, CI2 y formación de usuarios"
+                   },
+                   {
+                       "anverso":  "Ética en ALFIN/CI2",
+                       "reverso":  "Citación, plagio, derechos, evaluación crítica y uso responsable de IA.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E15. ALFIN, CI2 y formación de usuarios"
+                   },
+                   {
+                       "anverso":  "Marketing bibliotecario",
+                       "reverso":  "Parte de las necesidades de usuarios y busca diseñar, comunicar y evaluar servicios que aporten valor. No equivale a publicidad.",
+                       "referencia":  "Marketing bibliotecario",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E16. Comunicación, marketing y redes sociales",
+                       "truco":  "Marketing ≠ publicidad."
+                   },
+                   {
+                       "anverso":  "Fases del plan de marketing",
+                       "reverso":  "Análisis de situación y públicos → objetivos → segmentación → propuesta/mensaje → canales/acciones → calendario/recursos → indicadores/evaluación.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E16. Comunicación, marketing y redes sociales"
+                   },
+                   {
+                       "anverso":  "Segmentación",
+                       "reverso":  "Adaptar mensajes y canales a públicos distintos: estudiantes por nivel, PDI, investigadores, PTGAS, alumni y otros grupos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E16. Comunicación, marketing y redes sociales"
+                   },
+                   {
+                       "anverso":  "Alcance",
+                       "reverso":  "Personas/cuentas expuestas: cuántas personas potencialmente ven el contenido.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E16. Comunicación, marketing y redes sociales",
+                       "truco":  "Alcance = ven."
+                   },
+                   {
+                       "anverso":  "Interacción",
+                       "reverso":  "Respuesta/participación: acciones sobre el contenido.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E16. Comunicación, marketing y redes sociales"
+                   },
+                   {
+                       "anverso":  "Clics",
+                       "reverso":  "Tráfico hacia el recurso.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E16. Comunicación, marketing y redes sociales"
+                   },
+                   {
+                       "anverso":  "Conversión",
+                       "reverso":  "Acción objetivo conseguida: inscripción, uso, etc.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E16. Comunicación, marketing y redes sociales"
+                   },
+                   {
+                       "anverso":  "Seguidores vs impacto",
+                       "reverso":  "No son equivalentes: métricas de alcance o seguidores no bastan; deben relacionarse con interacción, clics, asistencia, uso y objetivos.",
+                       "explicacion":  "Una métrica alta puede ser irrelevante si no responde al objetivo.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E16. Comunicación, marketing y redes sociales",
+                       "truco":  "Seguidores ≠ impacto."
+                   },
+                   {
+                       "anverso":  "Gestión de redes sociales",
+                       "reverso":  "Planificación editorial, tono institucional, derechos de imágenes/contenidos, privacidad, moderación y respuesta.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E16. Comunicación, marketing y redes sociales"
+                   },
+                   {
+                       "anverso":  "Extensión universitaria",
+                       "reverso":  "Conecta biblioteca, cultura y comunidad mediante exposiciones, clubes, actividades, campañas y colaboración institucional.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E16. Comunicación, marketing y redes sociales"
+                   },
+                   {
+                       "anverso":  "Bibliometría",
+                       "reverso":  "Aplicación de métodos cuantitativos al estudio de publicaciones, autoría, citas y comunicación científica.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA"
+                   },
+                   {
+                       "anverso":  "Índice h",
+                       "reverso":  "Un autor tiene h si posee h publicaciones con al menos h citas cada una. Combina producción e impacto; depende de carrera, área y base consultada.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA",
+                       "truco":  "h trabajos con ≥ h citas."
+                   },
+                   {
+                       "anverso":  "Cuartil",
+                       "reverso":  "Posición relativa de una revista dentro de una categoría ordenada por un indicador. Q1 = primer 25 % de la distribución.",
+                       "explicacion":  "Depende de categoría, año y fuente; una revista puede tener cuartiles distintos en distintas categorías.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA"
+                   },
+                   {
+                       "anverso":  "WoS vs Scopus",
+                       "reverso":  "Bases multidisciplinares con datos bibliográficos y de citas; no contienen exactamente las mismas revistas ni producen necesariamente los mismos recuentos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA",
+                       "truco":  "WoS ≠ Scopus."
+                   },
+                   {
+                       "anverso":  "Métrica de revista vs artículo",
+                       "reverso":  "Una métrica de revista (JIF, SJR, cuartil) no determina automáticamente la calidad de cada artículo ni el mérito del investigador.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA",
+                       "truco":  "Métrica de revista ≠ artículo."
+                   },
+                   {
+                       "anverso":  "Indicadores de autor",
+                       "reverso":  "Número de publicaciones/citas e índice h.",
+                       "explicacion":  "Los cuartiles, percentiles, JIF y SJR son indicadores de revista.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA"
+                   },
+                   {
+                       "anverso":  "Normalización de métricas",
+                       "reverso":  "Considerar disciplina, ventana temporal, tipo documental y base de datos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA"
+                   },
+                   {
+                       "anverso":  "Biblioteca y ANECA",
+                       "reverso":  "La biblioteca asesora y ayuda a localizar evidencias e indicadores; los criterios oficiales vigentes y la evaluación corresponden a ANECA.",
+                       "referencia":  "ANECA",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA",
+                       "truco":  "Biblioteca asesora; ANECA evalúa."
+                   },
+                   {
+                       "anverso":  "Sesgos de las citas",
+                       "reverso":  "Disciplina, idioma, antigüedad y cobertura. Las citas no equivalen por sí solas a calidad.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA"
+                   },
+                   {
+                       "anverso":  "Evaluación responsable",
+                       "reverso":  "Combina evidencias cuantitativas y cualitativas, atendiendo al contexto.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA"
+                   },
+                   {
+                       "anverso":  "Ciencia abierta",
+                       "reverso":  "Hacer procesos y resultados científicos más accesibles, transparentes, colaborativos y reutilizables, dentro de límites éticos, legales y de protección de datos.",
+                       "explicacion":  "Incluye acceso abierto, datos FAIR cuando sea posible, infraestructuras abiertas, evaluación responsable y participación.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E18. Ciencia abierta y acceso abierto",
+                       "truco":  "Open Science \u003e Open Access."
+                   },
+                   {
+                       "anverso":  "Vía verde",
+                       "reverso":  "Depósito de una versión permitida en repositorio.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E18. Ciencia abierta y acceso abierto",
+                       "truco":  "Verde = repositorio."
+                   },
+                   {
+                       "anverso":  "Vía dorada",
+                       "reverso":  "Publicación en revista de acceso abierto (puede existir o no APC).",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E18. Ciencia abierta y acceso abierto",
+                       "truco":  "Dorada = revista OA."
+                   },
+                   {
+                       "anverso":  "Diamante",
+                       "reverso":  "Acceso abierto sin cobro al lector ni (normalmente) APC al autor, sostenido por instituciones/consorcios u otros modelos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E18. Ciencia abierta y acceso abierto"
+                   },
+                   {
+                       "anverso":  "Híbrida",
+                       "reverso":  "Revista de suscripción que ofrece abrir artículos individuales mediante pago/opción.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E18. Ciencia abierta y acceso abierto",
+                       "truco":  "Híbrido ≠ dorado puro."
+                   },
+                   {
+                       "anverso":  "APC",
+                       "reverso":  "Article Processing Charge: cargo por procesamiento/publicación de un artículo. Acceso abierto no implica necesariamente APC.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E18. Ciencia abierta y acceso abierto",
+                       "truco":  "OA ≠ APC."
+                   },
+                   {
+                       "anverso":  "Acuerdos transformativos",
+                       "reverso":  "Acuerdos entre instituciones/consorcios y editoriales que buscan desplazar el gasto de suscripción hacia esquemas de lectura y publicación abierta bajo condiciones negociadas.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E18. Ciencia abierta y acceso abierto"
+                   },
+                   {
+                       "anverso":  "Gratis para leer vs licencia abierta",
+                       "reverso":  "No son equivalentes: acceso gratuito no implica automáticamente permisos de reutilización; dependen de la licencia.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E18. Ciencia abierta y acceso abierto",
+                       "truco":  "Gratis para leer ≠ licencia abierta."
+                   },
+                   {
+                       "anverso":  "Ley 14/2011, art. 37 (tras reforma 2022)",
+                       "reverso":  "Dedicado a ciencia abierta: promueve que publicaciones, datos, códigos y metodologías estén en acceso abierto en los términos legales.",
+                       "explicacion":  "El repositorio institucional o temático es infraestructura central.",
+                       "referencia":  "Ley 14/2011 de la Ciencia (mod. Ley 17/2022)",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E18. Ciencia abierta y acceso abierto"
+                   },
+                   {
+                       "anverso":  "REBIUN, V Plan 2024-2027, Línea 2",
+                       "reverso":  "La biblioteca como agente estratégico para el impulso de la ciencia abierta.",
+                       "referencia":  "REBIUN",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E18. Ciencia abierta y acceso abierto"
+                   },
+                   {
+                       "anverso":  "RDM",
+                       "reverso":  "Gestión de datos de investigación: planificación, organización, documentación, almacenamiento, seguridad, acceso, compartición, preservación y eliminación/archivo a lo largo del ciclo de vida.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E19. Gestión de datos de investigación, FAIR y PGD"
+                   },
+                   {
+                       "anverso":  "FAIR",
+                       "reverso":  "Findable (localizables), Accessible (accesibles), Interoperable (interoperables), Reusable (reutilizables).",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E19. Gestión de datos de investigación, FAIR y PGD"
+                   },
+                   {
+                       "anverso":  "FAIR vs Open",
+                       "reverso":  "FAIR no significa necesariamente abierto: un dato puede tener restricciones justificadas y ser FAIR si existen metadatos, condiciones de acceso y mecanismos adecuados.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E19. Gestión de datos de investigación, FAIR y PGD",
+                       "truco":  "FAIR ≠ Open."
+                   },
+                   {
+                       "anverso":  "Accessible (FAIR)",
+                       "reverso":  "Datos/metadatos recuperables mediante protocolos definidos; puede haber autenticación/autorización. No significa acceso irrestricto.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E19. Gestión de datos de investigación, FAIR y PGD"
+                   },
+                   {
+                       "anverso":  "PGD/DMP",
+                       "reverso":  "Plan de gestión de datos: documento vivo que describe datos, formatos, metadatos, almacenamiento y copias, seguridad, responsabilidades, aspectos ético-legales, acceso, preservación y costes.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E19. Gestión de datos de investigación, FAIR y PGD",
+                       "truco":  "PGD = documento vivo."
+                   },
+                   {
+                       "anverso":  "Repositorio de datos vs almacenamiento de trabajo",
+                       "reverso":  "Repositorio: depósito, acceso/preservación y citabilidad. Almacenamiento de trabajo: trabajo activo.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E19. Gestión de datos de investigación, FAIR y PGD"
+                   },
+                   {
+                       "anverso":  "Tipos de repositorios de datos",
+                       "reverso":  "Disciplinares, institucionales o generales.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E19. Gestión de datos de investigación, FAIR y PGD"
+                   },
+                   {
+                       "anverso":  "Principio práctico de apertura",
+                       "reverso":  "«Tan abiertos como sea posible, tan cerrados como sea necesario».",
+                       "explicacion":  "Atendiendo a protección de datos, ética, seguridad, contratos y PI.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E19. Gestión de datos de investigación, FAIR y PGD"
+                   },
+                   {
+                       "anverso":  "PID",
+                       "reverso":  "Identificador persistente: favorece citación y localización.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E19. Gestión de datos de investigación, FAIR y PGD"
+                   },
+                   {
+                       "anverso":  "ARGOS",
+                       "reverso":  "Herramienta a la que da acceso la Biblioteca UMH para elaborar planes de gestión de datos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E19. Gestión de datos de investigación, FAIR y PGD"
+                   },
+                   {
+                       "anverso":  "Derechos morales vs explotación",
+                       "reverso":  "Morales: vínculo personal con la obra. Explotación: reproducción, distribución, comunicación pública y transformación.",
+                       "referencia":  "LPI",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio"
+                   },
+                   {
+                       "anverso":  "CC BY",
+                       "reverso":  "Atribución / reconocimiento.",
+                       "referencia":  "Creative Commons",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio"
+                   },
+                   {
+                       "anverso":  "CC SA",
+                       "reverso":  "Compartir igual: compartir adaptaciones bajo la misma licencia.",
+                       "referencia":  "Creative Commons",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio"
+                   },
+                   {
+                       "anverso":  "CC NC",
+                       "reverso":  "No comercial: restringe usos comerciales.",
+                       "referencia":  "Creative Commons",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio"
+                   },
+                   {
+                       "anverso":  "CC ND",
+                       "reverso":  "Sin obras derivadas: no permite distribuir material adaptado/derivado.",
+                       "referencia":  "Creative Commons",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio"
+                   },
+                   {
+                       "anverso":  "CC vs dominio público",
+                       "reverso":  "Con CC sigue existiendo derecho de autor y se concede licencia bajo condiciones; en dominio público han expirado los derechos de explotación.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio",
+                       "truco":  "CC ≠ dominio público."
+                   },
+                   {
+                       "anverso":  "Dominio público",
+                       "reverso":  "Han expirado los derechos de explotación según la ley; deben respetarse los derechos morales que subsistan.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio",
+                       "truco":  "Internet ≠ dominio público."
+                   },
+                   {
+                       "anverso":  "Plagio vs infracción de copyright",
+                       "reverso":  "Plagio: presentar como propias ideas/expresiones ajenas sin reconocimiento (integridad). Infracción: vulnerar derechos de autor. Pueden coincidir, pero no son idénticos.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio",
+                       "truco":  "Plagio ≠ copyright."
+                   },
+                   {
+                       "anverso":  "Software de similitud",
+                       "reverso":  "Detecta coincidencias textuales; el porcentaje requiere interpretación y no determina por sí solo que exista plagio.",
+                       "explicacion":  "Una cita legítima puede elevar la similitud.",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio",
+                       "truco":  "Similitud ≠ plagio."
+                   },
+                   {
+                       "anverso":  "Docencia e investigación y PI",
+                       "reverso":  "No existe una excepción general para copiar cualquier obra: hay que atender a límites legales, licencias y contratos.",
+                       "referencia":  "LPI",
+                       "bloque":  "Temario específico UMH",
+                       "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio",
+                       "truco":  "Docencia no autoriza cualquier reproducción."
+                   }
+               ]
 }
