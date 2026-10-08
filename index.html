@@ -206,6 +206,10 @@
   .set-row input[type=number] { width: 90px; }
   .set-row input[type=date] { font: inherit; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
   .help { font-size: .85rem; color: var(--muted); margin: 4px 0 8px; }
+  .env-badge {
+    position: fixed; top: calc(6px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); z-index: 20; pointer-events: none;
+    background: #f59f00; color: #1a1f2e; font-size: .72rem; font-weight: 800; letter-spacing: .05em; padding: 2px 10px; border-radius: 99px;
+  }
   .saved-flash { color: var(--ok); font-weight: 700; opacity: 0; transition: opacity .3s; margin-left: 6px; }
   .saved-flash.on { opacity: 1; }
   select:disabled, input:disabled { opacity: .5; }
@@ -263,11 +267,20 @@
 <main id="app"></main>
 
 <script>
-const K = {
-  set: 'quiz.set', stats: 'quiz.stats', marks: 'quiz.marks', hist: 'quiz.history', run: 'quiz.run',
-  srs: 'quiz.srs', daily: 'quiz.daily', settings: 'quiz.settings', pomo: 'quiz.pomo', water: 'quiz.waterSecs',
-  theme: 'quiz.theme', photo: 'quiz.photo', gh: 'quiz.github'
-};
+// Entorno: desarrollo (repositorio *-dev, o en local) o producción.
+// Ambos viven en el mismo dominio (github.io), así que cada uno guarda sus datos con un prefijo distinto.
+const ENV = /^\/[^/]+-dev\//.test(location.pathname) || ['localhost', '127.0.0.1'].includes(location.hostname) || location.protocol === 'file:' ? 'dev' : 'prod';
+const P = ENV === 'dev' ? 'quizdev.' : 'quiz.';
+const K = Object.fromEntries(Object.entries({
+  set: 'set', stats: 'stats', marks: 'marks', hist: 'history', run: 'run',
+  srs: 'srs', daily: 'daily', settings: 'settings', pomo: 'pomo', water: 'waterSecs',
+  theme: 'theme', photo: 'photo', gh: 'github'
+}).map(([k, v]) => [k, P + v]));
+if (ENV === 'dev') {
+  document.title = 'Tests (DEV)';
+  document.querySelector('meta[name=apple-mobile-web-app-title]').content = 'Tests DEV';
+  document.body.insertAdjacentHTML('beforeend', '<div class="env-badge" title="Entorno de desarrollo: datos separados de la app normal">🧪 DESARROLLO</div>');
+}
 const app = document.getElementById('app');
 let set = null;              // { titulo, preguntas, ajustes?, origen: 'servidor' | 'archivo' | 'editado' }
 let run = null;              // test en curso (se guarda en localStorage para poder reanudar)
@@ -1092,9 +1105,9 @@ function exportBackup() {
   const data = {};
   for (let i = 0; i < localStorage.length; i++) {
     const k = localStorage.key(i);
-    if (k.startsWith('quiz.') && k !== K.gh) data[k] = localStorage.getItem(k);
+    if (k.startsWith(P) && k !== K.gh) data[k.slice(P.length)] = localStorage.getItem(k);
   }
-  const blob = new Blob([JSON.stringify({ app: 'test-preguntas', version: 1, fecha: new Date().toISOString(), data })], { type: 'application/json' });
+  const blob = new Blob([JSON.stringify({ app: 'test-preguntas', version: 2, entorno: ENV, fecha: new Date().toISOString(), data })], { type: 'application/json' });
   downloadBlob(blob, `copia-tests-${todayKey()}.json`);
 }
 
@@ -1103,8 +1116,12 @@ function importBackup(file) {
     const b = JSON.parse(t);
     if (b.app !== 'test-preguntas' || !b.data) throw new Error('el archivo no es una copia de seguridad de esta app.');
     if (!confirm(`Copia del ${new Date(b.fecha).toLocaleString('es-ES')}. Se sustituirá el progreso de este dispositivo. ¿Continuar?`)) return;
-    Object.keys(localStorage).filter(k => k.startsWith('quiz.') && k !== K.gh).forEach(k => localStorage.removeItem(k));
-    for (const [k, v] of Object.entries(b.data)) if (k.startsWith('quiz.') && k !== K.gh) localStorage.setItem(k, v);
+    Object.keys(localStorage).filter(k => k.startsWith(P) && k !== K.gh).forEach(k => localStorage.removeItem(k));
+    // v1 guardaba las claves con "quiz."; v2 sin prefijo. Se importan al entorno actual.
+    for (const [k, v] of Object.entries(b.data)) {
+      const name = k.replace(/^quiz(dev)?\./, '');
+      if (P + name !== K.gh) localStorage.setItem(P + name, v);
+    }
     location.reload();
   }).catch(e => alert('No se pudo importar: ' + e.message));
 }

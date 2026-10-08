@@ -2,7 +2,10 @@
 // y, sin conexión, la copia guardada.
 // cache: 'no-cache' obliga a preguntar al servidor si hay versión nueva en vez de usar
 // la copia que el navegador guarda ~10 min (GitHub Pages manda max-age=600).
-const CACHE = 'quiz-v3';
+// Producción y desarrollo comparten dominio (github.io): cada uno usa cachés con su propia ruta en el nombre
+// y solo borra las suyas.
+const SCOPE = new URL(self.registration.scope).pathname;
+const CACHE = 'quiz-v4:' + SCOPE;
 const FILES = ['./', 'index.html', 'preguntas.json', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'gato.jpg'];
 
 self.addEventListener('install', e => {
@@ -13,7 +16,7 @@ self.addEventListener('install', e => {
 
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys()
-    .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+    .then(keys => Promise.all(keys.filter(k => k !== CACHE && (k.endsWith(':' + SCOPE) || !k.includes(':'))).map(k => caches.delete(k))))
     .then(() => self.clients.claim()));
 });
 
