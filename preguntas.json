@@ -2,13 +2,13 @@
   "titulo": "Test de ejemplo",
   "ajustes": {
     "penaltyOn": false,
-    "penalty": 0.3333333333333333,
+    "penalty": 0.25,
     "simNombre": "Examen",
     "simPreguntas": 100,
     "simMinutos": 90,
     "simCorte": 5,
     "examDate": "",
-    "dailyGoal": 46
+    "dailyGoal": 50
   },
   "preguntas": [
     {
