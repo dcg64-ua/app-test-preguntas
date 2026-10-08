@@ -206,6 +206,9 @@
   .set-row input[type=number] { width: 90px; }
   .set-row input[type=date] { font: inherit; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
   .help { font-size: .85rem; color: var(--muted); margin: 4px 0 8px; }
+  .saved-flash { color: var(--ok); font-weight: 700; opacity: 0; transition: opacity .3s; margin-left: 6px; }
+  .saved-flash.on { opacity: 1; }
+  select:disabled, input:disabled { opacity: .5; }
 
   /* Foto de fondo (capa fija: funciona también en iOS, donde background-attachment: fixed no) */
   body::before {
@@ -944,13 +947,14 @@ function showSettings() {
 
   app.innerHTML = `
     <div class="row between"><h1>Ajustes</h1><button id="home">← Inicio</button></div>
+    <p class="muted" style="margin-top:-8px">Los cambios se guardan solos al momento <span id="savedFlash" class="saved-flash">✓ Guardado</span></p>
     <div class="card">
       <h2>📝 Penalización</h2>
       <label class="opt"><input type="checkbox" id="penaltyOn" ${s.penaltyOn ? 'checked' : ''}> Los fallos restan</label>
-      <div class="set-row" id="penRow" ${s.penaltyOn ? '' : 'hidden'}>
+      <div class="set-row">
         <span>Cada fallo resta</span>
-        <select id="penSel">${PENALTIES.map(([, t]) => `<option ${t === penSel ? 'selected' : ''}>${t}</option>`).join('')}<option value="otra" ${penSel === 'otra' ? 'selected' : ''}>Otra…</option></select>
-        <input type="number" id="penCustom" min="0" max="5" step="0.05" value="${fmtNum(s.penalty, 3).replace(',', '.')}" ${penSel === 'otra' ? '' : 'hidden'}>
+        <select id="penSel" ${s.penaltyOn ? '' : 'disabled'}>${PENALTIES.map(([, t]) => `<option ${t === penSel ? 'selected' : ''}>${t}</option>`).join('')}<option value="otra" ${penSel === 'otra' ? 'selected' : ''}>Otra…</option></select>
+        <input type="number" id="penCustom" min="0" max="5" step="0.05" value="${fmtNum(s.penalty, 3).replace(',', '.')}" ${penSel === 'otra' ? '' : 'hidden'} ${s.penaltyOn ? '' : 'disabled'}>
       </div>
       <p class="help">En cuántos aciertos equivale cada fallo (1/3 = tres fallos quitan un acierto). Las preguntas en blanco no restan.</p>
     </div>
@@ -982,15 +986,18 @@ function showSettings() {
         <p class="help">Solo cuenta el tiempo con la app abierta en pantalla. <a href="#" id="waterTest">Probar aviso</a></p>
       </div>
     </div>
-    ${shared || ghConnected() ? `
     <div class="card">
       <h2>☁️ Ajustes compartidos</h2>
-      ${shared ? `<p class="help">Este test trae ajustes predeterminados (penalización, simulacro, fecha y objetivo).${overridden ? ' Has cambiado alguno en este dispositivo.' : ''}</p>` : ''}
+      <p class="help">La penalización, el simulacro, la fecha del examen y el objetivo diario se pueden guardar en GitHub para que le lleguen así configurados a todo el mundo.</p>
+      ${shared ? `<p class="help">Este test ya trae ajustes predeterminados.${overridden ? ' Has cambiado alguno en este dispositivo.' : ''}</p>` : ''}
       <div class="row">
+        ${ghConnected()
+          ? '<button class="small primary" id="saveShared">Guardar mis ajustes como predeterminados para todos</button>'
+          : '<button class="small primary" id="goConnect">Conectar GitHub (en el Editor)</button>'}
         ${shared ? '<button class="small" id="useShared">Volver a los predeterminados</button>' : ''}
-        ${ghConnected() ? '<button class="small primary" id="saveShared">Guardar mis ajustes como predeterminados para todos</button>' : ''}
       </div>
-    </div>` : ''}
+      ${ghConnected() ? '' : '<p class="help" style="margin-bottom:0">Para guardarlos para todos, este dispositivo tiene que estar conectado a GitHub (Editor → ☁️ Guardar en GitHub).</p>'}
+    </div>
     <div class="card">
       <h2>💾 Copia de seguridad</h2>
       <p class="help">Guarda en un archivo tu progreso, estadísticas, marcadas, ajustes y tema, para no perderlos o pasarlos a otro móvil. (No incluye el token de GitHub.)</p>
@@ -1002,41 +1009,70 @@ function showSettings() {
 
   $('home').onclick = () => showHome();
   const num = (id, min = 0) => Math.max(min, +$(id).value || 0);
-  $('penaltyOn').onchange = e => { saveSettings({ penaltyOn: e.target.checked }); $('penRow').hidden = !e.target.checked; };
-  $('penSel').onchange = e => {
+  let flashT;
+  const saveS = patch => {
+    saveSettings(patch);
+    const f = $('savedFlash');
+    f.classList.add('on');
+    clearTimeout(flashT);
+    flashT = setTimeout(() => f.classList.remove('on'), 1200);
+  };
+  // Se guarda mientras escribes (input) y al salir del campo (change)
+  const on = (id, fn) => { $(id).oninput = $(id).onchange = fn; };
+
+  on('penaltyOn', e => { saveS({ penaltyOn: e.target.checked }); $('penSel').disabled = $('penCustom').disabled = !e.target.checked; });
+  on('penSel', e => {
     const v = PENALTIES.find(([, t]) => t === e.target.value)?.[0];
     $('penCustom').hidden = v !== undefined;
-    if (v !== undefined) saveSettings({ penalty: v });
-  };
-  $('penCustom').onchange = () => saveSettings({ penalty: num('penCustom') });
-  $('simNombre').onchange = e => saveSettings({ simNombre: e.target.value.trim() || 'Simulacro' });
-  $('simPreguntas').onchange = () => saveSettings({ simPreguntas: num('simPreguntas', 1) });
-  $('simMinutos').onchange = () => saveSettings({ simMinutos: num('simMinutos') });
-  $('simCorte').onchange = () => saveSettings({ simCorte: Math.min(10, num('simCorte')) });
-  $('examDate').onchange = e => saveSettings({ examDate: e.target.value });
-  $('dailyGoal').onchange = () => saveSettings({ dailyGoal: num('dailyGoal') });
-  $('srsSize').onchange = () => saveSettings({ srsSize: num('srsSize', 1) });
-  $('pomoOn').onchange = e => { saveSettings({ pomoOn: e.target.checked }); $('pomoRows').hidden = !e.target.checked; renderPomo(); };
-  $('pomoWork').onchange = () => { saveSettings({ pomoWork: num('pomoWork', 1) }); renderPomo(); };
-  $('pomoBreak').onchange = () => { saveSettings({ pomoBreak: num('pomoBreak', 1) }); renderPomo(); };
-  $('water').onchange = e => { saveSettings({ water: e.target.checked }); $('waterRows').hidden = !e.target.checked; };
-  $('waterMin').onchange = () => {
-    saveSettings({ waterMin: num('waterMin', 1) });
+    if (v !== undefined) saveS({ penalty: v });
+  });
+  on('penCustom', () => saveS({ penalty: num('penCustom') }));
+  on('simNombre', e => saveS({ simNombre: e.target.value.trim() || 'Simulacro' }));
+  on('simPreguntas', () => saveS({ simPreguntas: num('simPreguntas', 1) }));
+  on('simMinutos', () => saveS({ simMinutos: num('simMinutos') }));
+  on('simCorte', () => saveS({ simCorte: Math.min(10, num('simCorte')) }));
+  on('examDate', e => saveS({ examDate: e.target.value }));
+  on('dailyGoal', () => saveS({ dailyGoal: num('dailyGoal') }));
+  on('srsSize', () => saveS({ srsSize: num('srsSize', 1) }));
+  on('pomoOn', e => { saveS({ pomoOn: e.target.checked }); $('pomoRows').hidden = !e.target.checked; renderPomo(); });
+  on('pomoWork', () => { saveS({ pomoWork: num('pomoWork', 1) }); renderPomo(); });
+  on('pomoBreak', () => { saveS({ pomoBreak: num('pomoBreak', 1) }); renderPomo(); });
+  on('water', e => { saveS({ water: e.target.checked }); $('waterRows').hidden = !e.target.checked; });
+  on('waterMin', () => {
+    saveS({ waterMin: num('waterMin', 1) });
     $('waterMsg').placeholder = waterDefaultMsg(getSettings().waterMin);
-  };
-  $('waterMsg').onchange = e => saveSettings({ waterMsg: e.target.value });
+  });
+  on('waterMsg', e => saveS({ waterMsg: e.target.value }));
   $('waterTest').onclick = e => { e.preventDefault(); showWaterToast(); };
+  if ($('goConnect')) $('goConnect').onclick = async () => {
+    await openEditor();
+    const d = app.querySelector('details.card');
+    if (d) { d.open = true; d.scrollIntoView({ behavior: 'smooth' }); }
+  };
   if ($('useShared')) $('useShared').onclick = () => {
     const l = load(K.settings, {});
     SHARED.forEach(k => delete l[k]);
     save(K.settings, l);
     showSettings();
   };
-  if ($('saveShared')) $('saveShared').onclick = () => {
+  if ($('saveShared')) $('saveShared').onclick = async () => {
     if (!confirm('La penalización, el simulacro, la fecha del examen y el objetivo diario de este dispositivo pasarán a ser los predeterminados para todos. ¿Continuar?')) return;
-    set.ajustes = pick(getSettings(), SHARED);
-    persistEdit('Actualizar ajustes predeterminados');
-    alert('Guardado. Le llegará a todo el mundo en unos minutos (salvo los ajustes que cada uno haya cambiado en su dispositivo).');
+    const btn = $('saveShared');
+    btn.disabled = true; btn.textContent = 'Guardando en GitHub…';
+    const ajustes = pick(getSettings(), SHARED);
+    try {
+      if (set.origen !== 'editado') useData(await ghPull(), 'servidor'); // partir de lo último de GitHub
+      set.ajustes = ajustes;
+      save(K.set, set);
+      const p = ghQueue.then(() => ghPush('Actualizar ajustes predeterminados'));
+      ghQueue = p.catch(() => {});
+      await p;
+      alert('✓ Guardado en GitHub. Le llegará a todo el mundo en unos minutos (salvo los ajustes que cada uno haya cambiado en su dispositivo).');
+    } catch (e) {
+      alert('No se pudo guardar en GitHub: ' + (e.status === 409 || e.status === 422
+        ? 'las preguntas han cambiado desde otro sitio. Abre el Editor, elige qué versión conservar y vuelve a intentarlo.'
+        : e.status ? e.message : 'sin conexión.'));
+    }
     showSettings();
   };
   $('exportBk').onclick = exportBackup;
