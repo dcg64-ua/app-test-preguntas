@@ -1,30 +1,60 @@
 {
   "titulo": "Test de ejemplo",
+  "ajustes": {
+    "penaltyOn": false,
+    "penalty": 0.3333333333333333,
+    "simNombre": "Examen",
+    "simPreguntas": 100,
+    "simMinutos": 90,
+    "simCorte": 5,
+    "examDate": "",
+    "dailyGoal": 46
+  },
   "preguntas": [
     {
       "pregunta": "¿Cuál es la capital de Australia?",
-      "opciones": ["Sídney", "Melbourne", "Canberra", "Perth"],
+      "opciones": [
+        "Sídney",
+        "Melbourne",
+        "Canberra",
+        "Perth"
+      ],
       "correcta": 2,
       "explicacion": "Canberra fue elegida capital en 1908 como solución de compromiso entre Sídney y Melbourne, las dos ciudades más grandes, que rivalizaban por el puesto.",
       "tema": "Geografía"
     },
     {
       "pregunta": "¿Qué etiqueta HTML se usa para crear un enlace?",
-      "opciones": ["<link>", "<a>", "<href>", "<url>"],
+      "opciones": [
+        "<link>",
+        "<a>",
+        "<href>",
+        "<url>"
+      ],
       "correcta": 1,
       "explicacion": "<a> (anchor) crea hipervínculos mediante el atributo href. <link> sirve para enlazar recursos externos como hojas de estilo, no para enlaces navegables.",
       "tema": "Informática"
     },
     {
       "pregunta": "¿Cuántos lados tiene un hexágono?",
-      "opciones": ["5", "6", "7", "8"],
+      "opciones": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
       "correcta": 1,
       "explicacion": "El prefijo griego 'hexa' significa seis. Pentágono tiene 5, heptágono 7 y octógono 8.",
       "tema": "Matemáticas"
     },
     {
       "pregunta": "¿Qué gas absorben principalmente las plantas en la fotosíntesis?",
-      "opciones": ["Oxígeno", "Nitrógeno", "Dióxido de carbono", "Hidrógeno"],
+      "opciones": [
+        "Oxígeno",
+        "Nitrógeno",
+        "Dióxido de carbono",
+        "Hidrógeno"
+      ],
       "correcta": 2,
       "explicacion": "Las plantas captan CO₂ y, usando la energía de la luz y agua, producen glucosa y liberan oxígeno como subproducto.",
       "tema": "Ciencias"
