@@ -951,11 +951,14 @@ function showSettings() {
     <p class="muted" style="margin-top:-8px">Los cambios se guardan solos al momento <span id="savedFlash" class="saved-flash">✓ Guardado</span></p>
     <div class="card">
       <h2>📝 Penalización</h2>
-      <label class="opt"><input type="checkbox" id="penaltyOn" ${s.penaltyOn ? 'checked' : ''}> Los fallos restan</label>
       <div class="set-row">
         <span>Cada fallo resta</span>
-        <select id="penSel" ${s.penaltyOn ? '' : 'disabled'}>${PENALTIES.map(([, t]) => `<option ${t === penSel ? 'selected' : ''}>${t}</option>`).join('')}<option value="otra" ${penSel === 'otra' ? 'selected' : ''}>Otra…</option></select>
-        <input type="number" id="penCustom" min="0" max="5" step="0.05" value="${fmtNum(s.penalty, 3).replace(',', '.')}" ${penSel === 'otra' ? '' : 'hidden'} ${s.penaltyOn ? '' : 'disabled'}>
+        <select id="penSel">
+          <option value="no" ${s.penaltyOn ? '' : 'selected'}>No restan</option>
+          ${PENALTIES.map(([, t]) => `<option ${s.penaltyOn && t === penSel ? 'selected' : ''}>${t}</option>`).join('')}
+          <option value="otra" ${s.penaltyOn && penSel === 'otra' ? 'selected' : ''}>Otra…</option>
+        </select>
+        <input type="number" id="penCustom" min="0" max="5" step="0.05" value="${fmtNum(s.penalty, 3).replace(',', '.')}" ${s.penaltyOn && penSel === 'otra' ? '' : 'hidden'}>
       </div>
       <p class="help">En cuántos aciertos equivale cada fallo (1/3 = tres fallos quitan un acierto). Las preguntas en blanco no restan.</p>
     </div>
@@ -1021,11 +1024,16 @@ function showSettings() {
   // Se guarda mientras escribes (input) y al salir del campo (change)
   const on = (id, fn) => { $(id).oninput = $(id).onchange = fn; };
 
-  on('penaltyOn', e => { saveS({ penaltyOn: e.target.checked }); $('penSel').disabled = $('penCustom').disabled = !e.target.checked; });
   on('penSel', e => {
-    const v = PENALTIES.find(([, t]) => t === e.target.value)?.[0];
-    $('penCustom').hidden = v !== undefined;
-    if (v !== undefined) saveS({ penalty: v });
+    const val = e.target.value, v = PENALTIES.find(([, t]) => t === val)?.[0];
+    $('penCustom').hidden = val !== 'otra';
+    if (val === 'no') saveS({ penaltyOn: false });
+    else if (val === 'otra') {
+      $('penCustom').value = +getSettings().penalty.toFixed(3); // parte del valor actual
+      saveS({ penaltyOn: true, penalty: num('penCustom') });
+      $('penCustom').focus();
+    }
+    else saveS({ penaltyOn: true, penalty: v });
   });
   on('penCustom', () => saveS({ penalty: num('penCustom') }));
   on('simNombre', e => saveS({ simNombre: e.target.value.trim() || 'Simulacro' }));
