@@ -293,6 +293,13 @@
   @media (max-width: 480px) { .grades { grid-template-columns: 1fr 1fr; } }
 
   body.env-dev main { padding-top: calc(36px + env(safe-area-inset-top)); }
+  .dev-warn { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, .6); backdrop-filter: blur(3px); }
+  .dev-warn > div { max-width: 420px; width: 100%; background: var(--card); color: var(--text); border: 4px solid #f39c12; border-radius: 20px; padding: 28px 22px; text-align: center; box-shadow: 0 20px 60px rgba(0, 0, 0, .4); }
+  .dev-warn .big { font-size: 3.2rem; line-height: 1; }
+  .dev-warn h2 { font-size: 1.9rem; margin: 12px 0 8px; color: #e67e22; letter-spacing: .02em; }
+  .dev-warn p { margin: 8px 0; }
+  .dev-warn button { width: 100%; margin-top: 14px; font-size: 1.1rem; padding: 14px; background: #f39c12; border-color: #f39c12; color: #fff; font-weight: 800; }
+  .dev-warn a { display: block; margin-top: 12px; }
   .env-badge {
     position: fixed; top: calc(6px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); z-index: 20; pointer-events: none;
     background: #f59f00; color: #1a1f2e; font-size: .72rem; font-weight: 800; letter-spacing: .05em; padding: 2px 10px; border-radius: 99px;
@@ -377,6 +384,23 @@ if (ENV === 'dev') {
   document.querySelector('meta[name=apple-mobile-web-app-title]').content = 'Tests DEV';
   document.body.classList.add('env-dev');
   document.body.insertAdjacentHTML('beforeend', '<div class="env-badge" title="Entorno de desarrollo: datos separados de la app normal">🧪 DESARROLLO</div>');
+}
+// En desarrollo, aviso grande antes de empezar cada test: hay que aceptarlo para seguir
+function devGate(go) {
+  if (ENV !== 'dev') return go();
+  const prodUrl = LOCAL ? '?env=prod' : location.pathname.replace(/-dev\//, '/');
+  document.body.insertAdjacentHTML('beforeend', `<div class="dev-warn" id="devWarn" role="alertdialog" aria-modal="true" aria-labelledby="devWarnT"><div>
+    <div class="big">🧪⚠️</div>
+    <h2 id="devWarnT">VERSIÓN DE DESARROLLO</h2>
+    <p><b>Esta no es la app normal.</b> Es la versión de pruebas: puede tener fallos y cambiar en cualquier momento.</p>
+    <p class="muted">Tu progreso aquí se guarda aparte y no cuenta en la app normal.</p>
+    <button id="devWarnOk">Entendido, empezar</button>
+    <button class="small" id="devWarnNo" style="background:none;border:none;color:var(--muted);font-weight:600;margin-top:4px">Cancelar</button>
+    <a href="${prodUrl}">Ir a la app normal →</a>
+  </div></div>`);
+  const close = () => $('devWarn').remove();
+  $('devWarnOk').onclick = () => { close(); go(); };
+  $('devWarnNo').onclick = close;
 }
 const app = document.getElementById('app');
 let set = null;              // { titulo, preguntas, ajustes?, origen: 'servidor' | 'archivo' | 'editado' }
@@ -740,6 +764,75 @@ async function showAdmin(env = ENV) {
   $('home').onclick = () => showHome();
   $('admEnv').onclick = () => showAdmin(env === 'prod' ? 'dev' : 'prod');
   $('admReload').onclick = () => showAdmin(env);
+}
+
+// ---------- Traer a la app normal el progreso hecho en desarrollo ----------
+// Junta lo de desarrollo (este dispositivo + la nube, si hay sesión) y lo SUMA a lo de aquí.
+// Como suma, solo se hace una vez (queda apuntado).
+const DEV_P = 'quizdev.';
+const DEV_IMPORT = {
+  stats: (a, b) => mergeMap(a, b, (x, y) => {
+    const wrong = { ...(x.wrong || {}) };
+    for (const [k, n] of Object.entries(y.wrong || {})) wrong[k] = (wrong[k] || 0) + n;
+    return { ok: x.ok + y.ok, ko: x.ko + y.ko, ...(Object.keys(wrong).length ? { wrong } : {}) };
+  }),
+  daily: (a, b) => mergeMap(a, b, (x, y) => x + y),
+  history: SYNC_MERGE.history,
+  srs: SYNC_MERGE.srs,
+  marks: (a, b) => ({ ...(b || {}), ...(a || {}) }),
+  notes: (a, b) => ({ ...(b || {}), ...(a || {}) }),
+  articulos: (a, b) => ({ ...(b || {}), ...(a || {}) }),
+  vf: (a, b) => ({ ...(b || {}), ...(a || {}), best: Math.max(a?.best || 0, b?.best || 0) })
+};
+
+async function devProgress() {
+  const out = {};
+  for (const name of Object.keys(DEV_IMPORT)) {
+    try { const v = JSON.parse(localStorage.getItem(DEV_P + name)); if (v != null) out[name] = v; } catch {}
+  }
+  if (fbUser) {
+    const snap = await fb.getDocs(fb.collection(fb.db, 'users', fbUser.uid, 'dev'));
+    for (const d of snap.docs) {
+      if (!DEV_IMPORT[d.id]) continue;
+      let v; try { v = JSON.parse(d.data().v); } catch { continue; }
+      if (v == null) continue;
+      out[d.id] = d.id in out && SYNC_MERGE[d.id] ? SYNC_MERGE[d.id](out[d.id], v) : (out[d.id] ?? v);
+    }
+  }
+  return out;
+}
+
+async function importFromDev() {
+  const msg = $('devImpMsg');
+  msg.hidden = false; msg.textContent = 'Buscando el progreso de la versión de desarrollo…';
+  let dev;
+  try { dev = await devProgress(); } catch (e) { msg.textContent = '⚠️ No se pudo leer (' + (e.code || e.message) + ').'; return; }
+  const n = Object.values(dev.daily || {}).reduce((a, b) => a + b, 0), tests = (dev.history || []).length;
+  if (!Object.keys(dev).length || (!n && !tests && !Object.keys(dev.stats || {}).length)) {
+    msg.textContent = fbUser
+      ? 'No hay progreso de la versión de desarrollo ni en este dispositivo ni en tu cuenta. Si lo hiciste en otro móvil o en la app de desarrollo instalada aparte, entra allí con tu cuenta, espera a «✓ Sincronizado» y vuelve a probar.'
+      : 'No hay progreso de la versión de desarrollo en este dispositivo. Si lo hiciste en otro sitio, inicia sesión con tu cuenta aquí y allí, y vuelve a probar.';
+    return;
+  }
+  if (!confirm(`Se sumarán a la app normal ${n} preguntas respondidas y ${tests} tests hechos en la versión de desarrollo (estadísticas, racha, repaso, marcadas y notas). Solo se puede hacer una vez. ¿Continuar?`)) { msg.hidden = true; return; }
+  const keyOfName = { stats: K.stats, daily: K.daily, history: K.hist, srs: K.srs, marks: K.marks, notes: K.notes, articulos: K.arts, vf: K.vf };
+  for (const [name, v] of Object.entries(dev)) save(keyOfName[name], DEV_IMPORT[name](load(keyOfName[name], null), v));
+  saveSettings({ devImported: Date.now() }); // en los ajustes: se sincroniza y no se repite en otro dispositivo
+  if (fbUser) await syncNow(syncMeta().dirty || []);
+  alert('✓ Progreso de desarrollo añadido a la app normal.');
+  showSettings();
+}
+
+function devImportCardHTML() {
+  if (ENV !== 'prod') return '';
+  const done = load(K.settings, {}).devImported;
+  return `<div class="card">
+    <h2>🔀 Progreso de la versión de desarrollo</h2>
+    ${done ? `<p class="help" style="margin-bottom:0">✓ Ya lo trajiste el ${fmtDate(done)}.</p>`
+      : `<p class="help">Si has estado usando la versión de desarrollo por error, puedes sumar aquí lo que hiciste allí: estadísticas, racha, repaso inteligente, historial, marcadas y notas.</p>
+    <button class="small primary" id="devImpBtn">Traer progreso de desarrollo</button>
+    <p class="help" id="devImpMsg" hidden></p>`}
+  </div>`;
 }
 const fmtPen = p => PENALTIES.find(([v]) => Math.abs(v - p) < 1e-6)?.[1] || fmtNum(p, 3);
 const calcNota = (ok, ko, total, pen) => total ? Math.max(0, ok - ko * pen) / total * 10 : 0;
@@ -1715,6 +1808,7 @@ function showSettings() {
     <div class="row between"><h1>Ajustes</h1><button id="home">← Inicio</button></div>
     <p class="muted" style="margin-top:-8px">Los cambios se guardan solos al momento <span id="savedFlash" class="saved-flash">✓ Guardado</span></p>
     ${accountCardHTML()}
+    ${devImportCardHTML()}
     <div class="card">
       <h2>📝 Penalización</h2>
       <div class="set-row">
@@ -1783,6 +1877,7 @@ function showSettings() {
 
   $('home').onclick = () => showHome();
   bindAccountCard();
+  if ($('devImpBtn')) $('devImpBtn').onclick = importFromDev;
   const num = (id, min = 0) => Math.max(min, +$(id).value || 0);
   let flashT;
   const saveS = patch => {
@@ -2987,6 +3082,12 @@ setInterval(() => {
   pomoTick();
   if (document.visibilityState === 'visible') waterTick();
 }, 1000);
+
+// En desarrollo, cada test o sesión de estudio empieza tras aceptar el aviso
+for (const fn of ['startRun', 'startFlash', 'startAudio', 'startVF']) {
+  const orig = window[fn];
+  window[fn] = (...a) => devGate(() => orig(...a));
+}
 
 // ---------- Arranque ----------
 applyTheme();
