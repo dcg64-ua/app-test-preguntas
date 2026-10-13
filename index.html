@@ -186,6 +186,26 @@
   .verdict { display: inline-block; font-weight: 800; padding: 6px 14px; border-radius: 12px; margin-bottom: 12px; }
   .verdict.ok { background: var(--ok-bg); color: var(--ok); }
   .verdict.ko { background: var(--ko-bg); color: var(--ko); }
+  /* Selector múltiple de bloques y temas */
+  .picker { border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; margin: 8px 0 12px; background: color-mix(in srgb, var(--bg) 50%, var(--card)); }
+  .pick-sub { display: block; font-size: .8rem; color: var(--muted); line-height: 1.3; font-weight: 400; }
+  .pick-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .tchip {
+    display: inline-flex; align-items: center; gap: 4px; min-height: 32px; padding: 4px 12px; border-radius: 99px;
+    border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: .88rem; line-height: 1.25; text-align: left;
+  }
+  .tchip.on { background: var(--accent-bg); border-color: var(--accent); color: var(--text); }
+  .tchip .tn { font-size: .78rem; color: var(--muted); }
+  .pick-sheet { position: fixed; inset: 0; z-index: 30; background: var(--bg); display: flex; flex-direction: column; animation: slideup .2s ease; }
+  .pick-sheet-in { flex: 1; overflow-y: auto; padding: calc(16px + env(safe-area-inset-top)) 16px 16px; max-width: 720px; width: 100%; margin: 0 auto; }
+  .pick-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .pick-sec { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 10px 12px; margin-bottom: 10px; }
+  .pick-sec-h { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .linkbtn { background: none; border: none; box-shadow: none; padding: 2px 4px; min-height: 0; color: var(--accent); font-size: .85rem; font-weight: 600; }
+  .pick-foot {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid var(--border); background: var(--card);
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  }
   .bloque-h { display: flex; justify-content: space-between; align-items: baseline; margin: 16px 0 4px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
 
   /* Calendario de actividad */
@@ -528,7 +548,6 @@ function showHome(error) {
   stopTimer();
   const s = getSettings(), stats = load(K.stats, {}), marks = load(K.marks, {}), saved = load(K.run, null);
   const qs = set?.preguntas || [];
-  const bloques = uniq(qs.map(q => q.bloque)).sort(natCmp);
   const hasRef = qs.some(q => q.referencia);
   const failedCount = qs.filter(q => (stats[keyOf(q)]?.ko || 0) > 0).length;
   const markedCount = qs.filter(q => marks[keyOf(q)]).length;
@@ -576,8 +595,7 @@ function showHome(error) {
       </div>
       <label class="opt" id="minRow" hidden>Tiempo límite (min, 0 = sin límite): <input id="minutes" type="number" min="0" value="0"></label>
       <hr class="sep">
-      ${bloques.length ? `<label class="opt">Bloque: <select id="bloque"><option value="">Todos</option>${bloques.map(b => `<option>${esc(b)}</option>`).join('')}</select></label>` : ''}
-      <label class="opt" id="temaRow">Tema: <select id="tema"></select></label>
+      <div class="picker" id="pickTest"></div>
       ${hasRef ? '<label class="opt">Referencia: <input type="text" id="refFilter" placeholder="p. ej. 39/2015 o CE" style="flex:1;min-width:0"></label>' : ''}
       <label class="opt">Nº de preguntas: <input id="num" type="number" min="1" max="${qs.length}" value="${Math.min(qs.length, 20)}"></label>
       <label class="opt"><input id="shq" type="checkbox" checked> Barajar preguntas</label>
@@ -645,21 +663,14 @@ function showHome(error) {
     });
   };
 
-  // Temas dependientes del bloque elegido
-  const fillTemas = () => {
-    const b = $('bloque')?.value || '';
-    const temas = uniq(qs.filter(q => !b || q.bloque === b).map(q => q.tema)).sort(natCmp);
-    $('tema').innerHTML = `<option value="">Todos</option>${temas.map(t => `<option>${esc(t)}</option>`).join('')}`;
-    $('temaRow').hidden = !temas.length;
-  };
-  fillTemas();
-  if ($('bloque')) $('bloque').onchange = fillTemas;
+  const pick = temaPicker($('pickTest'), qs, load(K.settings, {}).pick_test);
 
   document.querySelectorAll('input[name=mode]').forEach(r => r.onchange = () => { $('minRow').hidden = r.value !== 'examen' || !r.checked; });
   $('start').onclick = () => {
     if (!confirmDiscard()) return;
-    const bloque = $('bloque')?.value || '', tema = $('tema').value, refRaw = ($('refFilter')?.value || '').trim(), ref = refRaw.toLowerCase();
-    let list = qs.filter(q => (!bloque || q.bloque === bloque) && (!tema || q.tema === tema) && (!ref || (q.referencia || '').toLowerCase().includes(ref)));
+    const sel = pick.get(), refRaw = ($('refFilter')?.value || '').trim(), ref = refRaw.toLowerCase();
+    saveSettings({ pick_test: sel ? [...sel] : null });
+    let list = qs.filter(q => inPick(sel, q) && (!ref || (q.referencia || '').toLowerCase().includes(ref)));
     if ($('onlyKo').checked) list = list.filter(q => (stats[keyOf(q)]?.ko || 0) > 0);
     if ($('onlyMarked').checked) list = list.filter(q => marks[keyOf(q)]);
     if (!list.length) return alert('No hay preguntas con esos filtros.');
@@ -671,10 +682,136 @@ function showHome(error) {
     startRun(list, {
       recall,
       shuffleOpts: $('sho').checked, mode, minutes: mode === 'examen' ? +$('minutes').value || 0 : 0,
-      label: [bloque, tema, refRaw && `ref. «${refRaw}»`].filter(Boolean).join(' · ')
+      label: [pickLabel(sel), refRaw && `ref. «${refRaw}»`].filter(Boolean).join(' · ')
     });
   };
 }
+
+// ---------- Selector múltiple de bloques y temas ----------
+// Clave de un tema dentro de su bloque (los temas pueden repetirse en bloques distintos)
+const pkKey = x => (x.bloque || '') + '\u0001' + (x.tema || '');
+
+// En pantalla: resumen con los temas elegidos como chips y botón «Cambiar».
+// «Cambiar» abre una hoja a pantalla completa con buscador y los temas de cada bloque como chips.
+// `saved`: claves elegidas la última vez (null = todos). Devuelve { get }: get() → Set de claves, o null si están todas.
+function temaPicker(el, items, saved, { unit = 'preguntas', onChange = () => {} } = {}) {
+  const groups = {};
+  items.forEach(x => { const g = (groups[x.bloque || ''] ||= {}); g[x.tema || ''] = (g[x.tema || ''] || 0) + 1; });
+  const bloques = Object.keys(groups).sort(natCmp);
+  const temasOf = b => Object.keys(groups[b]).sort(natCmp);
+  const allKeys = bloques.flatMap(b => temasOf(b).map(t => b + '\u0001' + t));
+  const keep = (saved || []).filter(k => allKeys.includes(k));
+  let sel = new Set(keep.length ? keep : allKeys);
+  const count = s => [...s].reduce((n, k) => { const [b, t] = k.split('\u0001'); return n + groups[b][t]; }, 0);
+
+  const renderSummary = () => {
+    const all = sel.size === allKeys.length;
+    // Un bloque entero se resume en un solo chip con su nombre corto
+    const chipsTxt = all ? [] : bloques.flatMap(b => {
+      const ts = temasOf(b), on = ts.filter(t => sel.has(b + '\u0001' + t));
+      if (on.length && on.length === ts.length && ts.length > 1) return [bloqueShort(b)];
+      return on.map(t => temaShort(b, t));
+    });
+    const shown = chipsTxt.slice(0, 6);
+    el.innerHTML = `
+      <div class="row between"><b>📚 Temas</b><span class="muted">${count(sel)} ${unit}</span></div>
+      <div class="pick-chips">${all ? '<span class="tchip on">Todo el contenido</span>'
+        : sel.size ? shown.map(x => `<span class="tchip on">${esc(x)}</span>`).join('') + (chipsTxt.length > 6 ? `<span class="tchip">+${chipsTxt.length - 6}</span>` : '')
+        : '<span class="muted">Ningún tema elegido</span>'}</div>
+      <div style="text-align:right"><button class="small" data-open>Cambiar ›</button></div>`;
+    el.querySelector('[data-open]').onclick = openSheet;
+  };
+
+  const openSheet = () => {
+    let draft = new Set(sel), q = '';
+    const sheet = document.createElement('div');
+    sheet.className = 'pick-sheet';
+    sheet.setAttribute('role', 'dialog');
+    sheet.setAttribute('aria-label', 'Elegir temas');
+    document.body.appendChild(sheet);
+    document.body.style.overflow = 'hidden';
+    const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const draw = () => {
+      const f = norm(q);
+      sheet.innerHTML = `
+        <div class="pick-sheet-in">
+          <div class="pick-head">
+            <h2 style="margin:0">Elegir temas</h2>
+            <button class="primary small" data-done>Listo</button>
+          </div>
+          <input type="search" class="full" data-q placeholder="🔍 Buscar tema" value="${esc(q)}">
+          <div class="row" style="margin:8px 0"><button class="small" data-all>Todos</button><button class="small" data-none>Ninguno</button></div>
+          ${bloques.map((b, i) => {
+            const ts = temasOf(b).filter(t => !f || norm(t).includes(f) || norm(b).includes(f));
+            if (!ts.length) return '';
+            const on = temasOf(b).filter(t => draft.has(b + '\u0001' + t)).length;
+            return `<div class="pick-sec">
+              <div class="pick-sec-h"><span>${pickBloqueHTML(b)}</span><button class="linkbtn" data-bt="${i}">${on === temasOf(b).length ? 'quitar' : 'todo'}</button></div>
+              <div class="pick-chips">${ts.map(t => {
+                const k = b + '\u0001' + t, onK = draft.has(k);
+                return `<button class="tchip ${onK ? 'on' : ''}" data-k="${esc(k)}" aria-pressed="${onK}">${onK ? '✓ ' : ''}${chipLabel(t)} <span class="tn">${groups[b][t]}</span></button>`;
+              }).join('')}</div>
+            </div>`;
+          }).join('') || '<p class="muted">Ningún tema coincide con la búsqueda.</p>'}
+        </div>
+        <div class="pick-foot"><span>${draft.size ? `${draft.size} ${draft.size === 1 ? 'tema' : 'temas'} · <b>${count(draft)}</b> ${unit}` : 'Ningún tema elegido'}</span>
+          <button class="primary" data-done>Listo</button></div>`;
+      sheet.querySelectorAll('[data-k]').forEach(c => c.onclick = () => { const k = c.dataset.k; draft.has(k) ? draft.delete(k) : draft.add(k); draw(); });
+      sheet.querySelectorAll('[data-bt]').forEach(a => a.onclick = () => {
+        const b = bloques[+a.dataset.bt], ks = temasOf(b).map(t => b + '\u0001' + t), all = ks.every(k => draft.has(k));
+        ks.forEach(k => all ? draft.delete(k) : draft.add(k)); draw();
+      });
+      sheet.querySelector('[data-all]').onclick = () => { draft = new Set(allKeys); draw(); };
+      sheet.querySelector('[data-none]').onclick = () => { draft = new Set(); draw(); };
+      sheet.querySelectorAll('[data-done]').forEach(b => b.onclick = close);
+      const inp = sheet.querySelector('[data-q]');
+      inp.oninput = () => { q = inp.value; draw(); const n = sheet.querySelector('[data-q]'); n.focus(); n.setSelectionRange(q.length, q.length); };
+    };
+    const close = () => {
+      sel = draft;
+      sheet.remove();
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onEsc);
+      renderSummary();
+      onChange();
+    };
+    const onEsc = e => { if (e.key === 'Escape') close(); };
+    document.addEventListener('keydown', onEsc);
+    draw();
+  };
+
+  renderSummary();
+  onChange();
+  return { get: () => sel.size === allKeys.length ? null : new Set(sel) };
+}
+// "Tema 8 (MAD). Tipos…" → "Tema 8 (MAD)"; "Temario específico UMH" → igual
+const bloqueShort = b => b ? b.split('. ')[0] : 'Sin bloque';
+// Nombre corto de un tema para el resumen: "E3", "G2", "Tema 8 · Test", "Examen oficial UMH 2023 (1ª parte)"…
+function temaShort(b, t) {
+  if (!t) return bloqueShort(b);
+  const code = t.match(/^([A-Z]\d+)\./);
+  if (code) return code[1];
+  const mad = t.match(/^(Tema \d+) · (\S+)/);
+  if (mad) return `${mad[1]} · ${mad[2] === 'Test' ? 'Test' : 'Preguntas'}`;
+  return t.length > 28 ? t.slice(0, 26) + '…' : t;
+}
+// Etiqueta del chip dentro de la hoja: "E3 · Cooperación: redes…" o "Preguntas del tema"
+function chipLabel(t) {
+  if (!t) return 'Sin tema';
+  const code = t.match(/^([A-Z]\d+)\.\s*(.*)$/);
+  if (code) return `<b>${code[1]}</b> ${esc(code[2].length > 34 ? code[2].slice(0, 32) + '…' : code[2])}`;
+  const mad = t.match(/^Tema \d+ · (.*)$/);
+  return esc(mad ? mad[1] : t);
+}
+const inPick = (sel, x) => !sel || sel.has(pkKey(x));
+// "Tema 8 (MAD). Tipos de bibliotecas…" → "Tema 8 (MAD)" en negrita y el título en pequeño debajo
+function pickBloqueHTML(b) {
+  if (!b) return '<b>Sin bloque</b>';
+  const i = b.indexOf('. ');
+  return i > 0 ? `<b>${esc(b.slice(0, i))}</b><span class="pick-sub">${esc(b.slice(i + 2))}</span>` : `<b>${esc(b)}</b>`;
+}
+// Texto breve de lo elegido, para el historial
+const pickLabel = sel => !sel ? '' : sel.size > 2 ? `${sel.size} temas` : [...sel].map(k => k.split('\u0001')[1] || k.split('\u0001')[0]).join(' + ');
 
 // ---------- Repaso inteligente: elegir bloque y tema ----------
 const fmtNextDay = t => new Date(t).toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
@@ -683,44 +820,33 @@ function showSrsSetup() {
   stopTimer();
   onKey = null;
   const s = getSettings(), qs = set?.preguntas || [], last = load(K.settings, {}).study_srs || {};
-  const bloques = uniq(qs.map(q => q.bloque)).sort(natCmp);
   app.innerHTML = `
     <div class="row between"><h1>🧠 Repaso inteligente</h1><button id="home">← Inicio</button></div>
     <div class="card">
       <p class="help" style="margin-top:0">Primero salen las preguntas que te tocan hoy (las falladas y las que hace tiempo que no ves) y después algunas nuevas.</p>
-      ${bloques.length ? `<div class="set-row"><span>Bloque</span><select id="bloque"><option value="">Todos</option>${bloques.map(b => `<option ${b === last.bloque ? 'selected' : ''}>${esc(b)}</option>`).join('')}</select></div>` : ''}
-      <div class="set-row" id="temaRow"><span>Tema</span><select id="tema"></select></div>
+      <div class="picker" id="pickSrs"></div>
       <div class="set-row"><span>Cuántas</span><input type="number" id="count" min="1" value="${last.count || s.srsSize}"></div>
       <div class="ghstatus" id="srsInfo" style="margin:8px 0 12px"></div>
       <button class="primary" id="go" style="width:100%">Empezar</button>
     </div>`;
   $('home').onclick = () => showHome();
-  const pool = () => {
-    const b = $('bloque')?.value || '', t = $('tema').value;
-    return qs.filter(q => (!b || q.bloque === b) && (!t || q.tema === t));
-  };
+  let pick = null;
+  const pool = () => { const sel = pick?.get(); return qs.filter(q => inPick(sel, q)); };
   const info = () => {
-    const p = srsPlan(pool());
-    $('srsInfo').innerHTML = p.due.length || p.fresh.length
+    const items = pool(), p = srsPlan(items);
+    $('srsInfo').innerHTML = !items.length ? 'Elige al menos un tema.'
+      : p.due.length || p.fresh.length
       ? `<b>${p.due.length}</b> para repasar hoy · <b>${p.fresh.length}</b> nuevas`
       : `¡Todo al día en esta selección! 🎉${isFinite(p.next) ? ` Próximo repaso: ${fmtNextDay(p.next)}.` : ''}`;
     $('go').disabled = !p.due.length && !p.fresh.length;
   };
-  const fillTemas = (keep) => {
-    const b = $('bloque')?.value || '';
-    const temas = uniq(qs.filter(q => !b || q.bloque === b).map(q => q.tema)).sort(natCmp);
-    $('tema').innerHTML = `<option value="">Todos</option>${temas.map(t => `<option ${t === keep ? 'selected' : ''}>${esc(t)}</option>`).join('')}`;
-    $('temaRow').hidden = !temas.length;
-    info();
-  };
-  fillTemas(last.tema);
-  if ($('bloque')) $('bloque').onchange = () => fillTemas();
-  $('tema').onchange = info;
+  pick = temaPicker($('pickSrs'), qs, last.pick, { onChange: () => pick && info() });
+  info();
   $('go').onclick = () => {
-    const b = $('bloque')?.value || '', t = $('tema').value, count = Math.max(1, +$('count').value || s.srsSize);
-    saveSettings({ study_srs: { bloque: b, tema: t, count } });
+    const sel = pick.get(), count = Math.max(1, +$('count').value || s.srsSize);
+    saveSettings({ study_srs: { pick: sel ? [...sel] : null, count } });
     const p = srsPlan(pool());
-    startRun([...p.due, ...shuffle(p.fresh)].slice(0, count), { mode: 'practica', kind: 'repaso', label: t || b });
+    startRun([...p.due, ...shuffle(p.fresh)].slice(0, count), { mode: 'practica', kind: 'repaso', label: pickLabel(sel) });
   };
 }
 
@@ -1809,16 +1935,13 @@ function showStudySetup(kind) {
   stopTimer();
   const conf = STUDY[kind], last = load(K.settings, {})['study_' + kind] || {};
   const qs = set?.preguntas || [], fs = kind === 'vf' ? [] : fichasOf();
-  const all = [...qs, ...fs];
-  const bloques = uniq(all.map(x => x.bloque)).sort(natCmp);
   app.innerHTML = `
     <div class="row between"><h1>${conf.icon} ${conf.name}</h1><button id="home">← Inicio</button></div>
     <div class="card">
       <p class="help" style="margin-top:0">${conf.help}</p>
       ${qs.length && fs.length ? `<div class="set-row"><span>Qué repasar</span><select id="src">
         <option value="all">Preguntas y fichas</option><option value="q" ${last.src === 'q' ? 'selected' : ''}>Solo preguntas</option><option value="f" ${last.src === 'f' ? 'selected' : ''}>Solo fichas</option></select></div>` : ''}
-      ${bloques.length ? `<div class="set-row"><span>Bloque</span><select id="bloque"><option value="">Todos</option>${bloques.map(b => `<option>${esc(b)}</option>`).join('')}</select></div>` : ''}
-      <div class="set-row" id="temaRow"><span>Tema</span><select id="tema"></select></div>
+      <div class="picker" id="pickStudy"></div>
       ${kind !== 'vf' ? `<label class="opt"><input type="checkbox" id="onlyDue" ${last.onlyDue !== false ? 'checked' : ''}> Solo las que tocan hoy y las nuevas (repaso inteligente)</label>` : ''}
       <label class="opt"><input type="checkbox" id="onlyMarked"> Solo las marcadas ★</label>
       <div class="set-row"><span>Cuántas</span><input type="number" id="count" min="1" value="${last.count || 20}"></div>
@@ -1837,19 +1960,19 @@ function showStudySetup(kind) {
     const src = $('src')?.value || 'all';
     return [...(src === 'f' ? [] : qs), ...(src === 'q' ? [] : fs)];
   };
-  const fillTemas = () => {
-    const b = $('bloque')?.value || '';
-    const temas = uniq(pool().filter(x => !b || x.bloque === b).map(x => x.tema)).sort(natCmp);
-    $('tema').innerHTML = `<option value="">Todos</option>${temas.map(t => `<option>${esc(t)}</option>`).join('')}`;
-    $('temaRow').hidden = !temas.length;
+  // El selector de temas depende de qué se repasa (preguntas, fichas o ambas); conserva la selección al cambiarlo
+  let pick = null;
+  const unit = kind === 'vf' ? 'preguntas' : 'tarjetas';
+  const buildPick = () => {
+    const prev = pick ? pick.get() : null;
+    pick = temaPicker($('pickStudy'), pool(), prev ? [...prev] : last.pick, { unit });
   };
-  fillTemas();
-  if ($('bloque')) $('bloque').onchange = fillTemas;
-  if ($('src')) $('src').onchange = fillTemas;
+  buildPick();
+  if ($('src')) $('src').onchange = buildPick;
 
   $('go').onclick = () => {
-    const b = $('bloque')?.value || '', t = $('tema').value, marks = load(K.marks, {});
-    let cards = pool().filter(x => (!b || x.bloque === b) && (!t || x.tema === t)).map(asCard);
+    const sel = pick.get(), marks = load(K.marks, {});
+    let cards = pool().filter(x => inPick(sel, x)).map(asCard);
     if ($('onlyMarked').checked) cards = cards.filter(c => marks[c.key]);
     const count = Math.max(1, +$('count').value || 20);
     if ($('onlyDue')?.checked) {
@@ -1860,7 +1983,7 @@ function showStudySetup(kind) {
     if (!cards.length) return $('err').textContent = 'No hay nada que repasar con esos filtros.';
     cards = cards.slice(0, count);
     const opts = {
-      src: $('src')?.value, onlyDue: $('onlyDue')?.checked, count,
+      src: $('src')?.value, onlyDue: $('onlyDue')?.checked, count, pick: sel ? [...sel] : null,
       readOpts: $('readOpts')?.checked, readExp: $('readExp')?.checked, pause: $('pause') ? +$('pause').value : undefined, rate: $('rate') ? +$('rate').value : undefined
     };
     saveSettings({ ['study_' + kind]: opts });
