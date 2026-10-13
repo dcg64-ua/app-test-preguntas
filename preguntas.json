@@ -21079,5 +21079,449 @@
                        "bloque":  "Tema 9 (MAD). Bibliotecas públicas: concepto, funciones, servicios y clases",
                        "tema":  "Tema 9 · Preguntas del tema"
                    }
-               ]
+               ],
+    "articulos":  [
+                      {
+                          "titulo":  "Estatutos UMH – Norma base y ámbito del programa",
+                          "texto":  "Norma base: Decreto {{208/2004}}, de {{8 de octubre}}; modificación estatutaria aprobada por Decreto {{105/2012}}, de {{29 de junio}}. El estudio debe limitarse al Título preliminar, Título I, capítulos {{I, II y IV}} del Título II, capítulos {{II y III}} del Título III y Título {{VI}}.",
+                          "referencia":  "Estatutos UMH (Decreto 208/2004)",
+                          "bloque":  "Temario general UMH",
+                          "tema":  "G1. Estatutos de la Universidad Miguel Hernández"
+                      },
+                      {
+                          "titulo":  "Estatutos UMH – Identidad y autonomía de la Universidad",
+                          "texto":  "La UMH es una universidad {{pública}} con {{personalidad jurídica}} y {{patrimonio}} propios. La autonomía universitaria permite organizar {{docencia}}, {{investigación}}, gobierno, personal y recursos dentro del {{ordenamiento}}.",
+                          "referencia":  "Estatutos UMH (Decreto 208/2004)",
+                          "bloque":  "Temario general UMH",
+                          "tema":  "G1. Estatutos de la Universidad Miguel Hernández"
+                      },
+                      {
+                          "titulo":  "Ley 40/2015 – Competencia y técnicas de alteración",
+                          "texto":  "La competencia es {{irrenunciable}} y se ejercerá por el órgano que la tenga atribuida como {{propia}}, salvo {{delegación}} o {{avocación}} en los términos legales. Delegación de firma: se delega la {{firma}}; no la competencia. Suplencia: sustitución {{temporal}} del titular en los supuestos previstos.",
+                          "referencia":  "Ley 40/2015",
+                          "bloque":  "Temario general UMH",
+                          "tema":  "G2. Leyes 39/2015 y 40/2015"
+                      },
+                      {
+                          "titulo":  "Ley 39/2015 – Recursos administrativos",
+                          "texto":  "Recurso de alzada: contra actos que {{no ponen fin}} a la vía administrativa. Si el acto es expreso, plazo de interposición: {{1 mes}}. Plazo máximo para resolver y notificar: {{3 meses}}. Reposición: {{potestativa}} contra actos que ponen fin a la vía administrativa, ante el {{mismo órgano}}. Extraordinario de revisión: solo contra actos {{firmes}} y por causas {{tasadas}}.",
+                          "referencia":  "Ley 39/2015",
+                          "bloque":  "Temario general UMH",
+                          "tema":  "G2. Leyes 39/2015 y 40/2015"
+                      },
+                      {
+                          "titulo":  "Ley 4/2021 – Clases de personal",
+                          "texto":  "Funcionario de carrera: relación {{estatutaria}} {{permanente}} tras nombramiento legal. Funcionario interino: nombramiento {{temporal}} por razones {{justificadas}} y supuestos legalmente previstos. Personal laboral: relación mediante {{contrato de trabajo}}; fijo, indefinido o temporal según corresponda. Personal eventual: {{confianza}} o {{asesoramiento especial}}; carácter no permanente.",
+                          "referencia":  "Ley 4/2021",
+                          "bloque":  "Temario general UMH",
+                          "tema":  "G3. Ley 4/2021 de Función Pública Valenciana"
+                      },
+                      {
+                          "titulo":  "Ley 4/2021 – Carrera y promoción",
+                          "texto":  "Carrera horizontal: progresión profesional {{sin necesidad de cambiar de puesto}}. Carrera vertical: progresión mediante {{provisión de puestos}} de mayor nivel/responsabilidad. Promoción interna: acceso a otro {{cuerpo/escala}} o {{subgrupo}} en los términos legales. Evaluación del desempeño: valoración de {{conducta profesional}} y {{rendimiento}} conforme al sistema aplicable.",
+                          "referencia":  "Ley 4/2021",
+                          "bloque":  "Temario general UMH",
+                          "tema":  "G3. Ley 4/2021 de Función Pública Valenciana"
+                      },
+                      {
+                          "titulo":  "Reglamento Adm. Electrónica UMH – Sede electrónica",
+                          "texto":  "La sede electrónica es el entorno electrónico de {{titularidad}} de la UMH a través del que se ofrecen {{contenidos}}, {{trámites}} y {{servicios}} con garantías. No es simplemente la {{web general}} de la Universidad. Debes asociarla a {{autenticidad}}, {{integridad}}, actualización, {{disponibilidad}} y responsabilidad.",
+                          "referencia":  "Reglamento Adm. Electrónica UMH",
+                          "bloque":  "Temario general UMH",
+                          "tema":  "G4. Reglamento de Administración Electrónica UMH"
+                      },
+                      {
+                          "titulo":  "Reglamento Adm. Electrónica UMH – Registro, notificación y documento",
+                          "texto":  "El registro electrónico permite presentar y recibir solicitudes, escritos y comunicaciones, dejando {{constancia}} y {{justificante}}. La notificación administrativa electrónica requiere el sistema y las {{garantías}} previstas. Un {{correo electrónico}} informativo no equivale por sí solo a una notificación formal. La actuación electrónica exige documentos, copias y expedientes con garantías de autenticidad, {{integridad}}, {{conservación}} y {{trazabilidad}}.",
+                          "referencia":  "Reglamento Adm. Electrónica UMH",
+                          "bloque":  "Temario general UMH",
+                          "tema":  "G4. Reglamento de Administración Electrónica UMH"
+                      },
+                      {
+                          "titulo":  "LO 3/2007 – Igualdad de trato y discriminación",
+                          "texto":  "Igualdad de trato: ausencia de discriminación {{directa}} o {{indirecta}} por razón de sexo. Directa: trato {{menos favorable}} en situación {{comparable}}. Indirecta: disposición, criterio o práctica {{aparentemente neutros}} que sitúan a personas de un sexo en {{desventaja particular}}, salvo justificación {{objetiva}} legítima y medios {{adecuados}}/necesarios.",
+                          "referencia":  "LO 3/2007",
+                          "bloque":  "Temario general UMH",
+                          "tema":  "G5. LO 3/2007 para la igualdad efectiva de mujeres y hombres"
+                      },
+                      {
+                          "titulo":  "LO 3/2007 – Acoso y acciones positivas",
+                          "texto":  "Acoso sexual: comportamiento de {{naturaleza sexual}} que atenta contra la {{dignidad}} y crea un entorno {{intimidatorio}}, degradante u ofensivo. Acoso por razón de sexo: comportamiento realizado {{en función del sexo}} de una persona con ese propósito o efecto lesivo. Pueden adoptarse medidas específicas en favor de las mujeres para corregir situaciones {{patentes}} de desigualdad de hecho {{mientras subsistan}}, con los requisitos de razonabilidad y {{proporcionalidad}}.",
+                          "referencia":  "LO 3/2007",
+                          "bloque":  "Temario general UMH",
+                          "tema":  "G5. LO 3/2007 para la igualdad efectiva de mujeres y hombres"
+                      },
+                      {
+                          "titulo":  "Concepto de biblioteca universitaria",
+                          "texto":  "La biblioteca universitaria es una unidad de apoyo al {{aprendizaje}}, {{docencia}}, {{investigación}}, {{transferencia}} y gestión que {{selecciona}}, organiza, facilita, {{difunde}} y {{preserva}} recursos de información y presta servicios a la {{comunidad universitaria}}.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                      },
+                      {
+                          "titulo":  "Modelos organizativos",
+                          "texto":  "{{Centralizado}}: procesos y decisiones concentrados. {{Descentralizado}}: mayor {{autonomía}} de bibliotecas de centro/campus. {{Mixto}}: coordinación común con {{puntos de servicio}} distribuidos. La elección depende del {{tamaño}}, {{dispersión de campus}} y modelo de universidad.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E1. Biblioteca universitaria: concepto, funciones, evolución, modelos y espacios"
+                      },
+                      {
+                          "titulo":  "RediUMH, el repositorio institucional",
+                          "texto":  "RediUMH es el {{repositorio institucional}}. Su finalidad es {{recopilar}}, {{organizar}}, {{difundir}} y {{preservar}} documentos digitales científicos, {{docentes}} e institucionales producidos por la Universidad. Utiliza {{DSpace}}.",
+                          "referencia":  "Biblioteca UMH",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E2. Biblioteca de la UMH"
+                      },
+                      {
+                          "titulo":  "Alma, Primo y DAMA",
+                          "texto":  "La plataforma de servicios bibliotecarios de la UMH es {{Alma}}; su implantación sustituyó a {{Symphony}}/{{Unicorn}}. La herramienta de descubrimiento asociada es {{Primo}}, presentada al usuario mediante {{DAMA}}.",
+                          "referencia":  "Biblioteca UMH",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E2. Biblioteca de la UMH"
+                      },
+                      {
+                          "titulo":  "Líneas del V Plan Estratégico REBIUN",
+                          "texto":  "El V Plan Estratégico REBIUN {{2024-2027}} contiene {{cuatro}} líneas: 1) biblioteca en el contexto de la {{transformación digital}}; 2) biblioteca como agente estratégico para el impulso de la {{ciencia abierta}}; 3) {{equipos}} y {{capacitación profesional}}; 4) {{gobernanza}}, colaboración e {{internacionalización}}.",
+                          "referencia":  "REBIUN – V Plan Estratégico 2024-2027",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL"
+                      },
+                      {
+                          "titulo":  "Grupos de trabajo permanentes de REBIUN",
+                          "texto":  "En 2026 REBIUN identifica {{ocho}} grupos de trabajo permanentes: {{Catálogo Colectivo}} (con subgrupo {{RDA}}), Estadísticas, {{Patrimonio Bibliográfico}} (subgrupo {{Libro Antiguo}}), Repositorios, Comunicación, {{Acceso al documento}}, Propiedad intelectual y {{Observatorio IA}}.",
+                          "referencia":  "REBIUN",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E3. Cooperación: redes, consorcios, REBIUN y BUVAL"
+                      },
+                      {
+                          "titulo":  "Cadena de evaluación, eficacia y eficiencia",
+                          "texto":  "Cadena útil: {{inputs}} (recursos) → {{procesos}} → {{outputs}} (productos/servicios) → {{outcomes}} (efectos en usuarios) → {{impacto}}. Diferencia {{eficacia}} (grado de logro de objetivos) de {{eficiencia}} (relación entre resultados y recursos utilizados).",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E4. Calidad y evaluación de bibliotecas"
+                      },
+                      {
+                          "titulo":  "Carta de servicios y mejora continua",
+                          "texto":  "Carta de servicios: informa de servicios y {{compromisos}} de calidad y puede asociar {{indicadores}} para comprobar su cumplimiento. Encuestas de satisfacción miden {{percepción}}. Mejora continua: {{planificar}}, {{ejecutar}}, {{comprobar}} y actuar/corregir (lógica {{PDCA}}). {{Benchmarking}} compara prácticas/resultados para aprender y mejorar.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E4. Calidad y evaluación de bibliotecas"
+                      },
+                      {
+                          "titulo":  "Fases de la gestión de colecciones",
+                          "texto":  "{{Selección}} decide qué incorporar; {{adquisición}} materializa compra, {{suscripción}}, {{donación}}, {{canje}} u otra vía; {{evaluación}} analiza adecuación/uso; {{expurgo}} retira o {{reubica}} con criterios definidos.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E5. Desarrollo y gestión de colecciones"
+                      },
+                      {
+                          "titulo":  "Criterios de expurgo",
+                          "texto":  "Expurgo: {{deterioro}}, {{duplicación}} innecesaria, {{obsolescencia}}, falta de {{uso}} o desajuste; debe respetar valor {{patrimonial}}, {{histórico}}, {{legal}} y necesidades futuras.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E5. Desarrollo y gestión de colecciones"
+                      },
+                      {
+                          "titulo":  "ISBD, RDA y MARC21",
+                          "texto":  "ISBD normaliza la {{presentación}}/estructura de la descripción bibliográfica mediante {{áreas}} y elementos de descripción. RDA (Resource Description and Access) es un estándar/instrucciones para crear datos de descripción y acceso orientados al entorno {{digital}} y a {{entidades}}/relaciones. No es un formato de {{codificación}}. MARC21 codifica datos bibliográficos legibles por {{máquina}}.",
+                          "referencia":  "ISBD / RDA",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E6. ISBD, RDA e identificadores"
+                      },
+                      {
+                          "titulo":  "Identificadores normalizados y persistentes",
+                          "texto":  "ISBN identifica ediciones de libros/{{monografías}}; ISSN publicaciones {{seriadas}}/recursos continuados; DOI objetos {{digitales}} persistentes mediante {{resolución}}; Handle es un sistema de identificadores {{persistentes}}; ORCID identifica {{investigadores}}.",
+                          "referencia":  "Identificadores",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E6. ISBD, RDA e identificadores"
+                      },
+                      {
+                          "titulo":  "Estructura del registro MARC21",
+                          "texto":  "MARC21 codifica información bibliográfica en campos legibles por máquina. Un registro incluye {{líder}}, {{directorio}}, campos de {{control}} y campos de {{datos}}; estos últimos pueden usar {{indicadores}} y {{subcampos}}.",
+                          "referencia":  "MARC21",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                      },
+                      {
+                          "titulo":  "Campos MARC21 frecuentes",
+                          "texto":  "Reconoce funciones frecuentes: 001 número de {{control}}; 020 {{ISBN}}; 022 {{ISSN}}; 100 entrada {{principal}} de nombre personal; 245 {{título}}/mención de responsabilidad; 264 producción/publicación/distribución/copyright; 300 descripción {{física}}; 650 {{materia}}; 700 entrada {{añadida}} de nombre personal.",
+                          "referencia":  "MARC21 Bibliográfico",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E7. MARC21: bibliográfico, autoridades y fondos"
+                      },
+                      {
+                          "titulo":  "La CDU y la signatura topográfica",
+                          "texto":  "La CDU es una clasificación bibliográfica {{universal}}, {{jerárquica}} y {{analítico-sintética}} basada en notación {{decimal}}. Permite representar materias y relaciones mediante números y {{signos}}. La signatura {{topográfica}} sirve para localizar/ordenar físicamente un ejemplar; puede incorporar la clasificación, pero no es idéntica a la CDU.",
+                          "referencia":  "CDU",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                      },
+                      {
+                          "titulo":  "Encabezamientos de materia y relaciones de tesauro",
+                          "texto":  "Encabezamientos de materia: lenguaje {{precoordinado}} de acceso por materia, con formas autorizadas y referencias. Tesauro: lenguaje documental controlado, normalmente {{poscoordinado}}, basado en {{descriptores}} y relaciones explícitas. Relaciones de tesauro: {{equivalencia}} (descriptor/no descriptor; USE/UP), {{jerarquía}} (término genérico/específico; TG/TE) y {{asociación}} (término relacionado; TR).",
+                          "referencia":  "Tesauro",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E8. CDU, encabezamientos de materia y tesauros"
+                      },
+                      {
+                          "titulo":  "Conservación preventiva y restauración",
+                          "texto":  "Conservación {{preventiva}}: medidas para evitar o ralentizar {{deterioro}} actuando sobre ambiente, almacenamiento, {{manipulación}} y riesgos. {{Restauración}}: intervención {{directa}} sobre un objeto dañado.",
+                          "referencia":  "Conservación preventiva",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E9. Conservación y preservación física/digital"
+                      },
+                      {
+                          "titulo":  "Preservación digital: checksum, migración y emulación",
+                          "texto":  "Un {{checksum}} ayuda a comprobar {{integridad}}; no demuestra por sí solo {{autoría}} ni garantiza preservación completa. La {{migración}} transforma o traslada contenidos a formatos/sistemas vigentes; la {{emulación}} reproduce entornos antiguos. El plan de {{contingencia}} define prevención, respuesta, prioridades, responsabilidades y {{recuperación}} ante incidentes.",
+                          "referencia":  "Preservación digital",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E9. Conservación y preservación física/digital"
+                      },
+                      {
+                          "titulo":  "SIGB, LSP, OPAC y discovery",
+                          "texto":  "{{SIGB}}: sistema integrado que gestiona módulos/procesos como {{adquisiciones}}, catalogación, {{circulación}}, publicaciones seriadas y OPAC. {{OPAC}}: catálogo público en línea; permite buscar registros y consultar disponibilidad/localización y funciones de cuenta según sistema. {{Discovery}}: capa de descubrimiento que busca simultáneamente en {{múltiples}} fuentes/índices y facilita acceso a recursos más allá del catálogo local.",
+                          "referencia":  "SIGB / OPAC / Discovery",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                      },
+                      {
+                          "titulo":  "Alma y DAMA en la UMH",
+                          "texto":  "La plataforma de servicios bibliotecarios de la UMH es {{Alma}}; su implantación sustituyó a {{Symphony}}/Unicorn. La herramienta de descubrimiento asociada es {{Primo}}, presentada al usuario mediante {{DAMA}}.",
+                          "referencia":  "Biblioteca UMH",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E10. SIGB, LSP, OPAC y herramientas de descubrimiento"
+                      },
+                      {
+                          "titulo":  "DSpace, OAI-PMH y Dublin Core",
+                          "texto":  "DSpace y EPrints son plataformas de {{software}} para repositorios. OAI-PMH es un {{protocolo}} para recolección/intercambio de {{metadatos}}; no transporta necesariamente el {{texto completo}}. Dublin Core es un {{esquema de metadatos}} sencillo y ampliamente {{interoperable}}.",
+                          "referencia":  "OAI-PMH",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core"
+                      },
+                      {
+                          "titulo":  "Cadena de interoperabilidad de un repositorio",
+                          "texto":  "Cadena: {{repositorio}} (p.ej. DSpace) expone {{metadatos}} (p.ej. Dublin Core) mediante un {{protocolo}} (OAI-PMH) para que un {{recolector}} pueda agregarlos. RediUMH usa {{DSpace}} y, mediante protocolos internacionales, puede ser recolectado por servicios como {{Recolecta}}.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E11. Biblioteca digital, repositorios, DSpace/EPrints, OAI-PMH y Dublin Core"
+                      },
+                      {
+                          "titulo":  "Riesgos y principios de la IA",
+                          "texto":  "Riesgos: {{alucinaciones}}/errores, {{sesgos}}, privacidad/datos personales, {{propiedad intelectual}}, opacidad, {{dependencia tecnológica}} y accesibilidad. Principios prácticos: {{verificación humana}}, transparencia sobre uso, {{minimización de datos}}, evaluación de calidad, seguridad y respeto a derechos.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E12. TIC, web social e inteligencia artificial"
+                      },
+                      {
+                          "titulo":  "Circulación y préstamo interbibliotecario",
+                          "texto":  "Circulación incluye {{préstamo}}, devolución, {{renovación}}, {{reservas}}, bloqueos/sanciones cuando procedan y gestión de ejemplares/usuarios. Préstamo interbibliotecario (PIB) facilita documentos no disponibles {{localmente}} mediante {{cooperación}} entre bibliotecas.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad"
+                      },
+                      {
+                          "titulo":  "Accesibilidad física y digital",
+                          "texto":  "Accesibilidad física: {{itinerarios}}, {{mobiliario}}, {{señalización}} y espacios utilizables. Accesibilidad digital: {{interfaces}}, documentos y contenidos compatibles con necesidades diversas.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E13. Circulación, dispositivos, espacios, PIB y accesibilidad"
+                      },
+                      {
+                          "titulo":  "Tipología de fuentes de información",
+                          "texto":  "Fuente primaria: información {{original}}/directa (artículo de investigación, datos, documento original). Secundaria: {{organiza}}, analiza o remite a fuentes {{primarias}} (bibliografías, {{índices}}, bases referenciales, revisiones según contexto). Terciaria: {{sintetiza}}/compila información de fuentes previas (manuales, {{enciclopedias}}, repertorios generales según tipología).",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E14. Referencia, fuentes de información y referencia virtual"
+                      },
+                      {
+                          "titulo":  "Referencia virtual",
+                          "texto":  "Síncrona: {{chat}}/{{videoconferencia}}. Asíncrona: {{correo}}/{{formulario}}. La elección depende de {{urgencia}}, complejidad y recursos.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E14. Referencia, fuentes de información y referencia virtual"
+                      },
+                      {
+                          "titulo":  "Definición de ALFIN y CI2",
+                          "texto":  "ALFIN desarrolla capacidad para reconocer una {{necesidad de información}}, localizarla, {{evaluarla críticamente}}, gestionarla, utilizarla y comunicarla de forma {{ética}}. Formación de usuarios tradicional puede centrarse en {{servicios/herramientas}}; ALFIN busca competencias {{transferibles}} y {{pensamiento crítico}}. CI2 integra competencias {{informáticas}} e {{informacionales}} en el contexto universitario.",
+                          "referencia":  "ALFIN",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E15. ALFIN, CI2 y formación de usuarios"
+                      },
+                      {
+                          "titulo":  "Programa formativo",
+                          "texto":  "Programa formativo: detectar {{necesidades}} → definir {{resultados de aprendizaje}} → seleccionar contenidos/{{metodología}} → impartir → {{evaluar}} aprendizaje y satisfacción → {{mejorar}}.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E15. ALFIN, CI2 y formación de usuarios"
+                      },
+                      {
+                          "titulo":  "Plan de marketing bibliotecario",
+                          "texto":  "Plan: análisis de situación y {{públicos}} → {{objetivos}} → {{segmentación}} → propuesta/mensaje → {{canales}}/acciones → calendario/{{recursos}} → {{indicadores}}/evaluación.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E16. Comunicación, marketing y redes sociales"
+                      },
+                      {
+                          "titulo":  "Indicadores de comunicación",
+                          "texto":  "Indicadores: {{alcance}}, {{interacción}}, {{clics}}, {{conversiones}}/inscripciones, uso de servicio, {{satisfacción}}. Métrica vistosa no siempre equivale a {{impacto}}.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E16. Comunicación, marketing y redes sociales"
+                      },
+                      {
+                          "titulo":  "Índice h y cuartil",
+                          "texto":  "Índice h: un autor tiene h si posee {{h publicaciones}} con al menos {{h citas}} cada una. Combina producción e {{impacto}}, pero depende de carrera, área y {{cobertura}}.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA"
+                      },
+                      {
+                          "titulo":  "Definición de cuartil",
+                          "texto":  "Cuartil: posición relativa de una {{revista}} dentro de una {{categoría}} ordenada por un indicador; {{Q1}} corresponde al primer {{25%}} de esa distribución. Categoría y {{año}} importan.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E17. Bibliometría, bases de citas, indicadores y ANECA"
+                      },
+                      {
+                          "titulo":  "Vías de acceso abierto",
+                          "texto":  "Vía {{verde}}: depósito de una versión permitida en {{repositorio}}. Vía {{dorada}}: publicación en revista de acceso abierto. {{Diamante}}: acceso abierto sin cargos de publicación para autores. {{Híbrida}}: revista de {{suscripción}} ofrece opción OA para artículos.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E18. Ciencia abierta y acceso abierto"
+                      },
+                      {
+                          "titulo":  "Ley de la Ciencia y ciencia abierta",
+                          "texto":  "La Ley {{14/2011}}, tras la reforma de {{2022}}, dedica su artículo {{37}} a ciencia abierta y promueve que resultados de investigación, incluidas publicaciones, {{datos}}, {{códigos}} y {{metodologías}}, estén disponibles en acceso abierto en los términos legales. El repositorio {{institucional}} o temático es una infraestructura central de esta política.",
+                          "referencia":  "Ley 14/2011 de la Ciencia (mod. Ley 17/2022)",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E18. Ciencia abierta y acceso abierto"
+                      },
+                      {
+                          "titulo":  "FAIR no es abierto",
+                          "texto":  "FAIR no significa necesariamente {{abierto}}. Un conjunto puede ser FAIR y tener acceso {{restringido}} si sus {{metadatos}}, condiciones y mecanismos de acceso están bien definidos. La máxima práctica es «tan abierto como sea {{posible}}, tan cerrado como sea {{necesario}}», atendiendo a protección de datos, ética, seguridad, contratos y PI.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E19. Gestión de datos de investigación, FAIR y PGD"
+                      },
+                      {
+                          "titulo":  "Contenido del PGD",
+                          "texto":  "Un PGD/DMP debe contemplar datos generados, {{formatos}}, documentación/{{metadatos}}, almacenamiento y {{copias}}, {{seguridad}}, responsabilidades, aspectos éticos/legales, {{acceso}}, {{preservación}} y {{costes}}. Es un documento {{vivo}}.",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E19. Gestión de datos de investigación, FAIR y PGD"
+                      },
+                      {
+                          "titulo":  "Elementos Creative Commons",
+                          "texto":  "Creative Commons: {{BY}} atribución; {{SA}} compartir igual; {{NC}} no comercial; {{ND}} sin obras derivadas. Las {{combinaciones}} determinan permisos y restricciones.",
+                          "referencia":  "Creative Commons",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio"
+                      },
+                      {
+                          "titulo":  "Derechos y dominio público",
+                          "texto":  "Derechos {{morales}} protegen vínculo personal con la obra; derechos de {{explotación}} incluyen {{reproducción}}, {{distribución}}, {{comunicación pública}} y {{transformación}} en los términos legales.",
+                          "referencia":  "LPI",
+                          "bloque":  "Temario específico UMH",
+                          "tema":  "E20. Propiedad intelectual, Creative Commons, dominio público y antiplagio"
+                      },
+                      {
+                          "titulo":  "Definición de biblioteca de la ALA",
+                          "texto":  "Una {{colección}} de material de información {{organizada}} para que pueda acceder a ella un grupo de {{usuarios}}. Tiene {{personal}} encargado de los {{servicios}} y {{programas}} relacionados con las necesidades de información de los lectores.",
+                          "referencia":  "American Library Association (ALA)",
+                          "bloque":  "Tema 7 (MAD). Concepto y función de la biblioteca, organizaciones bibliotecarias y formación",
+                          "tema":  "Tema 7 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Manual de normas ISO 1: Biblioteconomía y Documentación",
+                          "texto":  "Biblioteconomía: {{ciencia de la Información}} aplicada a la organización, {{administración}} y servicios de biblioteca. Documentación: recogida y tratamiento {{permanente}} y {{sistemático}} de información {{registrada}}, que permite su almacenamiento, {{recuperación}}, utilización o transmisión.",
+                          "referencia":  "Manual de normas ISO 1: Documentación e Información",
+                          "bloque":  "Tema 7 (MAD). Concepto y función de la biblioteca, organizaciones bibliotecarias y formación",
+                          "tema":  "Tema 7 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Manual de normas ISO 1: Ciencia de la Información",
+                          "texto":  "Ciencia de la Información: estudio de las {{funciones}}, de la {{estructura}} y de la {{transmisión}} de la información, así como la {{gestión}} de {{sistemas de información}}.",
+                          "referencia":  "Manual de normas ISO 1: Documentación e Información",
+                          "bloque":  "Tema 7 (MAD). Concepto y función de la biblioteca, organizaciones bibliotecarias y formación",
+                          "tema":  "Tema 7 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Agenda 2030: Objetivo de Desarrollo Sostenible 16",
+                          "texto":  "Garantizar el {{acceso público}} a la {{información}} y proteger las {{libertades fundamentales}}, de conformidad con las {{leyes nacionales}} y los {{acuerdos internacionales}}.",
+                          "referencia":  "Agenda 2030 (ODS 16) (Nota: el manual dice «La UNESCO ha establecido la nueva Agenda 2030»; la Agenda 2030 la aprobó la Asamblea General de la ONU, con participación de la UNESCO.)",
+                          "bloque":  "Tema 7 (MAD). Concepto y función de la biblioteca, organizaciones bibliotecarias y formación",
+                          "tema":  "Tema 7 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Definición de profesional de la información (R.O. Mason)",
+                          "texto":  "Son todos aquellos que tienen como {{misión}} común conseguir la información {{adecuada}}, de la {{fuente}} adecuada, para el {{usuario}} adecuado, en {{tiempo}} adecuado.",
+                          "referencia":  "Manual MAD, Tema 7",
+                          "bloque":  "Tema 7 (MAD). Concepto y función de la biblioteca, organizaciones bibliotecarias y formación",
+                          "tema":  "Tema 7 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Definición de biblioteca nacional (UNESCO, 1970)",
+                          "texto":  "Las bibliotecas que, cualquiera que sea su denominación, son responsables de la {{adquisición}} y {{conservación}} de ejemplares de todas las {{publicaciones impresas}} en el país y que funcionan como bibliotecas de \u0027{{depósito}}\u0027, en virtud de disposiciones sobre el {{depósito legal}} o de otras disposiciones.",
+                          "referencia":  "Recomendación UNESCO de 1970 (16.ª Conferencia General)",
+                          "bloque":  "Tema 8 (MAD). Tipos de bibliotecas y organización bibliotecaria española",
+                          "tema":  "Tema 8 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Biblioteca nacional según el Informe Técnico ISO/TR 28118",
+                          "texto":  "Las bibliotecas nacionales tienen {{responsabilidades especiales}}, a menudo establecidas por {{ley}}, sobre la {{herencia cultural}} de un país. Recogen y preservan la herencia documental nacional y proporcionan y aseguran el {{acceso permanente}} al conocimiento y a la cultura del pasado y del presente. Ofrecen servicios centrales y asumen un papel de {{liderazgo}} en el sector de las bibliotecas y de la información.",
+                          "referencia":  "Informe Técnico ISO/TR 28118",
+                          "bloque":  "Tema 8 (MAD). Tipos de bibliotecas y organización bibliotecaria española",
+                          "tema":  "Tema 8 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Constitución Española, art. 148.1.15.ª",
+                          "texto":  "Las {{Comunidades Autónomas}} podrán asumir competencias en las siguientes materias: 15º, {{Museos}}, {{bibliotecas}} y {{conservatorios de música}} de {{interés}} para la comunidad.",
+                          "referencia":  "Constitución Española de 1978 (Nota: el manual dice «de interés para la comunidad»; el texto constitucional dice «de interés para la Comunidad Autónoma».)",
+                          "bloque":  "Tema 8 (MAD). Tipos de bibliotecas y organización bibliotecaria española",
+                          "tema":  "Tema 8 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Constitución Española, art. 149.1.28.ª",
+                          "texto":  "El {{Estado}} tiene competencias {{exclusivas}} sobre las siguientes materias: 28º, defensa del patrimonio cultural, artístico y monumental español contra la {{explotación}} y la {{expoliación}}, museos, bibliotecas y archivos de {{titularidad estatal}}, sin perjuicio de la {{gestión}} por parte de las Comunidades Autónomas.",
+                          "referencia":  "Constitución Española de 1978 (Nota: el manual dice «explotación»; el texto constitucional dice «exportación».)",
+                          "bloque":  "Tema 8 (MAD). Tipos de bibliotecas y organización bibliotecaria española",
+                          "tema":  "Tema 8 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Sistema bibliotecario (UNE-ISO 5127:2010)",
+                          "texto":  "La biblioteca o {{conjunto conectado}} de bibliotecas con todas sus divisiones, servicios y unidades que {{cooperan}} para servir a un {{área geográfica}} determinada en un {{campo temático}} concreto o un {{grupo específico de usuarios}}.",
+                          "referencia":  "UNE-ISO 5127:2010 Información y documentación. Vocabulario",
+                          "bloque":  "Tema 8 (MAD). Tipos de bibliotecas y organización bibliotecaria española",
+                          "tema":  "Tema 8 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Depósito legal: definición",
+                          "texto":  "Obligación {{jurídica}} de depositar en uno o varios {{organismos}} algunos {{ejemplares}} de publicaciones de toda índole reproducidas por cualquier medio y mecanismo para su {{distribución}}, {{préstamo}} o {{venta}} al público.",
+                          "referencia":  "Ley 23/2011, de depósito legal",
+                          "bloque":  "Tema 8 (MAD). Tipos de bibliotecas y organización bibliotecaria española",
+                          "tema":  "Tema 8 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Manifiesto UNESCO 1994: la biblioteca como requisito básico",
+                          "texto":  "La biblioteca pública, {{paso obligado}} del conocimiento, constituye un {{requisito básico}} de la {{educación permanente}}, las {{decisiones autónomas}} y el {{progreso cultural}} de la persona y los grupos sociales.",
+                          "referencia":  "Manifiesto de la UNESCO sobre la Biblioteca Pública (1994)",
+                          "bloque":  "Tema 9 (MAD). Bibliotecas públicas: concepto, funciones, servicios y clases",
+                          "tema":  "Tema 9 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Manifiesto UNESCO 1994: fe de la UNESCO en la biblioteca pública",
+                          "texto":  "El presente Manifiesto proclama la fe de la UNESCO en la biblioteca pública como {{fuerza viva}} de educación, cultura e información y como {{agente esencial}} de fomento de la {{paz}} y los {{valores espirituales}} en la mente del ser humano.",
+                          "referencia":  "Manifiesto de la UNESCO sobre la Biblioteca Pública (1994)",
+                          "bloque":  "Tema 9 (MAD). Bibliotecas públicas: concepto, funciones, servicios y clases",
+                          "tema":  "Tema 9 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Manifiesto UNESCO 1994: igualdad de acceso",
+                          "texto":  "La biblioteca pública presta sus servicios sobre la base de {{igualdad de acceso}} de todas las personas, independientemente de su {{edad}}, raza, sexo, {{religión}}, nacionalidad, {{idioma}} o {{condición social}}.",
+                          "referencia":  "Manifiesto de la UNESCO sobre la Biblioteca Pública (1994)",
+                          "bloque":  "Tema 9 (MAD). Bibliotecas públicas: concepto, funciones, servicios y clases",
+                          "tema":  "Tema 9 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Manifiesto UNESCO 1994: ausencia de censura",
+                          "texto":  "Ni los fondos ni los servicios han de estar sujetos a forma alguna de {{censura}} {{ideológica}}, {{política}} o {{religiosa}}, ni a {{presiones comerciales}}.",
+                          "referencia":  "Manifiesto de la UNESCO sobre la Biblioteca Pública (1994)",
+                          "bloque":  "Tema 9 (MAD). Bibliotecas públicas: concepto, funciones, servicios y clases",
+                          "tema":  "Tema 9 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Manifiesto UNESCO 1994: el bibliotecario",
+                          "texto":  "El bibliotecario es un {{intermediario activo}} entre los {{usuarios}} y los {{recursos}}. Es indispensable su {{formación permanente}} para que pueda ofrecer {{servicios adecuados}}.",
+                          "referencia":  "Manifiesto de la UNESCO sobre la Biblioteca Pública (1994)",
+                          "bloque":  "Tema 9 (MAD). Bibliotecas públicas: concepto, funciones, servicios y clases",
+                          "tema":  "Tema 9 · Preguntas del tema"
+                      },
+                      {
+                          "titulo":  "Directrices IFLA/UNESCO: definición de biblioteca pública",
+                          "texto":  "Una biblioteca pública es una organización {{establecida}}, {{respaldada}} y {{financiada}} por la {{comunidad}}, ya sea por conducto de una autoridad u órgano {{local, regional o nacional}}, o mediante cualquier otra forma de {{organización colectiva}}.",
+                          "referencia":  "Directrices IFLA/UNESCO para el Desarrollo del Servicio de Bibliotecas Públicas (2001)",
+                          "bloque":  "Tema 9 (MAD). Bibliotecas públicas: concepto, funciones, servicios y clases",
+                          "tema":  "Tema 9 · Preguntas del tema"
+                      }
+                  ]
 }
