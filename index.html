@@ -369,11 +369,31 @@
   .plan-day { padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
   .plan-more > summary { cursor: pointer; color: var(--accent); font-weight: 600; padding: 10px 0; }
   .plan-day b { min-width: 92px; text-transform: capitalize; }
+  .extras { display: grid; gap: 6px; }
+  .extra.ready { border-color: var(--star); background: color-mix(in srgb, var(--star) 18%, var(--card)); animation: pop 1.6s ease-in-out infinite; }
+  .ruleta-bg { position: fixed; inset: 0; z-index: 900; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, .55); }
+  .ruleta-box { background: var(--card); color: var(--text); border-radius: 24px; padding: 22px 18px; width: min(360px, 100%); text-align: center; box-shadow: 0 20px 60px rgba(0, 0, 0, .4); }
+  .ruleta-wrap { position: relative; width: min(300px, 80vw); margin: 0 auto; }
+  .ruleta-pin { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 1; font-size: 2rem; color: #e2557f; text-shadow: 0 2px 4px rgba(0,0,0,.3); }
+  .ruleta-svg { width: 100%; height: auto; display: block; transition: transform 4.5s cubic-bezier(.17, .67, .12, 1); }
+  .ruleta-res { font-size: 1.2rem; min-height: 1.6em; margin: 14px 0 10px; }
+  .extra { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); }
+  .extra > span:nth-child(2) { flex: 1; } .extra b { color: var(--star); white-space: nowrap; }
+  .extra.on { background: color-mix(in srgb, var(--ok) 14%, var(--card)); border-color: var(--ok); }
+  .dcal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  .dc { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; aspect-ratio: 1; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); font-size: .72rem; color: var(--muted); }
+  .dc b { font-size: .8rem; color: var(--text); }
+  .dc.big { border-color: color-mix(in srgb, var(--star) 60%, transparent); background: color-mix(in srgb, var(--star) 12%, var(--bg)); }
+  .dc.done { background: color-mix(in srgb, var(--ok) 22%, var(--card)); border-color: var(--ok); }
+  .dc.done b { color: var(--ok); }
+  .dc.today { outline: 2.5px solid var(--accent); outline-offset: 1px; }
   .final-card { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; border: 2px dashed color-mix(in srgb, var(--star) 60%, transparent); background: color-mix(in srgb, var(--star) 8%, var(--card)); }
   .final-card.on { border-style: solid; border-color: var(--star); background: color-mix(in srgb, var(--star) 20%, var(--card)); box-shadow: 0 0 24px -6px color-mix(in srgb, var(--star) 70%, transparent); }
   .final-ico { font-size: 2.6rem; } .final-txt { flex: 1; display: flex; flex-direction: column; min-width: 160px; } .final-txt b { font-size: 1.2rem; }
   .final-tag { font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--star); }
   .final-state { font-weight: 600; }
+  .pts-chip.alert { border-color: var(--star); background: color-mix(in srgb, var(--star) 35%, var(--card)); animation: chipAlert 1.2s ease-in-out infinite; }
+  @keyframes chipAlert { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--star) 70%, transparent); transform: scale(1); } 50% { box-shadow: 0 0 0 8px transparent; transform: scale(1.05); } }
   .pts-tag { background: color-mix(in srgb, var(--star) 22%, var(--card)); color: var(--text); font-weight: 700; }
   .pts-chip { background: color-mix(in srgb, var(--star) 18%, var(--card)); border-color: color-mix(in srgb, var(--star) 50%, transparent); font-weight: 700; }
   .points-card { text-align: center; }
@@ -416,7 +436,7 @@ const P = ENV === 'dev' ? 'quizdev.' : 'quiz.';
 const K = Object.fromEntries(Object.entries({
   set: 'set', stats: 'stats', marks: 'marks', hist: 'history', run: 'run',
   srs: 'srs', daily: 'daily', settings: 'settings', pomo: 'pomo', water: 'waterSecs',
-  theme: 'theme', photo: 'photo', gh: 'github', notes: 'notes', arts: 'articulos', vf: 'vf'
+  theme: 'theme', photo: 'photo', gh: 'github', notes: 'notes', arts: 'articulos', vf: 'vf', dailyq: 'dailyq'
 }).map(([k, v]) => [k, P + v]));
 if (ENV === 'dev') {
   document.title = 'Tests (DEV)';
@@ -464,6 +484,8 @@ const $ = id => document.getElementById(id);
 const DAY = 864e5;
 const startOfToday = () => new Date().setHours(0, 0, 0, 0);
 const todayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+// Hace n días, por calendario (restar n × 24 h falla el día del cambio de hora)
+const daysAgo = n => { const d = new Date(); d.setDate(d.getDate() - n); return d; };
 const MODOS = { practica: 'Práctica', examen: 'Examen', simulacro: 'Simulacro', repaso: 'Repaso' };
 
 // ---------- Ajustes ----------
@@ -471,7 +493,7 @@ const MODOS = { practica: 'Práctica', examen: 'Examen', simulacro: 'Simulacro',
 const SETTINGS_DEFAULT = {
   penaltyOn: false, penalty: 1 / 3,
   simNombre: 'Simulacro', simPreguntas: 100, simMinutos: 90, simCorte: 5, simBloque: '',
-  examDate: '', dailyGoal: 50, srsSize: 20,
+  examDate: '', dailyGoal: 60, srsSize: 20,
   pomoOn: false, pomoWork: 25, pomoBreak: 5, water: true, waterMin: 20, waterMsg: '',
   autoGaps: true, extraGaps: 0
 };
@@ -499,13 +521,15 @@ const FIREBASE_CONFIG = {
   appId: "1:875566017572:web:ede73173dccc69d1827cb1"
 };
 const FB_VER = '10.12.2';
-const SYNC_KEYS = ['stats', 'srs', 'daily', 'history', 'marks', 'notes', 'settings', 'theme', 'vf', 'articulos'];
+const SYNC_KEYS = ['stats', 'srs', 'daily', 'history', 'marks', 'notes', 'settings', 'theme', 'vf', 'articulos', 'dailyq'];
 const SYNC_MERGE = {
   // Por pregunta, la entrada con más respuestas
   stats: (a, b) => mergeMap(a, b, (x, y) => (y.ok + y.ko) > (x.ok + x.ko) ? y : x),
   // Por pregunta, el repaso más reciente
   srs: (a, b) => mergeMap(a, b, (x, y) => ((y.t || 0) > (x.t || 0) || (!x.t && !y.t && y.due > x.due)) ? y : x),
   daily: (a, b) => mergeMap(a, b, Math.max),
+  // respuestas tipo test por día: [respondidas, acertadas]; gana el dispositivo que más ha respondido ese día
+  dailyq: (a, b) => mergeMap(a, b, (x, y) => y[0] > x[0] ? y : x),
   history: (a, b) => {
     const seen = new Set(), out = [];
     for (const h of [...(a || []), ...(b || [])].sort((x, y) => x.fecha - y.fecha)) {
@@ -818,7 +842,7 @@ async function showAdmin(env = ENV) {
   // Para agrupar por bloque y tema se usan las preguntas cargadas en la app
   const info = new Map((set?.preguntas || []).map(q => [keyOf(q), q]));
   const now = Date.now(), today = todayKey();
-  const last7 = [...Array(7)].map((_, i) => todayKey(new Date(now - i * DAY)));
+  const last7 = [...Array(7)].map((_, i) => todayKey(daysAgo(i)));
 
   const userHTML = u => {
     const d = u.data, daily = d.daily || {}, stats = d.stats || {}, hist = d.history || [], srs = d.srs || {};
@@ -891,7 +915,7 @@ async function showAdmin(env = ENV) {
     </div>
     <details class="card" id="rwCard"><summary><b>🎁 Recompensas</b> <span class="muted">· lo que se puede canjear con los puntos</span></summary>
       <div id="rwList"></div>
-      <div class="row" style="margin-top:8px"><button class="small" id="rwAdd">+ Añadir</button><button class="small primary" id="rwSave">Guardar</button><span class="muted" id="rwMsg"></span></div>
+      <div class="row" style="margin-top:8px"><button class="small" id="rwAdd">+ Añadir</button><button class="small" id="rwSug">✨ Añadir las sugeridas</button><button class="small primary" id="rwSave">Guardar</button><span class="muted" id="rwMsg"></span></div>
       <div class="set-row"><span>Firma de tus mensajes</span><input type="text" id="admName" value="${esc(getSettings().adminName || '')}" placeholder="Dani" style="width:50%"></div>
     </details>
     ${(() => {
@@ -904,12 +928,24 @@ async function showAdmin(env = ENV) {
         : '<p class="muted">Cuando alguien canjee una recompensa aparecerá aquí.</p>'}
       </details>`;
     })()}
+    <details class="card" id="tsCard"><summary><b>🧪 Pruebas</b> <span class="muted">· cambia tu propia actividad para probar racha, recompensa diaria y logros</span></summary>
+      <p class="help">Solo afecta a tus datos de ${ENV === 'prod' ? 'la app normal' : 'desarrollo'}. Antes del primer cambio se guarda una copia de tu actividad real.</p>
+      <div class="set-row"><span>Preguntas hechas hoy</span><input type="number" min="0" id="tsHoy" value="${load(K.daily, {})[todayKey()] || 0}"><button class="small primary" id="tsHoyBtn">Aplicar</button></div>
+      <div class="set-row"><span>Racha: días seguidos (hasta ayer)</span><input type="number" min="0" max="120" id="tsDias" value="6"></div>
+      <div class="set-row"><span>… con estas preguntas cada día</span><input type="number" min="0" id="tsN" value="${diarioCfg().min}"><button class="small primary" id="tsRachaBtn">Aplicar</button></div>
+      <div class="row"><button class="small" id="tsRestore" ${localStorage.getItem(P + 'dailyBackup') ? '' : 'disabled'}>↺ Restaurar mi actividad real</button><span class="muted" id="tsMsg"></span></div>
+    </details>
     <details class="card" id="lgCard"><summary><b>🏆 Logros</b> <span class="muted">· puntos de cada uno y cuáles están activos</span></summary>
       <div class="lg-list">${LOGROS_ALL.map(l => `<div class="lg-row">
         <input type="checkbox" data-lg-on="${l.id}" ${(logroCfg.off || []).includes(l.id) ? '' : 'checked'} aria-label="Activo">
         <span class="lg-ico">${l.ico}</span>
         <div class="lg-txt"><b>${esc(l.name)}</b><span class="muted">${esc(l.desc)}</span></div>
         <input type="number" min="0" data-lg-pts="${l.id}" value="${l.pts}" style="width:76px" aria-label="Puntos"></div>`).join('')}</div>
+      <h3>📅 Recompensa diaria</h3>
+      <div class="set-row"><span>Preguntas al día para cobrarla</span><input type="number" min="1" id="dMin" value="${diarioCfg().min}"></div>
+      <div class="set-row"><span>Puntos de un día normal</span><input type="number" min="0" id="dBase" value="${diarioCfg().base}"></div>
+      ${[7, 14, 21, 28].map(n => `<div class="set-row"><span>Puntos del día ${n} seguido</span><input type="number" min="0" data-dh="${n}" value="${diarioCfg().hitos[n]}"></div>`).join('')}
+      ${[["t90", "Puntos extra al llegar a 90"], ["t120", "Puntos extra al llegar a 120 (en vez de los de 90)"], ["punteria", "Puntería (80 % de aciertos)"], ["caja", "Preguntas para abrir la caja sorpresa"], ["mision", "Puntos de la misión del día"], ["escudoCada", "Días seguidos para ganar un escudo"]].map(([k, t]) => `<div class="set-row"><span>${t}</span><input type="number" min="0" data-dx="${k}" value="${diarioCfg()[k]}"></div>`).join('')}
       <div class="row" style="margin-top:8px"><button class="small primary" id="lgSave">Guardar</button><button class="small" id="lgReset">Valores por defecto</button><span class="muted" id="lgMsg"></span></div>
       <p class="help">Si desactivas un logro, deja de contar sus puntos (también los ya ganados).</p>
     </details>
@@ -920,6 +956,30 @@ async function showAdmin(env = ENV) {
   $('admReload').onclick = () => showAdmin(env);
   app.querySelectorAll('[data-prog]').forEach(b => b.onclick = () => showUserStats(users.find(u => u.uid === b.dataset.prog), env));
   $('admName').onchange = e => saveSettings({ adminName: e.target.value.trim() });
+  // Pruebas: cambia la actividad diaria del admin. Se guarda como «sustituir» (no se fusiona con la nube) para poder bajar números.
+  const tsApply = (daily, txt) => {
+    if (!localStorage.getItem(P + 'dailyBackup')) localStorage.setItem(P + 'dailyBackup', localStorage.getItem(K.daily) || '{}');
+    save(K.daily, daily); syncReplace([K.daily]);
+    saveSettings({ diarioAvisado: null }); // para volver a ver el aviso de la recompensa diaria
+    $('tsMsg').textContent = txt; $('tsRestore').disabled = false;
+    checkLogros();
+  };
+  $('tsHoyBtn').onclick = () => {
+    const n = Math.max(0, +$('tsHoy').value || 0);
+    tsApply({ ...load(K.daily, {}), [todayKey()]: n }, `✓ Hoy: ${n} preguntas`);
+  };
+  $('tsRachaBtn').onclick = () => {
+    const dias = Math.max(0, Math.min(120, +$('tsDias').value || 0)), n = Math.max(0, +$('tsN').value || 0), d = { ...load(K.daily, {}) };
+    for (let i = 1; i <= dias; i++) d[todayKey(daysAgo(i))] = n;
+    delete d[todayKey(daysAgo(dias + 1))]; // el día anterior, vacío: la racha empieza justo ahí
+    tsApply(d, `✓ ${dias} días seguidos con ${n} preguntas hasta ayer`);
+  };
+  $('tsRestore').onclick = () => {
+    const bk = localStorage.getItem(P + 'dailyBackup');
+    if (!bk || !confirm('¿Volver a tu actividad real (la de antes de las pruebas)?')) return;
+    localStorage.setItem(K.daily, bk); syncReplace([K.daily]); localStorage.removeItem(P + 'dailyBackup');
+    $('tsMsg').textContent = '✓ Actividad real restaurada'; $('tsRestore').disabled = true;
+  };
   // Recompensa final: desbloquear (o deshacer) para un usuario
   const setFinal = async (uid, on) => {
     const unlocked = { ...finalCache };
@@ -941,9 +1001,14 @@ async function showAdmin(env = ENV) {
       if (v !== l.def) pts[l.id] = v;
       if (!app.querySelector(`[data-lg-on="${l.id}"]`).checked) off.push(l.id);
     });
-    saveLg({ pts, off });
+    const num = (el, def) => el.value === '' ? def : Math.max(0, Math.round(+el.value || 0));
+    const diario = { min: Math.max(1, num($('dMin'), DIARIO_DEF.min)), base: num($('dBase'), DIARIO_DEF.base),
+      hitos: Object.fromEntries([...app.querySelectorAll('[data-dh]')].map(i => [i.dataset.dh, num(i, DIARIO_DEF.hitos[i.dataset.dh])])),
+      ...Object.fromEntries([...app.querySelectorAll('[data-dx]')].map(i => [i.dataset.dx, num(i, DIARIO_DEF[i.dataset.dx])])),
+      escudoMax: DIARIO_DEF.escudoMax, firma: getSettings().adminName || '' };
+    saveLg({ pts, off, diario });
   };
-  $('lgReset').onclick = async () => { if (!confirm('¿Volver a los puntos por defecto y activar todos los logros?')) return; await saveLg({ pts: {}, off: [] }); showAdmin(env); };
+  $('lgReset').onclick = async () => { if (!confirm('¿Volver a los puntos por defecto, activar todos los logros y la recompensa diaria por defecto?')) return; await saveLg({ pts: {}, off: [], diario: { ...DIARIO_DEF, firma: getSettings().adminName || '' } }); showAdmin(env); };
   // Recompensas: lista editable que se guarda en config/rewards
   let items = [];
   const paintRw = () => {
@@ -958,6 +1023,22 @@ async function showAdmin(env = ENV) {
   };
   loadRewards().then(r => { items = r.map(x => ({ ...x })); paintRw(); }).catch(e => { if ($('rwList')) $('rwList').innerHTML = `<p class="error">No se pudieron leer (${esc(e.code || e.message)}).</p>`; });
   $('rwAdd').onclick = () => { items.push({ id: Date.now().toString(36), emoji: '🎁', name: '', cost: 100 }); paintRw(); };
+  // Recompensas sugeridas por escalones (unos 15 puntos al día estudiando a diario): se añaden las que falten y luego se revisan y guardan
+  const SUGERIDAS = [
+    ['☕', 'Merienda o café del sitio que elija', 30], ['🍫', 'Su capricho dulce favorito', 30], ['🎬', 'Elige la peli o la serie de la noche', 40],
+    ['🛁', 'Baño relajante preparado', 40], ['💆', 'Masaje de 15 minutos', 50], ['🧺', 'Un día libre de tareas de casa', 60],
+    ['🎲', 'Sorpresa misteriosa', 80], ['🍳', 'Desayuno en la cama', 100], ['🍝', 'Cena en casa preparada por mí', 100],
+    ['💆‍♀️', 'Masaje largo de 45 minutos', 150], ['🛍️', 'Tarde de compras (te acompaño sin quejarme)', 150], ['🍿', 'Plan de cine con palomitas', 150],
+    ['🌳', 'Excursión o paseo al sitio que elijas', 200], ['🍣', 'Cena fuera en el restaurante que quieras', 400],
+    ['🎟️', 'Entradas para un concierto, teatro o espectáculo', 500], ['💅', 'Spa, manicura o peluquería', 500],
+    ['🎁', 'Un capricho que tengas pendiente', 600], ['🏨', 'Escapada de fin de semana', 1200], ['💎', 'El capricho gordo que llevas tiempo queriendo', 1500]
+  ];
+  $('rwSug').onclick = () => {
+    const have = new Set(items.map(r => r.name.trim().toLowerCase()));
+    const nuevas = SUGERIDAS.filter(([, name]) => !have.has(name.toLowerCase())).map(([emoji, name, cost], i) => ({ id: Date.now().toString(36) + i, emoji, name, cost }));
+    items.push(...nuevas); items.sort((a, b) => a.cost - b.cost); paintRw();
+    $('rwMsg').textContent = nuevas.length ? `${nuevas.length} añadidas: revísalas y pulsa Guardar` : 'Ya estaban todas';
+  };
   $('rwSave').onclick = async () => {
     const clean = items.filter(r => r.name.trim()).map(r => ({ id: r.id, emoji: r.emoji.trim() || '🎁', name: r.name.trim(), cost: Math.max(1, Math.round(+r.cost) || 1) }));
     try { await fb.setDoc(fb.doc(fb.db, 'config', 'rewards'), { items: clean, at: Date.now() }); items = clean; paintRw(); $('rwMsg').textContent = '✓ Guardado'; }
@@ -1397,6 +1478,86 @@ function applyLogroCfg(cfg = {}) {
   LOGROS_ALL.forEach(l => l.pts = cfg.pts?.[l.id] ?? l.def);
   LOGROS = LOGROS_ALL.filter(l => !(cfg.off || []).includes(l.id));
 }
+// Recompensa diaria: un calendario de 28 días. Cada día con al menos `min` preguntas da `base` puntos; los días 7, 14, 21 y 28
+// seguidos dan más. Tras el 28 (o si se corta la racha) vuelve al día 1. Además, cada día: tramos (90 y 120 preguntas),
+// puntería (≥ 80 % de aciertos con ≥ 20 respondidas), caja sorpresa al llegar a 100 y la misión del día.
+// Cada 7 días seguidos se gana un escudo 🛡️ (máx. 2): si un día no se llega, se gasta y la racha sigue.
+// El admin puede cambiar los valores (config/logros.diario).
+const DIARIO_DEF = { min: 60, base: 10, hitos: { 7: 20, 14: 30, 21: 40, 28: 100 }, t90: 5, t120: 10, punteria: 5, caja: 100, mision: 10, escudoCada: 7, escudoMax: 2, firma: '' };
+const diarioCfg = () => ({ ...DIARIO_DEF, ...(logroCfg.diario || {}), hitos: { ...DIARIO_DEF.hitos, ...(logroCfg.diario?.hitos || {}) } });
+const diarioPts = (cfg, dia) => cfg.hitos[dia] ?? cfg.base;
+const tramoPts = (cfg, n) => n >= 120 ? cfg.t120 : n >= 90 ? cfg.t90 : 0;
+const punteriaOk = q => !!q && q[0] >= 20 && q[1] / q[0] >= .8;
+// número estable a partir de un texto: la caja y la misión de cada fecha salen siempre iguales
+const hashStr = s => [...s].reduce((h, c) => Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0, 2166136261);
+const CAJA = [[5, 40], [10, 30], [15, 20], [30, 10]]; // [puntos, probabilidad %]
+function cajaDe(dia) {
+  let r = hashStr('caja' + dia) % 100;
+  for (const [p, w] of CAJA) { if (r < w) return p; r -= w; }
+  return 5;
+}
+
+function puntosDiarios(daily = load(K.daily, {}), dq = load(K.dailyq, {}), misiones = load(K.settings, {}).misiones || {}) {
+  const cfg = diarioCfg(), hoy = todayKey(), keys = Object.keys(daily).filter(k => daily[k] >= cfg.min).sort();
+  let total = 0, racha = 0, escudos = 0;
+  const usados = [];
+  if (keys.length) for (const d = new Date(keys[0] + 'T12:00'); todayKey(d) <= hoy; d.setDate(d.getDate() + 1)) {
+    const k = todayKey(d), n = daily[k] || 0;
+    if (n >= cfg.min) {
+      racha++;
+      total += diarioPts(cfg, (racha - 1) % 28 + 1) + tramoPts(cfg, n) + (punteriaOk(dq[k]) ? cfg.punteria : 0);
+      if (racha % cfg.escudoCada === 0) escudos = Math.min(cfg.escudoMax, escudos + 1);
+    } else if (k !== hoy) { // hoy todavía puede llegar
+      if (racha && escudos) { escudos--; usados.push(k); } else racha = 0;
+    }
+  }
+  total += Object.keys(misiones).length * cfg.mision;
+  // ruleta: solo cuenta si se ha girado (settings.cajas = { fecha: puntos })
+  total += Object.values(load(K.settings, {}).cajas || {}).reduce((a, p) => a + p, 0);
+  const n = daily[hoy] || 0;
+  // dia: posición en el calendario del último día cobrado (hoy si ya llegó; si no, el de ayer o antes con escudo)
+  return { total, cfg, hoyOk: n >= cfg.min, hoyN: n, dia: racha ? (racha - 1) % 28 + 1 : 0, escudos, usados, q: dq[hoy] || [0, 0] };
+}
+
+// Misión del día: una distinta cada día, entre las que la app puede comprobar sola
+const MISIONES = [
+  { id: 'fichas20', txt: 'Repasa 20 fichas en 🃏 Flashcards', ok: x => x.fichasHoy >= 20 },
+  { id: 'simulacro', txt: 'Haz un 🎯 simulacro', ok: x => x.histHoy.some(h => h.modo === 'simulacro') },
+  { id: 'nota8', txt: 'Saca un 8 o más en un test de 20 preguntas o más', ok: x => x.histHoy.some(h => h.total >= 20 && entryNota(h) >= 8) },
+  { id: 'tests3', txt: 'Termina 3 tests', ok: x => x.histHoy.length >= 3 },
+  { id: 'arts2', txt: 'Completa 2 📜 artículos', ok: x => x.artsHoy >= 2 },
+  { id: 'srs', txt: 'Deja el 🧠 repaso inteligente sin pendientes', ok: x => x.srsN >= 20 && x.srsDue === 0 },
+  { id: 'fallos15', txt: 'Repasa 15 preguntas que habías fallado', ok: x => x.falladasHoy >= 15 }
+];
+const misionHoy = () => MISIONES[hashStr('mision' + todayKey()) % MISIONES.length];
+function misionData() {
+  const t0 = startOfToday(), srs = load(K.srs, {}), stats = load(K.stats, {}), now = Date.now();
+  const hoyT = Object.entries(srs).filter(([, s]) => (s.t || 0) >= t0);
+  return {
+    histHoy: load(K.hist, []).filter(h => h.fecha >= t0),
+    fichasHoy: hoyT.filter(([k]) => k.startsWith('ficha:')).length,
+    falladasHoy: hoyT.filter(([k]) => !k.startsWith('ficha:') && stats[k]?.ko > 0).length,
+    artsHoy: Object.values(load(K.arts, {})).filter(a => (a.fecha || 0) >= t0).length,
+    srsN: Object.keys(srs).length, srsDue: Object.values(srs).filter(s => s.due <= now).length
+  };
+}
+
+// Mensajes de ánimo «del admin» al llegar al mínimo diario (uno distinto cada día)
+const MENSAJES_AMOR = [
+  'Estoy muy orgulloso de ti. Cada día que te sientas a estudiar estás más cerca de esa plaza. Te quiero. ❤️',
+  'Otro día cumplido. Eres constante como nadie y eso es lo que gana oposiciones. 💪💚',
+  'Me encanta verte luchar por lo que quieres. Esta noche te mereces un abrazo enorme. 🤗',
+  'Una pregunta más, un paso más. Y yo a tu lado en cada uno. Te quiero mucho. 💕',
+  'Hoy también lo has hecho. No sabes lo que te admiro. ✨',
+  'Tu esfuerzo de hoy es la plaza de mañana. Y luego, nuestro viaje. ✈️❤️',
+  'Ya llevas un día más. Descansa un poco, que te lo has ganado. Te quiero. 😘',
+  'Eres más fuerte y más lista de lo que crees. Lo vas a conseguir. 💚',
+  'Gracias por no rendirte. Estoy deseando celebrar contigo el aprobado. 🥂',
+  'Cada día que estudias me haces sentir más orgulloso. Eres increíble. 🌟',
+  'Lo de hoy ya está. Ahora toca mimos. 💕',
+  'Paso a paso, tema a tema. Y yo siempre en tu equipo. Te quiero. 🫶'
+];
+const mensajeHoy = () => MENSAJES_AMOR[hashStr('amor' + todayKey()) % MENSAJES_AMOR.length];
 async function loadLogroCfg() {
   try { const s = await fb.getDoc(fb.doc(fb.db, 'config', 'logros')); applyLogroCfg(s.exists() ? s.data() : {}); } catch {}
 }
@@ -1437,16 +1598,120 @@ function logroData() {
   };
 }
 const logrosOk = (d = logroData()) => LOGROS.filter(l => l.val(d) >= goalOf(l, d));
-const puntosGanados = (ok = logrosOk()) => ok.reduce((a, l) => a + l.pts, 0);
+// Puntos ganados = logros conseguidos + recompensa diaria
+const puntosGanados = (ok = logrosOk()) => ok.reduce((a, l) => a + l.pts, 0) + puntosDiarios().total;
 
 // Avisa de los logros nuevos (una vez). El primer día avisa con un resumen, por si ya había muchos.
+// También avisa una vez al día al llegar al mínimo de la recompensa diaria.
 function checkLogros() {
   if (viewAs) return;
+  const pd = puntosDiarios(), hoy = todayKey(), st = load(K.settings, {}), cfg = pd.cfg;
+  // misión del día: se apunta en cuanto se cumple (aunque luego cambie, p. ej. si vuelven pendientes del repaso)
+  const mis = misionHoy();
+  if (!(st.misiones || {})[hoy] && mis.ok(misionData())) {
+    saveSettings({ misiones: { ...(st.misiones || {}), [hoy]: mis.id } });
+    showToast('🎯', `¡Misión cumplida! +${cfg.mision} puntos`, mis.txt, 'pomo');
+  }
+  if (pd.hoyOk && st.diarioAvisado !== hoy) {
+    saveSettings({ diarioAvisado: hoy });
+    const p = diarioPts(cfg, pd.dia);
+    showToast('📅', `Recompensa diaria: +${p} puntos`, `Día ${pd.dia} de 28${p > cfg.base ? ' · ¡día especial! 🎉' : ''}. Vuelve mañana para el día ${pd.dia % 28 + 1}.`, 'pomo');
+    showToast('💚', cfg.firma ? `Mensaje de ${cfg.firma}` : 'Un mensaje para ti', mensajeHoy(), 'pomo');
+  }
+  const tramo = pd.hoyN >= 120 ? 120 : pd.hoyN >= 90 ? 90 : 0;
+  if (tramo && st.tramoAvisado !== hoy + ':' + tramo) {
+    saveSettings({ tramoAvisado: hoy + ':' + tramo });
+    showToast('🚀', `¡${tramo} preguntas hoy! +${tramoPts(cfg, pd.hoyN)} puntos`, tramo === 90 ? `A las 120 son +${cfg.t120}.` : 'Tramo máximo de hoy. ¡Bestial!', 'pomo');
+  }
+  if (pd.hoyN >= cfg.caja && st.cajaAvisado !== hoy && !(st.cajas || {})[hoy]) {
+    saveSettings({ cajaAvisado: hoy });
+    showToast('🎡', '¡Tienes la ruleta para girar!', `Has llegado a ${cfg.caja} preguntas. Gírala en 🏆 Logros.`, 'pomo');
+  }
   const seen = load(K.settings, {}).logros || {}, ok = logrosOk(), nuevos = ok.filter(l => !seen[l.id]);
   if (!nuevos.length) return;
   saveSettings({ logros: { ...seen, ...Object.fromEntries(nuevos.map(l => [l.id, Date.now()])) } });
   if (nuevos.length > 2) showToast('🏆', `¡${nuevos.length} logros desbloqueados!`, `+${nuevos.reduce((a, l) => a + l.pts, 0)} puntos. Míralos en 🏆 Logros.`, 'pomo');
   else nuevos.forEach(l => showToast(l.ico, `Logro: ${l.name}`, `${l.desc} · +${l.pts} puntos`, 'pomo'));
+}
+
+// Calendario de la recompensa diaria: los 28 días, con los ya hechos marcados y el de hoy destacado
+function diarioCardHTML(pd) {
+  const { cfg, dia, hoyOk, hoyN } = pd;
+  // con la racha viva, los días 1…dia ya están cobrados; si ayer fue el 28, hoy empieza un calendario nuevo
+  const hechos = !hoyOk && dia === 28 ? 0 : dia;
+  const hoyDia = hoyOk ? dia : dia % 28 + 1; // el día que se cobra hoy
+  const cells = Array.from({ length: 28 }, (_, i) => {
+    const n = i + 1, p = diarioPts(cfg, n);
+    return `<div class="dc ${n <= hechos ? 'done' : ''} ${n === hoyDia ? 'today' : ''} ${p > cfg.base ? 'big' : ''}"><span>${n}</span><b>${n <= hechos ? '✓' : '+' + p}</b></div>`;
+  }).join('');
+  const falta = Math.max(0, cfg.min - hoyN);
+  return `<div class="card diario-card">
+    <div class="row between"><h2 style="margin:0">📅 Recompensa diaria</h2><span class="muted">${dia ? `día ${hoyOk ? dia : dia + ' · hoy toca el ' + hoyDia}` : 'empieza hoy'}</span></div>
+    <p class="muted" style="margin:6px 0 10px">${hoyOk ? `✅ Hoy ya está: +${diarioPts(cfg, dia)} puntos. Vuelve mañana.`
+      : `Hoy llevas <b>${hoyN}</b> de ${cfg.min} preguntas${falta ? ` · te faltan ${falta} para ganar <b>+${diarioPts(cfg, hoyDia)}</b>` : ''}.`}
+      Si un día no llegas a ${cfg.min}${pd.escudos ? `, gastas un escudo y sigues` : `, vuelve al día 1`}.</p>
+    <div class="dcal">${cells}</div>
+    <h3>Extras de hoy</h3>
+    <div class="extras">${extrasHTML(pd)}</div>
+    <p class="help" style="margin-bottom:0">🛡️ Escudos: <b>${pd.escudos}</b> de ${cfg.escudoMax} · ganas uno cada ${cfg.escudoCada} días seguidos${pd.usados.length ? ` · usado el ${pd.usados.slice(-3).map(k => new Date(k + 'T12:00').toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric' })).join(', ')}` : ''}.</p>
+  </div>`;
+}
+// Ruleta (la «caja sorpresa»): 10 casillas con las mismas probabilidades que CAJA; para en el premio de hoy (cajaDe)
+const RULETA = [5, 10, 5, 15, 5, 10, 30, 5, 15, 10];
+const RULETA_COLOR = { 5: '#7ec8e3', 10: '#f6b26b', 15: '#c39bd3', 30: '#f1c232' };
+function spinRuleta() {
+  const hoy = todayKey(), st = load(K.settings, {});
+  if ((st.cajas || {})[hoy] || puntosDiarios().hoyN < diarioCfg().caja) return;
+  const prize = cajaDe(hoy), opts = RULETA.map((v, i) => [v, i]).filter(([v]) => v === prize);
+  const idx = opts[hashStr('ruleta' + hoy) % opts.length][1], seg = 360 / RULETA.length;
+  const pt = (a, r) => `${150 + r * Math.sin(a * Math.PI / 180)} ${150 - r * Math.cos(a * Math.PI / 180)}`;
+  const slices = RULETA.map((v, i) => {
+    const a0 = i * seg, a1 = a0 + seg, mid = a0 + seg / 2;
+    return `<path d="M150 150 L${pt(a0, 140)} A140 140 0 0 1 ${pt(a1, 140)} Z" fill="${RULETA_COLOR[v]}" stroke="#fff" stroke-width="3"/>
+      <text x="${pt(mid, 100).split(' ')[0]}" y="${pt(mid, 100).split(' ')[1]}" transform="rotate(${mid} ${pt(mid, 100)})" text-anchor="middle" dominant-baseline="middle" font-size="22" font-weight="800" fill="#2b1d05">+${v}</text>`;
+  }).join('');
+  document.body.insertAdjacentHTML('beforeend', `<div class="ruleta-bg" id="ruleta" role="dialog" aria-modal="true" aria-label="Ruleta de premios"><div class="ruleta-box">
+    <h2>🎡 Ruleta del día</h2>
+    <div class="ruleta-wrap"><div class="ruleta-pin">▼</div>
+      <svg viewBox="0 0 300 300" class="ruleta-svg" id="ruletaSvg"><circle cx="150" cy="150" r="146" fill="#fff"/>${slices}<circle cx="150" cy="150" r="22" fill="#fff" stroke="#e2557f" stroke-width="5"/></svg></div>
+    <p class="ruleta-res" id="ruletaRes" aria-live="polite">Girando…</p>
+    <button class="primary" id="ruletaOk" hidden>¡Genial!</button>
+  </div></div>`);
+  let fin = false;
+  const svg = $('ruletaSvg'), done = () => {
+    if (fin) return; fin = true;
+    saveSettings({ cajas: { ...(load(K.settings, {}).cajas || {}), [hoy]: prize } });
+    $('ruletaRes').innerHTML = `${prize >= 30 ? '🤩 ¡PREMIO GORDO!' : prize >= 15 ? '🎉 ¡Muy bien!' : '😊 ¡Toma!'} <b>+${prize} puntos</b>`;
+    $('ruletaOk').hidden = false; $('ruletaOk').focus();
+    navigator.vibrate?.(prize >= 30 ? [100, 60, 100, 60, 200] : 120);
+  };
+  $('ruletaOk').onclick = () => { $('ruleta').remove(); showLogros(); };
+  const turns = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 6;
+  // la rueda tiene que estar pintada en 0° antes de girar; si no, salta al final sin animación
+  svg.getBoundingClientRect();
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    svg.style.transform = `rotate(${turns * 360 + 360 - (idx * seg + seg / 2)}deg)`;
+    if (!turns) return done();
+    svg.addEventListener('transitionend', done, { once: true });
+    setTimeout(done, 5200); // por si el navegador no avisa del final del giro
+  }));
+}
+
+// Lo que se puede ganar hoy además del día: tramos, puntería, caja y misión
+function extrasHTML(pd) {
+  const { cfg, hoyN, q } = pd, hoy = todayKey(), mis = misionHoy(), misOk = !!(load(K.settings, {}).misiones || {})[hoy];
+  const pctQ = q[0] ? Math.round(q[1] / q[0] * 100) : 0;
+  const x = (ok, ico, txt, pts) => `<div class="extra ${ok ? 'on' : ''}"><span>${ok ? '✅' : ico}</span><span>${txt}</span><b>+${pts}</b></div>`;
+  return x(hoyN >= 90, '🚀', `90 preguntas <span class="muted">(${Math.min(hoyN, 90)}/90)</span>`, cfg.t90)
+    + x(hoyN >= 120, '🚀', `120 preguntas <span class="muted">(${Math.min(hoyN, 120)}/120)</span>`, cfg.t120)
+    + x(punteriaOk(q), '🎯', `Puntería: 80 % de aciertos <span class="muted">(${q[0] ? `${pctQ} % de ${q[0]}` : 'aún no has respondido'}${q[0] && q[0] < 20 ? ', mínimo 20' : ''})</span>`, cfg.punteria)
+    + (() => { // ruleta: se desbloquea al llegar a cfg.caja y hay que girarla
+      const got = (load(K.settings, {}).cajas || {})[hoy];
+      if (got) return x(true, '🎡', 'Ruleta de hoy', got);
+      if (hoyN >= cfg.caja) return `<div class="extra ready"><span>🎡</span><span>¡Ruleta desbloqueada!</span><button class="small primary" id="ruletaBtn">Girar la ruleta</button></div>`;
+      return x(false, '🎡', `Ruleta al llegar a ${cfg.caja} <span class="muted">(${hoyN}/${cfg.caja})</span>`, '?');
+    })()
+    + x(misOk, '🗺️', `Misión: ${mis.txt}`, cfg.mision);
 }
 
 // Recompensas (catálogo del admin) y canjes del usuario
@@ -1483,7 +1748,7 @@ function finalCardHTML(canjes) {
 async function showLogros() {
   stopTimer();
   checkLogros();
-  const d = logroData(), ok = new Set(logrosOk(d).map(l => l.id)), earned = puntosGanados(LOGROS.filter(l => ok.has(l.id)));
+  const d = logroData(), ok = new Set(logrosOk(d).map(l => l.id)), earned = puntosGanados(LOGROS.filter(l => ok.has(l.id))), pd = puntosDiarios();
   const seen = load(K.settings, {}).logros || {};
   const render = (rewards, canjes, err) => {
     const balance = earned - puntosGastados(canjes);
@@ -1491,8 +1756,9 @@ async function showLogros() {
       <div class="row between"><h1>🏆 Logros</h1><button id="home">← Inicio</button></div>
       <div class="card points-card">
         <div class="points-big">⭐ ${balance}</div>
-        <div class="muted">puntos disponibles · ${ok.size} de ${LOGROS.length} logros · ${earned} ganados${canjes?.length ? ` · ${puntosGastados(canjes)} canjeados` : ''}</div>
+        <div class="muted">puntos disponibles · ${earned} ganados (${pd.total} por días de estudio y ${earned - pd.total} por ${ok.size} de ${LOGROS.length} logros)${canjes?.length ? ` · ${puntosGastados(canjes)} canjeados` : ''}</div>
       </div>
+      ${diarioCardHTML(pd)}
       ${finalCardHTML(canjes)}
       <div class="card">
         <h2>🎁 Recompensas</h2>
@@ -1517,6 +1783,7 @@ async function showLogros() {
           </div>`; }).join('')}</div>
       </div>`;
     $('home').onclick = () => showHome();
+    if ($('ruletaBtn')) $('ruletaBtn').onclick = spinRuleta;
     if ($('finalGo')) $('finalGo').onclick = async () => {
       if (!confirm(`¿Canjear la recompensa final «${FINAL.name}»? 🎉`)) return;
       $('finalGo').disabled = true;
@@ -1545,7 +1812,9 @@ async function showLogros() {
 // Resumen pequeño para el inicio
 function puntosChipHTML() {
   const ok = logrosOk(), pts = puntosGanados(ok) - puntosGastados(canjesCache);
-  return `<button class="chip pts-chip" id="goLogros" title="Logros y recompensas">🏆 ${ok.length}/${LOGROS.length} · ⭐ ${pts}</button>`;
+  // con la ruleta desbloqueada y sin girar, el botón parpadea para que se vea
+  const ruleta = (load(K.daily, {})[todayKey()] || 0) >= diarioCfg().caja && !(load(K.settings, {}).cajas || {})[todayKey()];
+  return `<button class="chip pts-chip ${ruleta ? 'alert' : ''}" id="goLogros" title="${ruleta ? '¡Tienes la ruleta para girar!' : 'Logros y recompensas'}">${ruleta ? '🎡 ¡Ruleta! · ' : ''}🏆 ${ok.length}/${LOGROS.length} · ⭐ ${pts}</button>`;
 }
 
 // ---------- Mensajes del admin ----------
@@ -1586,6 +1855,8 @@ function dailyCardHTML() {
       ${s.dailyGoal ? `
       <div class="row between"><span>Hoy: <b>${today}</b> / ${s.dailyGoal} preguntas ${today >= s.dailyGoal ? '✅' : ''}</span><span title="Días seguidos cumpliendo el objetivo">🔥 ${st} ${st === 1 ? 'día' : 'días'}</span></div>
       <div class="progress" style="margin-bottom:0"><div style="width:${Math.min(100, today / s.dailyGoal * 100)}%"></div></div>` : ''}
+      ${set?.preguntas?.length && today >= diarioCfg().caja && !(load(K.settings, {}).cajas || {})[todayKey()] ? `<p style="margin:10px 0 0"><a href="#" id="goRuleta">🎡 ¡Tienes la ruleta para girar! →</a></p>` : ''}
+      ${set?.preguntas?.length ? `<p class="muted" style="margin:10px 0 0">🗺️ Misión de hoy: ${misionHoy().txt} · ${(load(K.settings, {}).misiones || {})[todayKey()] ? '✅ cumplida' : `+${diarioCfg().mision}`}</p>` : ''}
     </div>`;
 }
 
@@ -1658,7 +1929,8 @@ function showHome(error) {
 
   bindPlanCard();
   bindInbox();
-  if ($('goLogros')) $('goLogros').onclick = () => showLogros();
+  if ($('goLogros')) $('goLogros').onclick = () => showLogros().then(() => $('ruletaBtn')?.scrollIntoView({ block: 'center' }));
+  if ($('goRuleta')) $('goRuleta').onclick = e => { e.preventDefault(); showLogros().then(() => $('ruletaBtn')?.scrollIntoView({ block: 'center' })); };
   setTimeout(checkLogros, 600); // aviso de logros nuevos al volver al inicio
   $('goStats').onclick = showStats;
   $('goTheme').onclick = showTheme;
@@ -2146,6 +2418,10 @@ function updateStats(q, ok, chosen = null) {
     s.wrong[txt] = (s.wrong[txt] || 0) + 1;
   }
   save(K.stats, stats);
+  // aciertos del día, para el bonus de puntería
+  const dq = load(K.dailyq, {}), t = dq[todayKey()] || [0, 0];
+  dq[todayKey()] = [t[0] + 1, t[1] + (ok ? 1 : 0)];
+  save(K.dailyq, dq);
 }
 
 function finish() {
