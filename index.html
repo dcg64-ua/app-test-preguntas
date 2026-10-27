@@ -175,7 +175,7 @@
   /* Inicio: objetivo diario y accesos rápidos */
   .countdown { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
   .countdown .big { font-size: 2.2rem; }
-  .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
   .quick-btn { display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 2px; padding: 14px; min-height: 100px; border-width: 2px; }
   .quick-btn .qi { font-size: 1.6rem; line-height: 1.2; }
   .chip { min-height: 36px; padding: 6px 14px; border-radius: 99px; font-size: .9rem; }
@@ -394,6 +394,30 @@
   .final-state { font-weight: 600; }
   .pts-chip.alert { border-color: var(--star); background: color-mix(in srgb, var(--star) 35%, var(--card)); animation: chipAlert 1.2s ease-in-out infinite; }
   @keyframes chipAlert { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--star) 70%, transparent); transform: scale(1); } 50% { box-shadow: 0 0 0 8px transparent; transform: scale(1.05); } }
+  .prev-top { display: flex; align-items: center; gap: 14px; } .prev-nota { font-size: 2.6rem; font-weight: 800; letter-spacing: -.03em; }
+  .prev-nota.ok { color: var(--ok); } .prev-nota.ko { color: var(--ko); }
+  .prev-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--border); } .prev-row > span:first-child { flex: 1; min-width: 0; }
+  .lenta-txt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fallos-card { display: flex; align-items: center; gap: 12px; justify-content: space-between; border-left: 4px solid var(--ko); }
+  .animo-card { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .animo-btns { display: flex; gap: 6px; } .animo { font-size: 1.6rem; min-height: 48px; width: 52px; padding: 0; border-radius: 14px; }
+  .reto { padding: 10px 0; border-bottom: 1px solid var(--border); } .reto .bar { margin: 6px 0 4px; } .reto.ok .bar > div { background: var(--ok); }
+  .reto-new > summary { cursor: pointer; color: var(--accent); font-weight: 600; padding: 8px 0; }
+  h2.sec { font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 26px 4px 10px; }
+  .qwrap { position: relative; } .qwrap > .quick-btn { width: 100%; height: 100%; }
+  .qwrap-wide { margin-bottom: 16px; }
+  .qwrap-wide .quick-btn { flex-direction: row; align-items: center; gap: 14px; min-height: 0; padding: 16px 52px 16px 16px; }
+  .qwrap-wide .quick-btn > span:last-child { display: flex; flex-direction: column; gap: 2px; }
+  .set-row select { min-width: 0; max-width: 62%; text-overflow: ellipsis; } /* temas con nombre largo no desbordan */
+  .info-btn { position: absolute; top: 6px; right: 6px; width: 32px; min-height: 32px; padding: 0; border-radius: 50%; font-size: 1rem; color: var(--muted); background: color-mix(in srgb, var(--card) 80%, transparent); z-index: 1; }
+  .row > .info-btn, h2 .info-btn { position: static; }
+  .more-opts { margin: 4px 0 12px; } .more-opts > summary { cursor: pointer; color: var(--accent); font-weight: 600; padding: 8px 0; }
+  .help-box p { line-height: 1.6; margin: 10px 0 16px; text-align: left; }
+  .help-item { border-bottom: 1px solid var(--border); padding: 4px 0; } .help-item > summary { cursor: pointer; font-weight: 600; padding: 8px 0; } .help-item p { margin: 0 0 10px; line-height: 1.55; }
+  .gap-slot { min-height: 0; padding: 1px 6px; vertical-align: baseline; line-height: 1.4; font-weight: 600; cursor: pointer; }
+  .gap-slot.active { outline: 2.5px solid var(--accent); outline-offset: 1px; }
+  .gap-slot.filled { background: var(--card); }
+  .bank { display: flex; flex-wrap: wrap; gap: 8px; } .bank-w { font-weight: 600; }
   .pts-tag { background: color-mix(in srgb, var(--star) 22%, var(--card)); color: var(--text); font-weight: 700; }
   .pts-chip { background: color-mix(in srgb, var(--star) 18%, var(--card)); border-color: color-mix(in srgb, var(--star) 50%, transparent); font-weight: 700; }
   .points-card { text-align: center; }
@@ -493,11 +517,13 @@ const MODOS = { practica: 'Práctica', examen: 'Examen', simulacro: 'Simulacro',
 const SETTINGS_DEFAULT = {
   penaltyOn: false, penalty: 1 / 3,
   simNombre: 'Simulacro', simPreguntas: 100, simMinutos: 90, simCorte: 5, simBloque: '',
+  // 2ª parte del examen oficial: 40 preguntas de todo el temario en 90 min
+  sim2Nombre: '2ª parte (todo el temario)', sim2Preguntas: 40, sim2Minutos: 90, sim2Bloque: '',
   examDate: '', dailyGoal: 60, srsSize: 20,
   pomoOn: false, pomoWork: 25, pomoBreak: 5, water: true, waterMin: 20, waterMsg: '',
   autoGaps: true, extraGaps: 0
 };
-const SHARED = ['penaltyOn', 'penalty', 'simNombre', 'simPreguntas', 'simMinutos', 'simCorte', 'simBloque', 'examDate', 'dailyGoal'];
+const SHARED = ['penaltyOn', 'penalty', 'simNombre', 'simPreguntas', 'simMinutos', 'simCorte', 'simBloque', 'sim2Nombre', 'sim2Preguntas', 'sim2Minutos', 'sim2Bloque', 'examDate', 'dailyGoal'];
 // Opciones que remiten a otras ("Las respuestas a) y c)…", "Todas las anteriores…"): no se barajan
 const fixedOrder = q => q.ordenFijo || q.opciones.some(o => /(^|[\s(])[a-h]\)|anteriores|ninguna (es|de)|todas (las|son)/i.test(o));
 const pick = (o, keys) => o ? Object.fromEntries(keys.filter(k => k in o).map(k => [k, o[k]])) : {};
@@ -642,7 +668,7 @@ function syncStart() {
   if (!syncOn()) return;
   fbLoad().then(f => f.onAuthStateChanged(f.auth, u => {
     fbUser = u;
-    if (u) { syncNow(); loadInbox(); Promise.all([loadLogroCfg(), loadCanjes()]).then(() => $('goStats') && showHome()).catch(() => {}); }
+    if (u) { syncNow(); loadInbox(); Promise.all([loadLogroCfg(), loadCanjes(), loadRetos()]).then(() => $('goStats') && showHome()).catch(() => {}); }
     if ($('accountCard')) showSettings();
     else if ($('goStats')) showHome();
   })).catch(() => { syncState = { text: '⚠️ Sin conexión con el servidor de cuentas.', error: true }; });
@@ -816,7 +842,7 @@ async function showAdmin(env = ENV) {
   let users;
   try {
     await loadLogroCfg(); // los puntos de cada usuario se calculan con los valores actuales
-    await loadFinal().catch(() => {});
+    await Promise.all([loadFinal().catch(() => {}), loadRetos()]);
     const snap = await fb.getDocs(fb.collection(fb.db, 'users'));
     users = await Promise.all(snap.docs.map(async u => {
       const d = await fb.getDocs(fb.collection(fb.db, 'users', u.id, env));
@@ -828,7 +854,8 @@ async function showAdmin(env = ENV) {
       ]);
       // puntos ganados con sus datos (la misma cuenta que ve ella en 🏆 Logros)
       viewAs = Object.fromEntries(Object.entries(data).map(([n, v]) => [P + n, v]));
-      let earned; try { earned = puntosGanados(); } finally { viewAs = null; }
+      viewUid = u.id;
+      let earned; try { earned = puntosGanados(); } finally { viewAs = null; viewUid = null; }
       return { uid: u.id, ...u.data(), data, canjes, inbox, earned };
     }));
   } catch (e) {
@@ -891,6 +918,21 @@ async function showAdmin(env = ENV) {
           <td>${MODOS[h.modo] || ''}${h.tema ? ` <span class="tag">${esc(h.tema)}</span>` : ''}${h.modo === 'simulacro' ? (h.apto ? ' ✅' : ' ❌') : ''}</td>
           <td class="num"><b>${fmtNum(entryNota(h))}</b></td><td class="num">${notaPct(entryNota(h))}</td><td class="num">${h.aciertos}/${h.total}</td></tr>`).join('')}
       </table></div>` : '<p class="muted">Todavía no ha hecho ningún test.</p>'}
+      <h3>💭 Ánimo</h3>
+      <p class="muted" style="margin-top:-6px">${(() => { const a = u.data.settings?.animo || {}; const d = [6, 5, 4, 3, 2, 1, 0].map(i => todayKey(daysAgo(i)));
+        return d.some(k => a[k]) ? d.map(k => `<span title="${new Date(k + 'T12:00').toLocaleDateString('es-ES')}">${a[k] || '·'}</span>`).join(' ') + ' <span>(últimos 7 días, hoy a la derecha)</span>' : 'Todavía no ha dicho cómo se siente.'; })()}</p>
+      <h3>🏁 Retos</h3>
+      ${(() => { viewAs = Object.fromEntries(Object.entries(u.data).map(([n, v]) => [P + n, v])); viewUid = u.uid;
+        try { const l = misRetos(); return l.length ? l.slice().reverse().map(r => retoRowHTML(r, true)).join('') : '<p class="muted" style="margin-top:-6px">Sin retos todavía.</p>'; } finally { viewAs = null; viewUid = null; } })()}
+      <details class="reto-new"><summary>+ Nuevo reto</summary>
+        <div class="set-row"><span>Título</span><input type="text" data-rt="titulo" data-u="${esc(u.uid)}" placeholder="Semana a tope" style="width:60%"></div>
+        <div class="set-row"><span>Conseguir</span><input type="number" min="1" data-rt="meta" data-u="${esc(u.uid)}" value="400" style="width:80px">
+          <select data-rt="tipo" data-u="${esc(u.uid)}">${Object.entries(RETO_TIPOS).map(([k, t]) => `<option value="${k}">${t}</option>`).join('')}</select></div>
+        <div class="set-row"><span>Desde hoy hasta</span><input type="date" data-rt="hasta" data-u="${esc(u.uid)}" value="${todayKey(daysAgo(-6))}"></div>
+        <div class="set-row"><span>Puntos al cumplirlo</span><input type="number" min="0" data-rt="puntos" data-u="${esc(u.uid)}" value="50" style="width:80px"></div>
+        <div class="set-row"><span>Premio (opcional)</span><input type="text" data-rt="premio" data-u="${esc(u.uid)}" placeholder="Cena fuera" style="width:60%"></div>
+        <button class="small primary" data-reto-add="${esc(u.uid)}">Crear reto</button>
+      </details>
       <h3>${FINAL.emoji} Recompensa final</h3>
       ${finalCache[u.uid] ? `<p class="muted" style="margin-top:-6px">🎓 Oposición aprobada el ${new Date(finalCache[u.uid]).toLocaleDateString('es-ES')} · viaje desbloqueado${u.canjes.some(c => c.rewardId === FINAL.id) ? ' y canjeado 🧳' : ''}
           <button class="small" data-final-off="${esc(u.uid)}">Deshacer</button></p>`
@@ -980,6 +1022,19 @@ async function showAdmin(env = ENV) {
     localStorage.setItem(K.daily, bk); syncReplace([K.daily]); localStorage.removeItem(P + 'dailyBackup');
     $('tsMsg').textContent = '✓ Actividad real restaurada'; $('tsRestore').disabled = true;
   };
+  // Retos: crear y quitar (se guardan todos juntos en config/retos)
+  const saveRetos = async items => {
+    try { await fb.setDoc(fb.doc(fb.db, 'config', 'retos'), { items, at: Date.now() }); retosCache = items; showAdmin(env); }
+    catch (e) { alert('No se pudo guardar el reto: ' + (e.code || e.message)); }
+  };
+  app.querySelectorAll('[data-reto-add]').forEach(b => b.onclick = () => {
+    const uid = b.dataset.retoAdd, v = f => app.querySelector(`[data-rt="${f}"][data-u="${uid}"]`).value.trim();
+    const r = { id: Date.now().toString(36), uid, titulo: v('titulo') || 'Reto', tipo: v('tipo'), meta: Math.max(1, +v('meta') || 1),
+      desde: todayKey(), hasta: v('hasta') || todayKey(daysAgo(-6)), puntos: Math.max(0, +v('puntos') || 0), premio: v('premio') };
+    if (r.hasta < r.desde) return alert('La fecha de fin tiene que ser hoy o más tarde.');
+    saveRetos([...retosCache, r]);
+  });
+  app.querySelectorAll('[data-reto-del]').forEach(b => b.onclick = () => confirm('¿Quitar este reto?') && saveRetos(retosCache.filter(r => r.id !== b.dataset.retoDel)));
   // Recompensa final: desbloquear (o deshacer) para un usuario
   const setFinal = async (uid, on) => {
     const unlocked = { ...finalCache };
@@ -1148,6 +1203,71 @@ const calcNota = (ok, ko, total, pen) => total ? Math.max(0, ok - ko * pen) / to
 const entryNota = h => h.nota ?? (h.total ? h.aciertos / h.total * 10 : 0);
 // La nota en porcentaje del examen (un 10 es el 100 %); ya incluye lo que restan los fallos
 const notaPct = n => fmtNum(n * 10, 0) + ' %';
+// Previsión de nota del simulacro: cada pregunta del bloque del simulacro cuenta con su probabilidad de acierto
+// (sus aciertos y fallos; las no vistas, un poco por debajo de su media) y la penalización de los fallos.
+function prevision() {
+  const s = getSettings(), qs = (set?.preguntas || []).filter(q => !s.simBloque || q.bloque === s.simBloque), stats = load(K.stats, {});
+  let ok = 0, tot = 0;
+  Object.values(stats).forEach(x => { ok += x.ok; tot += x.ok + x.ko; });
+  if (!qs.length || tot < 30) return null; // con muy pocos datos no tiene sentido
+  const base = ok / tot * .9, pen = s.penaltyOn ? s.penalty : 0, byTema = {};
+  let sum = 0;
+  qs.forEach(q => {
+    const x = stats[keyOf(q)], n = x ? x.ok + x.ko : 0;
+    const p = n ? (x.ok + 1) / (n + 2) : base, e = p - (1 - p) * pen;
+    sum += e;
+    const t = byTema[pkKey(q)] ||= { loss: 0, qs: [] };
+    t.loss += 1 - e; t.qs.push(q);
+  });
+  const peores = Object.entries(byTema).sort((a, b) => b[1].loss - a[1].loss).slice(0, 3)
+    .map(([k, t]) => ({ k, menos: t.loss / qs.length * 10, qs: t.qs }));
+  const sims = load(K.hist, []).filter(h => h.modo === 'simulacro').slice(-3).map(entryNota);
+  return { nota: Math.max(0, sum / qs.length * 10), peores, sims, corte: s.simCorte, bloque: s.simBloque, vistas: qs.filter(q => stats[keyOf(q)]).length, n: qs.length };
+}
+function previsionHTML() {
+  const p = prevision();
+  if (!p) return '';
+  const simMedia = p.sims.length ? p.sims.reduce((a, b) => a + b, 0) / p.sims.length : null;
+  return `<div class="card prev-card">
+    <h2>🔮 Previsión de nota</h2>
+    <div class="prev-top"><span class="prev-nota ${p.nota >= p.corte ? 'ok' : 'ko'}">${fmtNum(p.nota, 1)}</span>
+      <span class="muted">en el simulacro${p.bloque ? ` de «${esc(p.bloque)}»` : ''} si fuera hoy · nota de corte ${fmtNum(p.corte)}${simMedia !== null ? `<br>Tus últimos simulacros: ${fmtNum(simMedia, 1)} de media` : ''}<br>Has visto ${p.vistas} de ${p.n} preguntas de ese bloque</span></div>
+    <p style="margin:12px 0 6px"><b>Lo que más te baja la nota:</b></p>
+    ${p.peores.map((t, i) => `<div class="prev-row"><span>${esc(temaName(t.k).short)}</span><span class="muted">−${fmtNum(t.menos, 2)}</span><button class="small" data-prev="${i}">Practicar</button></div>`).join('')}
+    <p class="help" style="margin-bottom:0">Es una estimación con tus aciertos y fallos de cada pregunta; cuanto más practiques, más fina.</p>
+  </div>`;
+}
+// Las preguntas en las que más tarda (media de al menos 2 veces)
+function lentas() {
+  const stats = load(K.stats, {}), byKey = new Map((set?.preguntas || []).map(q => [keyOf(q), q]));
+  return Object.entries(stats).filter(([k, s]) => s.tn >= 2 && byKey.has(k)).map(([k, s]) => ({ q: byKey.get(k), ms: s.ms / s.tn }))
+    .sort((a, b) => b.ms - a.ms).slice(0, 10);
+}
+function lentasHTML() {
+  const l = lentas();
+  if (l.length < 5) return '';
+  return `<div class="card">
+    <h2>🐢 Las que más te cuestan</h2>
+    <p class="muted" style="margin-top:-6px">Las preguntas en las que más tardas en responder, aunque las aciertes. En el examen el tiempo cuenta.</p>
+    ${l.map(x => `<div class="prev-row"><span class="lenta-txt">${esc(x.q.pregunta)}</span><span class="muted">${Math.round(x.ms / 1000)} s</span></div>`).join('')}
+    <button class="primary small" id="lentasGo" style="margin-top:10px">Practicar estas ${l.length}</button>
+  </div>`;
+}
+function bindProgresoExtras() {
+  const p = prevision();
+  app.querySelectorAll('[data-prev]').forEach(b => b.onclick = () => startRun(shuffle(p.peores[+b.dataset.prev].qs).slice(0, 20), { mode: 'practica', label: 'Lo que más te baja' }));
+  if ($('lentasGo')) $('lentasGo').onclick = () => startRun(lentas().map(x => x.q), { mode: 'practica', label: 'Las que más te cuestan' });
+}
+// Fallos de hoy, para repasarlos antes de acabar el día
+function fallosHoy() {
+  const keys = (load(K.dailyq, {})[todayKey()] || [])[2] || [], byKey = new Map((set?.preguntas || []).map(q => [keyOf(q), q]));
+  return keys.map(k => byKey.get(k)).filter(Boolean);
+}
+function fallosHoyHTML() {
+  const f = fallosHoy();
+  return f.length ? `<div class="card fallos-card"><span>🔁 Hoy has fallado <b>${f.length}</b> ${f.length === 1 ? 'pregunta' : 'preguntas'}. Repásalas antes de acabar el día.</span>
+    <button class="small primary" id="fallosGo">Repasarlas</button></div>` : '';
+}
 // Progreso: tarjeta con el porcentaje de los últimos exámenes (verde si llega al 50 %)
 function pctCardHTML(hist) {
   if (!hist.length) return '';
@@ -1599,7 +1719,7 @@ function logroData() {
 }
 const logrosOk = (d = logroData()) => LOGROS.filter(l => l.val(d) >= goalOf(l, d));
 // Puntos ganados = logros conseguidos + recompensa diaria
-const puntosGanados = (ok = logrosOk()) => ok.reduce((a, l) => a + l.pts, 0) + puntosDiarios().total;
+const puntosGanados = (ok = logrosOk()) => ok.reduce((a, l) => a + l.pts, 0) + puntosDiarios().total + puntosRetos();
 
 // Avisa de los logros nuevos (una vez). El primer día avisa con un resumen, por si ya había muchos.
 // También avisa una vez al día al llegar al mínimo de la recompensa diaria.
@@ -1627,6 +1747,7 @@ function checkLogros() {
     saveSettings({ cajaAvisado: hoy });
     showToast('🎡', '¡Tienes la ruleta para girar!', `Has llegado a ${cfg.caja} preguntas. Gírala en 🏆 Logros.`, 'pomo');
   }
+  checkRetos();
   const seen = load(K.settings, {}).logros || {}, ok = logrosOk(), nuevos = ok.filter(l => !seen[l.id]);
   if (!nuevos.length) return;
   saveSettings({ logros: { ...seen, ...Object.fromEntries(nuevos.map(l => [l.id, Date.now()])) } });
@@ -1759,6 +1880,7 @@ async function showLogros() {
         <div class="muted">puntos disponibles · ${earned} ganados (${pd.total} por días de estudio y ${earned - pd.total} por ${ok.size} de ${LOGROS.length} logros)${canjes?.length ? ` · ${puntosGastados(canjes)} canjeados` : ''}</div>
       </div>
       ${diarioCardHTML(pd)}
+      ${retosHTML()}
       ${finalCardHTML(canjes)}
       <div class="card">
         <h2>🎁 Recompensas</h2>
@@ -1806,7 +1928,7 @@ async function showLogros() {
   };
   render(fbUser ? null : [], canjesCache);
   if (!fbUser) return;
-  try { const [rw, cj] = await Promise.all([loadRewards(), loadCanjes(), loadFinal().catch(() => ({}))]); if ($('home') && app.querySelector('.points-card')) render(rw, cj); }
+  try { const [rw, cj] = await Promise.all([loadRewards(), loadCanjes(), loadFinal().catch(() => ({})), loadRetos()]); if ($('home') && app.querySelector('.points-card')) render(rw, cj); }
   catch (e) { render([], canjesCache, e.code || e.message); }
 }
 // Resumen pequeño para el inicio
@@ -1827,6 +1949,108 @@ async function loadInbox() {
     if (inboxCache.length && $('goStats')) showHome();
   } catch {}
 }
+
+// ---------- ¿Cómo te sientes hoy? ----------
+// Una vez al día, en el inicio. Se guarda en los ajustes (sincronizados) y el admin lo ve en el panel.
+const ANIMOS = [['😄', 'Genial'], ['🙂', 'Bien'], ['😐', 'Regular'], ['😩', 'Agotada']];
+function animoHTML() {
+  if (!set?.preguntas?.length || (load(K.settings, {}).animo || {})[todayKey()]) return '';
+  return `<div class="card animo-card"><b>¿Cómo te sientes hoy?</b>
+    <div class="animo-btns">${ANIMOS.map(([e, t]) => `<button class="animo" data-animo="${e}" title="${t}" aria-label="${t}">${e}</button>`).join('')}</div></div>`;
+}
+function bindAnimo() {
+  app.querySelectorAll('[data-animo]').forEach(b => b.onclick = () => {
+    saveSettings({ animo: { ...(load(K.settings, {}).animo || {}), [todayKey()]: b.dataset.animo } });
+    if (b.dataset.animo === '😩') showToast('🤗', 'Ánimo', 'Hoy con lo justo vale. Un poco cada día es lo que cuenta. 💚', 'pomo');
+    showHome();
+  });
+}
+
+// ---------- Retos del admin ----------
+// El admin crea retos para cada usuario (Firestore config/retos = { items: [...] }). El progreso se calcula con sus datos
+// entre `desde` y `hasta`; al cumplirlo suma `puntos` y, si hay `premio`, se crea un canje sin coste para que lo vea el admin.
+const RETO_TIPOS = { preguntas: 'preguntas respondidas', dias: 'días llegando al mínimo diario', tests: 'tests terminados', aptos: 'simulacros aprobados' };
+let retosCache = [], viewUid = null;
+async function loadRetos() {
+  try { const s = await fb.getDoc(fb.doc(fb.db, 'config', 'retos')); retosCache = (s.exists() ? s.data().items : null) || []; } catch {}
+  return retosCache;
+}
+const misRetos = () => retosCache.filter(r => r.uid === (viewUid || fbUser?.uid));
+function retoProgreso(r) {
+  const daily = load(K.daily, {}), inRange = k => k >= r.desde && k <= r.hasta;
+  const t0 = new Date(r.desde + 'T00:00').getTime(), t1 = new Date(r.hasta + 'T23:59:59').getTime();
+  const hist = load(K.hist, []).filter(h => h.fecha >= t0 && h.fecha <= t1);
+  const v = r.tipo === 'preguntas' ? Object.keys(daily).filter(inRange).reduce((a, k) => a + daily[k], 0)
+    : r.tipo === 'dias' ? Object.keys(daily).filter(k => inRange(k) && daily[k] >= diarioCfg().min).length
+    : r.tipo === 'tests' ? hist.length : hist.filter(h => h.modo === 'simulacro' && h.apto).length;
+  return { v, done: v >= r.meta, vencido: todayKey() > r.hasta };
+}
+const puntosRetos = () => misRetos().reduce((a, r) => a + (retoProgreso(r).done ? +r.puntos || 0 : 0), 0);
+const fmtCorta = k => new Date(k + 'T12:00').toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+function retoRowHTML(r, admin) {
+  const p = retoProgreso(r), estado = p.done ? '✅ cumplido' : p.vencido ? '⌛ terminado' : `hasta el ${fmtCorta(r.hasta)}`;
+  return `<div class="reto ${p.done ? 'ok' : ''}">
+    <div class="row between"><b>🏁 ${esc(r.titulo)}</b><span class="muted">${estado}</span></div>
+    <div class="muted">${Math.min(p.v, r.meta)} / ${r.meta} ${RETO_TIPOS[r.tipo]} · ${r.puntos ? `⭐ ${r.puntos}` : ''}${r.premio ? `${r.puntos ? ' + ' : ''}🎁 ${esc(r.premio)}` : ''}</div>
+    <div class="bar"><div style="width:${Math.min(100, p.v / r.meta * 100)}%"></div></div>
+    ${admin ? `<button class="small danger" data-reto-del="${esc(r.id)}">Quitar</button>` : ''}
+  </div>`;
+}
+function retosHTML() {
+  const l = misRetos();
+  return l.length ? `<div class="card"><h2>🏁 Retos</h2>${l.slice().reverse().map(r => retoRowHTML(r)).join('')}</div>` : '';
+}
+// Línea del inicio con el reto en curso
+function retoHoyHTML() {
+  const r = misRetos().find(r => !retoProgreso(r).done && todayKey() >= r.desde && todayKey() <= r.hasta);
+  if (!r) return '';
+  const p = retoProgreso(r);
+  return `<p class="muted" style="margin:6px 0 0">🏁 Reto: ${esc(r.titulo)} · <b>${p.v}</b> / ${r.meta}${r.premio ? ` · 🎁 ${esc(r.premio)}` : ''}</p>`;
+}
+// Al cumplir un reto: aviso, y canje sin coste si tiene premio (una vez)
+async function checkRetos() {
+  if (viewAs || !fbUser) return;
+  const okIds = load(K.settings, {}).retosOk || {};
+  for (const r of misRetos()) {
+    if (okIds[r.id] || !retoProgreso(r).done) continue;
+    saveSettings({ retosOk: { ...(load(K.settings, {}).retosOk || {}), [r.id]: Date.now() } });
+    showToast('🏁', `¡Reto cumplido! ${r.titulo}`, `${r.puntos ? `+${r.puntos} puntos` : ''}${r.premio ? `${r.puntos ? ' y ' : ''}🎁 ${r.premio}` : ''}`, 'pomo');
+    if (r.premio) try { await fb.addDoc(fb.collection(fb.db, 'users', fbUser.uid, 'canjes'), { rewardId: 'reto-' + r.id, name: r.premio, emoji: '🏁', cost: 0, at: Date.now(), done: false }); } catch {}
+  }
+}
+
+// ---------- Resumen semanal ----------
+// Domingo y lunes, en el inicio: lo de la semana (lunes a domingo) que acaba. Se puede cerrar.
+function semanaStats(desde, hasta) {
+  const daily = load(K.daily, {}), dq = load(K.dailyq, {}), min = diarioCfg().min, dias = [];
+  for (const d = new Date(desde + 'T12:00'); todayKey(d) <= hasta; d.setDate(d.getDate() + 1)) dias.push(todayKey(d));
+  const t0 = new Date(desde + 'T00:00').getTime(), t1 = new Date(hasta + 'T23:59:59').getTime();
+  const hist = load(K.hist, []).filter(h => h.fecha >= t0 && h.fecha <= t1);
+  const q = dias.reduce((a, k) => [a[0] + (dq[k]?.[0] || 0), a[1] + (dq[k]?.[1] || 0)], [0, 0]);
+  return { preguntas: dias.reduce((a, k) => a + (daily[k] || 0), 0), diasOk: dias.filter(k => (daily[k] || 0) >= min).length,
+    acierto: q[0] ? Math.round(q[1] / q[0] * 100) : null, tests: hist.length, mejor: hist.length ? Math.max(...hist.map(entryNota)) : null };
+}
+function semanaHTML() {
+  const hoy = new Date(), dow = hoy.getDay(); // 0 domingo, 1 lunes
+  if (!set?.preguntas?.length || (dow !== 0 && dow !== 1)) return '';
+  const fin = daysAgo(dow === 0 ? 0 : 1), ini = new Date(fin); ini.setDate(ini.getDate() - 6);
+  const id = todayKey(fin);
+  if (load(K.settings, {}).semanaVista === id) return '';
+  const s = semanaStats(todayKey(ini), id);
+  if (!s.preguntas) return '';
+  return `<div class="card semana-card">
+    <div class="row between"><h2 style="margin:0">📊 Tu semana</h2><button class="small" id="semanaOk" aria-label="Cerrar resumen">✕</button></div>
+    <p class="muted" style="margin:4px 0 10px">${fmtCorta(todayKey(ini))} – ${fmtCorta(id)}</p>
+    <div class="kpis">
+      <div class="kpi"><div class="muted">Preguntas</div><div class="v">${s.preguntas}</div></div>
+      <div class="kpi"><div class="muted">Días con objetivo</div><div class="v">${s.diasOk}/7</div></div>
+      <div class="kpi"><div class="muted">Acierto</div><div class="v">${s.acierto === null ? '—' : s.acierto + ' %'}</div></div>
+      <div class="kpi"><div class="muted">Tests</div><div class="v">${s.tests}</div></div>
+      <div class="kpi"><div class="muted">Mejor nota</div><div class="v">${s.mejor === null ? '—' : fmtNum(s.mejor, 1)}</div></div>
+    </div>
+    <p style="margin:12px 0 0">${s.diasOk >= 6 ? '🏆 ¡Semana de campeona! Así se gana una plaza.' : s.diasOk >= 4 ? '💪 Buena semana. A por la siguiente.' : '🌱 Cada semana cuenta. La que viene, un poquito más.'}</p>
+  </div>`;
+}
 function inboxHTML() {
   return inboxCache.map(m => `<div class="card msg-card">
       <div class="msg-from">💌 Mensaje${m.fromName ? ` de ${esc(m.fromName)}` : ''} <span class="muted">· ${fmtDate(m.at)}</span></div>
@@ -1841,6 +2065,73 @@ function bindInbox() {
     b.closest('.msg-card').remove();
     try { await fb.updateDoc(fb.doc(fb.db, 'users', fbUser.uid, 'inbox', id), { read: true, readAt: Date.now() }); } catch {}
   });
+}
+
+// ---------- Ayuda ----------
+// Cada opción tiene un ⓘ que abre su explicación; ❓ Ayuda las reúne todas en una pantalla.
+const AYUDA = [
+  ['📅 Hoy', [
+    ['plan', '📅 Planning «Hoy toca»', 'Reparte los temas que elijas entre los días que quedan hasta el examen (sin contar los días de repaso final). Cada día te dice qué toca y te propone un test de esos temas. Si un día no estudias, se reajusta solo. Se personaliza en «Personalizar»: fecha del examen, días de estudio, temas…'],
+    ['srs', '🧠 Repaso inteligente', 'Te pregunta lo que toca repasar hoy según cómo lo llevas: lo que fallas vuelve pronto y lo que aciertas tarda cada vez más (1, 3, 7, 16, 35 días). Es la mejor forma de no olvidar lo estudiado. Hazlo cada día aunque sea un rato.'],
+    ['fallos', '🔁 Fallos de hoy', 'Las preguntas que has fallado hoy. Repasarlas antes de acabar el día ayuda mucho a que no se repita el error.'],
+    ['objetivo', '🎯 Objetivo diario y racha 🔥', 'El objetivo es el número de preguntas al día (60). La racha 🔥 cuenta los días seguidos que lo cumples. La misión del día 🗺️ es un reto extra que cambia cada día.']
+  ]],
+  ['📚 Practicar', [
+    ['test', '📝 Test por temas', 'Eliges los temas y cuántas preguntas, y empiezas. En «Más opciones»: modo examen (nota al final y con tiempo), solo las que has fallado, solo las marcadas ★, recuerdo activo (piensas la respuesta antes de ver las opciones) o filtrar por ley o referencia.'],
+    ['flash', '🃏 Flashcards', 'Tarjetas: ves la pregunta o el concepto, piensas la respuesta y le das la vuelta. Luego dices si te ha costado («Otra vez», «Difícil», «Bien», «Fácil») y la app decide cuándo volver a enseñártela. Ideal para plazos, órganos, definiciones…'],
+    ['vf', '⚡ Verdadero / Falso', 'Repaso rápido: sale una afirmación y dices si es verdadera o falsa. Muy útil para ratos cortos. Intenta superar tu récord de racha.'],
+    ['art', '📜 Artículos', 'Textos de la normativa con huecos. En 🧩 Fácil colocas las palabras que faltan tocándolas; en ✍️ Difícil las escribes tú de memoria. Empieza en fácil y, cuando lo hagas perfecto, pasa a difícil. Sirve para memorizar artículos literales, plazos y cifras.'],
+    ['audio', '🎧 Modo audio', 'La app te lee las preguntas y las opciones en voz alta; puedes responder tocando o dejar que te diga la solución. Para repasar caminando o en el coche.']
+  ]],
+  ['🎯 Examen', [
+    ['sim1', '🎯 Simulacro de la 1ª parte', 'Un examen como el oficial: 80 preguntas del temario específico en 120 minutos, con −1/3 por fallo. Al final ves la nota, si serías APTA y la revisión de cada pregunta. Hazlo de vez en cuando para medirte.'],
+    ['sim2', '🎯 Simulacro de la 2ª parte', 'Como la 2ª parte oficial: 40 preguntas de todo el temario en 90 minutos, con −1/3 por fallo.'],
+    ['prevision', '🔮 Previsión de nota', 'En Progreso: la nota que sacarías hoy en el simulacro, calculada con tus aciertos y fallos de cada pregunta. Te dice qué temas te bajan más la nota para que los practiques.']
+  ]],
+  ['🏆 Puntos y premios', [
+    ['logros', '🏆 Logros', 'Medallas por estudiar: primeros tests, rachas, simulacros aprobados, temas dominados… Cada una da puntos una vez. Están en el botón 🏆 de arriba.'],
+    ['diario', '📅 Recompensa diaria', 'Cada día que llegas a 60 preguntas ganas puntos. Si son días seguidos, los días 7, 14, 21 y 28 dan más. Tras el 28 vuelve a empezar.'],
+    ['extras', '🚀 Extras del día', 'Más puntos si llegas a 90 o 120 preguntas, si aciertas el 80 % o más, y la misión del día 🗺️.'],
+    ['ruleta', '🎡 Ruleta', 'Al llegar a 100 preguntas se desbloquea la ruleta: entra en 🏆 Logros y gírala para ganar +5, +10, +15 o +30 puntos. Solo una vez al día.'],
+    ['escudo', '🛡️ Escudo', 'Cada 7 días seguidos ganas un escudo (máximo 2). Si un día no llegas a 60, se gasta el escudo y tu racha de puntos no se corta.'],
+    ['retos', '🏁 Retos', 'Retos especiales que te pone tu admin, con fecha límite, puntos y a veces premio. Los ves en el inicio y en 🏆 Logros.'],
+    ['premios', '🎁 Recompensas', 'Con los puntos canjeas premios en 🏆 Logros. Al canjear, le llega el aviso a tu admin. Y la recompensa final ✈️ se gana aprobando la oposición.']
+  ]],
+  ['⚙️ Más', [
+    ['animo', '💭 ¿Cómo te sientes hoy?', 'Una vez al día puedes decir cómo estás. Solo lo ve tu admin, para saber cuándo necesitas un empujón o un mimo.'],
+    ['avisos', '🔔 Avisos', 'En ⚙️ Ajustes → Avisos eliges la hora y los días del recordatorio. En el iPhone solo funcionan con la app añadida a la pantalla de inicio.'],
+    ['cuenta', '👤 Cuenta', 'Con tu cuenta (⚙️ Ajustes) tu progreso se guarda en la nube y lo tienes en todos tus dispositivos.']
+  ]]
+];
+const ayudaDe = id => AYUDA.flatMap(([, l]) => l).find(([k]) => k === id);
+const infoBtn = (id, label) => `<button class="info-btn" data-help="${id}" aria-label="Qué es ${esc(label)}" title="¿Qué es esto?">ⓘ</button>`;
+function showHelp(id) {
+  const a = ayudaDe(id);
+  if (!a) return;
+  $('helpBox')?.remove();
+  document.body.insertAdjacentHTML('beforeend', `<div class="ruleta-bg" id="helpBox" role="dialog" aria-modal="true" aria-label="${esc(a[1])}"><div class="ruleta-box help-box">
+    <h2>${a[1]}</h2><p>${a[2]}</p><button class="primary" id="helpOk">Entendido</button></div></div>`);
+  const close = () => $('helpBox')?.remove();
+  $('helpOk').onclick = close; $('helpOk').focus();
+  $('helpBox').onclick = e => { if (e.target.id === 'helpBox') close(); };
+}
+// los ⓘ funcionan en cualquier pantalla
+document.addEventListener('click', e => { const b = e.target.closest('[data-help]'); if (b) { e.preventDefault(); e.stopPropagation(); showHelp(b.dataset.help); } });
+function showAyuda() {
+  stopTimer();
+  saveSettings({ ayudaVista: AYUDA_VERSION });
+  app.innerHTML = `<div class="row between"><h1>❓ Ayuda</h1><button id="home">← Inicio</button></div>
+    <p class="muted" style="margin-top:-8px">Qué es cada cosa y para qué sirve. En cada opción tienes también un ⓘ con su explicación.</p>
+    ${AYUDA.map(([sec, l]) => `<div class="card"><h2>${sec}</h2>${l.filter(([k]) => k !== 'audio' || feat('audio')).map(([, t, txt]) => `<details class="help-item"><summary>${t}</summary><p>${txt}</p></details>`).join('')}</div>`).join('')}`;
+  $('home').onclick = () => showHome();
+}
+// Aviso de novedades la primera vez tras la reorganización
+const AYUDA_VERSION = 1;
+function novedadesHTML() {
+  if (!set?.preguntas?.length || (load(K.settings, {}).ayudaVista || 0) >= AYUDA_VERSION) return '';
+  return `<div class="card notice"><b>✨ La app se ha reorganizado</b>
+    <p class="muted" style="margin:6px 0 10px">Ahora está en tres bloques: 📅 Hoy, 📚 Practicar y 🎯 Examen. Toca ⓘ en cualquier opción para saber qué es, o mira la ayuda completa.</p>
+    <div class="row"><button class="small primary" id="novAyuda">Ver la ayuda</button><button class="small" id="novOk">Entendido</button></div></div>`;
 }
 function dailyCardHTML() {
   const s = getSettings(), today = load(K.daily, {})[todayKey()] || 0, left = daysLeft(s.examDate), st = streak();
@@ -1857,6 +2148,7 @@ function dailyCardHTML() {
       <div class="progress" style="margin-bottom:0"><div style="width:${Math.min(100, today / s.dailyGoal * 100)}%"></div></div>` : ''}
       ${set?.preguntas?.length && today >= diarioCfg().caja && !(load(K.settings, {}).cajas || {})[todayKey()] ? `<p style="margin:10px 0 0"><a href="#" id="goRuleta">🎡 ¡Tienes la ruleta para girar! →</a></p>` : ''}
       ${set?.preguntas?.length ? `<p class="muted" style="margin:10px 0 0">🗺️ Misión de hoy: ${misionHoy().txt} · ${(load(K.settings, {}).misiones || {})[todayKey()] ? '✅ cumplida' : `+${diarioCfg().mision}`}</p>` : ''}
+      ${retoHoyHTML()}
     </div>`;
 }
 
@@ -1869,6 +2161,7 @@ function showHome(error) {
   const markedCount = qs.filter(q => marks[keyOf(q)]).length;
   const plan = srsPlan(qs);
   const simPool = qs.filter(q => !s.simBloque || q.bloque === s.simBloque);
+  const sim2Pool = qs.filter(q => !s.sim2Bloque || q.bloque === s.sim2Bloque);
   const arts = articulosOf(), cards = [...qs, ...fichasOf()].map(asCard);
   const flashPlan = srsPlan(cards, c => c.key);
   const hasContent = qs.length || cards.length || arts.length;
@@ -1877,58 +2170,77 @@ function showHome(error) {
 
   app.innerHTML = `
     <h1>${set ? esc(set.titulo) : 'Test de preguntas'}</h1>
-    ${set?.preguntas?.length ? `<div class="row" style="margin:-6px 0 12px">${puntosChipHTML()}</div>` : ''}
+    ${set?.preguntas?.length ? `<div class="row" style="margin:-6px 0 12px">${puntosChipHTML()}<button class="chip" id="goAyuda" title="Qué es cada cosa">❓ Ayuda</button></div>` : ''}
     <div class="homenav"><button id="goStats">📊 Progreso</button><button id="goEditor">✏️ Editor</button><button id="goTheme">🎨 Tema</button><button id="goSettings">⚙️ Ajustes</button>${isAdmin() ? '<button id="goAdmin">📊 Admin</button>' : ''}</div>
     ${error ? `<div class="card error">${esc(error)}</div>` : ''}
+    ${novedadesHTML()}
     ${inboxHTML()}
+    ${animoHTML()}
+    ${semanaHTML()}
     ${saved ? `
     <div class="card notice">
       <b>Tienes un test a medias</b>
       <p class="muted">${MODOS[saved.sim ? 'simulacro' : saved.mode] || ''} · pregunta ${saved.i + 1} de ${saved.list.length} · ${fmtTime(saved.elapsed)} transcurridos</p>
       <div class="row"><button class="primary" id="resume">Reanudar</button><button id="discard">Descartar</button></div>
     </div>` : ''}
-    ${hasContent ? dailyCardHTML() + planCardHTML() + `
-    <div class="card">
-      <div class="quick">
-        <button class="quick-btn" id="srsBtn"><span class="qi">🧠</span><b>Repaso inteligente</b>
-          <span class="muted">${plan.due.length || plan.fresh.length ? `${plan.due.length} para repasar · ${plan.fresh.length} nuevas` : 'Todo al día ✅'}</span></button>
-        <button class="quick-btn" id="simBtn"><span class="qi">🎯</span><b>${esc(s.simNombre)}</b>
-          <span class="muted">${Math.min(s.simPreguntas, simPool.length)} preguntas${s.simBloque ? ` de «${esc(s.simBloque)}»` : ''} · ${s.simMinutos ? s.simMinutos + ' min' : 'sin tiempo'} · ${penTxt}</span></button>
-        ${feat('flash') ? `<button class="quick-btn" id="flashBtn"><span class="qi">🃏</span><b>Flashcards</b>
-          <span class="muted">${flashPlan.due.length + flashPlan.fresh.length ? `${flashPlan.due.length} para repasar · ${flashPlan.fresh.length} nuevas` : 'Todo al día ✅'}</span></button>` : ''}
-        ${feat('articulos') ? `<button class="quick-btn" id="artBtn"><span class="qi">📜</span><b>Artículos</b>
-          <span class="muted">${arts.length ? `${arts.length} para rellenar huecos` : 'Memoriza artículos de ley'}</span></button>` : ''}
-        ${feat('audio') ? `<button class="quick-btn" id="audioBtn"><span class="qi">🎧</span><b>Modo audio</b>
-          <span class="muted">Escucha preguntas y respuestas</span></button>` : ''}
-        ${feat('vf') ? `<button class="quick-btn" id="vfBtn"><span class="qi">⚡</span><b>Verdadero / Falso</b>
-          <span class="muted">Repaso rápido${load(K.vf, {}).best ? ` · récord racha ${load(K.vf, {}).best}` : ''}</span></button>` : ''}
-      </div>
-    </div>` : ''}
+    ${hasContent ? `
+    <h2 class="sec">📅 Hoy</h2>
+    ${dailyCardHTML()}${fallosHoyHTML()}${planCardHTML()}
+    ${qs.length ? `<div class="qwrap qwrap-wide"><button class="quick-btn hero-tile" id="srsBtn"><span class="qi">🧠</span><span><b>Repaso inteligente</b>
+      <span class="muted">${plan.due.length || plan.fresh.length ? `Lo que te toca repasar hoy · ${plan.due.length} pendientes · ${plan.fresh.length} nuevas` : 'Todo al día ✅'}</span></span></button>${infoBtn('srs', 'Repaso inteligente')}</div>` : ''}
+
+    <h2 class="sec">📚 Practicar</h2>
     ${qs.length ? `
     <div class="card">
-      <h2>Test personalizado</h2>
-      <div class="modes">
-        <label class="mode-card"><input type="radio" name="mode" value="practica" checked><span class="t">📝 Práctica</span><span class="d">Ves la solución tras cada pregunta</span></label>
-        <label class="mode-card"><input type="radio" name="mode" value="examen"><span class="t">🎓 Examen</span><span class="d">Nota y soluciones al final</span></label>
-      </div>
-      <label class="opt" id="minRow" hidden>Tiempo límite (min, 0 = sin límite): <input id="minutes" type="number" min="0" value="0"></label>
-      <hr class="sep">
+      <div class="row between"><h2 style="margin:0">📝 Test por temas</h2>${infoBtn('test', 'Test por temas')}</div>
+      <p class="muted" style="margin:4px 0 8px">Elige temas y cuántas preguntas. Verás la solución después de cada una.</p>
       <div class="picker" id="pickTest"></div>
-      ${hasRef ? '<label class="opt">Referencia: <input type="text" id="refFilter" placeholder="p. ej. 39/2015 o CE" style="flex:1;min-width:0"></label>' : ''}
       <label class="opt">Nº de preguntas: <input id="num" type="number" min="1" max="${qs.length}" value="${Math.min(qs.length, 20)}"></label>
-      <label class="opt"><input id="shq" type="checkbox" checked> Barajar preguntas</label>
-      <label class="opt"><input id="sho" type="checkbox" checked> Barajar opciones</label>
-      <label class="opt"><input id="onlyKo" type="checkbox"> Solo las que he fallado alguna vez (${failedCount})</label>
-      <label class="opt"><input id="onlyMarked" type="checkbox"> Solo las marcadas ★ (${markedCount})</label>
-      ${feat('recall') ? `<label class="opt"><input id="recall" type="checkbox" ${load(K.settings, {}).recall ? 'checked' : ''}> 🧠 Recuerdo activo: piensa la respuesta antes de ver las opciones</label>` : ''}
-      <p class="muted">Penalización: ${penTxt} · <a href="#" id="penLink">cambiar</a></p>
+      <details class="more-opts"><summary>Más opciones</summary>
+        <div class="modes">
+          <label class="mode-card"><input type="radio" name="mode" value="practica" checked><span class="t">📝 Práctica</span><span class="d">Ves la solución tras cada pregunta</span></label>
+          <label class="mode-card"><input type="radio" name="mode" value="examen"><span class="t">🎓 Modo examen</span><span class="d">Nota y soluciones al final</span></label>
+        </div>
+        <label class="opt" id="minRow" hidden>Tiempo límite (min, 0 = sin límite): <input id="minutes" type="number" min="0" value="0"></label>
+        ${hasRef ? '<label class="opt">Referencia: <input type="text" id="refFilter" placeholder="p. ej. 39/2015 o CE" style="flex:1;min-width:0"></label>' : ''}
+        <label class="opt"><input id="onlyKo" type="checkbox"> Solo las que he fallado alguna vez (${failedCount})</label>
+        <label class="opt"><input id="onlyMarked" type="checkbox"> Solo las marcadas ★ (${markedCount})</label>
+        ${feat('recall') ? `<label class="opt"><input id="recall" type="checkbox" ${load(K.settings, {}).recall ? 'checked' : ''}> 🧠 Recuerdo activo: piensa la respuesta antes de ver las opciones</label>` : ''}
+        <label class="opt"><input id="shq" type="checkbox" checked> Barajar preguntas</label>
+        <label class="opt"><input id="sho" type="checkbox" checked> Barajar opciones</label>
+        <p class="muted">Penalización: ${penTxt} · <a href="#" id="penLink">cambiar</a></p>
+      </details>
       <button class="primary" id="start">Empezar</button>
     </div>` : ''}
+    <div class="quick">
+      ${feat('flash') ? `<div class="qwrap"><button class="quick-btn" id="flashBtn"><span class="qi">🃏</span><b>Flashcards</b>
+        <span class="muted">${flashPlan.due.length + flashPlan.fresh.length ? `${flashPlan.due.length} para repasar · ${flashPlan.fresh.length} nuevas` : 'Todo al día ✅'}</span></button>${infoBtn('flash', 'Flashcards')}</div>` : ''}
+      ${feat('vf') ? `<div class="qwrap"><button class="quick-btn" id="vfBtn"><span class="qi">⚡</span><b>Verdadero / Falso</b>
+        <span class="muted">Repaso rápido${load(K.vf, {}).best ? ` · récord ${load(K.vf, {}).best}` : ''}</span></button>${infoBtn('vf', 'Verdadero / Falso')}</div>` : ''}
+      ${feat('articulos') ? `<div class="qwrap"><button class="quick-btn" id="artBtn"><span class="qi">📜</span><b>Artículos</b>
+        <span class="muted">${arts.length ? `${arts.length} con huecos` : 'Memoriza artículos de ley'}</span></button>${infoBtn('art', 'Artículos')}</div>` : ''}
+      ${feat('audio') ? `<div class="qwrap"><button class="quick-btn" id="audioBtn"><span class="qi">🎧</span><b>Modo audio</b>
+        <span class="muted">Escucha preguntas y respuestas</span></button>${infoBtn('audio', 'Modo audio')}</div>` : ''}
+    </div>
+
+    ${qs.length ? `<h2 class="sec">🎯 Examen</h2>
+    <div class="quick">
+      <div class="qwrap"><button class="quick-btn" id="simBtn"><span class="qi">🎯</span><b>Simulacro · ${esc(s.simNombre)}</b>
+        <span class="muted">Como el examen oficial: ${Math.min(s.simPreguntas, simPool.length)} preguntas${s.simBloque ? ` de «${esc(s.simBloque)}»` : ' de todo el temario'} · ${s.simMinutos ? s.simMinutos + ' min' : 'sin tiempo'} · ${penTxt}</span></button>${infoBtn('sim1', 'Simulacro de la 1ª parte')}</div>
+      <div class="qwrap"><button class="quick-btn" id="sim2Btn"><span class="qi">🎯</span><b>Simulacro · ${esc(s.sim2Nombre)}</b>
+        <span class="muted">${Math.min(s.sim2Preguntas, sim2Pool.length)} preguntas${s.sim2Bloque ? ` de «${esc(s.sim2Bloque)}»` : ' de todo el temario'} · ${s.sim2Minutos ? s.sim2Minutos + ' min' : 'sin tiempo'} · ${penTxt}</span></button>${infoBtn('sim2', 'Simulacro de la 2ª parte')}</div>
+    </div>` : ''}` : ''}
     ${serverAvailable && set?.origen === 'editado' ? `<div class="card"><p class="help" style="margin-top:0">Estás usando preguntas editadas solo en este dispositivo.</p>
       <button id="useServer" class="small">Volver a las preguntas de todos</button></div>` : ''}`;
 
   bindPlanCard();
   bindInbox();
+  bindAnimo();
+  if ($('goAyuda')) $('goAyuda').onclick = () => showAyuda();
+  if ($('novAyuda')) $('novAyuda').onclick = () => showAyuda();
+  if ($('novOk')) $('novOk').onclick = () => { saveSettings({ ayudaVista: AYUDA_VERSION }); showHome(); };
+  if ($('semanaOk')) $('semanaOk').onclick = () => { saveSettings({ semanaVista: todayKey(daysAgo(new Date().getDay() === 0 ? 0 : 1)) }); showHome(); };
+  if ($('fallosGo')) $('fallosGo').onclick = () => startRun(shuffle(fallosHoy()), { mode: 'practica', label: 'Fallos de hoy' });
   if ($('goLogros')) $('goLogros').onclick = () => showLogros().then(() => $('ruletaBtn')?.scrollIntoView({ block: 'center' }));
   if ($('goRuleta')) $('goRuleta').onclick = e => { e.preventDefault(); showLogros().then(() => $('ruletaBtn')?.scrollIntoView({ block: 'center' })); };
   setTimeout(checkLogros, 600); // aviso de logros nuevos al volver al inicio
@@ -1954,20 +2266,22 @@ function showHome(error) {
   if ($('vfBtn')) $('vfBtn').onclick = needQs(() => showStudySetup('vf'));
   if ($('artBtn')) $('artBtn').onclick = () => showArticles();
   if (!qs.length) {
-    $('srsBtn').onclick = $('simBtn').onclick = needQs(() => {});
+    // sin preguntas tipo test no se pintan el repaso ni los simulacros
     return;
   }
   $('penLink').onclick = e => { e.preventDefault(); showSettings(); };
 
   $('srsBtn').onclick = () => { if (confirmDiscard()) showSrsSetup(); };
-  $('simBtn').onclick = () => {
+  const simular = (pool, n, minutos, nombre, bloque) => () => {
     if (!confirmDiscard()) return;
-    if (!simPool.length) return alert(`No hay preguntas del bloque «${s.simBloque}». Cámbialo en ⚙️ Ajustes → Simulacro.`);
-    startRun(shuffle(simPool).slice(0, s.simPreguntas), {
-      mode: 'examen', minutes: s.simMinutos, label: s.simNombre === MODOS.simulacro ? '' : s.simNombre,
-      sim: { nombre: s.simNombre, corte: s.simCorte }
+    if (!pool.length) return alert(`No hay preguntas del bloque «${bloque}». Cámbialo en ⚙️ Ajustes → Simulacro.`);
+    startRun(shuffle(pool).slice(0, n), {
+      mode: 'examen', minutes: minutos, label: nombre === MODOS.simulacro ? '' : nombre,
+      sim: { nombre, corte: s.simCorte }
     });
   };
+  $('simBtn').onclick = simular(simPool, s.simPreguntas, s.simMinutos, s.simNombre, s.simBloque);
+  $('sim2Btn').onclick = simular(sim2Pool, s.sim2Preguntas, s.sim2Minutos, s.sim2Nombre, s.sim2Bloque);
 
   const pick = temaPicker($('pickTest'), qs, load(K.settings, {}).pick_test);
 
@@ -2277,6 +2591,7 @@ function showQuestion() {
   const { q, order } = run.list[run.i];
   const n = run.list.length, exam = run.mode === 'examen', ans = run.answers[run.i];
   const answered = run.answers.filter(a => a !== null).length;
+  if (qShown.i !== run.i || qShown.run !== run) qShown = { i: run.i, t: Date.now(), run };
   // Recuerdo activo: las opciones se ocultan hasta que la persona intenta recordar la respuesta
   const hideOpts = run.recall && !run.shown[run.i] && ans === null;
 
@@ -2329,6 +2644,7 @@ function showQuestion() {
   if (exam) {
     opts.forEach(b => b.onclick = () => {
       const o = +b.dataset.orig;
+      if (run.answers[run.i] === null) addTime(q, Date.now() - qShown.t); // la primera vez que la responde
       run.answers[run.i] = run.answers[run.i] === o ? null : o; // pulsar de nuevo la deja en blanco
       saveRun(); showQuestion();
     });
@@ -2344,6 +2660,7 @@ function showQuestion() {
     opts.forEach(b => b.onclick = () => {
       const chosen = +b.dataset.orig, ok = chosen === q.correcta;
       run.answers[run.i] = chosen;
+      addTime(q, Date.now() - qShown.t);
       updateStats(q, ok, chosen);
       srsUpdate(q, ok);
       addDaily(1);
@@ -2418,10 +2735,19 @@ function updateStats(q, ok, chosen = null) {
     s.wrong[txt] = (s.wrong[txt] || 0) + 1;
   }
   save(K.stats, stats);
-  // aciertos del día, para el bonus de puntería
-  const dq = load(K.dailyq, {}), t = dq[todayKey()] || [0, 0];
-  dq[todayKey()] = [t[0] + 1, t[1] + (ok ? 1 : 0)];
+  // del día: [respondidas, acertadas, preguntas falladas] → puntería y «repasa los fallos de hoy»
+  const dq = load(K.dailyq, {}), t = dq[todayKey()] || [0, 0, []];
+  dq[todayKey()] = [t[0] + 1, t[1] + (ok ? 1 : 0), ok ? (t[2] || []) : uniq([...(t[2] || []), keyOf(q)])];
   save(K.dailyq, dq);
+}
+// Tiempo de cada pregunta (desde que se ve hasta que se responde), para «las que más te cuestan»
+let qShown = { i: -1, t: 0, run: null };
+function addTime(q, ms) {
+  if (ms < 800) return; // toques sin leer
+  const stats = load(K.stats, {}), s = stats[keyOf(q)] ||= { ok: 0, ko: 0 };
+  s.ms = (s.ms || 0) + Math.min(ms, 180000); // como mucho 3 min: si se deja el móvil, no cuenta más
+  s.tn = (s.tn || 0) + 1;
+  save(K.stats, stats);
 }
 
 function finish() {
@@ -2616,7 +2942,9 @@ function showStats() {
       ${hist.length >= 2 ? `<div class="chart" id="chart">${lineChart(hist.slice(-30), sims.length ? s.simCorte : null)}<div class="tip" id="tip" hidden></div></div>`
         : '<p class="muted">Haz al menos dos tests para ver la evolución.</p>'}
     </div>
+    ${previsionHTML()}
     ${pctCardHTML(hist)}
+    ${lentasHTML()}
     ${dN ? `<div class="card">
       <h2>🤔 ¿Te compensa arriesgar?</h2>
       <p style="margin-top:0">De <b>${dN}</b> preguntas dudosas que respondiste, acertaste el <b>${pct(dOk, dN)}%</b>.</p>
@@ -2650,6 +2978,7 @@ function showStats() {
     showStats();
   };
   if ($('chart')) bindChart(hist.slice(-30));
+  bindProgresoExtras();
 }
 
 function lineChart(h, corte) {
@@ -2728,6 +3057,17 @@ function showSettings() {
       <p class="help">Usa la penalización de arriba. Las preguntas se eligen al azar del bloque elegido.</p>
     </div>
     <div class="card">
+      <h2>🎯 Simulacro de la 2ª parte</h2>
+      <div class="set-row"><span>Nombre</span><input type="text" id="sim2Nombre" value="${esc(s.sim2Nombre)}" style="width:55%"></div>
+      <div class="set-row"><span>Nº de preguntas</span><input type="number" id="sim2Preguntas" min="1" value="${s.sim2Preguntas}"></div>
+      <div class="set-row"><span>Tiempo (min, 0 = sin límite)</span><input type="number" id="sim2Minutos" min="0" value="${s.sim2Minutos}"></div>
+      <div class="set-row"><span>Preguntas de</span><select id="sim2Bloque">
+        <option value="">Todo el temario</option>
+        ${uniq((set?.preguntas || []).map(q => q.bloque)).sort(natCmp).map(b => `<option ${b === s.sim2Bloque ? 'selected' : ''}>${esc(b)}</option>`).join('')}
+      </select></div>
+      <p class="help">Misma penalización y nota de corte que la 1ª parte.</p>
+    </div>
+    <div class="card">
       <h2>📅 Objetivos</h2>
       <div class="set-row"><span>Fecha del examen</span><input type="date" id="examDate" value="${esc(s.examDate)}"></div>
       <div class="set-row"><span>Objetivo diario (preguntas, 0 = sin objetivo)</span><input type="number" id="dailyGoal" min="0" value="${s.dailyGoal}"></div>
@@ -2795,6 +3135,10 @@ function showSettings() {
   on('simMinutos', () => saveS({ simMinutos: num('simMinutos') }));
   on('simCorte', () => saveS({ simCorte: Math.min(10, num('simCorte')) }));
   on('simBloque', e => saveS({ simBloque: e.target.value }));
+  on('sim2Nombre', e => saveS({ sim2Nombre: e.target.value.trim() || '2ª parte' }));
+  on('sim2Preguntas', () => saveS({ sim2Preguntas: num('sim2Preguntas', 1) }));
+  on('sim2Minutos', () => saveS({ sim2Minutos: num('sim2Minutos') }));
+  on('sim2Bloque', e => saveS({ sim2Bloque: e.target.value }));
   on('examDate', e => saveS({ examDate: e.target.value }));
   on('dailyGoal', () => saveS({ dailyGoal: num('dailyGoal') }));
   on('srsSize', () => saveS({ srsSize: num('srsSize', 1) }));
@@ -3620,6 +3964,12 @@ function showArticles() {
   app.innerHTML = `
     <div class="row between"><h1>📜 Artículos</h1><button id="home">← Inicio</button></div>
     <div class="card">
+      <div class="modes">
+        <label class="mode-card"><input type="radio" name="artNivel" value="facil" ${artNivel() === 'facil' ? 'checked' : ''}><span class="t">🧩 Fácil</span><span class="d">Colocas las palabras que faltan</span></label>
+        <label class="mode-card"><input type="radio" name="artNivel" value="dificil" ${artNivel() === 'dificil' ? 'checked' : ''}><span class="t">✍️ Difícil</span><span class="d">Las escribes tú de memoria</span></label>
+      </div>
+    </div>
+    <div class="card">
       <p class="help" style="margin-top:0">Elige un artículo y rellena los huecos de memoria. Se tapan las palabras que marques entre {{dobles llaves}} al crearlo en el Editor${s.autoGaps ? ', y además los números y plazos' : ''}.</p>
       <label class="opt"><input type="checkbox" id="autoGaps" ${s.autoGaps ? 'checked' : ''}> Tapar automáticamente números y plazos (30 días, 1 mes, 3/5…)</label>
       <div class="set-row"><span>Tapar además palabras al azar</span><span class="muted" id="extraVal" style="flex:0">${s.extraGaps}%</span></div>
@@ -3629,18 +3979,22 @@ function showArticles() {
     <div class="card">
       ${arts.length ? arts.map((a, i) => {
         const r = st[artKey(a)];
+        const res = artNivel() === 'facil' ? r?.facilLast : r?.last;
         return `<button class="qitem" data-i="${i}"><span class="txt"><b>${esc(a.titulo)}</b>${a.referencia ? ` <span class="muted">· ${esc(a.referencia)}</span>` : ''}</span>
-          ${a.tema ? `<span class="tag">${esc(a.tema)}</span>` : ''}${r ? `<span class="muted">${r.last}%</span>` : ''}</button>`;
+          ${a.tema ? `<span class="tag">${esc(a.tema)}</span>` : ''}${res !== undefined ? `<span class="muted">${res}%</span>` : ''}</button>`;
       }).join('') : '<p class="muted">Todavía no hay artículos. Añádelos en ✏️ Editor → pestaña 📜 Artículos.</p>'}
     </div>`;
   $('home').onclick = () => showHome();
+  document.querySelectorAll('input[name=artNivel]').forEach(r => r.onchange = () => { saveSettings({ artNivel: r.value }); showArticles(); });
   $('autoGaps').onchange = e => { saveSettings({ autoGaps: e.target.checked }); showArticles(); };
   $('extraGaps').oninput = e => { $('extraVal').textContent = e.target.value + '%'; saveSettings({ extraGaps: +e.target.value }); };
   app.querySelectorAll('.qitem').forEach(b => b.onclick = () => showArticle(+b.dataset.i));
 }
 
+// Nivel de los artículos: fácil (colocar las palabras que faltan) o difícil (escribirlas)
+const artNivel = () => load(K.settings, {}).artNivel || 'facil';
 function showArticle(idx) {
-  const a = articulosOf()[idx], s = getSettings();
+  const a = articulosOf()[idx], s = getSettings(), facil = artNivel() === 'facil';
   const segs = makeGaps(a.texto, s.autoGaps, s.extraGaps);
   const gaps = segs.filter(x => x.gap !== undefined);
   let k = 0;
@@ -3648,9 +4002,11 @@ function showArticle(idx) {
     <button id="back" class="small" style="margin-bottom:12px">← Artículos</button>
     <h1 style="font-size:1.3rem;margin-bottom:4px">${esc(a.titulo)}</h1>
     ${a.referencia ? `<p class="ref" style="margin:0 0 12px">📖 ${esc(a.referencia)}</p>` : ''}
-    <div class="card art-text">${gaps.length ? segs.map(x => x.gap !== undefined
-      ? `<input class="gap" data-k="${k++}" autocomplete="off" autocapitalize="off" spellcheck="false" style="width:${Math.max(4, x.gap.length + 2)}ch">`
-      : esc(x.text)).join('') : esc(a.texto)}</div>
+    ${gaps.length && facil ? '<p class="help" style="margin:0 0 8px">🧩 Toca una palabra de abajo para colocarla en el hueco marcado. Toca un hueco relleno para quitar la palabra.</p>' : ''}
+    <div class="card art-text">${gaps.length ? segs.map(x => x.gap === undefined ? esc(x.text) : facil
+      ? `<button class="gap gap-slot" data-k="${k++}" style="min-width:${Math.max(4, x.gap.length + 1)}ch">&nbsp;</button>`
+      : `<input class="gap" data-k="${k++}" autocomplete="off" autocapitalize="off" spellcheck="false" style="width:${Math.max(4, x.gap.length + 2)}ch">`).join('') : esc(a.texto)}</div>
+    ${gaps.length && facil ? `<div class="card bank" id="bank">${shuffle(gaps.map((g, i) => i)).map(i => `<button class="chip bank-w" data-w="${i}">${esc(gaps[i].gap)}</button>`).join('')}</div>` : ''}
     ${gaps.length ? `
     <div class="row">
       <button class="primary" id="check">Comprobar</button>
@@ -3660,13 +4016,37 @@ function showArticle(idx) {
     <div id="artResult"></div>` : `<div class="ghstatus error">Este artículo no tiene huecos. Marca palabras con {{dobles llaves}} en el Editor, activa «Tapar números y plazos» o sube «palabras al azar».</div>`}`;
   $('back').onclick = () => showArticles();
   if (!gaps.length) return;
-  const inputs = [...app.querySelectorAll('.gap')];
-  inputs.forEach((inp, i) => inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); (inputs[i + 1] || $('check')).focus(); } });
-  inputs[0].focus();
+  const slots = [...app.querySelectorAll('.gap')];
+  // valor de cada hueco: en fácil, la palabra colocada (índice en `puesto`); en difícil, lo escrito
+  const puesto = slots.map(() => null);
+  const valor = i => facil ? (puesto[i] === null ? '' : gaps[puesto[i]].gap) : slots[i].value;
+  if (facil) {
+    let activo = 0;
+    const pinta = () => {
+      slots.forEach((b, i) => { b.innerHTML = puesto[i] === null ? '&nbsp;' : esc(gaps[puesto[i]].gap); b.classList.toggle('active', i === activo); b.classList.toggle('filled', puesto[i] !== null); });
+      app.querySelectorAll('.bank-w').forEach(c => { c.hidden = puesto.includes(+c.dataset.w); });
+    };
+    const siguienteVacio = desde => { const n = slots.length; for (let j = 0; j < n; j++) { const i = (desde + j) % n; if (puesto[i] === null) return i; } return -1; };
+    slots.forEach((b, i) => b.onclick = () => {
+      b.classList.remove('ok', 'ko'); b.nextElementSibling?.classList?.contains('gap-sol') && b.nextElementSibling.remove();
+      if (puesto[i] !== null) puesto[i] = null; // devolver la palabra al banco
+      activo = i; pinta();
+    });
+    app.querySelectorAll('.bank-w').forEach(c => c.onclick = () => {
+      if (activo < 0 || puesto[activo] !== null) activo = siguienteVacio(0);
+      if (activo < 0) return;
+      puesto[activo] = +c.dataset.w;
+      activo = siguienteVacio(activo + 1); pinta();
+    });
+    pinta();
+  } else {
+    slots.forEach((inp, i) => inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); (slots[i + 1] || $('check')).focus(); } });
+    slots[0].focus();
+  }
   $('check').onclick = () => {
     let ok = 0;
-    inputs.forEach((inp, i) => {
-      const good = normAns(inp.value) === normAns(gaps[i].gap);
+    slots.forEach((inp, i) => {
+      const good = normAns(valor(i)) === normAns(gaps[i].gap);
       ok += good;
       inp.classList.toggle('ok', good);
       inp.classList.toggle('ko', !good);
@@ -3675,12 +4055,18 @@ function showArticle(idx) {
       if (!good) inp.insertAdjacentHTML('afterend', `<span class="gap-sol">${esc(gaps[i].gap)}</span>`);
     });
     const p = pct(ok, gaps.length), st = load(K.arts, {}), prev = st[artKey(a)] || {};
-    st[artKey(a)] = { last: p, best: Math.max(p, prev.best || 0), veces: (prev.veces || 0) + 1, fecha: Date.now() };
+    // el nivel fácil se apunta aparte: «Letra de la ley» solo cuenta los perfectos en difícil
+    st[artKey(a)] = facil ? { ...prev, facilLast: p, facilBest: Math.max(p, prev.facilBest || 0), veces: (prev.veces || 0) + 1, fecha: Date.now() }
+      : { ...prev, last: p, best: Math.max(p, prev.best || 0), veces: (prev.veces || 0) + 1, fecha: Date.now() };
     save(K.arts, st);
     addDaily(gaps.length);
-    $('artResult').innerHTML = `<div class="ghstatus ${p === 100 ? 'ok' : ''}" style="margin-top:12px"><b>${ok} / ${gaps.length}</b> huecos (${p}%)${p === 100 ? ' · ¡Perfecto! 🎉 Prueba a subir «palabras al azar».' : ''}</div>`;
+    $('artResult').innerHTML = `<div class="ghstatus ${p === 100 ? 'ok' : ''}" style="margin-top:12px"><b>${ok} / ${gaps.length}</b> huecos (${p}%)${p === 100 ? (facil ? ' · ¡Perfecto! 🎉 Prueba ahora en ✍️ Difícil.' : ' · ¡Perfecto! 🎉 Prueba a subir «palabras al azar».') : ''}</div>`;
   };
-  $('reveal').onclick = () => inputs.forEach((inp, i) => { inp.value = gaps[i].gap; inp.classList.remove('ko'); inp.classList.add('shown'); });
+  $('reveal').onclick = () => slots.forEach((inp, i) => {
+    if (facil) { puesto[i] = i; inp.textContent = gaps[i].gap; app.querySelectorAll('.bank-w').forEach(c => c.hidden = true); }
+    else inp.value = gaps[i].gap;
+    inp.classList.remove('ko'); inp.classList.add('shown');
+  });
   $('redo').onclick = () => showArticle(idx);
 }
 
