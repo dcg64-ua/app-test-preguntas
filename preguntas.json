@@ -24712,6 +24712,2456 @@
             "referencia": "Test MAD nº 14, pregunta 35",
             "bloque": "Tema 14 (MAD). Principales sistemas de clasificación bibliográfica. La CDU",
             "tema": "Tema 14 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La gestión de la colección es un proceso que permite:",
+            "opciones": [
+                "Identificar fortalezas y debilidades y analizar oportunidades y amenazas",
+                "Evitar debilidades y peligros",
+                "Solo identificar fortalezas y debilidades",
+                "Solo analizar oportunidades y amenazas"
+            ],
+            "correcta": 0,
+            "explicacion": "La gestión de la colección funciona como un análisis DAFO: identifica fortalezas y debilidades y analiza oportunidades y amenazas. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 1",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Los principios de «adecuación, coherencia y equilibrio» se refieren a:",
+            "opciones": [
+                "La atención al usuario",
+                "El desarrollo de la colección y su programa de gestión",
+                "La conservación preventiva",
+                "La catalogación descriptiva"
+            ],
+            "correcta": 1,
+            "explicacion": "Adecuación, coherencia y equilibrio son los principios que guían el desarrollo de la colección y el programa de gestión de la colección. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 2",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál de estos requisitos NO forma parte de un programa de desarrollo de la colección?",
+            "opciones": [
+                "Ser elaborado a partir de necesidades reales",
+                "Ser revisado regularmente",
+                "Ser elaborado por la Dirección de la Biblioteca",
+                "Partir de una evaluación previa de la colección existente"
+            ],
+            "correcta": 2,
+            "explicacion": "El programa debe partir de necesidades reales y de la evaluación de la colección y revisarse regularmente; no se exige que lo elabore la Dirección. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 3",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál de estos criterios NO es apropiado para guiar la selección?",
+            "opciones": [
+                "Imparcialidad",
+                "Ideológico",
+                "Cuantitativo",
+                "Cualitativo"
+            ],
+            "correcta": 1,
+            "explicacion": "La selección se guía por criterios cualitativos, cuantitativos y de imparcialidad; el criterio ideológico no es apropiado. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 4",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "NO es un criterio cualitativo (relativo al contenido intelectual) aplicable a la selección:",
+            "opciones": [
+                "La previsión de gasto",
+                "La actualidad del contenido",
+                "El prestigio del autor",
+                "La calidad de la editorial"
+            ],
+            "correcta": 0,
+            "explicacion": "La previsión de gasto es un criterio económico, no relativo al contenido intelectual. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 5",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué instrumento de selección está intrínsecamente relacionado con las preferencias y necesidades de los usuarios?",
+            "opciones": [
+                "Libros a examen",
+                "Desideratas",
+                "Comités de lectura",
+                "Catálogos comerciales"
+            ],
+            "correcta": 1,
+            "explicacion": "Las desideratas son las peticiones de compra que hacen los propios usuarios. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 6",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El expurgo consiste en:",
+            "opciones": [
+                "Fumigar y desinfectar los fondos de la colección",
+                "Sustituir documentos obsoletos por nuevas ediciones",
+                "Una selección positiva basada en la vigencia de la colección",
+                "Sacar de la colección documentos no válidos para las demandas de los usuarios"
+            ],
+            "correcta": 3,
+            "explicacion": "Expurgar es retirar de la colección los documentos que ya no responden a las demandas de los usuarios (selección negativa). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 7",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El método CREW se utiliza:",
+            "opciones": [
+                "En el expurgo",
+                "En la adquisición mediante pago",
+                "Como criterio de selección positiva",
+                "En la evaluación de servicios"
+            ],
+            "correcta": 0,
+            "explicacion": "CREW (Continuous Review, Evaluation and Weeding) es un método de expurgo. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 8",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Es una forma de adquisición de material bibliográfico con cargo presupuestario:",
+            "opciones": [
+                "Compra en firme",
+                "A prueba",
+                "Petición atemporal",
+                "Compra a plazos"
+            ],
+            "correcta": 0,
+            "explicacion": "La compra en firme es la adquisición con cargo al presupuesto de la biblioteca. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 9",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál NO es una forma habitual de adquisición de libros electrónicos?",
+            "opciones": [
+                "EBS",
+                "Pick & Choose",
+                "Take away",
+                "PDA"
+            ],
+            "correcta": 2,
+            "explicacion": "EBS (Evidence Based Selection), Pick & Choose y PDA (Patron Driven Acquisition) son modelos de adquisición de libros-e; «Take away» no lo es. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 10",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La adquisición gratuita que permite consultar, descargar, copiar e imprimir textos completos sin limitación legal es:",
+            "opciones": [
+                "Donación",
+                "Depósito legal",
+                "Repositorios",
+                "Intercambio científico"
+            ],
+            "correcta": 2,
+            "explicacion": "Los repositorios de acceso abierto permiten consultar, descargar, copiar e imprimir textos completos sin limitación legal. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 11",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "En un SIGB, el fichero de proveedores se encuentra en el módulo de:",
+            "opciones": [
+                "Circulación",
+                "Autoridades",
+                "Adquisición",
+                "Catalogación"
+            ],
+            "correcta": 2,
+            "explicacion": "Los proveedores se gestionan en el módulo de adquisiciones. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 12",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Son beneficios de la compra consorciada:",
+            "opciones": [
+                "Ventajas en los costes, eficiencia en el gasto y mayor posicionamiento estratégico",
+                "Ventajas en los costes, pero menor posicionamiento estratégico",
+                "Eficiencia en el gasto, pero sin ventajas en los costes",
+                "Solo un mayor posicionamiento estratégico"
+            ],
+            "correcta": 0,
+            "explicacion": "La compra consorciada aporta ventajas en costes, eficiencia en el gasto por la optimización de recursos y mayor posicionamiento estratégico. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 13",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La evaluación de la colección en una biblioteca es tarea de:",
+            "opciones": [
+                "Gestión",
+                "Mantenimiento",
+                "Proceso técnico",
+                "Preservación"
+            ],
+            "correcta": 0,
+            "explicacion": "Evaluar la colección forma parte de la gestión de la colección. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 14",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Es un método cuantitativo para la evaluación de la colección:",
+            "opciones": [
+                "El examen directo de la colección",
+                "Los estudios de circulación",
+                "La opinión de los usuarios",
+                "El juicio de expertos"
+            ],
+            "correcta": 1,
+            "explicacion": "Los estudios de circulación miden el uso (cuantitativo); el examen directo, la opinión de usuarios y el juicio de expertos son cualitativos. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 15",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El plan de adquisición cooperativa de revistas de matemáticas que se desarrolla en España se llama:",
+            "opciones": [
+                "DOCUMATECA",
+                "DOCUMARC",
+                "DOCUMAT",
+                "DOCUMATE"
+            ],
+            "correcta": 2,
+            "explicacion": "DOCUMAT es el plan cooperativo de adquisición de revistas de matemáticas. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 16",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El sistema CONSPECTUS es un método destinado a la evaluación de:",
+            "opciones": [
+                "Servicios",
+                "Colecciones",
+                "Catalogaciones",
+                "Instalaciones"
+            ],
+            "correcta": 1,
+            "explicacion": "Conspectus es un método de evaluación de colecciones por materias y niveles. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 17",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El acto formal por el que un documento se incorpora a la colección se denomina:",
+            "opciones": [
+                "Sellado",
+                "Laminado",
+                "Registro",
+                "Magnetizado"
+            ],
+            "correcta": 2,
+            "explicacion": "El registro es el acto formal de incorporación del documento a la colección. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 18",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El número de registro para varios ejemplares de la misma obra es:",
+            "opciones": [
+                "El mismo número con indicación del número de ejemplares",
+                "El mismo número para todos",
+                "El mismo número si se reciben a la vez",
+                "Un número distinto para cada ejemplar"
+            ],
+            "correcta": 3,
+            "explicacion": "Cada ejemplar recibe su propio número de registro. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 19",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Sobre el sellado:",
+            "opciones": [
+                "No se hace en libros antiguos y valiosos",
+                "Solo se sellan los libros en la portada",
+                "Es un sistema antihurto",
+                "Se sellan todos los documentos que llegan a la biblioteca"
+            ],
+            "correcta": 3,
+            "explicacion": "Todos los documentos que ingresan en la biblioteca se sellan. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 20",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las fichas empleadas para anotar los datos de recepción de los números de las publicaciones seriadas se llaman:",
+            "opciones": [
+                "Conspectus",
+                "Ficha catalográfica",
+                "Kardex",
+                "Registro de fondo"
+            ],
+            "correcta": 2,
+            "explicacion": "El kardex es el fichero de control de recepción de los números de las publicaciones seriadas. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 21",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué es un tejuelo?",
+            "opciones": [
+                "La signatura topográfica",
+                "La etiqueta que se adhiere al lomo del libro",
+                "Las marcas de Cutter",
+                "El número de registro"
+            ],
+            "correcta": 1,
+            "explicacion": "El tejuelo es la etiqueta pegada en el lomo donde figura la signatura. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 22",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Se llama número currens:",
+            "opciones": [
+                "Al sistema de ordenación por la secuencia de entrada",
+                "Al número total de fondos",
+                "Al registro de publicaciones seriadas",
+                "Al número de ejemplares de una misma obra"
+            ],
+            "correcta": 0,
+            "explicacion": "La ordenación por número currens coloca los documentos según su orden de entrada. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 23",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las marcas de Cutter se utilizan en el método de ordenación:",
+            "opciones": [
+                "Por número currens",
+                "Sistemático",
+                "Alfabético",
+                "Por centros de interés"
+            ],
+            "correcta": 1,
+            "explicacion": "En la ordenación sistemática se usan las marcas de Cutter para ordenar dentro de cada materia. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 24",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Cuando se habla de conservación de los fondos de la biblioteca se entiende:",
+            "opciones": [
+                "Establecer medidas de protección para prolongar su utilización en condición óptima",
+                "Mantener y restaurar las propiedades físicas de los documentos",
+                "La conservación y el expurgo del fondo",
+                "La corrección de agentes degradantes"
+            ],
+            "correcta": 0,
+            "explicacion": "Conservar es establecer medidas de protección para prolongar la utilización de los fondos en condiciones óptimas. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 25",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuáles son las mejores condiciones de temperatura y humedad para preservar el material bibliográfico en depósito?",
+            "opciones": [
+                "22 º y 75 % de humedad",
+                "22 º y 35 % de humedad",
+                "26 º y 60 % de humedad",
+                "20 º y 55 % de humedad"
+            ],
+            "correcta": 3,
+            "explicacion": "El manual da como idóneos unos 20 º y un 55 % de humedad relativa. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 26",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Para mantener estable la humedad relativa, ¿qué hay que hacer si la humedad aumenta?",
+            "opciones": [
+                "Ventilar",
+                "Deshumidificar",
+                "Humidificar",
+                "Filtrar el aire"
+            ],
+            "correcta": 1,
+            "explicacion": "Si la humedad sube hay que deshumidificar. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 27",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Entre los criterios para valorar si una obra tiene un valor especial NO está:",
+            "opciones": [
+                "La antigüedad",
+                "El precio",
+                "El valor estético",
+                "El valor histórico"
+            ],
+            "correcta": 1,
+            "explicacion": "El valor de una obra se mide por su antigüedad, valor estético o histórico, no por su precio. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 28",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El sistema de iluminación idóneo para una biblioteca es:",
+            "opciones": [
+                "Luz solar indirecta e iluminación individual con lámparas en cada puesto",
+                "Solo luz solar indirecta",
+                "Luz solar indirecta e iluminación colectiva con luz fría",
+                "Iluminación colectiva e iluminación individual en cada puesto"
+            ],
+            "correcta": 2,
+            "explicacion": "El manual recomienda luz solar indirecta e iluminación colectiva con luz fría. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 29",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La restauración ha de guiarse por estos criterios:",
+            "opciones": [
+                "Respeto al original e inocuidad",
+                "Respeto al original e irreversibilidad",
+                "Irreversibilidad e inocuidad",
+                "Solo la irreversibilidad"
+            ],
+            "correcta": 0,
+            "explicacion": "La restauración debe respetar el original y ser inocua (y reversible, nunca irreversible). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 30",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El modelo de adquisición de libros electrónicos en el que la biblioteca ofrece acceso a una amplia colección de títulos que aún no ha comprado formalmente se denomina:",
+            "opciones": [
+                "Sistema cooperativo de selección",
+                "Patron Driven Acquisition (PDA)",
+                "Licencias de acceso",
+                "Pick & Choose"
+            ],
+            "correcta": 1,
+            "explicacion": "En la PDA (adquisición dirigida por el usuario) la biblioteca ofrece títulos que solo compra cuando los usuarios los usan. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 31",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿En qué módulo de un SIGB se utiliza el intercambio electrónico de datos estructurados (EDI) entre bibliotecas y proveedores?",
+            "opciones": [
+                "Adquisiciones",
+                "Circulación",
+                "Catalogación",
+                "Recursos electrónicos"
+            ],
+            "correcta": 0,
+            "explicacion": "El EDI con proveedores (pedidos, facturas) se usa en el módulo de adquisiciones. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 32",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La compra consorciada es:",
+            "opciones": [
+                "La adquisición automatizada",
+                "La del servicio de préstamo interbibliotecario",
+                "La adquisición conjunta de documentos entre varias bibliotecas de forma coordinada",
+                "El intercambio coordinado de publicaciones entre bibliotecas"
+            ],
+            "correcta": 2,
+            "explicacion": "La compra consorciada es la adquisición conjunta y coordinada entre varias bibliotecas. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 33",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál de los siguientes NO es un método de ordenación de fondos de las bibliotecas?",
+            "opciones": [
+                "Ordenación por número currens",
+                "Ordenación por selección",
+                "Ordenación por centros de interés",
+                "Ordenación sistemática"
+            ],
+            "correcta": 1,
+            "explicacion": "Los fondos se ordenan por número currens, sistemáticamente o por centros de interés; la «ordenación por selección» no existe. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 34",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cómo se llama el resultado del proyecto de digitalización de la Biblioteca Nacional para preservar y difundir su fondo más valioso?",
+            "opciones": [
+                "Fondo Antiguo Digital",
+                "Dioscórides",
+                "Proyecto Gutenberg",
+                "Biblioteca Digital Hispánica"
+            ],
+            "correcta": 3,
+            "explicacion": "La Biblioteca Digital Hispánica es la biblioteca digital de la BNE. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 11, pregunta 35",
+            "bloque": "Tema 11 (MAD). Gestión y desarrollo de la colección: selección, expurgo, adquisición, evaluación, preparación y conservación",
+            "tema": "Tema 11 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Señala la respuesta INCORRECTA sobre la catalogación:",
+            "opciones": [
+                "La catalogación es el análisis del contenido del recurso dentro del análisis documental",
+                "Al catalogar se describen los recursos de forma normalizada en asientos o registros bibliográficos",
+                "Es un proceso técnico que identifica los elementos esenciales del recurso para describirlo sin ambigüedad y localizarlo en los catálogos",
+                "Al catalogar también se establecen los puntos de acceso admitidos de autor, título, entidad, etc."
+            ],
+            "correcta": 0,
+            "explicacion": "La catalogación es el análisis formal (descriptivo) del recurso; el análisis del contenido corresponde a la indización y clasificación. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 1",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Para localizar el documento en el catálogo, al catalogarlo le insertamos:",
+            "opciones": [
+                "La signatura topográfica y, si existe, la URL de acceso en línea",
+                "Solo el tejuelo",
+                "Solo la URL de acceso en línea",
+                "El tejuelo y el número de registro"
+            ],
+            "correcta": 0,
+            "explicacion": "En el registro se incluye la signatura topográfica y, en recursos en línea, la URL de acceso. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 2",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál de estas NO es una ventaja de la catalogación automatizada?",
+            "opciones": [
+                "Interactividad",
+                "Mayor impacto",
+                "Acceso permanente",
+                "Información mal estructurada"
+            ],
+            "correcta": 3,
+            "explicacion": "La catalogación automatizada ofrece interactividad, más impacto y acceso permanente; la información mal estructurada es lo contrario de una ventaja. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 3",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Son normas internacionales para la descripción bibliográfica:",
+            "opciones": [
+                "ISBD y RDA",
+                "ISBD e ISBN",
+                "ISBN y RDA",
+                "Solo la ISBD"
+            ],
+            "correcta": 0,
+            "explicacion": "ISBD y RDA son normas de descripción; el ISBN es un número normalizado, no una norma de descripción. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 4",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La última versión de la ISBD para catalogar monografías es:",
+            "opciones": [
+                "ISBD (G)",
+                "ISBD (CM)",
+                "ISBD consolidada",
+                "ISBD (M)"
+            ],
+            "correcta": 2,
+            "explicacion": "La ISBD consolidada unificó las ISBD específicas, incluida la ISBD (M) de monografías. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 5",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La ISBD prescribe:",
+            "opciones": [
+                "Los elementos opcionales que deben aparecer en un registro",
+                "La puntuación que separa cada elemento",
+                "Que ya no existen fuentes prescritas de información",
+                "El orden alfabético de las áreas"
+            ],
+            "correcta": 1,
+            "explicacion": "La ISBD fija los elementos, su orden y la puntuación prescrita que los separa. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 6",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál de estas áreas NO pertenece a la descripción bibliográfica de una monografía?",
+            "opciones": [
+                "Área de edición",
+                "Área de descripción física",
+                "Área de datos específicos de la clase de documento",
+                "Área de número normalizado y condiciones de adquisición"
+            ],
+            "correcta": 2,
+            "explicacion": "El área de datos específicos (área 3) se usa en materiales como mapas, música o seriadas, no en monografías. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 7",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Señala la respuesta INCORRECTA sobre el área 0 de la ISBD:",
+            "opciones": [
+                "La calificación del contenido se transcribe entre paréntesis",
+                "Es el área de forma del contenido y soporte",
+                "Se redacta en la lengua del centro catalogador",
+                "La forma de contenido es la forma principal de comunicación del documento"
+            ],
+            "correcta": 1,
+            "explicacion": "El área 0 es el área de forma del contenido y tipo de medio, no «de soporte». (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 8",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué puntuación NO se utiliza en el área de descripción física?",
+            "opciones": [
+                "Punto y coma",
+                "Signo igual",
+                "Dos puntos",
+                "Signo más"
+            ],
+            "correcta": 1,
+            "explicacion": "En la descripción física se usan dos puntos, punto y coma y signo más (material complementario); el signo igual no. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 9",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las Reglas de catalogación españolas vigentes son de:",
+            "opciones": [
+                "1985",
+                "2015",
+                "1999",
+                "2016"
+            ],
+            "correcta": 2,
+            "explicacion": "La edición vigente de las Reglas de catalogación es la de 1999 (nueva edición revisada). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 10",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Según el test del manual, las Reglas de catalogación españolas se estructuran en:",
+            "opciones": [
+                "17 capítulos",
+                "17 capítulos, 9 apéndices y 1 índice analítico",
+                "15 capítulos, 9 apéndices y 1 índice analítico",
+                "17 capítulos, 9 índices analíticos y 1 apéndice"
+            ],
+            "correcta": 3,
+            "explicacion": "Respuesta oficial del test: 17 capítulos, 9 índices analíticos y 1 apéndice. Nota: las Reglas de 1999 suelen describirse como 17 capítulos, 9 apéndices y un índice analítico; si cae en el examen, ojo a cómo lo formulen.",
+            "referencia": "Test MAD nº 12, pregunta 11",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué capítulo de las Reglas de catalogación españolas trata de los puntos de acceso?",
+            "opciones": [
+                "Capítulo 15",
+                "Capítulo 14",
+                "Capítulo 17",
+                "Capítulo 1"
+            ],
+            "correcta": 1,
+            "explicacion": "El capítulo 14 abre la parte de puntos de acceso (elección). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 12",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El punto de acceso principal NO puede ser de:",
+            "opciones": [
+                "Autor personal",
+                "Serie",
+                "Título",
+                "Entidad o autor corporativo"
+            ],
+            "correcta": 1,
+            "explicacion": "El punto de acceso principal puede ser un autor personal, una entidad o el título, pero nunca la serie. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 13",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La RDA sustituye a:",
+            "opciones": [
+                "Las Reglas de catalogación españolas",
+                "Las AACR2",
+                "La ISBD",
+                "El formato MARC 21"
+            ],
+            "correcta": 1,
+            "explicacion": "RDA (Resource Description and Access) sustituye a las Reglas angloamericanas AACR2. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 14",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La RDA se basa en los modelos conceptuales:",
+            "opciones": [
+                "FRBR, FRAD y FRSAD",
+                "FRBR, IFLA y FRAD",
+                "AACR2, IFLA y FRBR",
+                "FRBR, FRAD y FRASD"
+            ],
+            "correcta": 0,
+            "explicacion": "FRBR (registros bibliográficos), FRAD (datos de autoridad) y FRSAD (datos de autoridad de materia). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 15",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las cuatro entidades básicas que son productos del esfuerzo intelectual o artístico son:",
+            "opciones": [
+                "Obra, expresión, manifestación e ítem",
+                "Obra, manifestación, expresión e ítem",
+                "Obra, ítem, expresión y manifestación",
+                "Obra, expresión, ítem, manifestación y ejemplar"
+            ],
+            "correcta": 0,
+            "explicacion": "Grupo 1 de FRBR, en este orden: obra → expresión → manifestación → ítem. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 16",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La RDA tiene una estructura:",
+            "opciones": [
+                "Hipertextual",
+                "Lineal",
+                "Organizada por tipos de recurso",
+                "Organizada por áreas ISBD"
+            ],
+            "correcta": 0,
+            "explicacion": "La RDA, consultada en el RDA Toolkit, tiene estructura hipertextual. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 17",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Entre las diferencias más notables entre RDA e ISBD está que en RDA:",
+            "opciones": [
+                "Se mantiene «la regla de tres»",
+                "Se omite la mención de responsabilidad",
+                "Se corrigen los errores de la fuente",
+                "La DGM se sustituye por los tipos de contenido, medio y soporte"
+            ],
+            "correcta": 3,
+            "explicacion": "RDA elimina la designación general de material (DGM) y la sustituye por tipo de contenido, de medio y de soporte; además suprime la regla de tres y transcribe los errores tal cual. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 18",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "MARC es un grupo de formatos que usan un conjunto de convenciones para:",
+            "opciones": [
+                "Identificar, procesar e intercambiar datos",
+                "Solo identificar datos",
+                "Solo intercambiar datos",
+                "Procesar datos, pero no intercambiarlos"
+            ],
+            "correcta": 0,
+            "explicacion": "MARC sirve para identificar, procesar e intercambiar datos bibliográficos. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 19",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "MARC nace para:",
+            "opciones": [
+                "Facilitar tareas de control bibliotecario",
+                "Impulsar la distribución de registros",
+                "Automatizar las bibliotecas",
+                "Editar bibliografías"
+            ],
+            "correcta": 1,
+            "explicacion": "MARC nació en la Library of Congress para distribuir registros catalográficos legibles por máquina. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 20",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál de estos formatos MARC no existe ni ha existido?",
+            "opciones": [
+                "BIBLIOMARC",
+                "MARC II",
+                "IBERMARC",
+                "MARC 21"
+            ],
+            "correcta": 0,
+            "explicacion": "MARC II, IBERMARC (el español) y MARC 21 existen o existieron; BIBLIOMARC no. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 21",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "NO es un elemento del formato MARC:",
+            "opciones": [
+                "La estructura y los datos",
+                "Los indicadores",
+                "Las etiquetas y subcampos",
+                "Los encabezamientos y subencabezamientos"
+            ],
+            "correcta": 3,
+            "explicacion": "MARC se compone de estructura, designadores de contenido (etiquetas, indicadores, subcampos) y datos; los encabezamientos son contenido catalográfico, no elementos del formato. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 22",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Al utilizar el formato MARC, la biblioteca:",
+            "opciones": [
+                "No puede usar sistemas informáticos de código abierto",
+                "Solo puede transferir registros si el receptor tiene su mismo sistema",
+                "No puede reemplazar el SIGB fácilmente",
+                "Puede intercambiar registros de autoridad"
+            ],
+            "correcta": 3,
+            "explicacion": "MARC permite intercambiar registros bibliográficos y de autoridad entre sistemas distintos y facilita cambiar de SIGB. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 23",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El formato MARC permite intercambiar datos siguiendo los estándares:",
+            "opciones": [
+                "Dublin Core y XML",
+                "Solo Dublin Core",
+                "Solo XML",
+                "RDA"
+            ],
+            "correcta": 0,
+            "explicacion": "Los registros MARC pueden convertirse a Dublin Core y expresarse en XML (MARCXML). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 24",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El registro MARC está formado por:",
+            "opciones": [
+                "La cabecera, la leader y los campos de datos",
+                "Los campos de datos, el directorio y las etiquetas",
+                "La leader, los campos de control y los campos variables",
+                "La leader (cabecera), el directorio y los campos de datos"
+            ],
+            "correcta": 3,
+            "explicacion": "Estructura del registro MARC: cabecera (leader), directorio y campos. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 25",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las etiquetas de campo:",
+            "opciones": [
+                "Son repetibles",
+                "Están formadas por 3 caracteres alfabéticos",
+                "Identifican la información bibliográfica contenida en el campo",
+                "Son un número entre 001 y 900"
+            ],
+            "correcta": 2,
+            "explicacion": "La etiqueta (tres caracteres numéricos) identifica el contenido del campo. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 26",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La información sobre el título aparece en el grupo de etiquetas:",
+            "opciones": [
+                "7XX",
+                "9XX",
+                "2XX",
+                "0XX"
+            ],
+            "correcta": 2,
+            "explicacion": "Los campos 20X-24X recogen títulos (p. ej., 245). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 27",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Los indicadores únicamente aparecen en:",
+            "opciones": [
+                "Los campos de longitud fija",
+                "Los campos de longitud variable",
+                "La cabecera",
+                "Todos los campos, incluidos los de control"
+            ],
+            "correcta": 1,
+            "explicacion": "Los indicadores solo existen en los campos variables de datos (010-9XX), no en los de control 00X. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 28",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El área de publicación se identifica en el grupo de etiquetas:",
+            "opciones": [
+                "24X",
+                "25X",
+                "26X",
+                "20X"
+            ],
+            "correcta": 2,
+            "explicacion": "Publicación, distribución, etc.: 260 / 264. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 29",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Sobre la repetibilidad de la etiqueta 100 de MARC 21:",
+            "opciones": [
+                "Es repetible porque una obra puede tener varios autores",
+                "Es repetible porque es el punto de acceso principal de personas",
+                "Es repetible y se usa tantas veces como haga falta",
+                "No es repetible: solo hay un punto de acceso principal"
+            ],
+            "correcta": 3,
+            "explicacion": "La respuesta oficial es «ninguna es correcta»: el campo 100 no es repetible; los demás autores van en 700. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 30",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Señala la respuesta INCORRECTA sobre RDA Toolkit:",
+            "opciones": [
+                "Está disponible en línea",
+                "Ofrece el texto íntegro de la norma",
+                "Solo está en inglés",
+                "Da acceso a recursos relacionados mediante hiperenlaces"
+            ],
+            "correcta": 2,
+            "explicacion": "RDA Toolkit tiene traducciones (también al español); no está solo en inglés. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 31",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Los FRBR (Requisitos Funcionales de los Registros Bibliográficos) son principalmente:",
+            "opciones": [
+                "Un conjunto de datos",
+                "Un esquema de metadatos",
+                "Un modelo conceptual para representar entidades, atributos y relaciones",
+                "Un código catalográfico"
+            ],
+            "correcta": 2,
+            "explicacion": "FRBR es un modelo conceptual entidad-relación. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 32",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las menciones de serie en MARC 21 bibliográfico se incluyen en el campo:",
+            "opciones": [
+                "4XX",
+                "5XX",
+                "2XX",
+                "8XX"
+            ],
+            "correcta": 0,
+            "explicacion": "Mención de serie: 490 (4XX); 5XX son notas y 8XX, asientos secundarios de serie. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 33",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué características de un recurso se describen en el área 0 de la ISBD consolidada?",
+            "opciones": [
+                "La identificación del recurso y las condiciones de disponibilidad",
+                "La descripción física",
+                "La información específica del material o tipo de recurso",
+                "La forma del contenido y el tipo de medio"
+            ],
+            "correcta": 3,
+            "explicacion": "El área 0 recoge la forma del contenido y el tipo de medio. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 12, pregunta 34",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Según el manual, el protocolo Z39.50 facilita:",
+            "opciones": [
+                "La recuperación de la información",
+                "La configuración del ancho de banda en el desarrollo web",
+                "La búsqueda en bases de datos residentes en un servidor",
+                "El intercambio de datos bibliográficos entre bibliotecas"
+            ],
+            "correcta": 3,
+            "explicacion": "Respuesta oficial del test: el intercambio de datos bibliográficos entre bibliotecas. Nota: el manual atribuye la norma a la «National Standards Organization»; la entidad que la mantiene es la NISO (National Information Standards Organization).",
+            "referencia": "Test MAD nº 12, pregunta 35",
+            "bloque": "Tema 12 (MAD). Proceso técnico de los fondos: catalogación. El formato MARC",
+            "tema": "Tema 12 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué diferencia al catálogo de otras fuentes de información bibliográfica?",
+            "opciones": [
+                "Que puede consultarse en fichas y en ordenador",
+                "Que indica la ubicación física de los documentos dentro del fondo de una o varias bibliotecas",
+                "Que el catálogo no es una fuente de información bibliográfica",
+                "Que lo elaboran las bibliotecas y las otras fuentes, los servicios de documentación"
+            ],
+            "correcta": 1,
+            "explicacion": "Lo propio del catálogo es indicar dónde está físicamente cada documento en el fondo de una o varias bibliotecas. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 1",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué catálogo permite a los usuarios valorar los documentos?",
+            "opciones": [
+                "El catálogo topográfico",
+                "El catálogo en fichas",
+                "El OPAC",
+                "El catálogo sistemático"
+            ],
+            "correcta": 2,
+            "explicacion": "Los OPAC de nueva generación permiten a los usuarios valorar y comentar los documentos. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 2",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La ordenación sistemática de los asientos bibliográficos consiste en:",
+            "opciones": [
+                "Ordenarlos por fecha de ingreso del documento",
+                "Ordenarlos todos en una única secuencia",
+                "Ordenarlos siguiendo una clasificación alfabética de materias",
+                "Ordenarlos siguiendo una clasificación sistemática de materias"
+            ],
+            "correcta": 3,
+            "explicacion": "El catálogo sistemático ordena los asientos según un sistema de clasificación (p. ej., la CDU). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 3",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué es la reconversión de catálogos?",
+            "opciones": [
+                "Convertir registros de un programa de automatización en registros de otro programa",
+                "Convertir registros de un programa sin formato MARC en registros MARC",
+                "Convertir registros bibliográficos manuales en registros automatizados",
+                "Convertir catálogos en fichas en catálogos impresos o en microfichas"
+            ],
+            "correcta": 2,
+            "explicacion": "Reconvertir es pasar el catálogo manual (fichas) a registros automatizados. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 4",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál es el mayor inconveniente del catálogo impreso?",
+            "opciones": [
+                "Queda rápidamente desfasado y solo se actualiza con una nueva edición o suplementos",
+                "El elevado coste de la impresión",
+                "La acumulación de suplementos, que dificulta su consulta",
+                "Tener que organizar en fichas la información para imprimirla"
+            ],
+            "correcta": 0,
+            "explicacion": "El catálogo impreso se queda desfasado enseguida y solo se actualiza con nuevas ediciones o suplementos. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 5",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La signatura topográfica indica:",
+            "opciones": [
+                "El número de orden de un libro dentro de una estantería",
+                "La biblioteca a la que pertenece un libro",
+                "La materia de la que trata un libro",
+                "La ubicación física de un documento dentro del fondo de una biblioteca"
+            ],
+            "correcta": 3,
+            "explicacion": "La signatura topográfica señala dónde está colocado físicamente el documento. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 6",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué catálogo ofrece información sobre el estado de circulación de los documentos?",
+            "opciones": [
+                "El catálogo en fichas",
+                "El catálogo de libros en préstamo",
+                "El catálogo topográfico",
+                "El OPAC"
+            ],
+            "correcta": 3,
+            "explicacion": "El OPAC, al estar integrado en el SIGB, muestra si el documento está prestado, disponible, etc. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 7",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Un catálogo colectivo es:",
+            "opciones": [
+                "El que reúne en una sola secuencia todos los catálogos de la biblioteca",
+                "El que recoge los registros de todas las secciones de una biblioteca",
+                "El que recoge los registros bibliográficos de varias bibliotecas",
+                "El que recoge solo las bibliotecas de una zona geográfica"
+            ],
+            "correcta": 2,
+            "explicacion": "Catálogo colectivo = registros de varias bibliotecas (no tienen por qué ser de una misma zona). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 8",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La medida normalizada de las fichas de un catálogo es:",
+            "opciones": [
+                "80 × 130 mm",
+                "75 × 125 mm",
+                "70 × 125 mm",
+                "75 × 120 mm"
+            ],
+            "correcta": 1,
+            "explicacion": "La ficha catalográfica normalizada mide 7,5 × 12,5 cm. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 9",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Los operadores booleanos utilizados en los OPAC permiten:",
+            "opciones": [
+                "Limitar la búsqueda a un campo concreto",
+                "Establecer la cercanía que debe haber entre los términos",
+                "Limitar la búsqueda por fechas",
+                "Relacionar los términos buscados mediante el álgebra de conjuntos"
+            ],
+            "correcta": 3,
+            "explicacion": "Y, O, NO combinan los términos según el álgebra de conjuntos (intersección, unión, exclusión). La cercanía es de los operadores de proximidad. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 10",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Los elementos esenciales que conforman un catálogo son:",
+            "opciones": [
+                "El asiento bibliográfico, los puntos de acceso y la signatura topográfica",
+                "El encabezamiento principal, la descripción, las entradas secundarias y la CDU",
+                "Las fichas principales y las secundarias",
+                "Los ficheros en los manuales y los terminales de consulta en los OPAC"
+            ],
+            "correcta": 0,
+            "explicacion": "Asiento bibliográfico + puntos de acceso + signatura topográfica. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 11",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las siglas OCR significan:",
+            "opciones": [
+                "On-line computer record: registro consultado en línea",
+                "On-line computer research: búsqueda automatizada en línea",
+                "Optical character recognition: reconocimiento óptico de caracteres",
+                "Optical creation record: registro creado por sistema óptico"
+            ],
+            "correcta": 2,
+            "explicacion": "OCR = reconocimiento óptico de caracteres, usado en la reconversión de catálogos. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 12",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El catálogo que ordena sus registros según el orden de los documentos en los estantes se llama:",
+            "opciones": [
+                "Catálogo sistemático de materias",
+                "Catálogo especial de uso interno",
+                "Catálogo sistemático de ubicaciones",
+                "Catálogo topográfico"
+            ],
+            "correcta": 3,
+            "explicacion": "El catálogo topográfico reproduce el orden de los documentos en las estanterías. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 13",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Según el manual, ¿quién inventó el catálogo en fichas?",
+            "opciones": [
+                "Gabriel Naudé, en su Advis pour dresser une bibliothèque",
+                "François Rozier, autor del índice general de publicaciones de la Academia de Ciencias de París",
+                "Thomas Bodley, para la Biblioteca Bodleiana de Oxford",
+                "Paul Otlet, para el Control Bibliográfico Universal"
+            ],
+            "correcta": 1,
+            "explicacion": "El manual atribuye el catálogo en fichas a François Rozier, que usó naipes para el índice de la Academia de Ciencias de París. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 14",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las funciones que cumple un catálogo son:",
+            "opciones": [
+                "Localizar un documento, indicar qué documentos posee la biblioteca y ayudar a elegir uno",
+                "Localizar un documento y servir de inventario del fondo",
+                "Recoger todos los documentos que podrían interesar a los usuarios",
+                "Inventariar la colección con fines administrativos"
+            ],
+            "correcta": 0,
+            "explicacion": "Funciones del catálogo: localización, informar de lo que posee la biblioteca y ayudar en la elección. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 15",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál es el catálogo más antiguo conocido?",
+            "opciones": [
+                "El de la Biblioteca de Constantino el Grande",
+                "Una tablilla sumeria de hacia el 2000 a. C.",
+                "El de la Biblioteca de Alejandría",
+                "El de la Biblioteca de la Universidad de Oxford"
+            ],
+            "correcta": 1,
+            "explicacion": "El catálogo más antiguo conocido es una tablilla sumeria de unos 2000 años a. C. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 16",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué es un OPAC?",
+            "opciones": [
+                "El ordenador desde el que se consulta el catálogo en línea",
+                "El módulo del SIGB que gestiona la interacción del usuario con el sistema",
+                "El módulo del SIGB que gestiona la información bibliográfica",
+                "El módulo del SIGB que gestiona los datos de los usuarios"
+            ],
+            "correcta": 1,
+            "explicacion": "El OPAC es el módulo del SIGB a través del cual el usuario interactúa con el sistema. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 17",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Según el manual, ¿cuántas copias pueden existir de un catálogo en fichas?",
+            "opciones": [
+                "Una, porque su tamaño y mantenimiento hacen inviable que haya más",
+                "Tantas como haga falta, porque es fácil producir varios juegos de fichas",
+                "Una en cada sección de la biblioteca",
+                "Dos: una en la biblioteca y otra de seguridad"
+            ],
+            "correcta": 0,
+            "explicacion": "El manual señala que solo puede haber una, por tamaño y mantenimiento. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 18",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Los posibles sistemas de ordenación de los asientos bibliográficos en un catálogo manual son:",
+            "opciones": [
+                "Alfabético y sistemático",
+                "Alfabético, cronológico y topográfico",
+                "Alfabético, sistemático y topográfico",
+                "Alfabético, sistemático y cronológico"
+            ],
+            "correcta": 2,
+            "explicacion": "Alfabético, sistemático y topográfico. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 19",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuántas generaciones de OPAC existen?",
+            "opciones": [
+                "Dos",
+                "Tres",
+                "Cinco",
+                "Cuatro"
+            ],
+            "correcta": 1,
+            "explicacion": "El manual distingue tres generaciones de OPAC. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 20",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las búsquedas federadas permiten:",
+            "opciones": [
+                "Buscar a la vez en todos los catálogos de una misma red",
+                "Buscar también en otras fuentes, como bases de datos u otros catálogos",
+                "Buscar en todos los catálogos de la propia biblioteca (topográfico, sistemático…)",
+                "Buscar en los catálogos de las bibliotecas de un mismo organismo"
+            ],
+            "correcta": 1,
+            "explicacion": "La búsqueda federada lanza la consulta a otras fuentes externas: bases de datos, otros catálogos… (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 21",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La parte del sistema automatizado con la que el usuario opera desde el OPAC se llama:",
+            "opciones": [
+                "Módulo de consulta y petición",
+                "Interfaz de usuario",
+                "Máscara de consulta",
+                "Módulo de búsqueda asistida"
+            ],
+            "correcta": 1,
+            "explicacion": "Es la interfaz de usuario. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 22",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál de estos catálogos es de uso interno de la biblioteca?",
+            "opciones": [
+                "El catálogo topográfico",
+                "El catálogo diccionario",
+                "El catálogo sistemático",
+                "El catálogo alfabético de materias"
+            ],
+            "correcta": 0,
+            "explicacion": "El topográfico es de uso interno (inventario, recuento); los demás son públicos. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 23",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Para localizar una edición concreta del Quijote en el fondo de una biblioteca universitaria, ¿qué fuente usarías?",
+            "opciones": [
+                "Una bibliografía especializada",
+                "El boletín de novedades de la biblioteca",
+                "El catálogo de la biblioteca",
+                "Preguntar al bibliotecario"
+            ],
+            "correcta": 2,
+            "explicacion": "Para saber si una biblioteca tiene un documento y dónde está, se consulta su catálogo. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 24",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El catálogo en línea de acceso público recibe el nombre de:",
+            "opciones": [
+                "CAP",
+                "OAPC",
+                "OPAC",
+                "CELAP"
+            ],
+            "correcta": 2,
+            "explicacion": "OPAC = Online Public Access Catalog. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 25",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Cuando se modifica una ficha en un catálogo manual, se debe:",
+            "opciones": [
+                "Modificar solo la ficha principal",
+                "Modificar la principal y las secundarias de autor",
+                "No modificar ninguna y añadir una ficha explicativa",
+                "Modificar la ficha principal y todas las secundarias"
+            ],
+            "correcta": 3,
+            "explicacion": "Hay que cambiar la principal y todas las secundarias para que el catálogo sea coherente. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 26",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El catálogo diccionario es:",
+            "opciones": [
+                "El catálogo de la sección de referencia",
+                "El que agrupa los asientos encabezados por título, series y publicaciones periódicas",
+                "El que reúne en una sola secuencia los catálogos alfabéticos de autores, títulos y materias",
+                "El que reúne en una sola secuencia el catálogo geográfico y el cronológico"
+            ],
+            "correcta": 2,
+            "explicacion": "El catálogo diccionario intercala autores, títulos y materias en un único orden alfabético. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 27",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Según el manual, ¿cuál es el origen del catálogo en fichas?",
+            "opciones": [
+                "El índice general de la Academia de Ciencias de París, en el que se usaron naipes",
+                "El catálogo de Oxford, hecho con cubiertas de libros expurgados",
+                "El de Cambridge (Massachusetts), con fichas de alumnos defectuosas",
+                "Lo inventó Gabriel Naudé en su Advis pour dresser une bibliothèque"
+            ],
+            "correcta": 0,
+            "explicacion": "Rozier usó naipes para el índice general de publicaciones de la Academia de Ciencias de París. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 28",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Cuando la estructura física de los OPAC se basa en la arquitectura cliente-servidor:",
+            "opciones": [
+                "Un ordenador centraliza la información y la gestión y la sirve a los demás ordenadores de trabajo y consulta",
+                "Un ordenador central hace todas las operaciones y los terminales solo las visualizan",
+                "Varios ordenadores sirven la información sin que ninguno centralice los procesos",
+                "Un ordenador central de gestión está conectado al del proveedor del programa"
+            ],
+            "correcta": 0,
+            "explicacion": "En cliente-servidor el servidor centraliza datos y gestión y los sirve a los ordenadores cliente, que también procesan. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 29",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Atendiendo al criterio de uso, los catálogos pueden dividirse en:",
+            "opciones": [
+                "Generales, especiales y colectivos",
+                "Públicos e internos",
+                "Alfabéticos y sistemáticos",
+                "Manuales y automatizados"
+            ],
+            "correcta": 1,
+            "explicacion": "Por su uso: públicos e internos. Alfabéticos/sistemáticos es por ordenación y manuales/automatizados, por soporte. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 30",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las formas más conocidas de los catálogos tradicionales son:",
+            "opciones": [
+                "En fichas, impreso y en microfichas",
+                "Alfabético, diccionario y sistemático de materias",
+                "Topográfico, diccionario y público",
+                "De materias, de autores y de títulos"
+            ],
+            "correcta": 0,
+            "explicacion": "Por su forma física: fichas, impreso y microfichas. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 31",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "En los OPAC, los operadores que permiten buscar en campos concretos son:",
+            "opciones": [
+                "Los operadores de proximidad de campos",
+                "Los operadores de comparación de campos",
+                "Los operadores de especificación de campos",
+                "Los operadores de rango de campos"
+            ],
+            "correcta": 2,
+            "explicacion": "Los operadores de especificación de campo limitan la búsqueda a autor, título, materia, etc. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 32",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué catálogo permite el estudio cuantitativo de la colección de la biblioteca?",
+            "opciones": [
+                "El catálogo impreso",
+                "El catálogo sistemático",
+                "El catálogo diccionario",
+                "El OPAC"
+            ],
+            "correcta": 3,
+            "explicacion": "El OPAC, integrado en el SIGB, permite obtener estadísticas de la colección. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 33",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué catálogo fue el primero en permitir recuperar un documento por diferentes puntos de acceso?",
+            "opciones": [
+                "El de la Biblioteca Bodleiana de Oxford",
+                "El de la British Library",
+                "El de la Library of Congress",
+                "El de la Biblioteca Universitaria de Cambridge"
+            ],
+            "correcta": 0,
+            "explicacion": "Según el manual, el catálogo de la Bodleiana fue el primero con varios puntos de acceso. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 34",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La primera generación de OPAC se caracterizaba, principalmente, por:",
+            "opciones": [
+                "Usar la arquitectura cliente/servidor",
+                "Usar búsquedas federadas",
+                "Ser de fácil manejo para usuarios poco experimentados",
+                "Reproducir la organización y la forma de acceso de los catálogos en fichas"
+            ],
+            "correcta": 3,
+            "explicacion": "Los primeros OPAC imitaban el catálogo en fichas (búsqueda por autor, título y materia). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 13, pregunta 35",
+            "bloque": "Tema 13 (MAD). Los catálogos: concepto, clases y fines. Reconversión de los catálogos. El OPAC",
+            "tema": "Tema 13 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El fin fundamental de una biblioteca es:",
+            "opciones": [
+                "El préstamo de libros",
+                "El servicio a los usuarios",
+                "La lectura en sala",
+                "La preservación de los documentos"
+            ],
+            "correcta": 1,
+            "explicacion": "Todo en la biblioteca se orienta al servicio a los usuarios. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 1",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "«Pregunte: la biblioteca responde» es:",
+            "opciones": [
+                "Un servicio de referencia virtual de las bibliotecas universitarias catalanas",
+                "Un servicio de referencia virtual cooperativo entre bibliotecas de diferentes comunidades autónomas",
+                "Un servicio de referencia propio de todas las bibliotecas españolas e iberoamericanas",
+                "Un servicio de formación virtual de las bibliotecas universitarias españolas"
+            ],
+            "correcta": 1,
+            "explicacion": "Es un servicio de referencia virtual cooperativo entre bibliotecas públicas de distintas comunidades autónomas. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 2",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Para que la biblioteca pueda prestar un buen servicio a sus usuarios es fundamental que:",
+            "opciones": [
+                "Cuente con guías explicativas de los distintos servicios",
+                "Los lectores sean usuarios frecuentes de la biblioteca",
+                "Todos los documentos estén en libre acceso",
+                "Abra todos los días del año"
+            ],
+            "correcta": 0,
+            "explicacion": "Las guías explicativas de los servicios son clave para orientar al usuario. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 3",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "En la mayoría de las bibliotecas, ¿quién tiene la obligación de atender al público?",
+            "opciones": [
+                "Todo el personal de la biblioteca, excepto el laboral",
+                "Únicamente el personal referencista",
+                "Todo el personal de la biblioteca, dentro de las funciones de cada colectivo",
+                "Solo los técnicos auxiliares y los especialistas"
+            ],
+            "correcta": 2,
+            "explicacion": "Atender al público es tarea de todo el personal, cada colectivo dentro de sus funciones. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 4",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Según los reglamentos generales de las bibliotecas, normalmente están excluidos del préstamo a domicilio:",
+            "opciones": [
+                "Los libros especialmente valiosos, los diccionarios y los números de revistas científicas",
+                "Solo los libros especialmente valiosos",
+                "Solo los diccionarios y obras de referencia",
+                "Solo los números de revistas científicas"
+            ],
+            "correcta": 0,
+            "explicacion": "Se excluyen del préstamo domiciliario las obras valiosas, las de referencia (diccionarios) y las revistas. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 5",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "En una biblioteca universitaria deben prestarse al usuario:",
+            "opciones": [
+                "Cinco monografías y cinco dispositivos (tabletas, portátiles…)",
+                "Los documentos que requiera para su docencia o investigación",
+                "Los documentos que determine el reglamento de la biblioteca",
+                "Dos libros en préstamo personal y tres de lectura en sala"
+            ],
+            "correcta": 2,
+            "explicacion": "Lo que se presta, y cuánto, lo fija el reglamento de cada biblioteca. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 6",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué es el préstamo interbibliotecario?",
+            "opciones": [
+                "El préstamo que solicita un usuario desde su casa",
+                "El préstamo entre bibliotecas que no pertenecen a una misma unidad administrativa",
+                "El préstamo entre bibliotecas nacionales",
+                "El préstamo entre las sucursales de una misma red"
+            ],
+            "correcta": 1,
+            "explicacion": "Es el préstamo entre bibliotecas que no pertenecen a la misma unidad administrativa. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 7",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué signaturización deben seguir los libros colocados en libre acceso?",
+            "opciones": [
+                "Por tamaño",
+                "Alfabética",
+                "Por número currens",
+                "Sistemática"
+            ],
+            "correcta": 3,
+            "explicacion": "En libre acceso se ordena sistemáticamente (por materias) para facilitar la búsqueda en el estante. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 8",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La Iniciativa de Accesibilidad Web responde a las siglas:",
+            "opciones": [
+                "ICW",
+                "WCI",
+                "WAI",
+                "Core"
+            ],
+            "correcta": 2,
+            "explicacion": "WAI = Web Accessibility Initiative, del W3C. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 9",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "En un fondo de libre acceso, el usuario debe:",
+            "opciones": [
+                "Devolver los documentos que ha utilizado a su estante",
+                "Entregar los documentos al personal bibliotecario",
+                "Colocar los documentos en los lugares indicados por el personal, como los carros",
+                "Colocarlos en la estantería más cercana"
+            ],
+            "correcta": 2,
+            "explicacion": "Para evitar descolocaciones, el usuario deja los documentos donde indique el personal (carros). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 10",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál de estas obras NO es una obra de referencia?",
+            "opciones": [
+                "Índice de citas bibliográficas",
+                "Enciclopedias",
+                "Manuales",
+                "Bibliografías"
+            ],
+            "correcta": 2,
+            "explicacion": "El manual se lee entero para estudiar; las obras de referencia se consultan puntualmente. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 11",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La desiderata es:",
+            "opciones": [
+                "Una petición de compra de un libro efectuada por un usuario",
+                "Una petición de compra efectuada solo por un profesor",
+                "Una pregunta presentada en el servicio de difusión selectiva",
+                "Una petición de préstamo"
+            ],
+            "correcta": 0,
+            "explicacion": "Desiderata = sugerencia o petición de compra hecha por un usuario. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 12",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Entre las ventajas de tener los fondos en acceso libre está:",
+            "opciones": [
+                "Una mejor conservación de los fondos",
+                "Que el usuario conoce mejor la colección y puede descubrir documentos que le interesen",
+                "Que el bibliotecario trabaja menos porque el usuario coloca los libros",
+                "Que disminuye el préstamo al poder consultarse en sala"
+            ],
+            "correcta": 1,
+            "explicacion": "El libre acceso permite al usuario hojear y descubrir documentos en el estante. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 13",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Un usuario ha localizado en el catálogo de otra biblioteca un documento que no tenemos. Le decimos que:",
+            "opciones": [
+                "Se dirija a la persona encargada del préstamo interbibliotecario en nuestra biblioteca",
+                "Debe ir a esa biblioteca",
+                "Tramite él mismo la petición a la biblioteca que lo tiene",
+                "No es posible acceder al catálogo de otra biblioteca"
+            ],
+            "correcta": 0,
+            "explicacion": "Se le deriva al servicio de préstamo interbibliotecario de nuestra biblioteca. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 14",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las condiciones de préstamo (plazo, documentos permitidos…) en las bibliotecas españolas dependen:",
+            "opciones": [
+                "De la combinación del tipo de material y la categoría del usuario",
+                "De las decisiones del personal bibliotecario",
+                "Del fichero central de usuarios",
+                "Del horario de la biblioteca"
+            ],
+            "correcta": 0,
+            "explicacion": "Cada política de préstamo combina tipo de material y tipo de usuario. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 15",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "En los sistemas automatizados de préstamo más recientes deben existir los ficheros de:",
+            "opciones": [
+                "Usuarios",
+                "Usuarios y bibliográficos",
+                "Bibliográficos y de ejemplares",
+                "Usuarios, bibliográficos y de ejemplares"
+            ],
+            "correcta": 3,
+            "explicacion": "Para prestar hacen falta los tres: usuario, registro bibliográfico y ejemplar. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 16",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La difusión selectiva de la información (DSI) se basa en:",
+            "opciones": [
+                "Perfiles de información definidos por el personal referencista y por el usuario",
+                "Perfiles estandarizados de información",
+                "Un perfil definido solo por el propio usuario",
+                "Perfiles normalizados por organizaciones internacionales como la IFLA"
+            ],
+            "correcta": 0,
+            "explicacion": "El perfil de la DSI se elabora entre el referencista y el usuario. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 17",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La ordenación de los fondos de la sección de referencia tiene que realizarse:",
+            "opciones": [
+                "Por número currens",
+                "Por tamaño",
+                "De forma sistemática",
+                "Cronológicamente"
+            ],
+            "correcta": 2,
+            "explicacion": "La sección de referencia se ordena sistemáticamente. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 18",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Si una biblioteca quiere instalar un sistema de autopréstamo, es necesario que:",
+            "opciones": [
+                "El documento tenga código de barras, el usuario tenga su tarjeta con pin y el documento no esté en soporte magnético",
+                "Solo que el documento tenga un código de barras",
+                "Solo que el usuario tenga tarjeta y conozca su pin",
+                "Solo que el documento no esté en soporte magnético"
+            ],
+            "correcta": 0,
+            "explicacion": "Respuesta oficial «todas las anteriores»: código de barras en el documento, tarjeta y pin del usuario, y soporte no magnético.",
+            "referencia": "Test MAD nº 15, pregunta 19",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La colección de referencia debe formar:",
+            "opciones": [
+                "Una sección independiente",
+                "Parte del resto de la colección",
+                "Nada: no debe existir una colección de referencia",
+                "Una unidad con el resto de las secciones"
+            ],
+            "correcta": 0,
+            "explicacion": "La colección de referencia se organiza como sección independiente. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 20",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Está relacionado con la formación en las bibliotecas:",
+            "opciones": [
+                "La competencia digital, REAS y DIGCOMP",
+                "Solo la competencia digital",
+                "Solo REAS",
+                "Solo DIGCOMP"
+            ],
+            "correcta": 0,
+            "explicacion": "Respuesta oficial «todas las anteriores»: competencia digital, REAS y DIGCOMP tienen que ver con la formación.",
+            "referencia": "Test MAD nº 15, pregunta 21",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El servicio de préstamo interbibliotecario tiene como idea básica:",
+            "opciones": [
+                "El mejor aprovechamiento de las colecciones",
+                "El ahorro en el presupuesto",
+                "Que el usuario utilice solo una biblioteca",
+                "Que el libro se consulte en las bibliotecas"
+            ],
+            "correcta": 0,
+            "explicacion": "Compartir fondos para aprovechar mejor las colecciones. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 22",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Según el manual, ante un libro recibido en préstamo interbibliotecario, el usuario:",
+            "opciones": [
+                "Puede fotocopiarlo entero y llevarse las fotocopias",
+                "Tiene un plazo de préstamo preestablecido por la biblioteca",
+                "Debe consultarlo en sala y no puede sacarlo en préstamo",
+                "Puede hacer fotocopias parciales"
+            ],
+            "correcta": 2,
+            "explicacion": "Respuesta oficial: lo consulta en sala, sin sacarlo. (En la práctica lo fija la biblioteca que presta.)",
+            "referencia": "Test MAD nº 15, pregunta 23",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Según el manual, una revista está excluida del préstamo personal:",
+            "opciones": [
+                "Si se trata del último año publicado",
+                "Dependiendo del título",
+                "Dependiendo del tipo de usuario",
+                "Siempre"
+            ],
+            "correcta": 3,
+            "explicacion": "Respuesta oficial: siempre.",
+            "referencia": "Test MAD nº 15, pregunta 24",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Con la ALFIN (alfabetización informacional), la biblioteca pretende:",
+            "opciones": [
+                "Dar a conocer sus servicios",
+                "Formar a sus usuarios en el uso de las fuentes de información",
+                "Formar a sus usuarios en la gestión de la información",
+                "Formar en el uso de las nuevas tecnologías"
+            ],
+            "correcta": 2,
+            "explicacion": "Respuesta oficial: formar en la gestión de la información (buscar, evaluar y usar la información).",
+            "referencia": "Test MAD nº 15, pregunta 25",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El DNI en un registro de usuario automatizado:",
+            "opciones": [
+                "Suele ser el número de identificación del usuario",
+                "Sustituye a la fecha de nacimiento",
+                "No suele aparecer en el registro de usuario",
+                "Solo se usa para los usuarios externos"
+            ],
+            "correcta": 0,
+            "explicacion": "El DNI suele servir como identificador del usuario. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 26",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El código de barras de un libro:",
+            "opciones": [
+                "Identifica la edición del libro",
+                "Permite identificar el título del libro",
+                "Identifica exactamente un ejemplar",
+                "No sirve para nada"
+            ],
+            "correcta": 2,
+            "explicacion": "Cada código de barras corresponde a un ejemplar concreto. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 27",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Para realizar un préstamo automatizado es necesario:",
+            "opciones": [
+                "Un código de barras que identifique al usuario",
+                "Que el documento esté accesible virtualmente",
+                "Que el ejemplar esté físicamente en la biblioteca",
+                "Que existan en la base de datos el registro del usuario, el del ejemplar y el bibliográfico"
+            ],
+            "correcta": 3,
+            "explicacion": "Hacen falta los tres registros: usuario, ejemplar y bibliográfico. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 28",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Una colección en libre acceso es aquella en la que:",
+            "opciones": [
+                "Los fondos se destinan al préstamo",
+                "Los usuarios tienen acceso directo a ella",
+                "Los usuarios no pueden usar el préstamo personal",
+                "No se realiza ningún control sobre su uso"
+            ],
+            "correcta": 1,
+            "explicacion": "Libre acceso = el usuario va directamente al estante. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 29",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El número de fotocopias de los documentos de una biblioteca:",
+            "opciones": [
+                "No está limitado",
+                "Lo establece cada biblioteca",
+                "Está limitado por la normativa vigente sobre propiedad intelectual",
+                "Depende de las necesidades del usuario"
+            ],
+            "correcta": 2,
+            "explicacion": "Lo limita la Ley de Propiedad Intelectual. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 30",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Puede el autor de un documento publicado impedir que una biblioteca lo preste?",
+            "opciones": [
+                "No, el art. 37.2 del Texto Refundido de la Ley de Propiedad Intelectual lo permite",
+                "No, el art. 19.4 del Texto Refundido de la Ley de Propiedad Intelectual lo permite",
+                "Sí, si el documento no está en dominio público",
+                "Sí, siempre que el autor mantenga todos sus derechos"
+            ],
+            "correcta": 0,
+            "explicacion": "El art. 37.2 TRLPI permite el préstamo en bibliotecas públicas, museos y archivos sin autorización del autor. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 31",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La tecnología RFID se utiliza actualmente en el servicio de:",
+            "opciones": [
+                "Préstamo interbibliotecario",
+                "Formación en competencias digitales",
+                "Autopréstamo",
+                "Reprografía"
+            ],
+            "correcta": 2,
+            "explicacion": "Las etiquetas RFID permiten el autopréstamo y la devolución automática. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 32",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La reprografía en las bibliotecas:",
+            "opciones": [
+                "Está permitida si se hace exclusivamente con fines de investigación o conservación",
+                "Está permitida siempre",
+                "Está permitida si los derechos de autor lo permiten",
+                "Está permitida solo en forma digitalizada"
+            ],
+            "correcta": 0,
+            "explicacion": "El manual la vincula a fines de investigación o conservación (art. 37.1 TRLPI). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 33",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "DigComp, el Marco Europeo de Competencias Digitales para los ciudadanos, se estructura en:",
+            "opciones": [
+                "5 áreas y 20 competencias",
+                "5 áreas y 21 competencias",
+                "6 áreas y 20 competencias",
+                "6 áreas y 21 competencias"
+            ],
+            "correcta": 1,
+            "explicacion": "DigComp: 5 áreas y 21 competencias. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 34",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La tasa de rotación es:",
+            "opciones": [
+                "Un indicador del préstamo de la colección",
+                "Un indicador de uso de la colección",
+                "Un indicador de antigüedad de la colección",
+                "Un indicador de calidad de la colección"
+            ],
+            "correcta": 1,
+            "explicacion": "La rotación (préstamos / volúmenes) mide el uso de la colección. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 15, pregunta 35",
+            "bloque": "Tema 15 (MAD). Servicios bibliotecarios al público. Recepción del usuario. Acceso al documento. Información y referencia",
+            "tema": "Tema 15 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál sería el servicio de extensión bibliotecaria más adecuado para una población rural pequeña y de difíciles comunicaciones?",
+            "opciones": [
+                "Una biblioteca pública municipal",
+                "Un bibliobús",
+                "El préstamo colectivo",
+                "El préstamo por correo"
+            ],
+            "correcta": 1,
+            "explicacion": "El bibliobús lleva el servicio periódicamente a poblaciones pequeñas sin biblioteca. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 1",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Según Manuel Carrión, la extensión bibliotecaria está compuesta de:",
+            "opciones": [
+                "Dos elementos: una biblioteca central y servicios irradiantes que llegan a todos los usuarios",
+                "Tres elementos: biblioteca central, biblioteca sucursal y bibliobús",
+                "Dos elementos: biblioteca central y bibliotecas sucursales",
+                "Cuatro elementos: central, sucursales, bibliobuses y servicios periféricos"
+            ],
+            "correcta": 0,
+            "explicacion": "Para Carrión: biblioteca central + servicios irradiantes que llegan a todos. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 2",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La extensión bibliotecaria trata de llegar a los usuarios que no pueden acudir a la biblioteca pública por razones de:",
+            "opciones": [
+                "Reclusión, marginación social o marginación topográfica",
+                "Solo reclusión",
+                "Solo marginación social",
+                "Solo marginación topográfica"
+            ],
+            "correcta": 0,
+            "explicacion": "Respuesta oficial «todas las anteriores»: reclusión, marginación social y topográfica.",
+            "referencia": "Test MAD nº 16, pregunta 3",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Dentro de los servicios de extensión bibliotecaria NO se incluyen:",
+            "opciones": [
+                "Las bibliotecas de hospitales",
+                "Las guías bibliográficas",
+                "Las bibliotecas de prisiones",
+                "El préstamo colectivo"
+            ],
+            "correcta": 1,
+            "explicacion": "Las guías bibliográficas son un instrumento de información, no un servicio de extensión. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 4",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Cuál de estas características NO es propia de la animación a la lectura?",
+            "opciones": [
+                "Formar parte de un programa gradual y continuado",
+                "Ser activa",
+                "Estar relacionada con la edad de los participantes",
+                "Ser obligatoria"
+            ],
+            "correcta": 3,
+            "explicacion": "La animación a la lectura debe ser voluntaria, nunca obligatoria. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 5",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Una biblioteca puede organizar exposiciones solo de:",
+            "opciones": [
+                "Fondo histórico digno de ser expuesto",
+                "Obras de arte",
+                "Obras literarias de prestigio",
+                "Nada en concreto: no hay restricciones para hacer exposiciones"
+            ],
+            "correcta": 3,
+            "explicacion": "No existen restricciones sobre lo que se puede exponer. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 6",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Un bibliobús es:",
+            "opciones": [
+                "Un autobús lleno de libros que acude periódicamente a distintas zonas para prestar servicio",
+                "Un catálogo de una biblioteca nacional",
+                "Un mueble para guardar libros",
+                "Un programa informático de gestión bibliotecaria"
+            ],
+            "correcta": 0,
+            "explicacion": "Biblioteca móvil que visita periódicamente distintas zonas. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 7",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Sobre una colección inicial de 2000 ejemplares para un bibliobús, ¿cuántos deben ser de ficción para niños según la IFLA?",
+            "opciones": [
+                "250",
+                "200",
+                "500",
+                "100"
+            ],
+            "correcta": 1,
+            "explicacion": "Según las pautas IFLA citadas en el manual: 200. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 8",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "NO es un servicio de préstamo colectivo:",
+            "opciones": [
+                "La hora del cuento",
+                "La maleta viajera",
+                "Los lotes que la Fundación Germán Sánchez Ruipérez envía a pediatría de atención primaria",
+                "El préstamo colectivo de las bibliotecas populares de Madrid"
+            ],
+            "correcta": 0,
+            "explicacion": "La hora del cuento es una actividad de animación a la lectura, no de préstamo colectivo. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 9",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Los carritos para llevar los libros hasta los pacientes en cama deben ser:",
+            "opciones": [
+                "Fáciles de limpiar y desinfectar para evitar contagios",
+                "Silenciosos, para no despertar a los enfermos",
+                "Silenciosos y manejables, para moverse entre las camas sin molestar",
+                "Pequeños, para no abrumar a los pacientes con demasiados libros"
+            ],
+            "correcta": 2,
+            "explicacion": "Silenciosos y manejables. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 10",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Según la IFLA, que una persona esté recluida en una prisión no le priva de:",
+            "opciones": [
+                "El derecho a un trato digno",
+                "El derecho de acceder a la información y a aprender",
+                "El derecho a un abogado",
+                "El derecho a usar las nuevas tecnologías"
+            ],
+            "correcta": 1,
+            "explicacion": "Las pautas IFLA para bibliotecas de prisiones: el recluso conserva el derecho a acceder a la información y aprender. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 11",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La prestación de servicios de extensión bibliotecaria a colectivos marginados ayuda a:",
+            "opciones": [
+                "Reducir la brecha digital",
+                "Aumentar la cultura de sus miembros",
+                "Aumentar sus opciones de empleo",
+                "Mejorar su autoestima"
+            ],
+            "correcta": 0,
+            "explicacion": "Respuesta oficial: reducir la brecha digital.",
+            "referencia": "Test MAD nº 16, pregunta 12",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El servicio de extensión cultural de una biblioteca se centra en:",
+            "opciones": [
+                "Promocionar la cultura",
+                "Completar la formación escolar del niño",
+                "Aliviar la soledad de las personas mayores",
+                "Aumentar el número de usuarios"
+            ],
+            "correcta": 0,
+            "explicacion": "La extensión cultural promociona la cultura. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 13",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La colección de la biblioteca para pacientes de hospital debe:",
+            "opciones": [
+                "Ser de carácter general",
+                "Contener solo obras de literatura",
+                "No incluir libros con información médica",
+                "No incluir libros tristes"
+            ],
+            "correcta": 0,
+            "explicacion": "Debe ser de carácter general, como la de una biblioteca pública. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 14",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Para realizar actividades culturales en la biblioteca NO son necesarios:",
+            "opciones": [
+                "Medios audiovisuales",
+                "Un local apropiado",
+                "Material adecuado",
+                "Bibliotecarios expertos en microinformática"
+            ],
+            "correcta": 3,
+            "explicacion": "No hace falta personal experto en informática. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 15",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las exposiciones que realiza una biblioteca pública se enmarcan, especialmente, dentro de:",
+            "opciones": [
+                "Las actividades de animación a la lectura",
+                "Las actividades de extensión cultural",
+                "El servicio de préstamo",
+                "El SIL"
+            ],
+            "correcta": 1,
+            "explicacion": "Las exposiciones son actividades de extensión cultural. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 16",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "NO se enmarcan dentro de las actividades de extensión cultural:",
+            "opciones": [
+                "Las conferencias",
+                "Los coloquios",
+                "Los bibliobuses",
+                "Las lecturas poéticas"
+            ],
+            "correcta": 2,
+            "explicacion": "El bibliobús es extensión bibliotecaria, no cultural. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 17",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El vehículo más utilizado como biblioteca móvil es:",
+            "opciones": [
+                "El tren",
+                "La furgoneta",
+                "El autobús",
+                "El camión semirremolque"
+            ],
+            "correcta": 2,
+            "explicacion": "El autobús (bibliobús). (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 18",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Forma parte de las actividades de animación a la lectura:",
+            "opciones": [
+                "La hora del cuento",
+                "Los conciertos",
+                "La difusión selectiva de la información",
+                "El préstamo interbibliotecario"
+            ],
+            "correcta": 0,
+            "explicacion": "La hora del cuento es la actividad clásica de animación a la lectura. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 19",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las guías de lectura son un instrumento útil para:",
+            "opciones": [
+                "La catalogación del fondo antiguo",
+                "El préstamo por correo",
+                "Las actividades de animación a la lectura",
+                "La gestión de la biblioteca"
+            ],
+            "correcta": 2,
+            "explicacion": "Se usan en la animación a la lectura. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 20",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Para difundir las actividades de animación a la lectura y de extensión cultural y bibliotecaria puede resultar muy útil:",
+            "opciones": [
+                "Un buen catálogo colectivo",
+                "El marketing bibliotecario",
+                "Una plantilla de profesionales muy especializados",
+                "Expertos en informática"
+            ],
+            "correcta": 1,
+            "explicacion": "El marketing bibliotecario sirve para difundir las actividades. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 21",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "La hora del cuento se realizará siempre:",
+            "opciones": [
+                "En los locales de la biblioteca, por seguridad",
+                "En la sección infantil de la biblioteca y en la escuela",
+                "Donde se quiera: no hay restricciones sobre el lugar",
+                "En locales a los que puedan acompañar los padres"
+            ],
+            "correcta": 2,
+            "explicacion": "No hay restricciones sobre dónde hacerla. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 22",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Una biblioteca sucursal es:",
+            "opciones": [
+                "Un servicio de catalogación de una biblioteca universitaria",
+                "Un punto de servicio bibliotecario dependiente de una biblioteca central",
+                "Un tipo de biblioteca especializada",
+                "Una biblioteca móvil"
+            ],
+            "correcta": 1,
+            "explicacion": "Depende de una biblioteca central. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 23",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "En una biblioteca sucursal NO se realizan:",
+            "opciones": [
+                "Tareas administrativas y técnicas",
+                "El préstamo personal",
+                "La orientación al lector",
+                "La sección infantil"
+            ],
+            "correcta": 0,
+            "explicacion": "Las tareas administrativas y técnicas se centralizan en la biblioteca central. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 24",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Quién creó el servicio de biblioburro en Colombia?",
+            "opciones": [
+                "Juan Valdez",
+                "Luis Soriano",
+                "La UNESCO",
+                "La IFLA"
+            ],
+            "correcta": 1,
+            "explicacion": "El maestro Luis Soriano, con sus burros Alfa y Beto. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 25",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué inclinación deben tener los estantes de un bibliobús?",
+            "opciones": [
+                "Un 25 %",
+                "Menos del 10 %",
+                "Ninguna: no están inclinados",
+                "Entre el 10 y el 20 %"
+            ],
+            "correcta": 3,
+            "explicacion": "Entre el 10 y el 20 %, para que no se caigan los libros en marcha. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 26",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El fondo de una biblioteca de prisiones debe contar con:",
+            "opciones": [
+                "Publicaciones periódicas y obras recreativas y educativas",
+                "Solo publicaciones periódicas",
+                "Solo obras de carácter recreativo",
+                "Solo obras de carácter educativo"
+            ],
+            "correcta": 0,
+            "explicacion": "Respuesta oficial «las tres anteriores»: prensa, obras recreativas y educativas.",
+            "referencia": "Test MAD nº 16, pregunta 27",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El periodo entre las sesiones de un club de lectura debe ser:",
+            "opciones": [
+                "De una semana",
+                "De quince días, salvo en verano",
+                "No demasiado prolongado, para evitar la pérdida de interés",
+                "Diario si el libro tiene muchas páginas"
+            ],
+            "correcta": 2,
+            "explicacion": "No fijo: lo bastante corto para no perder el interés. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 28",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "En animación a la lectura, el blog de la biblioteca puede usarse para:",
+            "opciones": [
+                "Comentar las lecturas favoritas de los bibliotecarios",
+                "Solo informar de horarios",
+                "Difundir las recomendaciones de lecturas",
+                "Anunciar los ciclos de conferencias"
+            ],
+            "correcta": 2,
+            "explicacion": "Respuesta oficial: difundir recomendaciones de lecturas.",
+            "referencia": "Test MAD nº 16, pregunta 29",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las narraciones de la hora del cuento pueden hacerlas:",
+            "opciones": [
+                "El personal de la biblioteca, los padres o los abuelos",
+                "Solo el personal de la biblioteca",
+                "Solo los padres de los niños",
+                "Solo los abuelos"
+            ],
+            "correcta": 0,
+            "explicacion": "Respuesta oficial «las tres anteriores»: personal, padres y abuelos pueden narrar.",
+            "referencia": "Test MAD nº 16, pregunta 30",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "En España, la asociación que reúne a los profesionales de bibliotecas móviles se llama:",
+            "opciones": [
+                "AEBIM",
+                "ACLEBIM",
+                "ABIME",
+                "AEBIMOV"
+            ],
+            "correcta": 1,
+            "explicacion": "ACLEBIM: Asociación de Profesionales de Bibliotecas Móviles. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 31",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "¿Qué permite el uso de las herramientas de la web social?",
+            "opciones": [
+                "La participación y la interacción de los usuarios con la biblioteca",
+                "Que los usuarios organicen las actividades de extensión cultural",
+                "Fomentar la lectura entre jóvenes que prefieren las redes a la biblioteca",
+                "Planificar actividades con otras instituciones"
+            ],
+            "correcta": 0,
+            "explicacion": "La web social facilita la participación e interacción del usuario. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 32",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "Las paradas de una biblioteca móvil deben estar situadas en:",
+            "opciones": [
+                "Las proximidades de colegios o instituciones culturales",
+                "Lugares con mucha afluencia y aparcamiento, como centros comerciales",
+                "Lugares céntricos y fácilmente accesibles, para los usuarios y para el vehículo",
+                "Un parque, para hacer actividades al aire libre"
+            ],
+            "correcta": 2,
+            "explicacion": "Céntricas y accesibles para usuarios y vehículo. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 33",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El objetivo de RIUL (Red Internacional de Universidades Lectoras) es:",
+            "opciones": [
+                "Crear clubes de lectura en las universidades",
+                "Potenciar la lectura y la escritura en la universidad",
+                "Promover la alfabetización académica",
+                "Fomentar el espíritu crítico mediante la lectura"
+            ],
+            "correcta": 1,
+            "explicacion": "RIUL potencia la lectura y la escritura en la universidad. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 34",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
+        },
+        {
+            "pregunta": "El préstamo por correo está destinado a:",
+            "opciones": [
+                "Personas recluidas en prisiones",
+                "Comunidades pequeñas con malas comunicaciones por carretera",
+                "Personas ingresadas en hospitales",
+                "Personas que no pueden ir a la biblioteca y comunidades remotas fuera de las rutas de bibliobús"
+            ],
+            "correcta": 3,
+            "explicacion": "Para quien no puede desplazarse y comunidades fuera de las rutas de bibliobús. (Respuesta oficial del test del manual.)",
+            "referencia": "Test MAD nº 16, pregunta 35",
+            "bloque": "Tema 16 (MAD). Extensión bibliotecaria. Extensión cultural. Animación a la lectura",
+            "tema": "Tema 16 · Test del manual (con soluciones)"
         }
     ],
     "fichas": [
