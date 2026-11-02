@@ -371,6 +371,12 @@
   .plan-day { padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
   .plan-more > summary { cursor: pointer; color: var(--accent); font-weight: 600; padding: 10px 0; }
   .plan-day b { min-width: 92px; text-transform: capitalize; }
+  .cal-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+  .cal-row:last-of-type { border-bottom: 0; }
+  .cal-dia { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .cal-dia.hoy { background: var(--accent-bg); border-radius: 10px; padding: 8px 10px; }
+  .cal-dia.pasado { opacity: .55; }
+
   .extras { display: grid; gap: 6px; }
   .extra.ready { border-color: var(--star); background: color-mix(in srgb, var(--star) 18%, var(--card)); animation: pop 1.6s ease-in-out infinite; }
   .ruleta-bg { position: fixed; inset: 0; z-index: 900; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, .55); }
@@ -1470,11 +1476,13 @@ function parseSet(data) {
   if (errs.length) throw new Error(errs.join('\n'));
   const out = { titulo: obj.titulo || 'Test', preguntas, fichas, articulos };
   if (obj.ajustes && typeof obj.ajustes === 'object') out.ajustes = pick(obj.ajustes, SHARED);
+  if (Array.isArray(obj.planning?.dias)) out.planning = obj.planning;
   return out;
 }
 const setToJSON = () => ({
   titulo: set.titulo, ...(set.ajustes ? { ajustes: set.ajustes } : {}), preguntas: set.preguntas,
-  ...(fichasOf().length ? { fichas: set.fichas } : {}), ...(articulosOf().length ? { articulos: set.articulos } : {})
+  ...(fichasOf().length ? { fichas: set.fichas } : {}), ...(articulosOf().length ? { articulos: set.articulos } : {}),
+  ...(set.planning ? { planning: set.planning } : {})
 });
 
 function useData(data, origen) {
@@ -1537,9 +1545,64 @@ function planState(p = getPlan(), day = new Date()) {
 const fmtDay = d => d.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'numeric' });
 const temaChips = list => list.map(t => { const n = temaName(t.key); return `<span class="tag" title="${esc(n.full)}">${esc(n.short)}</span>`; }).join(' ');
 
+// ---------- Planning con calendario fijo («planning» en preguntas.json) ----------
+// Mientras hoy esté dentro de ese calendario, «Hoy toca» enseña lo de cada día en vez del reparto automático.
+const planCal = () => set?.planning?.dias?.length ? set.planning : null;
+const enCalendario = (k = todayKey()) => { const d = planCal()?.dias; return !!d && k >= d[0].f && k <= d[d.length - 1].f; };
+// «T16», «E1-E4», «T17/E10», «G2»… → códigos sueltos (T = tema MAD, E/G = temas UMH)
+function planCodigos(txt) {
+  const out = [];
+  for (const m of (txt || '').matchAll(/\b([TEG])(\d+)(?:-[TEG]?(\d+))?\b/g)) for (let n = +m[2]; n <= +(m[3] || m[2]); n++) out.push(m[1] + n);
+  return uniq(out);
+}
+const planPreguntas = cods => (set?.preguntas || []).filter(q => cods.some(c => c[0] === 'T' ? (q.bloque || '').startsWith(`Tema ${c.slice(1)} (MAD)`) : (q.tema || '').startsWith(c + '.')));
+const calFecha = k => { const t = new Date(k + 'T12:00').toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }); return t[0].toUpperCase() + t.slice(1); };
+function calFilaHTML(ico, lbl, txt) {
+  if (!txt) return '';
+  const cods = planCodigos(txt), n = planPreguntas(cods).length;
+  const btn = n ? `<button class="small" data-cal="${esc(cods.join(','))}">Test (${Math.min(getPlan().num, n)})</button>`
+    : /error/i.test(txt) ? '<button class="small" data-cal-err>📓 Errores</button>'
+    : /simulacro/i.test(txt) ? '<button class="small" data-cal-sim>🎯 Simulacro</button>' : '';
+  return `<div class="cal-row"><span>${ico} <span class="muted">${lbl}</span> ${esc(txt)}</span>${btn}</div>`;
+}
+function planCalHTML() {
+  const c = planCal(), k = todayKey(), d = c.dias.find(x => x.f === k), hecho = (getSettings().planningDone || {})[k];
+  const head = `<div class="row between"><h2 style="margin:0">📅 Hoy toca</h2><a href="#" id="calVer">Ver calendario</a></div>`;
+  if (!d) {
+    const sig = c.dias.find(x => x.f > k);
+    return `<div class="card plan-card">${head}<p>😌 Hoy es día de descanso.${sig ? ` El próximo: <b>${calFecha(sig.f)}</b> · ${esc(sig.p)}` : ''}</p></div>`;
+  }
+  return `<div class="card plan-card">${head}
+    <div style="margin-top:8px">${calFilaHTML('📘', 'Principal', d.p)}${calFilaHTML('🔁', 'Arrastre', d.a)}${calFilaHTML('🌆', 'Tarde', d.t)}</div>
+    ${hecho ? '<p class="muted" style="margin:8px 0 0">✅ Día marcado como hecho</p>' : '<div class="row" style="margin-top:8px"><button class="small primary" id="calHecho">✓ Día hecho</button></div>'}
+  </div>`;
+}
+function bindPlanCal() {
+  if ($('calVer')) $('calVer').onclick = e => { e.preventDefault(); showCalendario(); };
+  if ($('calHecho')) $('calHecho').onclick = () => { saveSettings({ planningDone: { ...(getSettings().planningDone || {}), [todayKey()]: Date.now() } }); showHome(); };
+  app.querySelectorAll('[data-cal]').forEach(b => b.onclick = () =>
+    startRun(shuffle(planPreguntas(b.dataset.cal.split(','))).slice(0, getPlan().num), { mode: 'practica', label: PLAN_LABEL }));
+  app.querySelectorAll('[data-cal-err]').forEach(b => b.onclick = () => showCuaderno());
+  app.querySelectorAll('[data-cal-sim]').forEach(b => b.onclick = () => $('simBtn') ? $('simBtn').click() : showHome());
+}
+function showCalendario() {
+  stopTimer();
+  const c = planCal(), k = todayKey(), hechos = getSettings().planningDone || {};
+  const dia = d => `<div class="cal-dia ${d.f === k ? 'hoy' : d.f < k ? 'pasado' : ''}" ${d.f === k ? 'id="calHoy"' : ''}>
+      <b>${calFecha(d.f)}</b>${hechos[d.f] ? ' ✅' : ''}
+      <div class="muted">📘 ${esc(d.p)}${d.a ? ` · 🔁 ${esc(d.a)}` : ''}${d.t ? ` · 🌆 ${esc(d.t)}` : ''}</div></div>`;
+  app.innerHTML = `
+    <div class="row between"><h1>📅 ${esc(c.titulo || 'Planning')}</h1><button id="home">← Inicio</button></div>
+    ${c.horario || c.regla ? `<div class="card">${c.horario ? `<p style="margin-top:0">🕒 ${esc(c.horario)}</p>` : ''}${c.regla ? `<p class="muted" style="margin-bottom:0">💡 ${esc(c.regla)}</p>` : ''}</div>` : ''}
+    <div class="card">${c.dias.map(dia).join('')}</div>`;
+  $('home').onclick = () => showHome();
+  $('calHoy')?.scrollIntoView({ block: 'center' });
+}
+
 function planCardHTML() {
   const p = getPlan();
   if (!set?.preguntas?.length) return '';
+  if (enCalendario()) return planCalHTML();
   if (!p.on) return p.dismissed ? '' : `<div class="card plan-card">
       <h2>📅 Organiza tu estudio</h2>
       <p class="muted" style="margin-top:-4px">Crea un planning y cada día la app te dirá qué temas tocan hasta el examen.</p>
@@ -1568,6 +1631,7 @@ function planCardHTML() {
 }
 
 function bindPlanCard() {
+  bindPlanCal();
   const go = () => showPlan();
   if ($('planCreate')) $('planCreate').onclick = () => { savePlan({ on: true }); showPlan(); };
   if ($('planNo')) $('planNo').onclick = () => { savePlan({ dismissed: true }); showHome(); };
