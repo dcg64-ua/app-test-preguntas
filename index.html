@@ -303,6 +303,8 @@
   @media (max-width: 480px) { .grades { grid-template-columns: 1fr 1fr; } }
 
   body.env-dev main { padding-top: calc(36px + env(safe-area-inset-top)); }
+  .upd-bar { position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 900; display: flex; align-items: center; gap: 12px;
+    width: max-content; max-width: calc(100% - 32px); padding: 10px 12px 10px 16px; border-radius: 14px; background: var(--card); border: 2px solid var(--accent); box-shadow: 0 8px 24px rgba(0, 0, 0, .25); }
   .dev-warn { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, .6); backdrop-filter: blur(3px); }
   .dev-warn > div { max-width: 420px; width: 100%; background: var(--card); color: var(--text); border: 4px solid #f39c12; border-radius: 20px; padding: 28px 22px; text-align: center; box-shadow: 0 20px 60px rgba(0, 0, 0, .4); }
   .dev-warn .big { font-size: 3.2rem; line-height: 1; }
@@ -4486,6 +4488,43 @@ if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   // Llegó una versión nueva de la app: recargar para mostrarla, solo si estás en el inicio (no corta tests ni ediciones)
   navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController && $('goStats')) location.reload(); });
 }
+
+// Versión nueva: en el iPhone, la app de la pantalla de inicio puede seguir días abierta con la versión vieja.
+// Al volver a la app (y cada 15 min) se mira si index.html o preguntas.json han cambiado en el servidor
+// (por su ETag, o el contenido si el servidor no lo da); si cambian, sale un botón para actualizar.
+const huellas = {};
+async function huella(f) {
+  const r = await fetch(f, { method: 'HEAD', cache: 'no-store' });
+  const tag = r.headers.get('etag') || r.headers.get('last-modified');
+  if (tag) return tag;
+  const t = await (await fetch(f, { cache: 'no-store' })).text();
+  let h = 2166136261;
+  for (let i = 0; i < t.length; i++) h = Math.imul(h ^ t.charCodeAt(i), 16777619);
+  return t.length + ':' + (h >>> 0);
+}
+async function buscarVersion() {
+  if (!location.protocol.startsWith('http') || !navigator.onLine || $('updBar')) return;
+  for (const f of ['index.html', 'preguntas.json']) {
+    try {
+      const h = await huella(f);
+      if (!(f in huellas)) huellas[f] = h;
+      else if (huellas[f] !== h) return avisarVersion();
+    } catch {}
+  }
+}
+function avisarVersion() {
+  document.body.insertAdjacentHTML('beforeend', `<div class="upd-bar" id="updBar" role="status">
+    <span>✨ Hay una versión nueva</span><button class="primary small" id="updGo">Actualizar</button></div>`);
+  // el test en curso se guarda solo, así que se puede recargar en cualquier momento
+  $('updGo').onclick = async () => {
+    $('updGo').disabled = true;
+    try { await (await navigator.serviceWorker?.getRegistration())?.update(); } catch {}
+    location.reload();
+  };
+}
+setTimeout(buscarVersion, 3000);
+setInterval(buscarVersion, 15 * 60 * 1000);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') buscarVersion(); });
 </script>
 </body>
 </html>
