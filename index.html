@@ -2132,7 +2132,7 @@ function bindAnimo() {
 // ---------- Retos del admin ----------
 // El admin crea retos para cada usuario (Firestore config/retos = { items: [...] }). El progreso se calcula con sus datos
 // entre `desde` y `hasta`; al cumplirlo suma `puntos` y, si hay `premio`, se crea un canje sin coste para que lo vea el admin.
-const RETO_TIPOS = { preguntas: 'preguntas respondidas', dias: 'días llegando al mínimo diario', tests: 'tests terminados', aptos: 'simulacros aprobados' };
+const RETO_TIPOS = { preguntas: 'preguntas respondidas', dias: 'días llegando al mínimo diario', tests: 'tests terminados', aptos: 'simulacros aprobados', test60: 'tests de 60+ preguntas con más del 80 %' };
 let retosCache = [], viewUid = null;
 async function loadRetos() {
   try { const s = await fb.getDoc(fb.doc(fb.db, 'config', 'retos')); retosCache = (s.exists() ? s.data().items : null) || []; } catch {}
@@ -2145,7 +2145,9 @@ function retoProgreso(r) {
   const hist = load(K.hist, []).filter(h => h.fecha >= t0 && h.fecha <= t1);
   const v = r.tipo === 'preguntas' ? Object.keys(daily).filter(inRange).reduce((a, k) => a + daily[k], 0)
     : r.tipo === 'dias' ? Object.keys(daily).filter(k => inRange(k) && daily[k] >= diarioCfg().min).length
-    : r.tipo === 'tests' ? hist.length : hist.filter(h => h.modo === 'simulacro' && h.apto).length;
+    : r.tipo === 'tests' ? hist.length
+    : r.tipo === 'test60' ? hist.filter(h => h.total >= 60 && h.aciertos / h.total > 0.8).length
+    : hist.filter(h => h.modo === 'simulacro' && h.apto).length;
   return { v, done: v >= r.meta, vencido: todayKey() > r.hasta };
 }
 const puntosRetos = () => misRetos().reduce((a, r) => a + (retoProgreso(r).done ? +r.puntos || 0 : 0), 0);
