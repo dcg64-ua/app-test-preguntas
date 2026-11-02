@@ -40282,5 +40282,408 @@
             "bloque": "Tema 9 (MAD). Bibliotecas públicas: concepto, funciones, servicios y clases",
             "tema": "Tema 9 · Preguntas del tema"
         }
-    ]
+    ],
+    "planning": {
+        "titulo": "Planning UMH + Elche (hasta el 16 de enero)",
+        "horario": "L-V: 11:00 arrastre · 11:30-14:00 tema principal · 17:00-19:30 ampliación UMH, test y tarjetas. Sábado: test mixto, corrección y cuaderno de errores. Domingo: libre.",
+        "regla": "Si una semana se retrasa, no arrastres todo el calendario: recorta primero lo de prioridad baja/media y conserva el tema UMH, el test del sábado y el arrastre.",
+        "dias": [
+            {
+                "f": "2026-11-02",
+                "p": "T16",
+                "a": "T27",
+                "t": "E16 marketing bibliotecario"
+            },
+            {
+                "f": "2026-11-03",
+                "p": "T16",
+                "a": "T12",
+                "t": "E16 públicos y canales"
+            },
+            {
+                "f": "2026-11-04",
+                "p": "T16",
+                "a": "T15",
+                "t": "E16 redes y métricas"
+            },
+            {
+                "f": "2026-11-05",
+                "p": "T16",
+                "a": "T9",
+                "t": "E16 extensión universitaria"
+            },
+            {
+                "f": "2026-11-06",
+                "p": "T16 cierre",
+                "a": "T7",
+                "t": "Test E16"
+            },
+            {
+                "f": "2026-11-07",
+                "p": "Test T16/E16",
+                "a": "T15/T8",
+                "t": "Errores"
+            },
+            {
+                "f": "2026-11-09",
+                "p": "T17 automatización",
+                "a": "T16",
+                "t": "E10 SIGB"
+            },
+            {
+                "f": "2026-11-10",
+                "p": "T17",
+                "a": "T27",
+                "t": "E10 LSP"
+            },
+            {
+                "f": "2026-11-11",
+                "p": "T17",
+                "a": "T16",
+                "t": "E10 OPAC y discovery"
+            },
+            {
+                "f": "2026-11-12",
+                "p": "T17",
+                "a": "T13",
+                "t": "E10 interoperabilidad y APIs"
+            },
+            {
+                "f": "2026-11-13",
+                "p": "T17 cierre",
+                "a": "T11",
+                "t": "Test E10"
+            },
+            {
+                "f": "2026-11-14",
+                "p": "Test T17/E10",
+                "a": "T16/T9",
+                "t": "Errores"
+            },
+            {
+                "f": "2026-11-16",
+                "p": "T18 e-book y digital",
+                "a": "T17",
+                "t": "E11 biblioteca digital"
+            },
+            {
+                "f": "2026-11-17",
+                "p": "T18",
+                "a": "T16",
+                "t": "E11 repositorios"
+            },
+            {
+                "f": "2026-11-18",
+                "p": "T18",
+                "a": "T17",
+                "t": "E11 DSpace/EPrints"
+            },
+            {
+                "f": "2026-11-19",
+                "p": "T18",
+                "a": "T14",
+                "t": "E11 OAI-PMH"
+            },
+            {
+                "f": "2026-11-20",
+                "p": "T18 cierre",
+                "a": "T12",
+                "t": "E11 Dublin Core"
+            },
+            {
+                "f": "2026-11-21",
+                "p": "Test E11",
+                "a": "T17/T7-T8",
+                "t": "Errores"
+            },
+            {
+                "f": "2026-11-23",
+                "p": "T19 tecnologías",
+                "a": "T18",
+                "t": "E12 TIC"
+            },
+            {
+                "f": "2026-11-24",
+                "p": "T19",
+                "a": "T17",
+                "t": "E12 web social"
+            },
+            {
+                "f": "2026-11-25",
+                "p": "T19",
+                "a": "T18",
+                "t": "E12 IA: usos"
+            },
+            {
+                "f": "2026-11-26",
+                "p": "T19",
+                "a": "T16",
+                "t": "E12 IA: riesgos y gobernanza"
+            },
+            {
+                "f": "2026-11-27",
+                "p": "T19 cierre",
+                "a": "T15",
+                "t": "Test E12"
+            },
+            {
+                "f": "2026-11-28",
+                "p": "Test T16-T19",
+                "a": "Mixto T7-T15",
+                "t": "Errores"
+            },
+            {
+                "f": "2026-11-30",
+                "p": "T10 edificio y espacios",
+                "a": "T19",
+                "t": "E4 calidad: concepto e indicadores"
+            },
+            {
+                "f": "2026-12-01",
+                "p": "T10",
+                "a": "T18",
+                "t": "E4 indicadores"
+            },
+            {
+                "f": "2026-12-02",
+                "p": "T10 cierre",
+                "a": "T19",
+                "t": "E4 Carta de Servicios"
+            },
+            {
+                "f": "2026-12-03",
+                "p": "E4",
+                "a": "T17",
+                "t": "E4 satisfacción y mejora"
+            },
+            {
+                "f": "2026-12-04",
+                "p": "E4 cierre",
+                "a": "T27",
+                "t": "Test E4"
+            },
+            {
+                "f": "2026-12-05",
+                "p": "Test E4/T10",
+                "a": "T19/T11",
+                "t": "Errores"
+            },
+            {
+                "f": "2026-12-07",
+                "p": "T23 fuentes",
+                "a": "T10",
+                "t": "E14 referencia"
+            },
+            {
+                "f": "2026-12-08",
+                "p": "T23",
+                "a": "T19",
+                "t": "E14 fuentes universitarias"
+            },
+            {
+                "f": "2026-12-09",
+                "p": "T23",
+                "a": "T10",
+                "t": "E14 referencia virtual"
+            },
+            {
+                "f": "2026-12-10",
+                "p": "T23",
+                "a": "T18",
+                "t": "E14 Moodle/Blackboard"
+            },
+            {
+                "f": "2026-12-11",
+                "p": "T23 cierre",
+                "a": "T9",
+                "t": "Test E14"
+            },
+            {
+                "f": "2026-12-12",
+                "p": "Test T23/E14",
+                "a": "T15",
+                "t": "Errores"
+            },
+            {
+                "f": "2026-12-14",
+                "p": "T25",
+                "a": "T23",
+                "t": "E8 tesauros (repaso)"
+            },
+            {
+                "f": "2026-12-15",
+                "p": "T25 cierre",
+                "a": "T19",
+                "t": "E15 ALFIN"
+            },
+            {
+                "f": "2026-12-16",
+                "p": "T26 abreviado",
+                "a": "T25",
+                "t": "E15 CI2"
+            },
+            {
+                "f": "2026-12-17",
+                "p": "T26 abreviado",
+                "a": "T23",
+                "t": "E15 diseño de la formación"
+            },
+            {
+                "f": "2026-12-18",
+                "p": "E15",
+                "a": "T15",
+                "t": "E15 evaluación de la formación"
+            },
+            {
+                "f": "2026-12-19",
+                "p": "Test E8/E15",
+                "a": "T25/T26",
+                "t": "Errores"
+            },
+            {
+                "f": "2026-12-21",
+                "p": "E17 bibliometría",
+                "a": "T23",
+                "t": "E17 WoS/Scopus"
+            },
+            {
+                "f": "2026-12-22",
+                "p": "E17",
+                "a": "T19",
+                "t": "E17 citas e índice h"
+            },
+            {
+                "f": "2026-12-23",
+                "p": "E17",
+                "a": "T18",
+                "t": "E17 revistas y cuartiles"
+            },
+            {
+                "f": "2026-12-24",
+                "p": "Repaso ligero (2 h)",
+                "a": "",
+                "t": "E17 ANECA y tarjetas"
+            },
+            {
+                "f": "2026-12-25",
+                "p": "LIBRE 🎄",
+                "a": "",
+                "t": ""
+            },
+            {
+                "f": "2026-12-26",
+                "p": "Opcional 1,5-2 h",
+                "a": "",
+                "t": "Test E17"
+            },
+            {
+                "f": "2026-12-28",
+                "p": "E18 ciencia abierta",
+                "a": "E17",
+                "t": "E18 acceso abierto"
+            },
+            {
+                "f": "2026-12-29",
+                "p": "E18",
+                "a": "T23",
+                "t": "E18 vías verde, dorada y diamante"
+            },
+            {
+                "f": "2026-12-30",
+                "p": "E18",
+                "a": "T19",
+                "t": "E18 APC e híbrido"
+            },
+            {
+                "f": "2026-12-31",
+                "p": "Repaso ligero (2 h)",
+                "a": "",
+                "t": "E18 acuerdos transformativos"
+            },
+            {
+                "f": "2027-01-01",
+                "p": "LIBRE 🥂",
+                "a": "",
+                "t": ""
+            },
+            {
+                "f": "2027-01-02",
+                "p": "Opcional 1,5-2 h",
+                "a": "",
+                "t": "Test E18"
+            },
+            {
+                "f": "2027-01-04",
+                "p": "E19 datos de investigación",
+                "a": "E18",
+                "t": "E19 FAIR"
+            },
+            {
+                "f": "2027-01-05",
+                "p": "E19",
+                "a": "E17",
+                "t": "E19 PGD/DMP"
+            },
+            {
+                "f": "2027-01-06",
+                "p": "LIBRE u opcional 2 h",
+                "a": "",
+                "t": "E19 repositorios de datos"
+            },
+            {
+                "f": "2027-01-07",
+                "p": "E20 propiedad intelectual",
+                "a": "E19",
+                "t": "E20 LPI en docencia e investigación"
+            },
+            {
+                "f": "2027-01-08",
+                "p": "E20",
+                "a": "E18",
+                "t": "E20 Creative Commons"
+            },
+            {
+                "f": "2027-01-09",
+                "p": "E20 cierre",
+                "a": "E19",
+                "t": "Antiplagio + test E19/E20"
+            },
+            {
+                "f": "2027-01-11",
+                "p": "G1 Estatutos UMH",
+                "a": "E17",
+                "t": "G1 mapa normativo"
+            },
+            {
+                "f": "2027-01-12",
+                "p": "G2 Leyes 39 y 40/2015",
+                "a": "E18",
+                "t": "G2 procedimiento y órganos"
+            },
+            {
+                "f": "2027-01-13",
+                "p": "G3 Ley 4/2021",
+                "a": "E19",
+                "t": "G3 función pública"
+            },
+            {
+                "f": "2027-01-14",
+                "p": "G4 administración electrónica",
+                "a": "E20",
+                "t": "G4 Reglamento UMH"
+            },
+            {
+                "f": "2027-01-15",
+                "p": "G5 igualdad",
+                "a": "E1-E4",
+                "t": "G5 LO 3/2007"
+            },
+            {
+                "f": "2027-01-16",
+                "p": "SIMULACRO 120 preguntas",
+                "a": "Corrección",
+                "t": "Lista para la segunda vuelta"
+            }
+        ]
+    }
 }
